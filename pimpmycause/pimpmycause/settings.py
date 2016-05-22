@@ -56,7 +56,9 @@ ROOT_URLCONF = 'pimpmycause.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': (
+            os.path.join(BASE_DIR, 'pimpmycause/templates'),
+        ),
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
