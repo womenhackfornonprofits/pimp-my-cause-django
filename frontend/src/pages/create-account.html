@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    
+    <!--#include virtual="includes/head.html" -->
+    
+    <body>
+        <!--#include virtual="includes/header.html" -->
+        
+        <div class="pnl-title page-register">
+            
+            <h1>Register</h1>
+            
+            <form id="sign-up" method="POST" action="">
+                
+                <div class="row">
+                    <div class="medium-4 medium-push-2 columns">
+                        <input type="text" name="fname" placeholder="First Name" required>
+                    </div>
+                    <div class="medium-4 medium-pull-2 columns">
+                        <input type="text" name="sname" placeholder="Surname" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="medium-4 medium-push-2 columns">
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="medium-4 medium-pull-2 columns">
+                        <input type="email" name="cemail" placeholder="Confirm Email" required>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="medium-4 medium-push-2 columns">
+                        <input type="tel" name="phone" placeholder="Telephone" required>
+                    </div>
+                    <div class="medium-4 medium-pull-2 columns">
+                        <input type="text" name="twitter" placeholder="Twitter" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="medium-4 medium-push-2 columns">
+                        <input type="text" name="country" placeholder="Country" required>
+                    </div>
+                    <div class="medium-2 medium-push-2 columns">
+                            <input type="text" name="city" placeholder="City" required>
+                        </div>
+                    <div class="medium-2 medium-pull-2 columns">
+                            <input type="tel" name="phone" placeholder="Post Code" required>
+                        </div>
+                </div>
+
+                <div class="row">
+                    <div class="medium-4 medium-push-2 columns">
+                        <input type="tel" name="phone" placeholder="Password" required>
+                    </div>
+                    <div class="medium-4 medium-pull-2 columns">
+                        <input type="password" name="cpassword" placeholder="Confirm Password">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="medium-4 medium-push-2 columns">
+                        <input type="text" name="city" placeholder="Current Position" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-4 medium-push-2 columns inline-select">
+                        <select id="standard-dropdown" name="usertype">
+                            <option value="marketer">I am a Marketer</option> 
+                            <option value="cause">I am a Cause</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="small-8 small-push-2 columns inline-select">                        
+                        <label><input type="checkbox" name="terms" checked="checked"> I agree to the terms &amp; conditions</label>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="small-8 small-push-2 columns inline-select">                        
+                        <label><input type="checkbox" name="terms" checked="checked"> Sign me up for the newsletter</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="small-8 small-offset-2 columns">                        
+                        <input class="button round left" type="submit" value="Submit">
+                    </div>
+                </div>
+
+            </form>
+            
+        </div> <!-- end pnl-title pnl-register -->
+
+        <!--#include virtual="includes/footer.html" -->
+        
+        <!--#include virtual="includes/mobile-menu-end.html" -->
+
+        <!--#include virtual="includes/foot.html" -->
+
+    </body>
+</html>
+
+

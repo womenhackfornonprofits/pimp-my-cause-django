@@ -1,0 +1,80 @@
+/* =================================
+   BASE / COLOURS
+   ================================= */
+
+
+// Colour Values
+$white: #ffffff;
+// 255 255 255
+$purple: #3b1d4a;
+// 59 29 74
+$pink: #dc0e54;
+// 220 14 84
+$green: #809b29;
+// 128 155 41
+$mustard: #d7be01;
+// 215 190 1
+$grey: #c8c7c7;
+// 200 199 199
+$aluminium: #dbdbdb;
+// 219 219 219
+$black: #3c3c3c;
+// 60 60 60
+$overlay: #f2f4f5;
+// 242 244 245
+$grey2: #f1f1f1; // causes slider
+// 241 241 241
+$grey3: #888888; // slider text
+// 136 136 136
+$grey4: #a0a0a0; // border of dropdown
+// 160 160 160
+
+//$offwhite: #f1f1f1; // causes slider
+//// 200 199 199
+
+
+// Text
+$colr-txt: $white;
+$colr-txt-dark: $black;
+$colr-txt-dropdown: $purple;
+$colr-txt-accent: $purple;
+$colr-txt-menu-item: $aluminium;
+// Button - all the same for: submit, signup and Continue (join)
+$colr-btn-signin: $pink;
+$colr-btn-newsleter: $purple;
+$colr-btn: $purple;
+// Mobile off canvas menu
+$colr-mob-menu: $purple;
+// Panel for each section and banner for top
+$colr-pnl-header: $purple;
+$colr-pnl-hero: $pink;
+$colr-pnl-marketing: $purple;
+$colr-pnl-causes: $mustard;
+$colr-pnl-marketers: $green;
+$colr-pnl-summary: $white;
+$colr-pnl-talkabout: $purple;
+$colr-pnl-contactus: $grey;
+$colr-pnl-signup: $pink;
+$colr-pnl-footer: $purple;
+// Hero Panel
+$colr-hero-tile: $green;
+$colr-hero-tile2: $mustard;
+$colr-hero-txt: $purple;
+// Talking About Panel - banner background
+$colr-bnr-tweet: $pink;
+$colr-bnr-news: $pink;
+
+$colr-social-tile-bg: $white;
+$colr-social-tile-title: $pink;
+
+$colr-slider-dark-pnl: $grey2;
+$colr-slider-text: $grey3;
+
+$colr-readmore: $pink;
+
+// dropdown colours
+$colr-dropdown-border: $grey4;
+$colr-dropdown-background: $grey2;
+$colr-dropdown-txt: $purple;
+$colr-dropdown-txt-selected: rgba(59, 29, 74, 0.1);
+

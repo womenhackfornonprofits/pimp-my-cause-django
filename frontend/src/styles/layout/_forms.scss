@@ -1,0 +1,28 @@
+/* =================================
+   LAYOUT / FORMS
+   ================================= */
+
+// NOTE: Form Foundation styling in base/settings
+// $input-font-color and $input-focus-bg-color - Foundation properties
+// more styling in components/buttons
+
+
+$input-txt-height: rem-calc(52);
+
+// Input fields
+
+input[type="text"], input[type="email"], input[type="password"] {
+    
+    height: $input-txt-height;
+    line-height: $input-txt-height;
+}
+
+// Input fields with focus
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+    
+    background: $purple;
+    color: $white;
+}
+
+

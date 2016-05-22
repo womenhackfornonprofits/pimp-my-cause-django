@@ -1,0 +1,35 @@
+/* =================================
+   UTILS / MIXINS
+   ================================= */
+
+@mixin triangle($border-value, $colour) {
+    width: 0;
+    height: 0;
+    
+    border-left: rem-calc($border-value) solid transparent;
+    border-right: rem-calc($border-value) solid transparent;
+    border-bottom: rem-calc($border-value) solid $colour;
+    top: -(rem-calc($border-value - 1));
+    
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: 20;
+    content: " ";
+}
+
+
+@mixin centerer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+@mixin readmore {
+    font-size: rem-calc(18);
+    font-family: $open-sans;
+    font-weight: normal;
+    color: $colr-readmore;    
+}

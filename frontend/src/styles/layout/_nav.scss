@@ -1,0 +1,49 @@
+/* =================================
+   LAYOUT / NAV
+   ================================= */
+
+
+//change properties for horizontal secondary menu
+//.top-bar-section {
+//    .has-dropdown {
+//        position: static;
+//    }
+//    .dropdown  {
+//        li {
+//            width: auto;
+//        }
+//    }
+//}
+
+// solve issue of cube overlapping menu 
+.top-bar {
+    
+    z-index: 20; // submenu on cube flip up is hidden
+}
+
+.dropdown, .top-bar-section, .off-canvas-list {
+    ul li {
+            a {
+                color: $colr-txt-menu-item;
+
+                &:hover {
+                    color: $colr-txt;
+                } 
+        }  
+    }
+}
+
+ul.off-canvas-list {
+    
+    > li {
+        
+        > a {
+            border-top: 1px ridge $colr-txt; 
+            border-bottom: 1px ridge $colr-txt;
+        }
+        
+        > a:last-child {
+            border-bottom: none;
+        }
+    }
+}

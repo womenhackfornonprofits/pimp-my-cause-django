@@ -1,0 +1,106 @@
+/* =================================
+   COMPONENTS / CUBES
+   ================================= */
+
+.row .columns#cube-box {
+    padding: 0;
+}
+
+.cube-row {
+    width: 100%;
+}
+
+.cube-wrapper {
+    width: 50%;
+    height: 0;
+    padding-top: 50%;
+    position: relative;
+    float: left;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 500ms ease;
+    // move cube forward to start with as rotation point in centre of cube
+    transform: perspective(500px) rotateY(-90deg) translateX(-50%) rotateY(90deg);
+    transform-style: preserve-3d;
+}
+
+.img-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+    }
+}
+
+.cube-icon-txt {
+    background-color: $mustard;
+    
+    img {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 5%;
+        height: 60%;  
+    }
+    
+    h3 {
+        color: $colr-txt-accent !important;  
+        font-weight: 600;
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+}
+
+.default-state, 
+.active-state {
+    height: 100%;
+    width: 100%;
+}
+
+/* Set up cube from two div's layed on top of each other */
+
+.flip-to-top .active-state {
+    // Step 1: move .active-status div from starting position below .default-status div to top side of cube 
+    // ** note: translate Z is not possible in percentage unit so need to orientate along the Y axis and back again
+    // ** rotate front face to flat top - move Y axis to translate up by the height of itself and an extra half to flip back
+    // ** flip from left side back to top side of cube
+    transform: rotateX(90deg) rotateY(-90deg) translateX(150%) rotateY(90deg);
+}
+
+.default-state {
+    // Step 2: front panel now sits back half depth of top side of cube in the shape of a T and needs to be moved forwards
+    // ** again moving the panel forwards is along the Z axis so not able to translate according to percentage so
+    //    rotate around Y and back again to perform Z percentage translate
+    transform: rotateY(-90deg) translateX(50%) rotateY(90deg);
+}
+
+/* Rotate the cube - both panels together */
+.cube.flip-to-top.active {
+    // as you flip the cube back you need to move it forward fifty percent of height as rotation point is in the middle of the cube
+    transform: perspective(500px) rotateX(-90deg) translateY(50%);
+    z-index: 10;
+}
+
+.default-state {
+    background: $green;
+}
+.active-state {
+    background: $mustard;
+}

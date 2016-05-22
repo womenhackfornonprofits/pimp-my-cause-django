@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+    <!--#include virtual="includes/head.html" -->
+    
+    <body>
+        
+        <!--#include virtual="includes/header.html" -->
+        
+        <!-- action is a server side file that's either going to process the form contents 
+             and send it to an email address or it might process the form content and store 
+             it in a database --> 
+        <!-- Foundation provides automatic validation using the data-abide attribute inside the form 
+             and validates required attributes -->
+        
+        <form data-abide action="formToEmail.php" method="post" enctype="multipart/form-data">
+  
+        <!-- =====================
+             REGISTRATION 
+             ===================== -->
+            
+            <div class="row">
+                <fieldset>
+                    
+                    <legend>Registration</legend>
+                    <div class="small-12 medium-9 column">
+                        
+                    <!-- FIRST NAME 
+                         ========== -->
+                        <div> <!-- wrap the label and error msg in a div and add required to the input -->
+                            <label>First Name <small>required</small>
+                                <input type="file" name="FIRST:" placeholder="First Name" required>
+                            </label>
+                            <small class="error">First name is required and should contain only letters</small>
+                        </div>
+                    
+                    <!-- LAST NAME 
+                         ========= -->
+                        <div> <!-- wrap the label and error msg in a div and add required to the input -->
+                            <label>Last Name <small>required</small>
+                                <input type="text" name="LAST:" placeholder="Last Name" required>
+                            </label>
+                            <small class="error">Last name is required and should contain only letters</small>
+                        </div>
+                        
+                    <!-- EMAIL
+                         ===== -->
+                        <label>Email 
+                            <input type="text" name="EMAIL:" placeholder="Email Address">
+                        </label>
+   
+
+                    </div> <!-- end column -->
+                </fieldset>
+            </div> <!-- end row Registration -->
+            
+        <!-- =====================
+             WEB SITE
+             ===================== -->
+            
+            <div class="row">
+                <fieldset>
+                    
+                    <legend>Web Site</legend>
+                    <div class="small-12 medium-9 column">
+                        
+                    <!-- URL
+                         === -->
+                        <div> <!-- wrap the label and error msg in a div and add required to the input -->
+                            <label>Web Site URL <small>required</small>
+                                <input type="text" name="URL:" placeholder="http://" required>
+                            </label>
+                            <small class="error">URL required</small>
+                        </div>
+                        
+                        <label><input type="checkbox" name="Marketing">  Marketing</label>
+                        <label><input type="checkbox" name="Marketing">  Advertising</label>
+                        <label><input type="checkbox" name="Marketing">  Branding</label>
+
+                    </div> <!-- end column -->
+                </fieldset>
+            </div> <!-- end row Web site URL -->
+            
+      
+        <!-- =====================
+             SUBMIT BUTTONS
+             ===================== -->
+            
+            <div class="row">
+                
+            <!-- SUBMIT BTN
+                 ========== -->
+                <div class="column small-6 medium-3">
+                    <!-- expand class takes with of columns assigned to it -->
+                    <input type="submit" value="Send my Entry" class="button success round expand">
+                </div> <!-- end of column -->
+                                
+            <!-- CANCEL BTN
+                 ========== -->
+                <div class="column small-6 medium-9">
+                    <a href="index.html" class="button radius">Cancel</a>
+                </div> <!-- end of column -->
+                
+            </div> <!-- end row buttons -->
+            
+  
+            <!-- =====================
+                 HIDDEN FIELDS
+                 ===================== -->
+            
+            <input type="hidden" name="subject" value="Thank you for Registering with Pimp">
+            <!-- redirect - after the user submits the form it goes to the php page processes the form
+                 and then goes to another page here thanks.html -->
+            <input type="hidden" name="redirect" value="thanks.html">
+            
+            
+        </form>
+
+
+        <!--#include virtual="includes/footer.html" -->
+        
+        <!--#include virtual="includes/mobile-menu-end.html" -->
+        
+        <!--#include virtual="includes/foot.html" -->
+        
+    </body>
+
+</html>

@@ -1,0 +1,150 @@
+/* =================================
+   COMPONENTS / SLIDER
+   ================================= */
+
+//***** Causes Panel Slider ******
+
+.causes-slider {
+    
+    .causes-left {
+        
+        background-color: $colr-slider-dark-pnl; 
+        min-height: rem-calc(360);
+        position: relative;
+        padding-bottom: rem-calc(70); // height of pink box 60px plus 10px so doesn't overlap pink box arrow
+            
+        .cause-title {
+            font-size: rem-calc(42);
+            font-family: $open-sans;
+            font-weight: lighter;
+            padding-top: rem-calc(25);
+            padding-bottom: rem-calc(15);
+            color: $colr-slider-text;
+        }
+
+        .cause-desc {
+            font-size: rem-calc(18);
+            font-family: $open-sans;
+            font-weight: lighter;
+            color: $colr-slider-text;
+        }
+        
+        .cause-arrow {
+            height: rem-calc(60);
+            width: rem-calc(60);
+            background: $pink url('../img/arrow.png') center no-repeat;
+            bottom: 0;
+            right: 0;
+            margin-top: rem-calc(5);
+            margin-left: rem-calc(5);
+            position: absolute;
+        }
+    }
+    
+    .causes-right {
+        background-color: $white; 
+        min-height: rem-calc(360);
+        position: relative;
+
+        img {
+            @include centerer;
+        }
+        
+    }
+    
+    .slick-dots {
+        
+        margin-left: 0;
+        bottom: rem-calc(-60);
+    
+        li {
+            button {
+                &:before {
+                    height: rem-calc(8);
+                    width: rem-calc(8);
+                    font-size: 0;
+                    border: rem-calc(4) solid $white;
+                    
+                }
+            }
+        }
+    }
+}
+
+
+//***** Marketer Panel Slider ******
+
+.marketer-slider {
+    
+    .marketer-left {
+        
+        background-color: $white;
+        min-height: rem-calc(360);
+        position: relative;
+
+        img {
+            @include centerer;
+        }
+        
+    }
+    
+    .marketer-right {
+        
+        background-color: $white;
+        min-height: rem-calc(360);
+        position: relative;
+        padding-bottom: rem-calc(70); // height of pink box 60px plus 10px so doesn't overlap pink box arrow
+        
+        .marketer-name {
+            font-size: rem-calc(42);
+            font-family: $open-sans;
+            font-weight: lighter;
+            padding-top: rem-calc(25);
+            padding-bottom: rem-calc(5);  
+            color: $colr-slider-text;
+        }
+        
+        .marketer-title {
+            font-size: rem-calc(18);
+            font-family: $open-sans;
+            font-weight: normal;
+            color: $pink;
+            padding-bottom: rem-calc(15); 
+        }
+
+        .marketer-desc {
+            font-size: rem-calc(18);
+            font-family: $open-sans;
+            font-weight: lighter;
+            color: $colr-slider-text;
+        }
+        
+        .marketer-arrow {
+            height: rem-calc(60);
+            width: rem-calc(60);
+            background: $pink url('../img/arrow.png') center no-repeat;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+        }
+    }
+    
+    .slick-dots {
+        
+        margin-left: 0;
+        bottom: rem-calc(-60);
+    
+        li {
+            button {
+                &:before {
+                    height: rem-calc(8);
+                    width: rem-calc(8);
+                    font-size: 0;
+                    border: rem-calc(4) solid $white;
+                    
+                }
+            }
+        }
+    }
+}
+

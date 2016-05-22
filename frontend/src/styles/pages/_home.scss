@@ -1,0 +1,382 @@
+/* =================================
+   PAGES / HOME 
+   ================================= */
+
+.pnl {
+    // padding-top: rem-calc(65); not able to add padding to top as colours over :before arrow up
+    padding-bottom: rem-calc(40);
+    // increase z-index so that cube rotate doesn't separate triangle from panel
+    z-index: 12;
+}
+
+.pnl-title {
+    padding-top: rem-calc(50);
+    padding-bottom: rem-calc(20);
+}
+
+.pnl-light-txt {
+    
+    h1, h2, h3, h4, p {
+        color: $colr-txt;
+        text-align: center;
+    }
+}
+
+.pnl-dark-txt {
+    
+    h1, h2, h3, h4 {
+        color: $colr-txt-accent;
+        text-align: center;
+    }
+}
+
+
+// ********** 
+// HERO PANEL 
+// ********** 
+
+
+
+.pnl-hero, #pnl-hero-colr-to-edge {
+    background-color: $colr-pnl-hero;
+    
+    select {
+        option {
+            font-size: rem-calc(25) !important;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+    }
+}
+
+.h2-hero {
+    
+    h2 {
+        font-family: $lato;
+        font-size: rem-calc(42);
+        font-weight: lighter;
+        padding-top: rem-calc(25);    
+        color: $colr-txt;
+    }  
+}
+
+.h4-hero {
+    
+    h4 {
+        font-family: $lato;
+        font-size: rem-calc(24);
+        padding-top: rem-calc(10);
+        padding-bottom: rem-calc(25);
+        color: $colr-txt;
+
+    }
+}
+
+.h4-hero-socialregister {
+    
+    h4 {
+        
+        font-family: $lato;
+        font-size: rem-calc(21);
+        padding-top: rem-calc(25);
+        color: $colr-txt;
+
+        
+        a {
+            padding-left: rem-calc(12);
+        }
+    }   
+}
+
+
+// *************** 
+// MARKETING PANEL 
+// *************** 
+
+.pnl-marketing, #pnl-marketing-colr-to-edge {
+    @extend .pnl;
+    @extend .pnl-light-txt;
+    background-color: $colr-pnl-marketing;
+    position: relative;
+    
+    p {
+        font-size: rem-calc(18);
+    }
+
+    &:before {
+        @include triangle (38, $colr-pnl-marketing);       
+    }
+}
+
+// *************** 
+// CAUSES PANEL 
+// *************** 
+
+// NOTE: more styling in slider
+
+.pnl-causes, #pnl-causes-colr-to-edge {
+    @extend .pnl;
+    @extend .pnl-light-txt;
+    background-color: $colr-pnl-causes;
+    position: relative;
+ 
+    
+    &:before {
+        @include triangle (38, $colr-pnl-causes);
+    }
+}
+
+// *************** 
+// MARKETERS PANEL 
+// *************** 
+
+// NOTE: more styling in slider
+
+.pnl-marketers, #pnl-marketers-colr-to-edge {
+    @extend .pnl;
+    @extend .pnl-light-txt;
+    background-color: $colr-pnl-marketers;
+    position: relative;
+    
+    // more styling in slider.scss
+    
+    &:before {
+        @include triangle (38, $colr-pnl-marketers);
+    }
+}
+
+// *************** 
+// SUMMARY PANEL 
+// *************** 
+
+$summary-title-height: rem-calc(55);
+$summary-info-height: rem-calc(137);
+
+.pnl-summary, #pnl-summary-colr-to-edge {
+    @extend .pnl;
+    @extend .pnl-dark-txt;
+    background-color: $colr-pnl-summary;
+    position: relative;
+ 
+    &:before {
+        @include triangle (38, $colr-pnl-summary);
+    }  
+}
+
+.summary-boxes li {
+    
+    position: relative;
+    padding: 0 rem-calc(10);
+    overflow: hidden;
+    margin-bottom: rem-calc(10);
+    
+    .summary-title, .summary-info {
+        position: absolute;  
+        width: calc(100% - #{rem-calc(20)}); //sass interpolation 
+        left: rem-calc(10);
+        text-align: center;
+        background-color: $overlay; 
+        vertical-align: middle;
+        text-size: rem-calc(20);
+    }
+    
+    .summary-title {
+        
+        bottom: rem-calc(-1); // to compensate chrome pixel line
+        height: rem-calc(50);
+        line-height: rem-calc(50);
+        z-index: 20;
+        transition: background-color .5s, color .5s; // fade in at same rate as summary-info slides up - visual effect
+    
+        &:before {
+            @include triangle (12, $overlay);
+            transition: border-bottom-color .5s; // same visual effect on before triangle
+        }
+        
+        // to ensure event is activated via hover on desktop and click on mobile device
+        &:hover,
+        &.click-event{
+            
+            + .summary-info {
+                transform: translateY(0);  // translate next sibling 
+            }  
+        } 
+    }
+    
+    .summary-info {
+        
+        bottom: 0;
+        padding: rem-calc(10);
+        padding-bottom: rem-calc(60); //bottom padding is height of summary title and small triangle 
+        opacity: 0.9;
+        z-index: 10;
+
+        transform: translateY(100%);
+        transition: transform .5s;
+        
+        // to ensure event is activated via hover on desktop and click on mobile device
+        &:hover,
+        &.click-event{
+            
+            transform: translateY(0);  // translate next sibling 
+        } 
+        
+        .read-more {
+            @include readmore;
+        }
+    }
+    
+}
+
+// hover or click summary title to change the colour of the title and the :before psuedo element
+
+.summary-title:hover,
+.summary-title.click-event {
+    
+    color: $overlay; 
+    
+    // li summary panel given background colour so that I may use this to give the summary title the same colour on hover/click
+    // as the image placed in the panel - seemed the best way to extract and apply colour as not able to get colour of img
+    
+    .summary-pink & {
+        background-color: $pink;  
+        &:before {
+            border-bottom-color: $pink;
+        }
+    }
+    
+    .summary-purple & {
+        background-color: $purple;
+        &:before {
+            border-bottom-color: $purple;
+        }
+    }
+    
+    .summary-green & {
+        background-color: $green;
+        &:before {
+            border-bottom-color: $green;
+        }
+    }
+    
+    .summary-mustard & {
+        background-color: $mustard;
+        &:before {
+            border-bottom-color: $mustard;
+        }
+    }
+       
+}
+            
+
+// *************** 
+// TALKABOUT PANEL 
+// *************** 
+
+$social-title-height: rem-calc(74);
+
+.pnl-talkabout, #pnl-talkabout-colr-to-edge {
+    @extend .pnl;
+    
+    background-color: $colr-pnl-talkabout;
+    position: relative;
+ 
+    &:before {
+        @include triangle (38, $colr-pnl-talkabout);
+    }  
+}
+
+.social-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 10em;
+}
+
+.news-info {
+    color: $colr-slider-text;
+    font-size: rem-calc(18);
+    font-family: $open-sans;
+    color: $colr-slider-text;   
+    flex: auto;    
+    text-align: left;
+    padding: rem-calc(18);
+
+     
+} 
+
+.read-more {
+    @include readmore;
+}
+
+.news-heading {
+    font-size: rem-calc(30);
+    font-family: $open-sans;
+    font-weight: lighter;
+    color: $colr-slider-text;  
+    flex: auto; 
+    padding: rem-calc(18);
+
+
+}
+
+.social-tile {
+    flex: 1;
+    margin: 1em;
+    background-color: $colr-social-tile-bg;
+    display: flex;
+    flex-direction: column;
+    
+}
+.social-tile-title {
+
+    max-height: $social-title-height;
+    line-height: $social-title-height;
+    background-color: $colr-social-tile-title;
+    text-align: center;
+    margin: 0;
+    flex: 1;
+    align-items: flex-end;
+    color: $colr-txt;
+    font-weight: bold;
+
+
+    &:before {
+        @include triangle (16, $colr-social-tile-title);
+    }
+}
+
+
+// ****************
+// CONTACT US PANEL 
+// ****************
+
+.pnl-contactus, #pnl-contactus-colr-to-edge {
+    @extend .pnl;
+    @extend .pnl-dark-txt;
+    background-color: $colr-pnl-contactus;
+    position: relative;
+    
+    &:before {
+        @include triangle (38, $colr-pnl-contactus);
+    }    
+}
+
+// *************** 
+// SIGN UP PANEL 
+// *************** 
+
+.pnl-signup, #pnl-signup-colr-to-edge {
+    @extend .pnl;
+    @extend .pnl-light-txt;
+    background-color: $colr-pnl-signup;
+    position: relative;
+    
+    &:before {
+        @include triangle (38, $colr-pnl-signup);
+    }    
+}
+
+
+
+
