@@ -1,1 +1,1 @@
-web: gunicorn pimpmycause.wsgi --log-file -
+web: gunicorn pimpmycause.pimpmycause.wsgi --log-file -
