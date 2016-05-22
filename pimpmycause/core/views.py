@@ -8,3 +8,10 @@ class HomepageView(TemplateView):
     The Homepage view.
     """
     template_name = "index.html"
+
+
+class ContactView(TemplateView):
+    """
+    The Homepage view.
+    """
+    template_name = "core/contact.html"

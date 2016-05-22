@@ -13,7 +13,7 @@
             <div class="row header-row-position-relative">
 
                 <!-- Logo -->
-                <a href="index.html" class="large-2 columns show-for-medium-up header-column-position-static">
+                <a href="/" class="large-2 columns show-for-medium-up header-column-position-static">
                     <img class="logo vertical-align-center" src="{% static "img/logo.png" %}"/>
                 </a> <!-- end large-2 -->
 
@@ -39,7 +39,7 @@
                                         <li><a href="#">Our Partners</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">Contact Us</a></li>
+                                <li><a href="/contact">Contact Us</a></li>
                             </ul>
                         </section>
                     </nav>    
@@ -57,18 +57,25 @@
 
                         <!-- Sign in button -->
                         <div class="header-sign-in">
-                            <a href="login.html" class="button round">Sign in</a>
+                            <a href="/login" class="button round">Sign in</a>
                         </div>
 
                         <!-- Not registered link -->
                         <div class="header-register">
-                            <a href="create-account.html">Not registered?</a>
+                            <a href="/register">Not registered?</a>
                         </div>
                 </div> 
         	</div> 
         </header>
         {% block main %}
         {% endblock %}
+        <footer>
+            <!-- Footer -->
+            <div class="large-12">
+                &#169;  Pimp My Cause.
+            </div>
+
+        </footer>
     </div> 
 </div>
 
