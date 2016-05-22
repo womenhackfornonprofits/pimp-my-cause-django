@@ -30,13 +30,25 @@ grunt.initConfig({
 		  tasks: ['sass']
 		}
 	},
-	uglify: {
-	    my_target: {
-	      files: {
-	        '../pimpmycause/static/scripts/pimpmycause.min.js': ['src/scripts/scripts.js']
-	      }
-	    }
-  	}
+	jspaths: {
+        src: {
+                js: 'src/**/**.js'
+            },
+            dest: {
+                jsMin: '../pimpmycause/static/scripts/pimpmycause.min.js'
+            }
+    },
+    uglify: {
+        options: {
+            compress: true,
+            mangle: true,
+            sourceMap: true
+        },
+        target: {
+            src: '<%= jspaths.src.js %>',
+            dest: '<%= jspaths.dest.jsMin %>'
+        }
+    },
 
 });
 

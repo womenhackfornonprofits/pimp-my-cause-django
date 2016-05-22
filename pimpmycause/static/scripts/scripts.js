@@ -1,15 +1,11 @@
-$(window).on("load", function() {
-    
+window.onload =  function() {    
     
 //  ********** 
 //  HERO PANEL 
 //  ********** 
     
 // LHS - Register - Join for Free
-    
-    // hide first item in select - duplicate
-    $(".selectBox-dropdown-menu").find("li:first-child").remove();
-    
+        
     // rotating the cubes on the front hero panel using a timer
         
     var topLeft = $(".cube").eq(0);
@@ -50,7 +46,7 @@ $(window).on("load", function() {
     
     $('.fade').slick({
         autoplay: true,
-        autoplaySpeed: 800,
+        autoplaySpeed: 8000,
         pauseOnHover: true,
         pauseOnFocus: true,
         arrows: false,
@@ -61,7 +57,7 @@ $(window).on("load", function() {
         cssEase: 'linear'
     });
     
-});
+};
 
 
 // **************** 

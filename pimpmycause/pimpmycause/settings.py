@@ -134,7 +134,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'pimpmycause/staticfiles')
 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "pimpmycause/static"),
+    os.path.join(BASE_DIR, "static"),
 ]
 
 CONTEXT_PROCESSORS = [
