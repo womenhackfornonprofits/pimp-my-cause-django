@@ -24,7 +24,7 @@ $(window).on("load", function() {
         topRight.toggleClass("active");
         bottomLeft.toggleClass("active");
 
-    }, 2000);
+    }, 2000); 
     
     
 //  ******************************* 
