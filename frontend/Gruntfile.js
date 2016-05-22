@@ -11,7 +11,7 @@ grunt.initConfig({
 	cssmin: {
 		combine: {
 		  files: {
-		    '../fashrevwall/static/styles/screen.css': ['styles/css/styles.css']
+		    '../pimpmycause/static/styles/styles.css': ['css/styles.css']
 		  }
 		}
 	},
@@ -19,21 +19,21 @@ grunt.initConfig({
 	sass: {
 		dist: {
 			files: {
-				'styles/css/styles.css': 'styles/styles.scss'
+				'css/styles.css': 'src/sass/styles.scss'
 			}
 		}
 	},
 	//------- Watch SASS -> CSS -------//
 	watch: {
 		sass: {
-		  files: 'styles/styles.scss',
+		  files: 'sass/styles.scss',
 		  tasks: ['sass']
 		}
 	},
 	uglify: {
 	    my_target: {
 	      files: {
-	        '../fashrevwall/static/scripts/fashrevwall.min.js': ['scripts/lazyload.js']
+	        '../pimpmycause/static/scripts/pimpmycause.min.js': ['src/scripts/scripts.js']
 	      }
 	    }
   	}
