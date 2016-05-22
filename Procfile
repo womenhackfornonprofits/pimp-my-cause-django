@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath pimpmycause pimpmycause.wsgi:application --log-file -
+web: gunicorn --pythonpath pimpmycause pimpmycause.wsgi:application
