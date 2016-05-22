@@ -1,0 +1,26 @@
+{
+  "name": "pimpmycause",
+  "version": "1.0.0",
+  "description": "Pimp My Cause",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/womenhackfornonprofits/pimp-my-cause-django.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/womenhackfornonprofits/pimp-my-cause-django/issues"
+  },
+  "homepage": "https://github.com/womenhackfornonprofits/pimp-my-cause-django#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
