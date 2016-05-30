@@ -50,3 +50,16 @@
 	```python manage.py runserver```
 	
 3. The project is now running on `http://127.0.0.1:8000/`, go to that address in your browser. 
+
+## Front End changes
+1. Make css and javascript changes in the ```frontend``` folder
+2. Make any HTML changes in the Django templates located in `pimpmycause/templates`
+3. Use `grunt default` in the frontend folder to build, watch and copy all the required files automatically into the Django static folder.
+
+## Deploying to Heroku
+1. Create a Heroku Account
+2. Get added to the app in the Heroku Dashboard
+3. In the terminal `heroku login`
+4. Within you project directory `heroku git:remote -a staging-pimpmycause`
+5. Once you are ready to deploy, from master branch you can run `git push heroku master` make sure you have commited all the changes before running this and the `git status` is clean.
+6. Go to https://staging-pimpmycause.herokuapp.com/ to view the live site.
