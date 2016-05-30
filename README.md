@@ -27,7 +27,19 @@
 
 	 ```pip install -r requirements.txt``` 
 	 
-	 This will get all the dependencies
+	 This will get all the dependencies.
+8. You will need to have [Postgres installed](https://www.postgresql.org/download/) and up and running:
+	
+	```brew install postgresql```
+9. Create a database locally for the project to run:
+	
+	```createdb pimpmycause```
+10. Go inside frontend folder: 
+	
+	```cd frontend```
+11. Install all the dependencies:
+
+	 ```npm install```
 	
 ## Running the project locally
 1. Go inside the django app directory: 
