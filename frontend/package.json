@@ -22,5 +22,8 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0"
+  },
+  "dependencies": {
+    "grunt-sync": "^0.5.2"
   }
 }
