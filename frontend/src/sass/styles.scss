@@ -2,7 +2,7 @@
 // Site Reset
 // =================
 
-@import "base/reset";
+@import "base/normalize";
 @import "base/colours";
 @import "base/typography";
 @import "base/settings";
@@ -13,7 +13,7 @@
 
 @import "vendors/foundation";
 @import "vendors/slick";
-@import "vendors/slick-theme";
+@import "vendors/slick-theme"; 
 
 // =================
 // Site
