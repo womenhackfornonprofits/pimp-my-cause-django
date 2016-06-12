@@ -1598,97 +1598,18 @@ input:focus, textarea:focus {
 /* =================================
    COMPONENTS / SLIDER
    ================================= */
-.causes-slider .causes-left {
-  background-color: #f1f1f1;
-  min-height: 22.5rem;
-  position: relative;
-  padding-bottom: 4.375rem; }
-  .causes-slider .causes-left .cause-title {
-    font-size: 2.625rem;
-    font-family: "Open Sans", sans-serif;
-    font-weight: lighter;
-    padding-top: 1.5625rem;
-    padding-bottom: 0.9375rem;
-    color: #888888; }
-  .causes-slider .causes-left .cause-desc {
-    font-size: 1.125rem;
-    font-family: "Open Sans", sans-serif;
-    font-weight: lighter;
-    color: #888888; }
-  .causes-slider .causes-left .cause-arrow {
-    height: 3.75rem;
-    width: 3.75rem;
-    background: #DC0E54 url("../img/arrow.png") center no-repeat;
-    bottom: 0;
-    right: 0;
-    margin-top: 0.3125rem;
-    margin-left: 0.3125rem;
-    position: absolute; }
-.causes-slider .causes-right {
-  background-color: #ffffff;
-  min-height: 22.5rem;
-  position: relative; }
-  .causes-slider .causes-right img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
-.causes-slider .slick-dots {
-  margin-left: 0;
-  bottom: -3.75rem; }
-  .causes-slider .slick-dots li button:before {
-    height: 0.5rem;
-    width: 0.5rem;
-    font-size: 0;
-    border: 0.25rem solid #ffffff; }
-
-.marketer-slider .marketer-left {
-  background-color: #ffffff;
-  min-height: 22.5rem;
-  position: relative; }
-  .marketer-slider .marketer-left img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
-.marketer-slider .marketer-right {
-  background-color: #ffffff;
-  min-height: 22.5rem;
-  position: relative;
-  padding-bottom: 4.375rem; }
-  .marketer-slider .marketer-right .marketer-name {
-    font-size: 2.625rem;
-    font-family: "Open Sans", sans-serif;
-    font-weight: lighter;
-    padding-top: 1.5625rem;
-    padding-bottom: 0.3125rem;
-    color: #888888; }
-  .marketer-slider .marketer-right .marketer-title {
-    font-size: 1.125rem;
-    font-family: "Open Sans", sans-serif;
-    font-weight: normal;
-    color: #DC0E54;
-    padding-bottom: 0.9375rem; }
-  .marketer-slider .marketer-right .marketer-desc {
-    font-size: 1.125rem;
-    font-family: "Open Sans", sans-serif;
-    font-weight: lighter;
-    color: #888888; }
-  .marketer-slider .marketer-right .marketer-arrow {
-    height: 3.75rem;
-    width: 3.75rem;
-    background: #DC0E54 url("../img/arrow.png") center no-repeat;
-    bottom: 0;
-    right: 0;
-    position: absolute; }
-.marketer-slider .slick-dots {
-  margin-left: 0;
-  bottom: -3.75rem; }
-  .marketer-slider .slick-dots li button:before {
-    height: 0.5rem;
-    width: 0.5rem;
-    font-size: 0;
-    border: 0.25rem solid #ffffff; }
+.slider .slide {
+  width: 100%;
+  background: #F1F1F1; }
+.slider .slide-img {
+  display: inline-block;
+  height: 100%; }
+.slider .slide-text {
+  padding: 1em;
+  display: inline-block; }
+  .slider .slide-text p, .slider .slide-text h3, .slider .slide-text h4, .slider .slide-text h5 {
+    text-align: left;
+    color: #3c3c3c; }
 
 /* =================================
    COMPONENTS / CUBES
