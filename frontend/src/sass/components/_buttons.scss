@@ -7,83 +7,87 @@
    Front Page
    ================================= */
 
-$hero-btn-width: rem-calc(220);
-$hero-btn-height: rem-calc(65);
+//$hero-btn-width: rem-calc(220);
+//$hero-btn-height: rem-calc(65);
 
-.btn {
- 
-    width: $hero-btn-width;
-    height: $hero-btn-height; 
-    font-size: rem-calc(24);
-    font-weight: lighter;
+.button {
+    width: auto;
+    height: 2em; 
+    border-radius: 1em;
+    //font-size: rem-calc(24);
+    //font-weight: lighter;
+    background-color: $pink;
+    text-align: center;
+    line-height: 2em;
+    padding: 0 .5em;
 }
 
 
-// **** HERO PANEL
+// // **** HERO PANEL
 
-.pnl-hero {
+// .pnl-hero {
     
-    .button {
+//     .button {
         
-        @extend .btn;
+//         @extend .btn;
         
-        margin-top: rem-calc(50);
-        background-color: $purple;
-    }
-}
+//         margin-top: rem-calc(50);
+//         background-color: $purple;
+//     }
+// }
 
-// **** CONTACT US PANEL
+// // **** CONTACT US PANEL
 
-.pnl-contactus {
+// .pnl-contactus {
     
-    .button {
+//     .button {
         
-        @extend .btn;
+//         @extend .btn;
         
-        margin-top: rem-calc(20);
-        background-color: $purple;
-    }
-}
+//         margin-top: rem-calc(20);
+//         background-color: $purple;
+//     }
+// }
 
-// **** NEWSLETTER SIGN-UP PANEL
+// // **** NEWSLETTER SIGN-UP PANEL
 
-.pnl-signup {
+// .pnl-signup {
     
-    .button {
+//     .button {
         
-        @extend .btn;
+//         @extend .btn;
         
-        background-color: $purple;
-    }
-}
+//         background-color: $purple;
+//     }
+// }
 
 
 
-/* =================================
-   Login Page
-   ================================= */
+// /* =================================
+//    Login Page
+//    ================================= */
 
-.page-login {
+// .page-login {
     
-    .button {
+//     .button {
         
-        @extend .btn;
+//         @extend .btn;
         
-        background-color: $pink;
-    }
-}
+//         background-color: $pink;
+//     }
+// }
 
 
-/* =================================
-   Register Page
-   ================================= */
+// /* =================================
+//    Register Page
+//    ================================= */
 
-.page-register {
+// .page-register {
     
-    .button {
+//     .button {
         
-        @extend .btn;
+//         @extend .btn;
         
-        background-color: $pink;
-    }
-}
+//         background-color: $pink;
+//     }
+// }

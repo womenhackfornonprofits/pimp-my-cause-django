@@ -26,7 +26,7 @@ grunt.initConfig({
 	//------- Watch SASS -> CSS -------//
 	watch: {
 		sass: {
-		  files: 'sass/styles.scss',
+		  files: 'src/sass/**/**.scss',
 		  tasks: ['sass']
 		}
 	},

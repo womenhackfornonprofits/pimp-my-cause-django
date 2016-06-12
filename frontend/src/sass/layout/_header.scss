@@ -1,6 +1,42 @@
 /* =================================
    LAYOUT / HEADER
    ================================= */
+.header {
+	background-color: $purple;
+	a {
+        color: $white;
+		display: inline-block;
+    }
+    .content-wrap {
+    	display: flex;
+    	flex-direction: row;
+    	flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+      }
+}
+.logo-container{
+    flex: 1 auto auto;
+	display: inline-block;
+	//width: 8em;
+	img {
+		width: 100%;
+		padding: 2em;
+	}
+}
+
+.login-side-menu {
+	flex: 1;
+	display: inline-block;
+
+	.social-icon-linked-in {
+
+	}
+	.button {
+		display: block;
+		max-width: 8em;
+	}
+}
 
 
 // .pnl-header, #pnl-header-colr-to-edge {
@@ -53,3 +89,5 @@
 //     padding-right: 1.5rem;
 //     padding-left: 1.5rem;
 // }
+
+

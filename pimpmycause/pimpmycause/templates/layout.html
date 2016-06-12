@@ -3,9 +3,42 @@
 
 {% block layout %}
 
-<div class="inner-wrap">
-    <div id="pnl-header-colr-to-edge">
-        
+    <header class="header">
+        <div class="content-wrap">
+            <a href="/" class="large-2 logo-container ">
+                <img class="logo" src="{% static "img/logo.png" %}"/>
+            </a> 
+            <nav class="main-menu">
+                <ul class="">
+                    <li class="has-dropdown"><a href="#">About Us</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Meet The Team</a></li>
+                            <li><a href="#">How It Works</a></li>
+                            <li><a href="#">Who We Are</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Find a Cause</a></li>
+                    <li><a href="#">Find a Marketer</a></li>
+                    <li class="has-dropdown"><a href="#">Partnerships</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Become a Partner</a></li>
+                            <li><a href="#">Our Partners</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </nav>  
+            <div class="large-1 login-side-menu"> 
+                <div class="header-social-icons">
+                    <a href="https://www.linkedin.com/company/pimp-my-cause" class="social-icon-linkedin">In</a>
+                    <a href="https://www.facebook.com/PimpMyCause/" class="social-icon-facebook">F</a>
+                    <a href="https://twitter.com/pimpmycause" class="social-icons-twitter">T</a>
+                </div>
+                <a href="/login" class="button round">Sign in</a>
+                <a href="/register">Not registered?</a>
+            </div>
+    </header>
+
 <!--         <header class="row pnl-header">
 
 
@@ -62,13 +95,12 @@
         </header> -->
         {% block main %}
         {% endblock %}
-        <footer>
-            <!-- Footer -->
+<!--         <footer>
             <div class="large-12">
                 &#169;  Pimp My Cause.
             </div>
 
-        </footer>
+        </footer> -->
     </div> 
 </div>
 

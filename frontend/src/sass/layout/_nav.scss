@@ -2,7 +2,30 @@
    LAYOUT / NAV
    ================================= */
 
+.main-menu {
+    flex: auto;
+    display: inline-block;
+    ul {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            display: inline-block;
+            flex: 2 2 auto;
+            text-align: center;
+        }
 
+    }
+
+    .has-dropdown li {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
 //change properties for horizontal secondary menu
 //.top-bar-section {
 //    .has-dropdown {
@@ -15,35 +38,31 @@
 //    }
 //}
 
-// solve issue of cube overlapping menu 
-.top-bar {
+
+// .dropdown, .top-bar-section, .off-canvas-list {
+//     ul li {
+//             a {
+//                 color: $colr-txt-menu-item;
+
+//                 &:hover {
+//                     color: $colr-txt;
+//                 } 
+//         }  
+//     }
+// }
+
+// ul.off-canvas-list {
     
-    z-index: 20; // submenu on cube flip up is hidden
-}
-
-.dropdown, .top-bar-section, .off-canvas-list {
-    ul li {
-            a {
-                color: $colr-txt-menu-item;
-
-                &:hover {
-                    color: $colr-txt;
-                } 
-        }  
-    }
-}
-
-ul.off-canvas-list {
-    
-    > li {
+//     > li {
         
-        > a {
-            border-top: 1px ridge $colr-txt; 
-            border-bottom: 1px ridge $colr-txt;
-        }
+//         > a {
+//             border-top: 1px ridge $colr-txt; 
+//             border-bottom: 1px ridge $colr-txt;
+//         }
         
-        > a:last-child {
-            border-bottom: none;
-        }
-    }
-}
+//         > a:last-child {
+//             border-bottom: none;
+//         }
+//     }
+// }
+
