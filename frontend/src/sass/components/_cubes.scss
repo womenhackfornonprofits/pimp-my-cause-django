@@ -2,7 +2,7 @@
    COMPONENTS / CUBES
    ================================= */
 
-.row .columns#cube-box {
+.cube-box {
     padding: 0;
 }
 
@@ -24,7 +24,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    transition: all 500ms ease;
+    transition: all 1000ms ease;
     // move cube forward to start with as rotation point in centre of cube
     transform: perspective(500px) rotateY(-90deg) translateX(-50%) rotateY(90deg);
     transform-style: preserve-3d;

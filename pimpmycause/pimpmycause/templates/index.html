@@ -10,53 +10,34 @@
         
         <!-- LHS: Hero Panel - Register -->
 
-        <div id="pnl-hero-colr-to-edge">
+        <section class="pnl-hero row">
             <div class="content-wrap">
-                <div class="row pnl-hero"> <!-- ROW Hero Panel -->
-
-                    <div class="large-6 columns">
+                <div class="pnl-hero-container large-12">
+                    <div class="pnl-hero-join-us large-6 columns">
                         <h1>Join Us</h1>
                         <h4>Start your pro bono marketing project today</h4>
-
-                        <select id="standard-dropdown">
-                            <option value="remove-me">I'm a Marketer</option>
-                            <option value="dropdown-cause">I'm a Cause</option>                                        
-                        </select>
-                        <a href="/register" class="button">Continue</a>
-<!--                         <div class="social-register">
-                            <p>Or register with:</p>
-                             <div class="social-icons">
-                                <a href="https://www.linkedin.com/company/pimp-my-cause" class="social-icon-linkedin">In</a>
-                                <a href="https://www.facebook.com/PimpMyCause/" class="social-icon-facebook">F</a>
-                                <a href="https://twitter.com/pimpmycause" class="social-icons-twitter">T</a>
-                            </div>
-                        </duv> -->
-                    </div> <!-- end large-6 columns -->
-                    
-                    
-                    <!-- RHS: Hero Panel - 3D Flip Cube -->
-                    
-                    <div class="large-6 columns" id="cube-box">
-
-                        <!-- TOP ROW -->
+                        <div class="large-6">
+                            <select class="custom-dropdown">
+                                <option value="marketer"><p>I'm a Marketer</p></option>
+                                <option value="cause">I'm a Cause</option>                                        
+                            </select>
+                            <a href="/register" class="button">Continue</a>
+                        </div>
+                    </div> 
+                                        
+                    <div class="pnl-hero-cubes large-6 columns">
                         <div class="cube-row">
-                            
-                            <!-- CUBE top left - Marketer-->
                             <div class="cube-wrapper">
-                                
                                 <div class="cube flip-to-top">
-                                    
                                     <div class="default-state"> <!-- front facing div to start -->
                                         <div class="img-wrapper">
                                             <img src=" {% static "img/cube1-marketer-pic.png" %}" alt="Image of Marketer">
                                         </div>
                                     </div> <!-- end default-state --> 
-                                    
                                     <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
                                         <img src=" {% static "img/cube1-marketer-icon.png" %}" alt="Logo for Marketer"> 
                                         <h3>FIND A MARKETER</h3>
                                     </div> 
-                                    
                                 </div> <!-- end cube flip-to-top-->
                             </div> <!-- end cube-wrapper -->
                             
@@ -74,13 +55,10 @@
                                     </div>
                                 </div> <!-- end cube flip-to-top -->        
                             </div> <!-- end cube-wrapper -->
-                            
                         </div> <!-- end cube-row - top row -->
 
                         <!-- BOTTOM ROW -->
                         <div class="cube-row">
-                            
-                          <!-- CUBE bottom left -->
                             <div class="cube-wrapper">
                                 <div class="cube flip-to-top">
                                     <div class="default-state cube-icon-txt"> <!-- front facing div to start -->
@@ -95,7 +73,6 @@
                                 </div> <!-- end cube flip-to-top-->
                             </div> <!-- end cube-wrapper -->
                             
-                            <!-- CUBE bottom right -->
                             <div class="cube-wrapper">
                                 <div class="cube flip-to-top">
                                     <div class="default-state"> <!-- front facing div to start -->
@@ -107,35 +84,30 @@
                                         <img src=" {% static "img/cube4-cause-icon.png" %}" alt="Logo for Cause">
                                         <h3>FIND A CAUSE</h3>
                                     </div>
-                                </div> <!-- end cube flip-to-top -->        
-                            </div> <!-- end cube-wrapper -->
-                            
-                        </div> <!-- end cube-row - bottom row -->
-                    </div><!-- end large-6 columns #cube-box -->
-                    
-                </div> <!-- end row pnl-hero -->
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div> <!-- end colr-extend-purple -- >
+        </section>
 
 
         <!-- *************** -->
         <!-- MARKETING PANEL -->
         <!-- *************** -->
 
-        <div id="pnl-marketing-colr-to-edge">
+        <section class="pnl-marketing">
             <div class="content-wrap">
-                 <div class="row pnl-marketing"> <!-- ROW Marketing Panel -->
+                 <div class="row">
                     <div class="large-12 columns">
-                        <div class="pnl-title">
-                            <h1>Marketing a better world</h1>
-                        </div>
+                        <h1 class="pnl-title">Marketing a better world</h1>
                         <p>Pimp My Cause brings together thousands of charities and social enterprises with professional marketers including innovators, strategists, advertisers, graphic designers, web developers, PR specialists and researchers who can provide transformational support pro bono.</p>
                         <p>Whether you are a cause in need of marketing or a marketer looking to diversify your experience, make new connections, showcase your talent or give something back, registration is fast and free.</p>       
-                    </div> <!-- end large-12 columns -->
-                </div> <!-- end row pnl-marketing -->     
+                    </div> 
+                </div> 
             </div>
-        </div> <!-- end pnl-marketing-colr-extend -->
-        
+        </section> 
 
         <!-- ********************* -->
         <!-- FEATURED CAUSES PANEL -->
@@ -145,9 +117,7 @@
             <div class="content-wrap">
                  <div class="row pnl-causes"> <!-- ROW Causes Panel -->
                     <div class="large-12 columns">
-                        <div class="pnl-title">
-                            <h1>Featured Causes</h1>
-                        </div> <!-- end pnl-title -->
+                        <h1 class="pnl-title">Featured Causes</h1>
                     </div> <!-- end large-12 columns -->
                     <div class="row">
                         <div class="large-12 columns">
@@ -182,9 +152,7 @@
             <div class="content-wrap">
                 <div class="row pnl-marketers"> <!-- ROW Marketers Panel -->
                     <div class="large-12 columns">
-                        <div class="pnl-title">
-                            <h1>Featured Marketers</h1>
-                        </div> <!-- end pnl-title -->
+                        <h1 class="pnl-title">Featured Marketers</h1>
                     </div> <!-- end large-12 columns -->
                     <div class="row">
                         <div class="large-12 columns">
@@ -220,9 +188,7 @@
             <div class="content-wrap">
                  <div class="row pnl-summary"> <!-- ROW Summary Panel -->
                     <div class="large-12 columns">
-                        <div class="pnl-title">
-                            <h1>Have You Seen</h1>
-                        </div>
+                        <h1 class="pnl-title">Have You Seen</h1>
                     </div>
                      <div class="row">
                         <div class="large-12 columns">
@@ -271,34 +237,27 @@
             <div class="content-wrap">
 
                 <div class="row pnl-talkabout"> <!-- ROW Talk About Panel -->
-
+                    <div class="large-12 columns">
+                        <h1 class="pnl-title">What we are talking about</h1>
+                    </div>
                     <!-- title -->
-                    <div class="large-6 row">
-                        <div class="large-12 columns"> 
-                            <div class="pnl-title">
-                                <h1>What we're talking about</h1>
-                            </div>
-                        </div>
-                    </div> <!-- end row for title -->
 
                     <!-- social media boxes -->
                     <div class="social-wrapper"> 
                         
-                        <!-- LATEST NEWS -->
+                            <div class="social-tile"> 
+                                
+                                <div class="news-heading">
+                                                                                                
+                                    <!-- tweets from pimp my cause -->
+                                    <!--a class="twitter-timeline" data-link-color="#dc0e54" data-tweet-limit="1" data-chrome="noheader nofooter noborders transparent" href="https://twitter.com/pimpmycause" data-widget-id="708330834588274688">Tweets by @pimpmycause</a-->
+
+                                </div>
+
+                                <h4 class="social-tile-title pnl-light-txt ">Latest Tweet</h4>
+                            </div>                           
                         
-                            <div class="social-tile">
-                                    <h5 class="news-heading">
-                                        How strategic communications can change young lives.
-                                    </h5>
-                                    <p class="news-info">
-                                        For the past two years Pimp My Cause has worked with the Marketing Director of Sony Mobile Communications for the UK, Ireland and Benelux, Catherine Cherry, to run Challenges that gave her marketing team the opportunity to support good causes while developing their marketing skills. Catherine and her team have helped to transform the marketing and communications of 10 causes through this programme. Inspired by that experience Catherine also wanted the opportunity to make a personal connection with a cause and ... <a href="#" class="read-more">Read more</a>
-                                    </p>
-                                <h4 class="social-tile-title">Latest News</h4>
-                            </div> <!-- end social-tile -->  
-                        
-                        <!-- LATEST TWEETS -->
-                        
-                            <div class="social-tile" data-equalizer-watch> 
+                            <div class="social-tile"> 
                                 
                                 <div class="news-heading">
                                                                                                 
@@ -324,8 +283,7 @@
             <div class="content-wrap">
                  <div class="row pnl-contactus"> <!-- ROW Contact Us Panel -->
                     <div class="large-12 columns">
-                        <div class="pnl-title">
-                            <h1>Contact Us</h1>
+                        <h1 class="pnl-title">Contact Us</h1>
                             
                             <form id="contact-us" method="POST" action="//formspree.io/help@pimpmycause.org">
                                 
@@ -383,8 +341,7 @@
             <div class="content-wrap">
                 <div class="row pnl-signup"> <!-- ROW Sign Up Panel -->
                     <div class="large-12 columns">
-                        <div class="pnl-title">
-                            <h1>Sign-up to our newsletter</h1>
+                        <h1 class="pnl-title">Sign-up to our newsletter</h1>
                             
                             <form id="newsletter" method="POST" action="">
 

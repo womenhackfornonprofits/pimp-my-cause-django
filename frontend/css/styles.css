@@ -1466,7 +1466,7 @@ select {
    LAYOUT / FOOTER
    ================================= */
 footer {
-  background-color: #3b1d4a;
+  background-color: #441144;
   height: 5em;
   margin: 0;
   width: 100%;
@@ -1480,15 +1480,24 @@ input[type="text"], input[type="email"], input[type="password"] {
   height: 3.25rem;
   line-height: 3.25rem; }
 
+.custom-dropdown {
+  -webkit-appearance: none;
+  background: url("http://garyjeffress.com/wp-content/themes/lms/framework/plugins/designthemes-core-features/page-builder/images/select-box-arrow.png") no-repeat right center;
+  background-color: #ffffff;
+  padding: 1em;
+  border-radius: 0;
+  margin-bottom: 1em;
+  font-size: 1em; }
+
 input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
-  background: #3b1d4a;
+  background: #441144;
   color: #ffffff; }
 
 /* =================================
    LAYOUT / HEADER
    ================================= */
 .header {
-  background-color: #3b1d4a; }
+  background-color: #441144; }
   .header a {
     color: #ffffff;
     display: inline-block; }
@@ -1504,7 +1513,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   display: inline-block; }
   .logo-container img {
     width: 100%;
-    padding: 2em; }
+    padding: 2em 0; }
 
 .login-side-menu {
   flex: 1;
@@ -1554,7 +1563,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   width: auto;
   height: 2em;
   border-radius: 1em;
-  background-color: #dc0e54;
+  background-color: #DC0E54;
   text-align: center;
   line-height: 2em;
   padding: 0 .5em; }
@@ -1582,7 +1591,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   .causes-slider .causes-left .cause-arrow {
     height: 3.75rem;
     width: 3.75rem;
-    background: #dc0e54 url("../img/arrow.png") center no-repeat;
+    background: #DC0E54 url("../img/arrow.png") center no-repeat;
     bottom: 0;
     right: 0;
     margin-top: 0.3125rem;
@@ -1631,7 +1640,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     font-size: 1.125rem;
     font-family: "Open Sans", sans-serif;
     font-weight: normal;
-    color: #dc0e54;
+    color: #DC0E54;
     padding-bottom: 0.9375rem; }
   .marketer-slider .marketer-right .marketer-desc {
     font-size: 1.125rem;
@@ -1641,7 +1650,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   .marketer-slider .marketer-right .marketer-arrow {
     height: 3.75rem;
     width: 3.75rem;
-    background: #dc0e54 url("../img/arrow.png") center no-repeat;
+    background: #DC0E54 url("../img/arrow.png") center no-repeat;
     bottom: 0;
     right: 0;
     position: absolute; }
@@ -1657,7 +1666,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 /* =================================
    COMPONENTS / CUBES
    ================================= */
-.row .columns#cube-box {
+.cube-box {
   padding: 0; }
 
 .cube-row {
@@ -1676,7 +1685,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   position: absolute;
   top: 0;
   left: 0;
-  transition: all 500ms ease;
+  transition: all 1000ms ease;
   transform: perspective(500px) rotateY(-90deg) translateX(-50%) rotateY(90deg);
   transform-style: preserve-3d; }
 
@@ -1702,7 +1711,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     top: 5%;
     height: 60%; }
   .cube-icon-txt h3 {
-    color: #3b1d4a !important;
+    color: #441144 !important;
     font-weight: 600;
     position: absolute;
     bottom: 5%;
@@ -1742,62 +1751,56 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 /* =================================
    PAGES / HOME 
    ================================= */
-.pnl, .pnl-marketing, #pnl-marketing-colr-to-edge, .pnl-causes, #pnl-causes-colr-to-edge, .pnl-marketers, #pnl-marketers-colr-to-edge, .pnl-summary, #pnl-summary-colr-to-edge, .pnl-talkabout, #pnl-talkabout-colr-to-edge, .pnl-contactus, #pnl-contactus-colr-to-edge, .pnl-signup, #pnl-signup-colr-to-edge {
+.pnl, .pnl-marketing, .pnl-causes, #pnl-causes-colr-to-edge, .pnl-marketers, #pnl-marketers-colr-to-edge, .pnl-summary, #pnl-summary-colr-to-edge, .pnl-talkabout, #pnl-talkabout-colr-to-edge, .pnl-contactus, #pnl-contactus-colr-to-edge, .pnl-signup, #pnl-signup-colr-to-edge {
   padding-bottom: 2.5rem;
-  z-index: 12; }
+  z-index: 20; }
 
 .pnl-title {
   padding-top: 3.125rem;
-  padding-bottom: 1.25rem; }
+  padding-bottom: 1.25rem;
+  font-weight: 100;
+  font-size: 3em;
+  text-align: center;
+  color: #ffffff; }
 
-.pnl-light-txt h1, .pnl-marketing h1, #pnl-marketing-colr-to-edge h1, .pnl-causes h1, #pnl-causes-colr-to-edge h1, .pnl-marketers h1, #pnl-marketers-colr-to-edge h1, .pnl-signup h1, #pnl-signup-colr-to-edge h1, .pnl-light-txt h2, .pnl-marketing h2, #pnl-marketing-colr-to-edge h2, .pnl-causes h2, #pnl-causes-colr-to-edge h2, .pnl-marketers h2, #pnl-marketers-colr-to-edge h2, .pnl-signup h2, #pnl-signup-colr-to-edge h2, .pnl-light-txt h3, .pnl-marketing h3, #pnl-marketing-colr-to-edge h3, .pnl-causes h3, #pnl-causes-colr-to-edge h3, .pnl-marketers h3, #pnl-marketers-colr-to-edge h3, .pnl-signup h3, #pnl-signup-colr-to-edge h3, .pnl-light-txt h4, .pnl-marketing h4, #pnl-marketing-colr-to-edge h4, .pnl-causes h4, #pnl-causes-colr-to-edge h4, .pnl-marketers h4, #pnl-marketers-colr-to-edge h4, .pnl-signup h4, #pnl-signup-colr-to-edge h4, .pnl-light-txt p, .pnl-marketing p, #pnl-marketing-colr-to-edge p, .pnl-causes p, #pnl-causes-colr-to-edge p, .pnl-marketers p, #pnl-marketers-colr-to-edge p, .pnl-signup p, #pnl-signup-colr-to-edge p {
+.pnl-light-txt h1, .pnl-marketing h1, .pnl-causes h1, #pnl-causes-colr-to-edge h1, .pnl-marketers h1, #pnl-marketers-colr-to-edge h1, .pnl-signup h1, #pnl-signup-colr-to-edge h1, .pnl-light-txt h2, .pnl-marketing h2, .pnl-causes h2, #pnl-causes-colr-to-edge h2, .pnl-marketers h2, #pnl-marketers-colr-to-edge h2, .pnl-signup h2, #pnl-signup-colr-to-edge h2, .pnl-light-txt h3, .pnl-marketing h3, .pnl-causes h3, #pnl-causes-colr-to-edge h3, .pnl-marketers h3, #pnl-marketers-colr-to-edge h3, .pnl-signup h3, #pnl-signup-colr-to-edge h3, .pnl-light-txt h4, .pnl-marketing h4, .pnl-causes h4, #pnl-causes-colr-to-edge h4, .pnl-marketers h4, #pnl-marketers-colr-to-edge h4, .pnl-signup h4, #pnl-signup-colr-to-edge h4, .pnl-light-txt p, .pnl-marketing p, .pnl-causes p, #pnl-causes-colr-to-edge p, .pnl-marketers p, #pnl-marketers-colr-to-edge p, .pnl-signup p, #pnl-signup-colr-to-edge p {
   color: #ffffff;
   text-align: center; }
 
 .pnl-dark-txt h1, .pnl-summary h1, #pnl-summary-colr-to-edge h1, .pnl-contactus h1, #pnl-contactus-colr-to-edge h1, .page-login h1, .page-register h1, .pnl-dark-txt h2, .pnl-summary h2, #pnl-summary-colr-to-edge h2, .pnl-contactus h2, #pnl-contactus-colr-to-edge h2, .page-login h2, .page-register h2, .pnl-dark-txt h3, .pnl-summary h3, #pnl-summary-colr-to-edge h3, .pnl-contactus h3, #pnl-contactus-colr-to-edge h3, .page-login h3, .page-register h3, .pnl-dark-txt h4, .pnl-summary h4, #pnl-summary-colr-to-edge h4, .pnl-contactus h4, #pnl-contactus-colr-to-edge h4, .page-login h4, .page-register h4 {
-  color: #3b1d4a;
+  color: #441144;
   text-align: center; }
 
-.pnl-hero, #pnl-hero-colr-to-edge {
-  background-color: #dc0e54; }
-  .pnl-hero select option, #pnl-hero-colr-to-edge select option {
-    font-size: 1.5625rem !important;
-    padding-top: 2rem;
-    padding-bottom: 2rem; }
-
-.h2-hero h2 {
-  font-family: "Lato", sans-serif;
-  font-size: 2.625rem;
-  font-weight: lighter;
-  padding-top: 1.5625rem;
+.pnl-hero {
+  background-color: #DC0E54;
   color: #ffffff; }
+  .pnl-hero .button {
+    background-color: #441144;
+    color: #ffffff;
+    padding: .5em 2em; }
 
-.h4-hero h4 {
-  font-family: "Lato", sans-serif;
-  font-size: 1.5rem;
-  padding-top: 0.625rem;
-  padding-bottom: 1.5625rem;
-  color: #ffffff; }
+.pnl-hero-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; }
 
-.h4-hero-socialregister h4 {
-  font-family: "Lato", sans-serif;
-  font-size: 1.3125rem;
-  padding-top: 1.5625rem;
-  color: #ffffff; }
-  .h4-hero-socialregister h4 a {
-    padding-left: 0.75rem; }
+.pnl-hero-join-us {
+  flex: 1; }
 
-.pnl-marketing, #pnl-marketing-colr-to-edge {
-  background-color: #3b1d4a;
+.pnl-hero-cubes {
+  flex: 1; }
+
+.pnl-marketing {
+  background-color: #441144;
   position: relative; }
-  .pnl-marketing p, #pnl-marketing-colr-to-edge p {
+  .pnl-marketing p {
     font-size: 1.125rem; }
-  .pnl-marketing:before, #pnl-marketing-colr-to-edge:before {
+  .pnl-marketing:before {
     width: 0;
     height: 0;
     border-left: 2.375rem solid transparent;
     border-right: 2.375rem solid transparent;
-    border-bottom: 2.375rem solid #3b1d4a;
+    border-bottom: 2.375rem solid #441144;
     top: -2.3125rem;
     left: 50%;
     transform: translateX(-50%);
@@ -1901,23 +1904,23 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
       font-size: 1.125rem;
       font-family: "Open Sans", sans-serif;
       font-weight: normal;
-      color: #dc0e54; }
+      color: #DC0E54; }
 
 .summary-title:hover,
 .summary-title.click-event {
   color: #f2f4f5; }
   .summary-pink .summary-title:hover, .summary-pink
   .summary-title.click-event {
-    background-color: #dc0e54; }
+    background-color: #DC0E54; }
     .summary-pink .summary-title:hover:before, .summary-pink
     .summary-title.click-event:before {
-      border-bottom-color: #dc0e54; }
+      border-bottom-color: #DC0E54; }
   .summary-purple .summary-title:hover, .summary-purple
   .summary-title.click-event {
-    background-color: #3b1d4a; }
+    background-color: #441144; }
     .summary-purple .summary-title:hover:before, .summary-purple
     .summary-title.click-event:before {
-      border-bottom-color: #3b1d4a; }
+      border-bottom-color: #441144; }
   .summary-green .summary-title:hover, .summary-green
   .summary-title.click-event {
     background-color: #809b29; }
@@ -1932,14 +1935,14 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
       border-bottom-color: #d7be01; }
 
 .pnl-talkabout, #pnl-talkabout-colr-to-edge {
-  background-color: #3b1d4a;
+  background-color: #441144;
   position: relative; }
   .pnl-talkabout:before, #pnl-talkabout-colr-to-edge:before {
     width: 0;
     height: 0;
     border-left: 2.375rem solid transparent;
     border-right: 2.375rem solid transparent;
-    border-bottom: 2.375rem solid #3b1d4a;
+    border-bottom: 2.375rem solid #441144;
     top: -2.3125rem;
     left: 50%;
     transform: translateX(-50%);
@@ -1966,7 +1969,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   font-size: 1.125rem;
   font-family: "Open Sans", sans-serif;
   font-weight: normal;
-  color: #dc0e54; }
+  color: #DC0E54; }
 
 .news-heading {
   font-size: 1.875rem;
@@ -1986,25 +1989,13 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 .social-tile-title {
   max-height: 4.625rem;
   line-height: 4.625rem;
-  background-color: #dc0e54;
+  background-color: #DC0E54;
   text-align: center;
   margin: 0;
   flex: 1;
   align-items: flex-end;
   color: #ffffff;
   font-weight: bold; }
-  .social-tile-title:before {
-    width: 0;
-    height: 0;
-    border-left: 1rem solid transparent;
-    border-right: 1rem solid transparent;
-    border-bottom: 1rem solid #dc0e54;
-    top: -0.9375rem;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    z-index: 20;
-    content: " "; }
 
 .pnl-contactus, #pnl-contactus-colr-to-edge {
   background-color: #c8c7c7;
@@ -2023,14 +2014,14 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     content: " "; }
 
 .pnl-signup, #pnl-signup-colr-to-edge {
-  background-color: #dc0e54;
+  background-color: #DC0E54;
   position: relative; }
   .pnl-signup:before, #pnl-signup-colr-to-edge:before {
     width: 0;
     height: 0;
     border-left: 2.375rem solid transparent;
     border-right: 2.375rem solid transparent;
-    border-bottom: 2.375rem solid #dc0e54;
+    border-bottom: 2.375rem solid #DC0E54;
     top: -2.3125rem;
     left: 50%;
     transform: translateX(-50%);
@@ -2065,5 +2056,8 @@ a {
 .content-wrap {
   max-width: 60em;
   margin: 0 auto; }
+
+.row {
+  max-width: 100%; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -6,12 +6,16 @@
     // padding-top: rem-calc(65); not able to add padding to top as colours over :before arrow up
     padding-bottom: rem-calc(40);
     // increase z-index so that cube rotate doesn't separate triangle from panel
-    z-index: 12;
+    z-index: 20;
 }
 
 .pnl-title {
     padding-top: rem-calc(50);
     padding-bottom: rem-calc(20);
+    font-weight: 100;
+    font-size: 3em;
+    text-align: center;
+    color: $white;
 }
 
 .pnl-light-txt {
@@ -35,65 +39,76 @@
 // HERO PANEL 
 // ********** 
 
-
-
-.pnl-hero, #pnl-hero-colr-to-edge {
+.pnl-hero {
     background-color: $colr-pnl-hero;
-    
-    select {
-        option {
-            font-size: rem-calc(25) !important;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-        }
+    color: $white;
+
+    .button {
+        background-color: $purple;
+        color: $white;
+        padding: .5em 2em;
     }
 }
 
-.h2-hero {
-    
-    h2 {
-        font-family: $lato;
-        font-size: rem-calc(42);
-        font-weight: lighter;
-        padding-top: rem-calc(25);    
-        color: $colr-txt;
-    }  
+.pnl-hero-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.pnl-hero-join-us {
+    flex: 1;
+
 }
 
-.h4-hero {
-    
-    h4 {
-        font-family: $lato;
-        font-size: rem-calc(24);
-        padding-top: rem-calc(10);
-        padding-bottom: rem-calc(25);
-        color: $colr-txt;
-
-    }
+.pnl-hero-cubes {
+    flex: 1;
 }
 
-.h4-hero-socialregister {
+// .h2-hero {
     
-    h4 {
+//     h2 {
+//         font-family: $lato;
+//         font-size: rem-calc(42);
+//         font-weight: lighter;
+//         padding-top: rem-calc(25);    
+//         color: $colr-txt;
+//     }  
+// }
+
+// .h4-hero {
+    
+//     h4 {
+//         font-family: $lato;
+//         font-size: rem-calc(24);
+//         padding-top: rem-calc(10);
+//         padding-bottom: rem-calc(25);
+//         color: $colr-txt;
+
+//     }
+// }
+
+// .h4-hero-socialregister {
+    
+//     h4 {
         
-        font-family: $lato;
-        font-size: rem-calc(21);
-        padding-top: rem-calc(25);
-        color: $colr-txt;
+//         font-family: $lato;
+//         font-size: rem-calc(21);
+//         padding-top: rem-calc(25);
+//         color: $colr-txt;
 
         
-        a {
-            padding-left: rem-calc(12);
-        }
-    }   
-}
+//         a {
+//             padding-left: rem-calc(12);
+//         }
+//     }   
+// }
 
 
 // *************** 
 // MARKETING PANEL 
 // *************** 
 
-.pnl-marketing, #pnl-marketing-colr-to-edge {
+.pnl-marketing {
     @extend .pnl;
     @extend .pnl-light-txt;
     background-color: $colr-pnl-marketing;
@@ -111,8 +126,6 @@
 // *************** 
 // CAUSES PANEL 
 // *************** 
-
-// NOTE: more styling in slider
 
 .pnl-causes, #pnl-causes-colr-to-edge {
     @extend .pnl;
@@ -341,9 +354,9 @@ $social-title-height: rem-calc(74);
     font-weight: bold;
 
 
-    &:before {
-        @include triangle (16, $colr-social-tile-title);
-    }
+    // &:before {
+    //     @include triangle (16, $colr-social-tile-title);
+    // }
 }
 
 
