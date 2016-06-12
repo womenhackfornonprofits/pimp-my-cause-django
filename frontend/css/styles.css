@@ -1540,15 +1540,28 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     display: inline-block;
     list-style: none;
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    margin-left: 1em; }
     .main-menu ul li {
       display: inline-block;
       flex: 2 2 auto;
       text-align: center; }
-  .main-menu .has-dropdown li {
+  .main-menu .has-dropdown:hover {
+    background: #4E1B4E; }
+    .main-menu .has-dropdown:hover .dropdown {
+      display: block; }
+  .main-menu .dropdown {
     display: none;
-    opacity: 0;
-    visibility: hidden; }
+    position: fixed;
+    margin-left: 0;
+    z-index: 21; }
+    .main-menu .dropdown li {
+      display: block;
+      text-align: left;
+      padding: .5em;
+      background: #441144; }
+      .main-menu .dropdown li:hover {
+        background: #4E1B4E; }
 
 /* =================================
    UTILS / MIXINS
@@ -1761,7 +1774,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   font-weight: 100;
   font-size: 3em;
   text-align: center;
-  color: #ffffff; }
+  color: #ffffff;
+  line-height: 1.3em; }
 
 .pnl-light-txt h1, .pnl-marketing h1, .pnl-causes h1, #pnl-causes-colr-to-edge h1, .pnl-marketers h1, #pnl-marketers-colr-to-edge h1, .pnl-signup h1, #pnl-signup-colr-to-edge h1, .pnl-light-txt h2, .pnl-marketing h2, .pnl-causes h2, #pnl-causes-colr-to-edge h2, .pnl-marketers h2, #pnl-marketers-colr-to-edge h2, .pnl-signup h2, #pnl-signup-colr-to-edge h2, .pnl-light-txt h3, .pnl-marketing h3, .pnl-causes h3, #pnl-causes-colr-to-edge h3, .pnl-marketers h3, #pnl-marketers-colr-to-edge h3, .pnl-signup h3, #pnl-signup-colr-to-edge h3, .pnl-light-txt h4, .pnl-marketing h4, .pnl-causes h4, #pnl-causes-colr-to-edge h4, .pnl-marketers h4, #pnl-marketers-colr-to-edge h4, .pnl-signup h4, #pnl-signup-colr-to-edge h4, .pnl-light-txt p, .pnl-marketing p, .pnl-causes p, #pnl-causes-colr-to-edge p, .pnl-marketers p, #pnl-marketers-colr-to-edge p, .pnl-signup p, #pnl-signup-colr-to-edge p {
   color: #ffffff;
@@ -1779,16 +1793,20 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     color: #ffffff;
     padding: .5em 2em; }
 
-.pnl-hero-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center; }
+@media (min-width: 640px) {
+  .pnl-hero-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; } }
 
-.pnl-hero-join-us {
-  flex: 1; }
+@media (min-width: 640px) {
+  .pnl-hero-cubes, .pnl-hero-join-us {
+    flex: 1;
+    margin-top: 0; } }
 
-.pnl-hero-cubes {
-  flex: 1; }
+@media (max-width: 640px) {
+  .pnl-hero-cubes {
+    margin-top: 2em; } }
 
 .pnl-marketing {
   background-color: #441144;

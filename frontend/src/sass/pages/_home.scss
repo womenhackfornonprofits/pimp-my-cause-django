@@ -16,6 +16,7 @@
     font-size: 3em;
     text-align: center;
     color: $white;
+    line-height: 1.3em;
 }
 
 .pnl-light-txt {
@@ -51,57 +52,28 @@
 }
 
 .pnl-hero-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-.pnl-hero-join-us {
-    flex: 1;
 
+    @media(min-width:640px) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
+
+.pnl-hero-cubes, .pnl-hero-join-us  {
+    @media(min-width:640px) {
+        flex: 1;
+        margin-top: 0;
+
+    }
 }
 
 .pnl-hero-cubes {
-    flex: 1;
+    @media(max-width:640px) {
+        margin-top: 2em;
+    }
 }
 
-// .h2-hero {
-    
-//     h2 {
-//         font-family: $lato;
-//         font-size: rem-calc(42);
-//         font-weight: lighter;
-//         padding-top: rem-calc(25);    
-//         color: $colr-txt;
-//     }  
-// }
-
-// .h4-hero {
-    
-//     h4 {
-//         font-family: $lato;
-//         font-size: rem-calc(24);
-//         padding-top: rem-calc(10);
-//         padding-bottom: rem-calc(25);
-//         color: $colr-txt;
-
-//     }
-// }
-
-// .h4-hero-socialregister {
-    
-//     h4 {
-        
-//         font-family: $lato;
-//         font-size: rem-calc(21);
-//         padding-top: rem-calc(25);
-//         color: $colr-txt;
-
-        
-//         a {
-//             padding-left: rem-calc(12);
-//         }
-//     }   
-// }
 
 
 // *************** 
