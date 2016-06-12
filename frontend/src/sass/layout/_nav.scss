@@ -17,7 +17,7 @@
             display: inline-block;
             flex: 2 2 auto;
             text-align: center;
-            
+            padding:.5em;
         }
 
     }
@@ -32,17 +32,16 @@
 
     .dropdown {
         display: none;
-        //opacity: 0;
-        //visibility: hidden;
         position: fixed;
-        margin-left: 0; 
+        margin-left: -.5em; 
         z-index:21;
         li {
             display: block;
             text-align: left;
             padding: .5em;
             background: $purple;
-
+            padding-left: 1em;
+            padding-right: 2em;
             &:hover {
                 background: #4E1B4E;
 

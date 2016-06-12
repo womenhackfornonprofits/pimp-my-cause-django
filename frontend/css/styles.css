@@ -1545,7 +1545,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     .main-menu ul li {
       display: inline-block;
       flex: 2 2 auto;
-      text-align: center; }
+      text-align: center;
+      padding: .5em; }
   .main-menu .has-dropdown:hover {
     background: #4E1B4E; }
     .main-menu .has-dropdown:hover .dropdown {
@@ -1553,13 +1554,15 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   .main-menu .dropdown {
     display: none;
     position: fixed;
-    margin-left: 0;
+    margin-left: -.5em;
     z-index: 21; }
     .main-menu .dropdown li {
       display: block;
       text-align: left;
       padding: .5em;
-      background: #441144; }
+      background: #441144;
+      padding-left: 1em;
+      padding-right: 2em; }
       .main-menu .dropdown li:hover {
         background: #4E1B4E; }
 
