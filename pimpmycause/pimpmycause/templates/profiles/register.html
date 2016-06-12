@@ -4,95 +4,89 @@
 
 
     {% block main %} 
-	<div class="pnl-title page-register">
-            
-            <h1>Register</h1>
-            
-            <form id="sign-up" method="POST" action="">
-                
-                <div class="row">
-                    <div class="medium-4 medium-push-2 columns">
-                        <input type="text" name="fname" placeholder="First Name" required>
+        <div class="page-register">
+            <div class="content-wrap">
+               <h1>Register </h1> 
+                <div class="row"> 
+                    <div class="large-12 medium-12 small -12 columns">
+                        <form method="POST" action="">
+                            <div class="medium-6 large-6 small-12 large-centered small-centered columns">
+                                <div class="row">
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <input type="text" name="fname" placeholder="First Name *" required>
+                                    </div>
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <input type="text" name="sname" placeholder="Surname *" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <input type="email" name="email" placeholder="Email *" required>
+                                    </div>
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <input type="email" name="cemail" placeholder="Confirm Email *" required>
+                                    </div>                            
+                                </div>
+                                <div class="row">
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <input type="tel" name="phone" placeholder="Telephone *" required>
+                                    </div>
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <input type="text" name="twitter" placeholder="Twitter">
+                                    </div>                            
+                                </div>
+                                <div class="row">
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <input type="text" name="country" placeholder="Country" required>
+                                    </div>
+                                    <div class="medium-3 large-3 small-6 columns">
+                                        <input type="text" name="city" placeholder="City" required>
+                                    </div>
+                                    <div class="medium-3 large-3 small-6 columns">
+                                        <input type="tel" name="phone" placeholder="Post Code *" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <input type="tel" name="phone" placeholder="Password *" required>
+                                    </div>
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <input type="password" name="cpassword" placeholder="Confirm Password">
+                                    </div>                            
+                                </div>
+                                <div class="row">
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <input type="text" name="city" placeholder="Current Position *" required>
+                                    </div>      
+                                </div>
+                                <div class="row">
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <select class="custom-dropdown" name="usertype">
+                                            <option value="marketer">I am a Marketer</option> 
+                                            <option value="cause">I am a Cause</option>
+                                        </select>               
+                                    </div>                                
+                                </div>
+                                <div class="row">
+                                    <div class="medium-12 large-12 small-12 columns">
+                                        <label><input type="checkbox" name="terms" checked="checked"> I agree to the terms &amp; conditions</label>
+                                    </div>                                
+                                </div>
+                                <div class="row">
+                                    <div class="medium-12 large-12 small-12 columns">
+                                        <label><input type="checkbox" name="terms" checked="checked"> Sign me up for the newsletter</label>
+                                    </div>                                
+                                </div>
+                                <div class="row">
+                                    <div class="medium-6 large-4 small-6 columns">
+                                        <input class="button" type="submit" value="Submit">
+                                    </div>                                
+                                </div>
+                            </div>                                
+                        </form>
                     </div>
-                    <div class="medium-4 medium-pull-2 columns">
-                        <input type="text" name="sname" placeholder="Surname" required>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="medium-4 medium-push-2 columns">
-                        <input type="email" name="email" placeholder="Email" required>
-                    </div>
-                    <div class="medium-4 medium-pull-2 columns">
-                        <input type="email" name="cemail" placeholder="Confirm Email" required>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="medium-4 medium-push-2 columns">
-                        <input type="tel" name="phone" placeholder="Telephone" required>
-                    </div>
-                    <div class="medium-4 medium-pull-2 columns">
-                        <input type="text" name="twitter" placeholder="Twitter" required>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="medium-4 medium-push-2 columns">
-                        <input type="text" name="country" placeholder="Country" required>
-                    </div>
-                    <div class="medium-2 medium-push-2 columns">
-                            <input type="text" name="city" placeholder="City" required>
-                        </div>
-                    <div class="medium-2 medium-pull-2 columns">
-                            <input type="tel" name="phone" placeholder="Post Code" required>
-                        </div>
-                </div>
-
-                <div class="row">
-                    <div class="medium-4 medium-push-2 columns">
-                        <input type="tel" name="phone" placeholder="Password" required>
-                    </div>
-                    <div class="medium-4 medium-pull-2 columns">
-                        <input type="password" name="cpassword" placeholder="Confirm Password">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="medium-4 medium-push-2 columns">
-                        <input type="text" name="city" placeholder="Current Position" required>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="medium-4 medium-push-2 columns inline-select">
-                        <select id="standard-dropdown" name="usertype">
-                            <option value="marketer">I am a Marketer</option> 
-                            <option value="cause">I am a Cause</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="small-8 small-push-2 columns inline-select">                        
-                        <label><input type="checkbox" name="terms" checked="checked"> I agree to the terms &amp; conditions</label>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="small-8 small-push-2 columns inline-select">                        
-                        <label><input type="checkbox" name="terms" checked="checked"> Sign me up for the newsletter</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="small-8 small-offset-2 columns">                        
-                        <input class="button round left" type="submit" value="Submit">
-                    </div>
-                </div>
-
-            </form>
-            
-        </div> 
-
+                </div>   
+            </div> 
+        </div>
 
     {% endblock %}
