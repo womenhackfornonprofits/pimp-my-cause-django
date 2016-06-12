@@ -1508,10 +1508,16 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 .login-side-menu {
   flex: 1;
-  display: inline-block; }
+  display: inline-block;
+  text-align: right; }
   .login-side-menu .button {
     display: block;
-    max-width: 8em; }
+    width: 8em;
+    margin: 0 0 0 auto; }
+  .login-side-menu .register-text-link {
+    width: 8em;
+    text-align: center;
+    font-size: .7em; }
 
 /* =================================
    LAYOUT / NAV

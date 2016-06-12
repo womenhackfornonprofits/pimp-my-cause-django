@@ -28,13 +28,19 @@
 .login-side-menu {
 	flex: 1;
 	display: inline-block;
-
+	text-align: right;
 	.social-icon-linked-in {
 
 	}
 	.button {
 		display: block;
-		max-width: 8em;
+		width: 8em;
+		margin: 0 0 0 auto;
+	}
+	.register-text-link{
+		width: 8em;
+		text-align: center;
+		font-size: .7em;
 	}
 }
 
