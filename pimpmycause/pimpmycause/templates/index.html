@@ -4,11 +4,9 @@
 
 
     {% block main %} 
-    <!-- ********** -->
+        <!-- ********** -->
         <!-- HERO PANEL -->
         <!-- ********** -->
-        
-        <!-- LHS: Hero Panel - Register -->
 
         <section class="pnl-hero row">
             <div class="content-wrap">
@@ -113,164 +111,139 @@
         <!-- FEATURED CAUSES PANEL -->
         <!-- ********************* -->
         
-        <div id="pnl-causes-colr-to-edge">
+        <div class="pnl-causes">
             <div class="content-wrap">
-                 <div class="row pnl-causes"> <!-- ROW Causes Panel -->
-                    <div class="large-12 columns">
-                        <h1 class="pnl-title">Featured Causes</h1>
-                    </div> <!-- end large-12 columns -->
+                <div class="large-12 columns">
+                    <h1 class="pnl-title">Featured Causes</h1>
+                </div> 
                     <div class="row">
                         <div class="large-12 columns">
                             <div class="fade causes-slider">
-
-                                <!-- causes slider 1 -->
-                                <div class="row" data-equalizer data-equalizer-mq="medium-up">
-                                    <div class="medium-6 columns causes-left" data-equalizer-watch>
-                                        <div class="cause-title">Humanity Road - 1</div>
-                                        <div class="cause-desc">
-                                            We are great at responding to disaster. We provide aid in the form of information and we're the best in the world.  But we need help creating an engaging fundraising campaign to help reach donors.  We're great at doing our job and not very good at telling our story.  Can you help us be more engaging, and effective in reaching those who can help us continue our mission? 
-                                            <a href="#" class="cause-arrow"></a>
-                                        </div>
+                            <div class="row" data-equalizer data-equalizer-mq="medium-up">
+                                <div class="medium-6 columns causes-left" data-equalizer-watch>
+                                    <div class="cause-title">Humanity Road - 1</div>
+                                    <div class="cause-desc">
+                                        We are great at responding to disaster. We provide aid in the form of information and we're the best in the world.  But we need help creating an engaging fundraising campaign to help reach donors.  We're great at doing our job and not very good at telling our story.  Can you help us be more engaging, and effective in reaching those who can help us continue our mission? 
+                                        <a href="#" class="cause-arrow"></a>
                                     </div>
-                                    <div class="medium-6 columns causes-right" data-equalizer-watch>
-                                        <img src=" {% static "img/slider-cause-humanity-road-logo.png" %}" alt="Humanity Road Logo" />
-                                    </div>
-                                </div>                            
-                            </div> <!-- end fade causes-slider -->
-                        </div> <!-- end large-12 columns -->
-                    </div> <!-- end row -->                
-                </div>  <!-- end row pnl-causes -->     
+                                </div>
+                                <div class="medium-6 columns causes-right" data-equalizer-watch>
+                                    <img src=" {% static "img/slider-cause-humanity-road-logo.png" %}" alt="Humanity Road Logo" />
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>  
             </div>
-        </div>  <!-- end pnl-causes-colr-extend -->
+        </div>
 
         
         <!-- *************** -->
         <!-- MARKETERS PANEL -->
         <!-- *************** -->
 
-        <div id="pnl-marketers-colr-to-edge">
+        <div class="pnl-marketers">
             <div class="content-wrap">
-                <div class="row pnl-marketers"> <!-- ROW Marketers Panel -->
+                <div class="large-12 columns">
+                    <h1 class="pnl-title">Featured Marketers</h1>
+                </div> 
+                <div class="row">
                     <div class="large-12 columns">
-                        <h1 class="pnl-title">Featured Marketers</h1>
-                    </div> <!-- end large-12 columns -->
-                    <div class="row">
-                        <div class="large-12 columns">
-                            <div class="fade marketer-slider">
-
-                                <!-- marketers slider 1 -->
-                                <div class="row" data-equalizer data-equalizer-mq="medium-up">
-                                    <div class="medium-4 columns marketer-left" data-equalizer-watch>
-                                        <img src=" {% static "img/adam.png" %}" alt="Humanity Road Logo" />   
-                                    </div> <!-- end marketer left -->
-                                    <div class="medium-8 columns marketer-right" data-equalizer-watch>
-                                        <div class="marketer-name">Adam Edwards - 1</div>
-                                        <div class="marketer-title">Position: Director of Digital Marketing</div>
-                                        <div class="marketer-desc">
-                                            Currently the Director of Digital Marketing at SMSW Media www.smswmedia.com working on a range of Digital projects including Social Media, SEO, e-Marketing, Content Marketing, PPC mostly in the retail sector for people like GAP, M7S and Super Dry. 
-                                            <a href="#" class="marketer-arrow"></a>
-                                        </div>   
-                                    </div> <!-- end marketer right -->
+                        <div class="fade marketer-slider">
+                            <div class="row" data-equalizer data-equalizer-mq="medium-up">
+                                <div class="medium-4 columns marketer-left" data-equalizer-watch>
+                                    <img src=" {% static "img/adam.png" %}" alt="Humanity Road Logo" />   
                                 </div>
-                            </div> <!-- end fade marketer-slider -->   
-                        </div> <!-- end large-12 columns -->
-                    </div> <!-- end row -->
-                </div>  <!-- end row pnl-marketers -->  
+                                <div class="medium-8 columns marketer-right" data-equalizer-watch>
+                                    <div class="marketer-name">Adam Edwards - 1</div>
+                                    <div class="marketer-title">Position: Director of Digital Marketing</div>
+                                    <div class="marketer-desc">
+                                        Currently the Director of Digital Marketing at SMSW Media www.smswmedia.com working on a range of Digital projects including Social Media, SEO, e-Marketing, Content Marketing, PPC mostly in the retail sector for people like GAP, M7S and Super Dry. 
+                                        <a href="#" class="marketer-arrow"></a>
+                                    </div>   
+                                </div> 
+                            </div>
+                        </div>  
+                    </div>
+                </div> 
             </div>  
-        </div> <!-- end pnl-marketers-colr-extend -->
+        </div>
             
         
         <!-- ******************************* -->
         <!-- SUMMARY - HAVE YOU SEEN - PANEL -->
         <!-- ******************************* -->
 
-        <div id="pnl-summary-colr-to-edge">
+        <div class="pnl-summary">
             <div class="content-wrap">
-                 <div class="row pnl-summary"> <!-- ROW Summary Panel -->
+                <div class="large-12 columns">
+                    <h1 class="pnl-title">Have You Seen</h1>
+                </div>
+                 <div class="row">
                     <div class="large-12 columns">
-                        <h1 class="pnl-title">Have You Seen</h1>
+                        <ul class="small-block-grid-2 large-block-grid-4 summary-boxes">
+                            <li class="summary-pink">
+                                <img class="summary-img" src=" {% static "img/summary1-how-it-works.png" %}" alt="How it works">
+                                <div class="summary-title">How it works</div>
+                                 <div class="summary-info">
+                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="#" class="read-more">Read more</a> 
+                                </div>
+                            </li>
+                            <li class="summary-purple">
+                                <img class="summary-img" src=" {% static "img/summary2-meet-team.png" %}" alt="Meet the Team">
+                                <div class="summary-title">Meet the team</div>
+                                 <div class="summary-info">
+                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="#" class="read-more">Read more</a> 
+                                </div>
+                            </li>
+                            <li class="summary-green">
+                                <img class="summary-img" src=" {% static "img/summary3-challenges.png" %}"alt="Challenges">
+                                <div class="summary-title">Challenges</div>
+                                <div class="summary-info">
+                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="#" class="read-more">Read more</a>
+                                </div>
+                            </li>
+                            <li class="summary-mustard">
+                                <img class="summary-img" src=" {% static "img/summary4-partners.png" %}" alt="Partners">
+                                <div class="summary-title">Our partners</div>
+                                <div class="summary-info">
+                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="#" class="read-more">Read more</a>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                     <div class="row">
-                        <div class="large-12 columns">
-                            <ul class="small-block-grid-2 large-block-grid-4 summary-boxes">
-                                <li class="summary-pink">
-                                    <img class="summary-img" src=" {% static "img/summary1-how-it-works.png" %}" alt="How it works">
-                                    <div class="summary-title">How it works</div>
-                                     <div class="summary-info">
-                                        Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="#" class="read-more">Read more</a> 
-                                    </div>
-                                </li>
-                                <li class="summary-purple">
-                                    <img class="summary-img" src=" {% static "img/summary2-meet-team.png" %}" alt="Meet the Team">
-                                    <div class="summary-title">Meet the team</div>
-                                     <div class="summary-info">
-                                        Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="#" class="read-more">Read more</a> 
-                                    </div>
-                                </li>
-                                <li class="summary-green">
-                                    <img class="summary-img" src=" {% static "img/summary3-challenges.png" %}"alt="Challenges">
-                                    <div class="summary-title">Challenges</div>
-                                    <div class="summary-info">
-                                        Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="#" class="read-more">Read more</a>
-                                    </div>
-                                </li>
-                                <li class="summary-mustard">
-                                    <img class="summary-img" src=" {% static "img/summary4-partners.png" %}" alt="Partners">
-                                    <div class="summary-title">Our partners</div>
-                                    <div class="summary-info">
-                                        Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="#" class="read-more">Read more</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                     </div>
-                </div> <!-- end row pnl-summary -->     
+                </div>  
             </div>
-        </div> <!-- end pnl-summary-colr-extend -->
+        </div> 
 
         
         <!-- **************** -->
         <!-- TALK ABOUT PANEL -->
         <!-- **************** -->
 
-        <div id="pnl-talkabout-colr-to-edge">
+        <div class="pnl-talkabout">
             <div class="content-wrap">
-
-                <div class="row pnl-talkabout"> <!-- ROW Talk About Panel -->
+                <div class="row"> <!-- ROW Talk About Panel -->
                     <div class="large-12 columns">
                         <h1 class="pnl-title">What we are talking about</h1>
                     </div>
-                    <!-- title -->
-
-                    <!-- social media boxes -->
-                    <div class="social-wrapper"> 
-                        
-                            <div class="social-tile"> 
-                                
-                                <div class="news-heading">
-                                                                                                
-                                    <!-- tweets from pimp my cause -->
-                                    <!--a class="twitter-timeline" data-link-color="#dc0e54" data-tweet-limit="1" data-chrome="noheader nofooter noborders transparent" href="https://twitter.com/pimpmycause" data-widget-id="708330834588274688">Tweets by @pimpmycause</a-->
-
-                                </div>
-
-                                <h4 class="social-tile-title pnl-light-txt ">Latest Tweet</h4>
-                            </div>                           
-                        
-                            <div class="social-tile"> 
-                                
-                                <div class="news-heading">
-                                                                                                
-                                    <!-- tweets from pimp my cause -->
-                                    <!--a class="twitter-timeline" data-link-color="#dc0e54" data-tweet-limit="1" data-chrome="noheader nofooter noborders transparent" href="https://twitter.com/pimpmycause" data-widget-id="708330834588274688">Tweets by @pimpmycause</a-->
-
-                                </div>
-
-                                <h4 class="social-tile-title pnl-light-txt ">Latest Tweet</h4>
-                            </div>                           
-                    </div> <!-- end row for social media boxes -->
-
-                </div> <!-- end row pnl-talkabout -->
+                    <div class="social-wrapper">                         
+                        <div class="social-tile"> 
+                            <div class="news-heading">                                                   
+                                <!-- tweets from pimp my cause -->
+                                <!--a class="twitter-timeline" data-link-color="#dc0e54" data-tweet-limit="1" data-chrome="noheader nofooter noborders transparent" href="https://twitter.com/pimpmycause" data-widget-id="708330834588274688">Tweets by @pimpmycause</a-->
+                            </div>
+                            <h4 class="social-tile-title pnl-light-txt ">Latest Tweet</h4>
+                        </div>                           
+                        <div class="social-tile"> 
+                            <div class="news-heading">                                                             
+                                <!-- tweets from pimp my cause -->
+                                <!--a class="twitter-timeline" data-link-color="#dc0e54" data-tweet-limit="1" data-chrome="noheader nofooter noborders transparent" href="https://twitter.com/pimpmycause" data-widget-id="708330834588274688">Tweets by @pimpmycause</a-->
+                            </div>
+                            <h4 class="social-tile-title pnl-light-txt ">Latest Tweet</h4>
+                        </div>                    
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -279,99 +252,85 @@
         <!-- CONTACT US PANEL -->
         <!-- **************** -->
         
-        <div id="pnl-contactus-colr-to-edge">
+        <div class="pnl-contact-us">
             <div class="content-wrap">
-                 <div class="row pnl-contactus"> <!-- ROW Contact Us Panel -->
-                    <div class="large-12 columns">
+                 <div class="row">
+                    <div class="large-12 medium-12 small -12 columns">
                         <h1 class="pnl-title">Contact Us</h1>
-                            
-                            <form id="contact-us" method="POST" action="//formspree.io/help@pimpmycause.org">
-                                
+                            <form method="POST" action="//formspree.io/help@pimpmycause.org">
                                 <input type="hidden" name="_subject" value="New Submission: Pimp My Cause Contact Form"/>
                                 <input type="text" name="_gotcha" style="display:none"/>
-                            
-                                <!-- row firstname and surname -->
-                                <div class="row">
-                                    <div class="medium-4 medium-push-2 columns">
-                                        <input type="text" name="fname" placeholder="First Name" required>
+                        
+                                <div class="medium-6 large-6 small-12 large-centered small-centered columns">
+                                    <div class="row">
+                                        <div class="medium-6 large-6 small-12 columns">
+                                            <input type="text" name="fname" placeholder="First Name *" required>
+                                        </div>
+                                        <div class="medium-6 large-6 small-12 columns">
+                                            <input type="text" name="sname" placeholder="Surname *" required>
+                                        </div>
                                     </div>
-                                    <div class="medium-4 medium-pull-2 columns">
-                                        <input type="text" name="sname" placeholder="Surname" required>
+                                    <div class="row">
+                                        <div class="medium-6 large-6 small-12 columns">
+                                            <input type="email" name="email" placeholder="Email Address" required>
+                                        </div>
+                                        <div class="medium-6 large-6 small-12 columns">
+                                            <input type="tel" name="phone" placeholder="Telephone">
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                <!-- row email and password -->
-                                <div class="row">
-                                    <div class="medium-4 medium-push-2 columns">
-                                        <input type="email" name="email" placeholder="Email Address" required>
+                                    <div class="row">
+                                        <div class="medium-12 large-12 small-12 columns">
+                                            <textarea name="message" rows="10" placeholder="Your message here" required></textarea>
+                                        </div>
                                     </div>
-                                    <div class="medium-4 medium-pull-2 columns">
-                                        <input type="password" name="password" placeholder="Password" required>
+                                    <div class="row">
+                                        <div class="large-4 small-6 medium-4 medium-centered large-centered columns">
+                                            <input class="button" type="submit" value="Submit">
+                                        </div>                            
                                     </div>
-                                </div>
-                                
-                                <!-- row message -->
-                                <div class="row">
-                                    <div class="medium-8 medium-push-2 columns">
-                                        <textarea name="message" rows="5" placeholder="Your message here" required></textarea>
-                                    </div>
-                                </div>
-                                
-                                <!-- row submit button -->
-                                <div class="row">
-                                    <div class="medium-8 medium-centered text-center columns">
-                                        <input class="button round" type="submit" value="Submit">
-                                    </div>                            
-                                </div>
-
+                                </div>                                
                             </form>
-                            
-                        </div> <!-- end pnl-title -->
-                    </div> <!-- end large-12 columns -->
-                </div> <!-- end row pnl-contactus -->     
+                        </div>
+                    </div> 
+                </div> 
             </div>
-        </div> <!-- end pnl-contactus-colr-extend -->
+        </div> 
 
         
         <!-- ************* -->
         <!-- SIGN UP PANEL -->
         <!-- ************* -->
         
-        <div id="pnl-signup-colr-to-edge">
+        <div class="pnl-signup">
             <div class="content-wrap">
-                <div class="row pnl-signup"> <!-- ROW Sign Up Panel -->
-                    <div class="large-12 columns">
-                        <h1 class="pnl-title">Sign-up to our newsletter</h1>
-                            
-                            <form id="newsletter" method="POST" action="">
-
-                                <!-- row firstname and surname -->
-                                <div class="row">
-                                    <div class="medium-4 medium-push-2 columns">
-                                        <input type="text" name="fname" placeholder="First Name" required>
+                <div class="row"> 
+                    <div class="large-12 medium-12 small -12 columns">
+                        <h4 class="">Sign-up to our newsletter</h4>                            
+                            <form method="POST" action="">
+                                <div class="medium-6 large-6 small-12 large-centered small-centered columns">
+                                    <div class="row">
+                                        <div class="medium-6 large-6 small-12 columns">
+                                            <input type="text" name="fname" placeholder="First Name *" required>
+                                        </div>
+                                        <div class="medium-6 large-6 small-12 columns">
+                                            <input type="text" name="sname" placeholder="Surname *" required>
+                                        </div>
                                     </div>
-                                    <div class="medium-4 medium-pull-2 columns">
-                                        <input type="text" name="sname" placeholder="Surname" required>
+                                    <div class="row">
+                                        <div class="medium-6 large-6 small-12 columns">
+                                            <input type="email" name="email" placeholder="Email Address" required>
+                                        </div>
+                                        <div class="medium-6 large-6 small-12 columns">
+                                            <input class="button" type="submit" value="Singup">
+                                        </div>                            
                                     </div>
-                                </div>
-                                
-                                <!-- row email and sign-up button -->
-                                <div class="row">
-                                    <div class="medium-5 medium-push-2 columns">
-                                        <input type="email" name="email" placeholder="Email Address" required>
-                                    </div>
-                                    <div class="medium-3 medium-pull-2 text-right columns">
-                                        <input class="button round" type="submit" value="Signup" >
-                                    </div>
-                                </div>
-                                
+                                </div>                                
                             </form>
-
-                        </div> <!-- end pnl-title -->
-                    </div> <!-- end large-12 columns -->
-                </div> <!-- row pnl-signup -->     
+                        </div>
+                    </div>
+                </div>   
             </div> 
-        </div> <!-- pnl-signup-colr-extend -->
+        </div>
 
 
     {% endblock %}

@@ -11,15 +11,16 @@
 //$hero-btn-height: rem-calc(65);
 
 .button {
-    width: auto;
-    height: 2em; 
     border-radius: 1em;
     //font-size: rem-calc(24);
     //font-weight: lighter;
     background-color: $pink;
     text-align: center;
     line-height: 2em;
-    padding: 0 .5em;
+    padding:.5em;
+    width: 100%;
+    font-weight: 100;
+    font-size: 1em;
 }
 
 

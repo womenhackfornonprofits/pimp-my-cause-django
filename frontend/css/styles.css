@@ -1476,9 +1476,22 @@ footer {
 /* =================================
    LAYOUT / FORMS
    ================================= */
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+  width: 100%;
   height: 3.25rem;
-  line-height: 3.25rem; }
+  line-height: 3.25rem;
+  margin: .5em 0;
+  padding: .5em;
+  font-size: 1em;
+  font-weight: 100; }
+
+textarea {
+  width: 100%;
+  border: 0;
+  padding: .5em;
+  margin: .5em 0;
+  font-size: 1em;
+  font-weight: 100; }
 
 .custom-dropdown {
   -webkit-appearance: none;
@@ -1489,7 +1502,7 @@ input[type="text"], input[type="email"], input[type="password"] {
   margin-bottom: 1em;
   font-size: 1em; }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+input:focus, textarea:focus {
   background: #441144;
   color: #ffffff; }
 
@@ -1576,13 +1589,14 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
    Front Page
    ================================= */
 .button {
-  width: auto;
-  height: 2em;
   border-radius: 1em;
   background-color: #DC0E54;
   text-align: center;
   line-height: 2em;
-  padding: 0 .5em; }
+  padding: .5em;
+  width: 100%;
+  font-weight: 100;
+  font-size: 1em; }
 
 /* =================================
    COMPONENTS / SLIDER
@@ -1767,7 +1781,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 /* =================================
    PAGES / HOME 
    ================================= */
-.pnl, .pnl-marketing, .pnl-causes, #pnl-causes-colr-to-edge, .pnl-marketers, #pnl-marketers-colr-to-edge, .pnl-summary, #pnl-summary-colr-to-edge, .pnl-talkabout, #pnl-talkabout-colr-to-edge, .pnl-contactus, #pnl-contactus-colr-to-edge, .pnl-signup, #pnl-signup-colr-to-edge {
+.pnl, .pnl-marketing, .pnl-causes, .pnl-marketers, .pnl-summary, .pnl-talkabout, .pnl-contact-us, .pnl-signup {
   padding-bottom: 2.5rem;
   z-index: 20; }
 
@@ -1780,11 +1794,11 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   color: #ffffff;
   line-height: 1.3em; }
 
-.pnl-light-txt h1, .pnl-marketing h1, .pnl-causes h1, #pnl-causes-colr-to-edge h1, .pnl-marketers h1, #pnl-marketers-colr-to-edge h1, .pnl-signup h1, #pnl-signup-colr-to-edge h1, .pnl-light-txt h2, .pnl-marketing h2, .pnl-causes h2, #pnl-causes-colr-to-edge h2, .pnl-marketers h2, #pnl-marketers-colr-to-edge h2, .pnl-signup h2, #pnl-signup-colr-to-edge h2, .pnl-light-txt h3, .pnl-marketing h3, .pnl-causes h3, #pnl-causes-colr-to-edge h3, .pnl-marketers h3, #pnl-marketers-colr-to-edge h3, .pnl-signup h3, #pnl-signup-colr-to-edge h3, .pnl-light-txt h4, .pnl-marketing h4, .pnl-causes h4, #pnl-causes-colr-to-edge h4, .pnl-marketers h4, #pnl-marketers-colr-to-edge h4, .pnl-signup h4, #pnl-signup-colr-to-edge h4, .pnl-light-txt p, .pnl-marketing p, .pnl-causes p, #pnl-causes-colr-to-edge p, .pnl-marketers p, #pnl-marketers-colr-to-edge p, .pnl-signup p, #pnl-signup-colr-to-edge p {
+.pnl-light-txt h1, .pnl-marketing h1, .pnl-causes h1, .pnl-marketers h1, .pnl-signup h1, .pnl-light-txt h2, .pnl-marketing h2, .pnl-causes h2, .pnl-marketers h2, .pnl-signup h2, .pnl-light-txt h3, .pnl-marketing h3, .pnl-causes h3, .pnl-marketers h3, .pnl-signup h3, .pnl-light-txt h4, .pnl-marketing h4, .pnl-causes h4, .pnl-marketers h4, .pnl-signup h4, .pnl-light-txt p, .pnl-marketing p, .pnl-causes p, .pnl-marketers p, .pnl-signup p {
   color: #ffffff;
   text-align: center; }
 
-.pnl-dark-txt h1, .pnl-summary h1, #pnl-summary-colr-to-edge h1, .pnl-contactus h1, #pnl-contactus-colr-to-edge h1, .page-login h1, .page-register h1, .pnl-dark-txt h2, .pnl-summary h2, #pnl-summary-colr-to-edge h2, .pnl-contactus h2, #pnl-contactus-colr-to-edge h2, .page-login h2, .page-register h2, .pnl-dark-txt h3, .pnl-summary h3, #pnl-summary-colr-to-edge h3, .pnl-contactus h3, #pnl-contactus-colr-to-edge h3, .page-login h3, .page-register h3, .pnl-dark-txt h4, .pnl-summary h4, #pnl-summary-colr-to-edge h4, .pnl-contactus h4, #pnl-contactus-colr-to-edge h4, .page-login h4, .page-register h4 {
+.pnl-dark-txt h1, .pnl-summary h1, .pnl-contact-us h1, .page-login h1, .page-register h1, .pnl-dark-txt h2, .pnl-summary h2, .pnl-contact-us h2, .page-login h2, .page-register h2, .pnl-dark-txt h3, .pnl-summary h3, .pnl-contact-us h3, .page-login h3, .page-register h3, .pnl-dark-txt h4, .pnl-summary h4, .pnl-contact-us h4, .page-login h4, .page-register h4 {
   color: #441144;
   text-align: center; }
 
@@ -1829,10 +1843,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     z-index: 20;
     content: " "; }
 
-.pnl-causes, #pnl-causes-colr-to-edge {
+.pnl-causes {
   background-color: #d7be01;
   position: relative; }
-  .pnl-causes:before, #pnl-causes-colr-to-edge:before {
+  .pnl-causes:before {
     width: 0;
     height: 0;
     border-left: 2.375rem solid transparent;
@@ -1845,10 +1859,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     z-index: 20;
     content: " "; }
 
-.pnl-marketers, #pnl-marketers-colr-to-edge {
+.pnl-marketers {
   background-color: #809b29;
   position: relative; }
-  .pnl-marketers:before, #pnl-marketers-colr-to-edge:before {
+  .pnl-marketers:before {
     width: 0;
     height: 0;
     border-left: 2.375rem solid transparent;
@@ -1861,10 +1875,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     z-index: 20;
     content: " "; }
 
-.pnl-summary, #pnl-summary-colr-to-edge {
+.pnl-summary {
   background-color: #ffffff;
   position: relative; }
-  .pnl-summary:before, #pnl-summary-colr-to-edge:before {
+  .pnl-summary:before {
     width: 0;
     height: 0;
     border-left: 2.375rem solid transparent;
@@ -1955,10 +1969,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     .summary-title.click-event:before {
       border-bottom-color: #d7be01; }
 
-.pnl-talkabout, #pnl-talkabout-colr-to-edge {
+.pnl-talkabout {
   background-color: #441144;
   position: relative; }
-  .pnl-talkabout:before, #pnl-talkabout-colr-to-edge:before {
+  .pnl-talkabout:before {
     width: 0;
     height: 0;
     border-left: 2.375rem solid transparent;
@@ -2005,7 +2019,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   margin: 1em;
   background-color: #ffffff;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  height: 20em; }
 
 .social-tile-title {
   max-height: 4.625rem;
@@ -2018,10 +2033,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   color: #ffffff;
   font-weight: bold; }
 
-.pnl-contactus, #pnl-contactus-colr-to-edge {
+.pnl-contact-us {
   background-color: #c8c7c7;
   position: relative; }
-  .pnl-contactus:before, #pnl-contactus-colr-to-edge:before {
+  .pnl-contact-us:before {
     width: 0;
     height: 0;
     border-left: 2.375rem solid transparent;
@@ -2034,10 +2049,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     z-index: 20;
     content: " "; }
 
-.pnl-signup, #pnl-signup-colr-to-edge {
+.pnl-signup {
   background-color: #DC0E54;
   position: relative; }
-  .pnl-signup:before, #pnl-signup-colr-to-edge:before {
+  .pnl-signup:before {
     width: 0;
     height: 0;
     border-left: 2.375rem solid transparent;

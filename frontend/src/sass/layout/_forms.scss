@@ -11,12 +11,25 @@ $input-txt-height: rem-calc(52);
 
 // Input fields
 
-input[type="text"], input[type="email"], input[type="password"] {
-    
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+    width: 100%;
     height: $input-txt-height;
     line-height: $input-txt-height;
+    margin: .5em 0;
+    padding: .5em;
+    font-size: 1em;
+    font-weight: 100;
 }
 
+textarea {
+	width: 100%;
+	border: 0;
+	padding: .5em;
+	margin: .5em 0;
+	font-size: 1em;
+	font-weight: 100;
+
+}
 .custom-dropdown {
 	-webkit-appearance: none;
 	background: url("http://garyjeffress.com/wp-content/themes/lms/framework/plugins/designthemes-core-features/page-builder/images/select-box-arrow.png") no-repeat right center;
@@ -29,7 +42,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 // Input fields with focus
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+input:focus, textarea:focus {
     
     background: $purple;
     color: $white;
