@@ -55,10 +55,21 @@
                             <a href="https://twitter.com/pimpmycause"><i class="fa fa-twitter"></i></a>
                         </div>
 
-                        <!-- Sign in button -->
-                        <div class="header-sign-in">
-                            <a href="/accounts/login/?next=/" class="button round">Sign in</a>
-                        </div>
+                        {% if user.is_authenticated %}
+
+                            <!-- Sign in button -->
+                            <div class="header-sign-in">
+                                <a href="#" class="button"> {{ request.user.username }} </a>
+                            </div>
+
+                        {% else %}
+
+                            <!-- Sign in button -->
+                            <div class="header-sign-in">
+                                <a href="/accounts/login/?next=/" class="button round">Sign in</a>
+                            </div>
+
+                        {% endif %}
 
                         <!-- Not registered link -->
                         <div class="header-register">
