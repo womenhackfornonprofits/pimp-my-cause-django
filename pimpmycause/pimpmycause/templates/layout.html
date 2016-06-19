@@ -57,12 +57,12 @@
 
                         <!-- Sign in button -->
                         <div class="header-sign-in">
-                            <a href="/login" class="button round">Sign in</a>
+                            <a href="/accounts/login/?next=/" class="button round">Sign in</a>
                         </div>
 
                         <!-- Not registered link -->
                         <div class="header-register">
-                            <a href="/register">Not registered?</a>
+                            <a href="{% url 'registration_register' %}">Not registered?</a>
                         </div>
                 </div> 
         	</div> 

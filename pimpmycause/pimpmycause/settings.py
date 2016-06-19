@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'profiles',
-    'django_countries'
+    'django_countries',
+    'registration'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -151,3 +152,9 @@ CONTEXT_PROCESSORS = [
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
 ]
+
+# Registration settings
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_DEFAULT_FROM_EMAIL = "info@pimpmycause.org"
+REGISTRATION_EMAIL_HTML = True
+REGISTRATION_AUTO_LOGIN = True
