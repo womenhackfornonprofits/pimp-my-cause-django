@@ -23,3 +23,4 @@ class Pimp_User(models.Model):
     usertype = models.CharField(max_length=8,choices=USERTYPE_CHOICES)
     #twitter
     twitter = models.CharField(max_length=30)
+    

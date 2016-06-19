@@ -6,10 +6,10 @@
 	<div class="pnl-title page-register">
 		<h1>Register</h1>
 
-        <form method="POST" class="medium-3 medium-centered columns" action="">
+        <form method="POST" action="">
 	        {% csrf_token %}
 	        {{ form.as_p }}
-        	<input class="button round right" type="submit" value="Submit" />
+	        <input type="submit" value="Submit" />
 	    </form>
 	</div>
 {% endblock %}

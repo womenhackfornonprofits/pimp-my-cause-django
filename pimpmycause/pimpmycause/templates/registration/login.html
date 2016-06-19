@@ -1,12 +1,21 @@
-{% extends 'base.html' %}
-{% block content %}
-  <div id="form-container">
-    <form method="post" action="">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Log in" />
-        <input type="hidden" name="next" value="{{ next }}" />
-    </form>
-        <p>Not a member? <a href="{% url 'registration_register' %}">Register</a>.</p>
-  </div>
+{% extends "layout.html" %}
+
+{% load static %}
+
+
+{% block main %} 
+	<div class="pnl-title page-login">
+		<h1>Log In</h1>
+        <form method="POST" action="" class="medium-3 medium-centered columns">
+        	{% csrf_token %}
+        	{{ form.as_p }}
+        	<div class="row">
+                <div class="medium-6 medium-centered columns">
+        			<input class="button round right" type="submit" value="Log in" />
+        			<input type="hidden" name="next" value="{{ next }}" />
+        			<a href="#">Forgot Password</a>
+                </div>
+            </div>
+    	</form>
+    </div>
 {% endblock %}
