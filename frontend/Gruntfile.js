@@ -37,12 +37,6 @@ grunt.initConfig({
             dest: {
                 jsMin: '../pimpmycause/static/scripts/pimpmycause.min.js'
             }
-    },
-    uglify: {
-        options: {
-            compress: true,
-            mangle: true,
-            sourceMap: true
         },
         target: {
             src: '<%= jspaths.src.js %>',
@@ -53,4 +47,4 @@ grunt.initConfig({
 
 	grunt.registerTask('default', ['sass', 'cssmin', 'uglify']);
 
-}
+};
