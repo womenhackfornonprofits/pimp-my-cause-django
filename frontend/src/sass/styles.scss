@@ -1,24 +1,10 @@
-// =================
-// Site Reset
-// =================
-
 @import "base/normalize";
 @import "base/variables";
 @import "base/colours";
 @import "base/typography";
 @import "base/settings";
 
-// =================
-// Vendor
-// =================
-
 @import "vendors/foundation";
-//@import "vendors/slick";
-//@import "vendors/slick-theme"; 
-
-// =================
-// Site 
-// =================
 
 @import "layout/footer";
 @import "layout/forms";
@@ -31,11 +17,11 @@
 @import "components/slider";
 @import "components/cubes";
 @import "components/twitter";
+@import "components/social-tile";
 
 @import "pages/home";
 @import "pages/login";
 @import "pages/registration";
-//@import "utils/responsive";
 
 body {
 	font-family: $open-sans;

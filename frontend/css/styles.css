@@ -1733,9 +1733,43 @@ input:focus, textarea:focus {
   font-size: 1.125rem !important; }
 
 /* =================================
+   COMPONENTS / SOCIAL TILE
+   ================================= */
+.social-tile {
+  flex: 1;
+  margin: 1em;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 20em; }
+  .social-tile__wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 10em; }
+  .social-tile__heading {
+    color: #888888;
+    font-size: 1.125rem;
+    font-family: "Open Sans", sans-serif;
+    color: #888888;
+    flex: auto;
+    text-align: left;
+    padding: 1.125rem; }
+  .social-tile__title {
+    max-height: 4.625rem;
+    line-height: 4.625rem;
+    background-color: #DC0E54;
+    text-align: center;
+    margin: 0;
+    flex: 1;
+    align-items: flex-end;
+    color: #ffffff;
+    font-weight: bold; }
+
+/* =================================
    PAGES / HOME 
    ================================= */
-.pnl, .pnl-marketing, .pnl-causes, .pnl-marketers, .pnl-summary, .pnl-talkabout, .pnl-contact-us, .pnl-signup {
+.pnl, .pnl-causes, .pnl-marketers, .pnl-marketing, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero, .pnl-summary {
   position: relative;
   padding-bottom: 6em; }
   .pnl__title {
@@ -1747,34 +1781,35 @@ input:focus, textarea:focus {
     color: #ffffff;
     line-height: 1.3em; }
 
-.pnl--light-txt, .pnl-marketing, .pnl-causes, .pnl-marketers, .pnl-signup {
+.pnl--light-txt, .pnl-causes, .pnl-marketers, .pnl-marketing, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero {
   color: #ffffff; }
 
 .pnl--dark-txt, .pnl-summary .pnl__title, .page-login, .page-register {
   color: #441144; }
 
 .pnl-hero {
-  background-color: #DC0E54;
-  color: #ffffff; }
+  background-color: #DC0E54; }
   .pnl-hero .button {
     background-color: #441144;
     color: #ffffff;
     padding: .5em 2em; }
-
-@media (min-width: 640px) {
-  .pnl-hero-container {
+  .pnl-hero__container {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    align-items: center; } }
-
-@media (min-width: 640px) {
-  .pnl-hero-cubes, .pnl-hero-join-us {
-    flex: 1;
-    margin-top: 0; } }
-
-@media (max-width: 640px) {
-  .pnl-hero-cubes {
-    margin-top: 2em; } }
+    align-items: center; }
+    @media (min-width: 640px) {
+      .pnl-hero__container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center; } }
+  @media (min-width: 640px) {
+    .pnl-hero__cubes, .pnl-hero__text {
+      flex: 1;
+      margin-top: 0; } }
+  @media (max-width: 640px) {
+    .pnl-hero__cubes {
+      margin-top: 2em; } }
 
 .pnl-marketing {
   background-color: #441144;
@@ -1794,9 +1829,9 @@ input:focus, textarea:focus {
     z-index: 20;
     content: " "; }
 
-.pnl-causes {
+.pnl-marketers {
   background-color: #d7be01; }
-  .pnl-causes:before {
+  .pnl-marketers:before {
     width: 0;
     height: 0;
     border-left: 2.375rem solid transparent;
@@ -1824,6 +1859,51 @@ input:focus, textarea:focus {
     z-index: 20;
     content: " "; }
 
+.pnl-contact-us {
+  background-color: #c8c7c7; }
+  .pnl-contact-us:before {
+    width: 0;
+    height: 0;
+    border-left: 2.375rem solid transparent;
+    border-right: 2.375rem solid transparent;
+    border-bottom: 2.375rem solid #c8c7c7;
+    top: -2.3125rem;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: 20;
+    content: " "; }
+
+.pnl-signup {
+  background-color: #DC0E54; }
+  .pnl-signup:before {
+    width: 0;
+    height: 0;
+    border-left: 2.375rem solid transparent;
+    border-right: 2.375rem solid transparent;
+    border-bottom: 2.375rem solid #DC0E54;
+    top: -2.3125rem;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: 20;
+    content: " "; }
+
+.pnl-talkabout {
+  background-color: #441144; }
+  .pnl-talkabout:before {
+    width: 0;
+    height: 0;
+    border-left: 2.375rem solid transparent;
+    border-right: 2.375rem solid transparent;
+    border-bottom: 2.375rem solid #441144;
+    top: -2.3125rem;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: 20;
+    content: " "; }
+
 .pnl-summary {
   background-color: #ffffff; }
   .pnl-summary:before {
@@ -1838,6 +1918,12 @@ input:focus, textarea:focus {
     position: absolute;
     z-index: 20;
     content: " "; }
+
+.read-more {
+  font-size: 1.125rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  color: #DC0E54; }
 
 .summary-boxes li {
   position: relative;
@@ -1916,99 +2002,6 @@ input:focus, textarea:focus {
     .summary-mustard .summary-title:hover:before, .summary-mustard
     .summary-title.click-event:before {
       border-bottom-color: #d7be01; }
-
-.pnl-talkabout {
-  background-color: #441144; }
-  .pnl-talkabout:before {
-    width: 0;
-    height: 0;
-    border-left: 2.375rem solid transparent;
-    border-right: 2.375rem solid transparent;
-    border-bottom: 2.375rem solid #441144;
-    top: -2.3125rem;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    z-index: 20;
-    content: " "; }
-
-.social-wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  min-width: 10em; }
-
-.news-info {
-  color: #888888;
-  font-size: 1.125rem;
-  font-family: "Open Sans", sans-serif;
-  color: #888888;
-  flex: auto;
-  text-align: left;
-  padding: 1.125rem; }
-
-.read-more {
-  font-size: 1.125rem;
-  font-family: "Open Sans", sans-serif;
-  font-weight: normal;
-  color: #DC0E54; }
-
-.news-heading {
-  font-size: 1.875rem;
-  font-family: "Open Sans", sans-serif;
-  font-weight: lighter;
-  color: #888888;
-  flex: auto;
-  padding: 1.125rem; }
-
-.social-tile {
-  flex: 1;
-  margin: 1em;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  height: 20em; }
-
-.social-tile-title {
-  max-height: 4.625rem;
-  line-height: 4.625rem;
-  background-color: #DC0E54;
-  text-align: center;
-  margin: 0;
-  flex: 1;
-  align-items: flex-end;
-  color: #ffffff;
-  font-weight: bold; }
-
-.pnl-contact-us {
-  background-color: #c8c7c7; }
-  .pnl-contact-us:before {
-    width: 0;
-    height: 0;
-    border-left: 2.375rem solid transparent;
-    border-right: 2.375rem solid transparent;
-    border-bottom: 2.375rem solid #c8c7c7;
-    top: -2.3125rem;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    z-index: 20;
-    content: " "; }
-
-.pnl-signup {
-  background-color: #DC0E54; }
-  .pnl-signup:before {
-    width: 0;
-    height: 0;
-    border-left: 2.375rem solid transparent;
-    border-right: 2.375rem solid transparent;
-    border-bottom: 2.375rem solid #DC0E54;
-    top: -2.3125rem;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    z-index: 20;
-    content: " "; }
 
 /* =================================
    PAGES / LOGIN 

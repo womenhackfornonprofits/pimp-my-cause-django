@@ -17,7 +17,6 @@
     }   
 }
 
-
 .pnl--light-txt {
     color: $colr-txt;
 }
@@ -26,53 +25,49 @@
     color: $colr-txt-accent;
 }
 
-
-// ********** 
-// HERO PANEL 
-// ********** 
+.pnl-causes, .pnl-marketers, .pnl-marketing, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero  {
+    @extend .pnl;
+    @extend .pnl--light-txt;
+}
 
 .pnl-hero {
     background-color: $colr-pnl-hero;
-    color: $white;
 
+    // TO DO - needs refactor
     .button {
         background-color: $purple;
         color: $white;
         padding: .5em 2em;
     }
-}
 
-.pnl-hero-container {
-
-    @media(min-width:640px) {
+    &__container {
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
+
+        @media(min-width:640px) {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+    }
+
+    &__cubes, &__text {
+        @media(min-width:640px) {
+            flex: 1;
+            margin-top: 0;
+        }
+    }
+
+    &__cubes {
+        @media(max-width:640px) {
+            margin-top: 2em;
+        }
     }
 }
-
-.pnl-hero-cubes, .pnl-hero-join-us  {
-    @media(min-width:640px) {
-        flex: 1;
-        margin-top: 0;
-    }
-}
-
-.pnl-hero-cubes {
-    @media(max-width:640px) {
-        margin-top: 2em;
-    }
-}
-
-
-
-// *************** 
-// MARKETING PANEL 
-// *************** 
 
 .pnl-marketing {
-    @extend .pnl;
-    @extend .pnl--light-txt;
     background-color: $colr-pnl-marketing;
     // increase z-index so that cube rotate doesn't separate triangle from panel
     z-index: 20;
@@ -86,33 +81,45 @@
     }
 }
 
-// *************** 
-// CAUSES PANEL 
-// *************** 
-
-.pnl-causes {
-    @extend .pnl;
-    @extend .pnl--light-txt;
+.pnl-marketers {
     background-color: $colr-pnl-causes;
-    
+
     &:before {
         @include triangle (38, $colr-pnl-causes);
     }
 }
 
-// *************** 
-// MARKETERS PANEL 
-// *************** 
-
-
 .pnl-marketers {
-    @extend .pnl;
-    @extend .pnl--light-txt;
     background-color: $colr-pnl-marketers;
         
     &:before {
         @include triangle (38, $colr-pnl-marketers);
     }
+}
+
+.pnl-contact-us {
+    background-color: $colr-pnl-contactus;
+    
+    &:before {
+        @include triangle (38, $colr-pnl-contactus);
+    }    
+
+}
+
+.pnl-signup {
+    background-color: $colr-pnl-signup;
+    
+    &:before {
+        @include triangle (38, $colr-pnl-signup);
+    }    
+}
+
+.pnl-talkabout {    
+    background-color: $colr-pnl-talkabout;
+ 
+    &:before {
+        @include triangle (38, $colr-pnl-talkabout);
+    }  
 }
 
 // *************** 
@@ -133,6 +140,10 @@ $summary-info-height: rem-calc(137);
     .pnl__title {
         @extend .pnl--dark-txt;
     }
+}
+
+.read-more {
+    @include readmore;
 }
 
 .summary-boxes li {
@@ -234,113 +245,5 @@ $summary-info-height: rem-calc(137);
        
 }
             
-
-// *************** 
-// TALKABOUT PANEL 
-// *************** 
-
-$social-title-height: rem-calc(74);
-
-.pnl-talkabout {
-    @extend .pnl;
-    
-    background-color: $colr-pnl-talkabout;
- 
-    &:before {
-        @include triangle (38, $colr-pnl-talkabout);
-    }  
-}
-
-.social-wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    min-width: 10em;
-}
-
-.news-info {
-    color: $colr-slider-text;
-    font-size: rem-calc(18);
-    font-family: $open-sans;
-    color: $colr-slider-text;   
-    flex: auto;    
-    text-align: left;
-    padding: rem-calc(18);
-
-     
-} 
-
-.read-more {
-    @include readmore;
-}
-
-.news-heading {
-    font-size: rem-calc(30);
-    font-family: $open-sans;
-    font-weight: lighter;
-    color: $colr-slider-text;  
-    flex: auto; 
-    padding: rem-calc(18);
-
-
-}
-
-.social-tile {
-    flex: 1;
-    margin: 1em;
-    background-color: $colr-social-tile-bg;
-    display: flex;
-    flex-direction: column;
-    height: 20em;
-    
-}
-
-.social-tile-title {
-    max-height: $social-title-height;
-    line-height: $social-title-height;
-    background-color: $colr-social-tile-title;
-    text-align: center;
-    margin: 0;
-    flex: 1;
-    align-items: flex-end;
-    color: $colr-txt;
-    font-weight: bold;
-
-
-    // &:before {
-    //     @include triangle (16, $colr-social-tile-title);
-    // }
-}
-
-
-// ****************
-// CONTACT US PANEL 
-// ****************
-
-.pnl-contact-us {
-    @extend .pnl;
-    background-color: $colr-pnl-contactus;
-    
-    &:before {
-        @include triangle (38, $colr-pnl-contactus);
-    }    
-
-}
-
-// *************** 
-// SIGN UP PANEL 
-// *************** 
-
-.pnl-signup {
-    @extend .pnl;
-    @extend .pnl--light-txt;
-    background-color: $colr-pnl-signup;
-    
-    &:before {
-        @include triangle (38, $colr-pnl-signup);
-    }    
-}
-
-
 
 

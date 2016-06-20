@@ -1,6 +1,7 @@
 /* =================================
    COMPONENTS / SLIDER
    ================================= */
+
 $num_of_slides: 3; // # of images
 $time_per_slide: 5; // seconds per slide
 $total_time: $time_per_slide * $num_of_slides; //total time needed for all images to display
@@ -45,7 +46,6 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
         text-align: left;
         color: #3c3c3c;    
     }
-
 }
 
 @keyframes slide-fade {
