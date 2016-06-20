@@ -18,7 +18,7 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
         height: 20em;
         position: absolute;
         animation: slide-fade #{$total_time}s infinite;
-        opacity:0;
+        opacity:1;
         top: 0;
         left: 0;
 
@@ -68,7 +68,7 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
 }
 
 @for $index from 1 to $num_of_slides + 1{
-  img:nth-child(#{$index}){
+  .slider__slide:nth-child(#{$index}){
     animation-delay:#{$total_time - $time_per_slide * $index}s
   }
 }
