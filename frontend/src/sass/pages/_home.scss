@@ -5,11 +5,9 @@
 .pnl {
     // padding-top: rem-calc(65); not able to add padding to top as colours over :before arrow up
     padding-bottom: rem-calc(40);
-    // increase z-index so that cube rotate doesn't separate triangle from panel
-    z-index: 20;
 }
 
-.pnl-title {
+.pnl__title {
     padding-top: rem-calc(50);
     padding-bottom: rem-calc(20);
     font-weight: 100;
@@ -20,19 +18,11 @@
 }
 
 .pnl-light-txt {
-    
-    h1, h2, h3, h4, p {
-        color: $colr-txt;
-        text-align: center;
-    }
+    color: $colr-txt;
 }
 
 .pnl-dark-txt {
-    
-    h1, h2, h3, h4 {
-        color: $colr-txt-accent;
-        text-align: center;
-    }
+    color: $colr-txt-accent;
 }
 
 
@@ -43,7 +33,8 @@
 .pnl-hero {
     background-color: $colr-pnl-hero;
     color: $white;
-
+    // increase z-index so that cube rotate doesn't separate triangle from panel
+    z-index: 20;
     .button {
         background-color: $purple;
         color: $white;
@@ -135,13 +126,16 @@ $summary-info-height: rem-calc(137);
 
 .pnl-summary {
     @extend .pnl;
-    @extend .pnl-dark-txt;
     background-color: $colr-pnl-summary;
     position: relative;
  
     &:before {
         @include triangle (38, $colr-pnl-summary);
     }  
+
+    .pnl__title {
+        @extend .pnl-dark-txt;
+    }
 }
 
 .summary-boxes li {
@@ -304,6 +298,7 @@ $social-title-height: rem-calc(74);
     height: 20em;
     
 }
+
 .social-tile-title {
     max-height: $social-title-height;
     line-height: $social-title-height;
@@ -328,13 +323,13 @@ $social-title-height: rem-calc(74);
 
 .pnl-contact-us {
     @extend .pnl;
-    @extend .pnl-dark-txt;
     background-color: $colr-pnl-contactus;
     position: relative;
     
     &:before {
         @include triangle (38, $colr-pnl-contactus);
     }    
+
 }
 
 // *************** 

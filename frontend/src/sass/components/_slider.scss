@@ -8,8 +8,9 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
 .slider {
     position: relative;
     height: 20em;
-
-    .slider__slide {
+    margin-bottom: 6em;
+    
+    &__slide {
         width: 100%;
         background: #F1F1F1;
         display: flex;
@@ -21,14 +22,9 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
         opacity:1;
         top: 0;
         left: 0;
-
-        &:hover {
-            animation-play-state: paused;
-
-        }
     }
 
-    .slider__img {
+    &__img {
         display: inline-block;
         height: 100%;
         flex: 1;
@@ -36,15 +32,19 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
         background-position: center center;
     }
 
-    .slider__text {
+    &__text {
         padding: 1em;
         display: inline-block;
         flex: 2;
-        p, h3, h4, h5 {
-            text-align: left;
-            color: #3c3c3c;
+    }
 
-        }
+    &__paragraph {
+        text-align: left;
+        color: #3c3c3c;    
+    }
+    &__title {
+        text-align: left;
+        color: #3c3c3c;    
     }
 
 }
@@ -67,8 +67,8 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
     }
 }
 
-@for $index from 1 to $num_of_slides + 1{
-  .slider__slide:nth-child(#{$index}){
-    animation-delay:#{$total_time - $time_per_slide * $index}s
-  }
+@for $index from 1 to $num_of_slides + 1 {
+    .slider__slide:nth-child(#{$index}){
+        animation-delay:#{$total_time - $time_per_slide * $index}s
+    }
 }

@@ -1597,8 +1597,9 @@ input:focus, textarea:focus {
    ================================= */
 .slider {
   position: relative;
-  height: 20em; }
-  .slider .slider__slide {
+  height: 20em;
+  margin-bottom: 6em; }
+  .slider__slide {
     width: 100%;
     background: #F1F1F1;
     display: flex;
@@ -1610,21 +1611,22 @@ input:focus, textarea:focus {
     opacity: 1;
     top: 0;
     left: 0; }
-    .slider .slider__slide:hover {
-      animation-play-state: paused; }
-  .slider .slider__img {
+  .slider__img {
     display: inline-block;
     height: 100%;
     flex: 1;
     background-size: cover;
     background-position: center center; }
-  .slider .slider__text {
+  .slider__text {
     padding: 1em;
     display: inline-block;
     flex: 2; }
-    .slider .slider__text p, .slider .slider__text h3, .slider .slider__text h4, .slider .slider__text h5 {
-      text-align: left;
-      color: #3c3c3c; }
+  .slider__paragraph {
+    text-align: left;
+    color: #3c3c3c; }
+  .slider__title {
+    text-align: left;
+    color: #3c3c3c; }
 
 @keyframes slide-fade {
   0% {
@@ -1735,10 +1737,9 @@ input:focus, textarea:focus {
    PAGES / HOME 
    ================================= */
 .pnl, .pnl-marketing, .pnl-causes, .pnl-marketers, .pnl-summary, .pnl-talkabout, .pnl-contact-us, .pnl-signup {
-  padding-bottom: 2.5rem;
-  z-index: 20; }
+  padding-bottom: 2.5rem; }
 
-.pnl-title {
+.pnl__title {
   padding-top: 3.125rem;
   padding-bottom: 1.25rem;
   font-weight: 100;
@@ -1747,17 +1748,16 @@ input:focus, textarea:focus {
   color: #ffffff;
   line-height: 1.3em; }
 
-.pnl-light-txt h1, .pnl-marketing h1, .pnl-causes h1, .pnl-marketers h1, .pnl-signup h1, .pnl-light-txt h2, .pnl-marketing h2, .pnl-causes h2, .pnl-marketers h2, .pnl-signup h2, .pnl-light-txt h3, .pnl-marketing h3, .pnl-causes h3, .pnl-marketers h3, .pnl-signup h3, .pnl-light-txt h4, .pnl-marketing h4, .pnl-causes h4, .pnl-marketers h4, .pnl-signup h4, .pnl-light-txt p, .pnl-marketing p, .pnl-causes p, .pnl-marketers p, .pnl-signup p {
-  color: #ffffff;
-  text-align: center; }
+.pnl-light-txt, .pnl-marketing, .pnl-causes, .pnl-marketers, .pnl-signup {
+  color: #ffffff; }
 
-.pnl-dark-txt h1, .pnl-summary h1, .pnl-contact-us h1, .page-login h1, .page-register h1, .pnl-dark-txt h2, .pnl-summary h2, .pnl-contact-us h2, .page-login h2, .page-register h2, .pnl-dark-txt h3, .pnl-summary h3, .pnl-contact-us h3, .page-login h3, .page-register h3, .pnl-dark-txt h4, .pnl-summary h4, .pnl-contact-us h4, .page-login h4, .page-register h4 {
-  color: #441144;
-  text-align: center; }
+.pnl-dark-txt, .pnl-summary .pnl__title, .page-login, .page-register {
+  color: #441144; }
 
 .pnl-hero {
   background-color: #DC0E54;
-  color: #ffffff; }
+  color: #ffffff;
+  z-index: 20; }
   .pnl-hero .button {
     background-color: #441144;
     color: #ffffff;
