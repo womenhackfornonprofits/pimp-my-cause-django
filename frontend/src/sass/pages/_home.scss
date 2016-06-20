@@ -17,11 +17,11 @@
     line-height: 1.3em;
 }
 
-.pnl-light-txt {
+.pnl--light-txt {
     color: $colr-txt;
 }
 
-.pnl-dark-txt {
+.pnl--dark-txt {
     color: $colr-txt-accent;
 }
 
@@ -73,7 +73,7 @@
 
 .pnl-marketing {
     @extend .pnl;
-    @extend .pnl-light-txt;
+    @extend .pnl--light-txt;
     background-color: $colr-pnl-marketing;
     position: relative;
     
@@ -92,7 +92,7 @@
 
 .pnl-causes {
     @extend .pnl;
-    @extend .pnl-light-txt;
+    @extend .pnl--light-txt;
     background-color: $colr-pnl-causes;
     position: relative;
     
@@ -108,7 +108,7 @@
 
 .pnl-marketers {
     @extend .pnl;
-    @extend .pnl-light-txt;
+    @extend .pnl--light-txt;
     background-color: $colr-pnl-marketers;
     position: relative;
         
@@ -134,7 +134,7 @@ $summary-info-height: rem-calc(137);
     }  
 
     .pnl__title {
-        @extend .pnl-dark-txt;
+        @extend .pnl--dark-txt;
     }
 }
 
@@ -338,7 +338,7 @@ $social-title-height: rem-calc(74);
 
 .pnl-signup {
     @extend .pnl;
-    @extend .pnl-light-txt;
+    @extend .pnl--light-txt;
     background-color: $colr-pnl-signup;
     position: relative;
     

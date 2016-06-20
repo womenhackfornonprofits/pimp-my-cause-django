@@ -1748,10 +1748,10 @@ input:focus, textarea:focus {
   color: #ffffff;
   line-height: 1.3em; }
 
-.pnl-light-txt, .pnl-marketing, .pnl-causes, .pnl-marketers, .pnl-signup {
+.pnl--light-txt, .pnl-marketing, .pnl-causes, .pnl-marketers, .pnl-signup {
   color: #ffffff; }
 
-.pnl-dark-txt, .pnl-summary .pnl__title, .page-login, .page-register {
+.pnl--dark-txt, .pnl-summary .pnl__title, .page-login, .page-register {
   color: #441144; }
 
 .pnl-hero {
