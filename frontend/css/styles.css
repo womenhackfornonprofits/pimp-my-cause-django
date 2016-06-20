@@ -1597,8 +1597,7 @@ input:focus, textarea:focus {
    ================================= */
 .slider {
   position: relative;
-  height: 20em;
-  margin-bottom: 6em; }
+  height: 20em; }
   .slider__slide {
     width: 100%;
     background: #F1F1F1;
@@ -1737,16 +1736,16 @@ input:focus, textarea:focus {
    PAGES / HOME 
    ================================= */
 .pnl, .pnl-marketing, .pnl-causes, .pnl-marketers, .pnl-summary, .pnl-talkabout, .pnl-contact-us, .pnl-signup {
-  padding-bottom: 2.5rem; }
-
-.pnl__title {
-  padding-top: 3.125rem;
-  padding-bottom: 1.25rem;
-  font-weight: 100;
-  font-size: 3em;
-  text-align: center;
-  color: #ffffff;
-  line-height: 1.3em; }
+  position: relative;
+  padding-bottom: 6em; }
+  .pnl__title {
+    padding-top: 3.125rem;
+    padding-bottom: 1.25rem;
+    font-weight: 100;
+    font-size: 3em;
+    text-align: center;
+    color: #ffffff;
+    line-height: 1.3em; }
 
 .pnl--light-txt, .pnl-marketing, .pnl-causes, .pnl-marketers, .pnl-signup {
   color: #ffffff; }
@@ -1756,8 +1755,7 @@ input:focus, textarea:focus {
 
 .pnl-hero {
   background-color: #DC0E54;
-  color: #ffffff;
-  z-index: 20; }
+  color: #ffffff; }
   .pnl-hero .button {
     background-color: #441144;
     color: #ffffff;
@@ -1780,7 +1778,7 @@ input:focus, textarea:focus {
 
 .pnl-marketing {
   background-color: #441144;
-  position: relative; }
+  z-index: 20; }
   .pnl-marketing p {
     font-size: 1.125rem; }
   .pnl-marketing:before {
@@ -1797,8 +1795,7 @@ input:focus, textarea:focus {
     content: " "; }
 
 .pnl-causes {
-  background-color: #d7be01;
-  position: relative; }
+  background-color: #d7be01; }
   .pnl-causes:before {
     width: 0;
     height: 0;
@@ -1813,8 +1810,7 @@ input:focus, textarea:focus {
     content: " "; }
 
 .pnl-marketers {
-  background-color: #809b29;
-  position: relative; }
+  background-color: #809b29; }
   .pnl-marketers:before {
     width: 0;
     height: 0;
@@ -1829,8 +1825,7 @@ input:focus, textarea:focus {
     content: " "; }
 
 .pnl-summary {
-  background-color: #ffffff;
-  position: relative; }
+  background-color: #ffffff; }
   .pnl-summary:before {
     width: 0;
     height: 0;
@@ -1923,8 +1918,7 @@ input:focus, textarea:focus {
       border-bottom-color: #d7be01; }
 
 .pnl-talkabout {
-  background-color: #441144;
-  position: relative; }
+  background-color: #441144; }
   .pnl-talkabout:before {
     width: 0;
     height: 0;
@@ -1987,8 +1981,7 @@ input:focus, textarea:focus {
   font-weight: bold; }
 
 .pnl-contact-us {
-  background-color: #c8c7c7;
-  position: relative; }
+  background-color: #c8c7c7; }
   .pnl-contact-us:before {
     width: 0;
     height: 0;
@@ -2003,8 +1996,7 @@ input:focus, textarea:focus {
     content: " "; }
 
 .pnl-signup {
-  background-color: #DC0E54;
-  position: relative; }
+  background-color: #DC0E54; }
   .pnl-signup:before {
     width: 0;
     height: 0;

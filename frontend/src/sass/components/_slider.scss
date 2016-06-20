@@ -8,7 +8,6 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
 .slider {
     position: relative;
     height: 20em;
-    margin-bottom: 6em;
     
     &__slide {
         width: 100%;
