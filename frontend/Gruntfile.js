@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-
+	grunt.loadNpmTasks('grunt-contrib-copy');
 
 grunt.initConfig({
 	pkg: grunt.file.readJSON('package.json'),
@@ -38,13 +38,32 @@ grunt.initConfig({
                 jsMin: '../pimpmycause/static/scripts/pimpmycause.min.js'
             }
         },
+    uglify: {
+        options: {
+            compress: true,
+            mangle: true,
+            sourceMap: true
+        },
         target: {
             src: '<%= jspaths.src.js %>',
             dest: '<%= jspaths.dest.jsMin %>'
         }
     },
+    copy: {
+        img: {
+            files: [{
+                expand: true,
+                nonull: true,
+                cwd: 'src/img',
+                src: ['*.{png,jpg,jpeg,svg,gif}'],
+                dest: '../pimpmycause/static/img/',
+                filter: 'isFile'
+            }, ]
+        }
+    },
+        
 });
 
-	grunt.registerTask('default', ['sass', 'cssmin', 'uglify']);
+    grunt.registerTask('default', ['sass', 'cssmin', 'uglify']);
 
 };

@@ -1465,7 +1465,7 @@ select {
 /* =================================
    LAYOUT / FOOTER
    ================================= */
-footer {
+.footer {
   background-color: #441144;
   height: 5em;
   margin: 0;
@@ -1788,6 +1788,9 @@ input:focus, textarea:focus {
   color: #441144; }
 
 .pnl-hero {
+  padding-bottom: 0; }
+
+.pnl-hero {
   background-color: #DC0E54; }
   .pnl-hero .button {
     background-color: #441144;
@@ -2010,6 +2013,8 @@ input:focus, textarea:focus {
   padding-top: 4.0625rem;
   padding-bottom: 2.5rem;
   background-color: #ffffff; }
+  .page-login .pnl__title {
+    color: #441144; }
 
 /* =================================
    PAGES / REGISTRATION 
@@ -2018,6 +2023,8 @@ input:focus, textarea:focus {
   padding-top: 4.0625rem;
   padding-bottom: 2.5rem;
   background-color: #ffffff; }
+  .page-register .pnl__title {
+    color: #441144; }
 
 body {
   font-family: "Open Sans", sans-serif;
