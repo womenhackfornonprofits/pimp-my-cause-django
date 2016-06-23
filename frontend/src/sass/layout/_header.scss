@@ -1,55 +1,45 @@
 /* =================================
    LAYOUT / HEADER
    ================================= */
-
-
-.pnl-header, #pnl-header-colr-to-edge {
-    background-color: $colr-pnl-header;  
-}
-
-.header-row-position-relative {
-    position: relative;
-}
-
-.header-column-position-static {
-    position: static;    
-}
-
-.vertical-align-center {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-}
-
-.header-social-icons, .header-sign-in, .header-register {
-    display: block;
-    text-align: center;
-    padding-bottom: rem-calc(5);
-    padding-right: rem-calc(5);
-}
-
-.header-social-icons {
-    font-size: rem-calc(24);
-    letter-spacing: rem-calc(5);
-} 
-
-.header-sign-in {
-    
-    .button {
-        padding: 0.75rem 1.5rem 0.8125rem 1.5rem; 
-        width: 8.5rem;
-        font-size: rem-calc(18);
+.header {
+	background-color: $purple;
+	a {
+        color: $white;
+		display: inline-block;
     }
+    .content-wrap {
+    	display: flex;
+    	flex-direction: row;
+    	flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+      }
+}
+.logo-container{
+    flex: 1 auto auto;
+	display: inline-block;
+	//width: 8em;
+	img {
+		width: 100%;
+		padding: 2em 0;
+	}
 }
 
-.header-register {
-    padding-bottom: rem-calc(25);
-    font-size: rem-calc(18);
-}
+.login-side-menu {
+	flex: 1;
+	display: inline-block;
+	text-align: right;
+	.social-icon-linked-in {
 
-.row .columns, .row .column {
-    padding-top: 0.625rem;
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
+	}
+	.button {
+		display: block;
+		width: 8em;
+		margin: 0 0 0 auto;
+	}
+	.register-text-link{
+		width: 8em;
+		text-align: center;
+		font-size: .7em;
+	}
 }

@@ -1,0 +1,43 @@
+/* =================================
+   COMPONENTS / SOCIAL TILE
+   ================================= */
+
+$social-title-height: rem-calc(74);
+
+.social-tile {
+    flex: 1;
+    margin: 1em;
+    background-color: $colr-social-tile-bg;
+    display: flex;
+    flex-direction: column;
+    height: 20em;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        min-width: 10em;
+    }
+
+    &__heading {
+        color: $colr-slider-text;
+        font-size: rem-calc(18);
+        font-family: $open-sans;
+        color: $colr-slider-text;   
+        flex: auto;    
+        text-align: left;
+        padding: rem-calc(18);
+    }
+
+    &__title {
+        max-height: $social-title-height;
+        line-height: $social-title-height;
+        background-color: $colr-social-tile-title;
+        text-align: center;
+        margin: 0;
+        flex: 1;
+        align-items: flex-end;
+        color: $colr-txt;
+        font-weight: bold;
+    }  
+}
