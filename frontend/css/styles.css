@@ -2010,8 +2010,6 @@ input:focus, textarea:focus {
    PAGES / LOGIN 
    ================================= */
 .page-login {
-  padding-top: 4.0625rem;
-  padding-bottom: 2.5rem;
   background-color: #ffffff; }
   .page-login .pnl__title {
     color: #441144; }
@@ -2020,8 +2018,6 @@ input:focus, textarea:focus {
    PAGES / REGISTRATION 
    ================================= */
 .page-register {
-  padding-top: 4.0625rem;
-  padding-bottom: 2.5rem;
   background-color: #ffffff; }
   .page-register .pnl__title {
     color: #441144; }
