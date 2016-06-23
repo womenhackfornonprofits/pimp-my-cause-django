@@ -25,7 +25,7 @@
     color: $colr-txt-accent;
 }
 
-.pnl-causes, .pnl-marketers, .pnl-marketing, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero  {
+.pnl-marketing, .pnl-marketers, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero, .pnl-causes  {
     @extend .pnl;
     @extend .pnl--light-txt;
 }
@@ -85,7 +85,7 @@
     }
 }
 
-.pnl-marketers {
+.pnl-causes {
     background-color: $colr-pnl-causes;
 
     &:before {

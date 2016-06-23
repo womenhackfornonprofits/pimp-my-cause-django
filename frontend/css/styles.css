@@ -1769,7 +1769,7 @@ input:focus, textarea:focus {
 /* =================================
    PAGES / HOME 
    ================================= */
-.pnl, .pnl-causes, .pnl-marketers, .pnl-marketing, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero, .pnl-summary {
+.pnl, .pnl-marketing, .pnl-marketers, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero, .pnl-causes, .pnl-summary {
   position: relative;
   padding-bottom: 6em; }
   .pnl__title {
@@ -1781,7 +1781,7 @@ input:focus, textarea:focus {
     color: #ffffff;
     line-height: 1.3em; }
 
-.pnl--light-txt, .pnl-causes, .pnl-marketers, .pnl-marketing, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero {
+.pnl--light-txt, .pnl-marketing, .pnl-marketers, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero, .pnl-causes {
   color: #ffffff; }
 
 .pnl--dark-txt, .pnl-summary .pnl__title, .page-login, .page-register {
@@ -1832,9 +1832,9 @@ input:focus, textarea:focus {
     z-index: 20;
     content: " "; }
 
-.pnl-marketers {
+.pnl-causes {
   background-color: #d7be01; }
-  .pnl-marketers:before {
+  .pnl-causes:before {
     width: 0;
     height: 0;
     border-left: 2.375rem solid transparent;
