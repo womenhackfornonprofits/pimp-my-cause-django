@@ -1,6 +1,6 @@
 /* =================================
-   BASE / COLOURS
-   ================================= */
+BASE / COLOURS
+================================= */
 /* =================================
    BASE / TYPOGRAPHY
    ================================= */
@@ -1470,7 +1470,7 @@ select {
   height: 5em;
   margin: 0;
   width: 100%;
-  color: #ffffff;
+  color: #FEFEFE;
   text-align: center; }
 
 input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
@@ -1493,7 +1493,7 @@ textarea {
 .custom-dropdown {
   -webkit-appearance: none;
   background: url("http://garyjeffress.com/wp-content/themes/lms/framework/plugins/designthemes-core-features/page-builder/images/select-box-arrow.png") no-repeat right center;
-  background-color: #ffffff;
+  background-color: #FEFEFE;
   padding: 1em;
   border-radius: 0;
   margin-bottom: 1em;
@@ -1501,7 +1501,7 @@ textarea {
 
 input:focus, textarea:focus {
   background: #441144;
-  color: #ffffff; }
+  color: #FEFEFE; }
 
 .helptext {
   display: none; }
@@ -1512,7 +1512,7 @@ input:focus, textarea:focus {
 .header {
   background-color: #441144; }
   .header a {
-    color: #ffffff;
+    color: #FEFEFE;
     display: inline-block; }
   .header .content-wrap {
     display: flex;
@@ -1741,7 +1741,7 @@ input:focus, textarea:focus {
 .social-tile {
   flex: 1;
   margin: 1em;
-  background-color: #ffffff;
+  background-color: #FEFEFE;
   display: flex;
   flex-direction: column;
   height: 20em; }
@@ -1766,12 +1766,9 @@ input:focus, textarea:focus {
     margin: 0;
     flex: 1;
     align-items: flex-end;
-    color: #ffffff;
+    color: #FEFEFE;
     font-weight: bold; }
 
-/* =================================
-   PAGES / HOME 
-   ================================= */
 .pnl, .pnl-causes, .pnl-marketers, .pnl-marketing, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero, .pnl-summary {
   position: relative;
   padding-bottom: 6em; }
@@ -1781,13 +1778,13 @@ input:focus, textarea:focus {
     font-weight: 100;
     font-size: 3em;
     text-align: center;
-    color: #ffffff;
+    color: #FEFEFE;
     line-height: 1.3em; }
 
 .pnl--light-txt, .pnl-causes, .pnl-marketers, .pnl-marketing, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero {
-  color: #ffffff; }
+  color: #FEFEFE; }
 
-.pnl--dark-txt, .pnl-summary .pnl__title, .page-login, .page-register {
+.pnl--dark-txt, .pnl-contact-us .pnl__title, .pnl-summary .pnl__title, .page-login, .page-register, .page-contact {
   color: #441144; }
 
 .pnl-hero {
@@ -1797,7 +1794,7 @@ input:focus, textarea:focus {
   background-color: #DC0E54; }
   .pnl-hero .button {
     background-color: #441144;
-    color: #ffffff;
+    color: #FEFEFE;
     padding: .5em 2em; }
   .pnl-hero__container {
     display: flex;
@@ -1821,7 +1818,8 @@ input:focus, textarea:focus {
   background-color: #441144;
   z-index: 20; }
   .pnl-marketing p {
-    font-size: 1.125rem; }
+    font-size: 1.125rem;
+    text-align: center; }
   .pnl-marketing:before {
     width: 0;
     height: 0;
@@ -1835,9 +1833,9 @@ input:focus, textarea:focus {
     z-index: 20;
     content: " "; }
 
-.pnl-marketers {
+.pnl-causes {
   background-color: #d7be01; }
-  .pnl-marketers:before {
+  .pnl-causes:before {
     width: 0;
     height: 0;
     border-left: 2.375rem solid transparent;
@@ -1866,13 +1864,13 @@ input:focus, textarea:focus {
     content: " "; }
 
 .pnl-contact-us {
-  background-color: #c8c7c7; }
+  background-color: #E1E0E7; }
   .pnl-contact-us:before {
     width: 0;
     height: 0;
     border-left: 2.375rem solid transparent;
     border-right: 2.375rem solid transparent;
-    border-bottom: 2.375rem solid #c8c7c7;
+    border-bottom: 2.375rem solid #E1E0E7;
     top: -2.3125rem;
     left: 50%;
     transform: translateX(-50%);
@@ -1911,13 +1909,13 @@ input:focus, textarea:focus {
     content: " "; }
 
 .pnl-summary {
-  background-color: #ffffff; }
+  background-color: #FEFEFE; }
   .pnl-summary:before {
     width: 0;
     height: 0;
     border-left: 2.375rem solid transparent;
     border-right: 2.375rem solid transparent;
-    border-bottom: 2.375rem solid #ffffff;
+    border-bottom: 2.375rem solid #FEFEFE;
     top: -2.3125rem;
     left: 50%;
     transform: translateX(-50%);
@@ -2013,7 +2011,7 @@ input:focus, textarea:focus {
    PAGES / LOGIN 
    ================================= */
 .page-login {
-  background-color: #ffffff; }
+  background-color: #FEFEFE; }
   .page-login .pnl__title {
     color: #441144; }
 
@@ -2021,8 +2019,18 @@ input:focus, textarea:focus {
    PAGES / REGISTRATION 
    ================================= */
 .page-register {
-  background-color: #ffffff; }
+  background-color: #FEFEFE;
+  padding-bottom: 6em; }
   .page-register .pnl__title {
+    color: #441144; }
+
+/* =================================
+   PAGES / CONTACT 
+   ================================= */
+.page-contact {
+  background-color: #E1E0E7;
+  padding-bottom: 6em; }
+  .page-contact .pnl__title {
     color: #441144; }
 
 body {

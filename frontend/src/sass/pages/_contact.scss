@@ -1,12 +1,11 @@
 /* =================================
-   PAGES / REGISTRATION 
+   PAGES / CONTACT 
    ================================= */
 
-.page-register {
+.page-contact {
     @extend .pnl--dark-txt;
-    background-color: $white;
+    background-color: $grey;
     padding-bottom: 6em;
-    
     .pnl__title {
     	color: $purple;
     }

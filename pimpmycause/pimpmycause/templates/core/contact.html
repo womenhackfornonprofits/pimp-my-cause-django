@@ -2,51 +2,49 @@
 
 {% load static %}
 
-    {% block main %} 
-    <div class="pnl__title page-register large-12">
-            
-        <h1>Contact Us</h1>
-        
-        <form id="contact-us" method="POST" action="//formspree.io/help@pimpmycause.org">
-            
-            <input type="hidden" name="_subject" value="New Submission: Pimp My Cause Contact Form"/>
-            <input type="text" name="_gotcha" style="display:none"/>
-        
-            <!-- row firstname and surname -->
-            <div class="row">
-                <div class="medium-4 medium-push-2 columns">
-                    <input type="text" name="fname" placeholder="First Name" required>
-                </div>
-                <div class="medium-4 medium-pull-2 columns">
-                    <input type="text" name="sname" placeholder="Surname" required>
-                </div>
-            </div>
-            
-            <!-- row email and password -->
-            <div class="row">
-                <div class="medium-4 medium-push-2 columns">
-                    <input type="email" name="email" placeholder="Email Address" required>
-                </div>
-                <div class="medium-4 medium-pull-2 columns">
-                    <input type="password" name="password" placeholder="Password" required>
-                </div>
-            </div>
-            
-            <!-- row message -->
-            <div class="row">
-                <div class="medium-8 medium-push-2 columns">
-                    <textarea name="message" rows="5" placeholder="Your message here" required></textarea>
-                </div>
-            </div>
-            
-            <!-- row submit button -->
-            <div class="row">
-                <div class="medium-8 medium-centered text-center columns">
-                    <input class="button round" type="submit" value="Submit">
-                </div>                            
-            </div>
-
-        </form>
-                        
-    </div>
-    {% endblock %}
+{% block main %} 
+    <section class="page-contact">
+        <div class="content-wrap">
+             <div class="row">
+                <div class="large-12 medium-12 small -12 columns">
+                    <h1 class="pnl__title">Contact Us</h1>
+                        <form method="POST" action="//formspree.io/help@pimpmycause.org">
+                            <input type="hidden" name="_subject" value="New Submission: Pimp My Cause Contact Form"/>
+                            <input type="text" name="_gotcha" style="display:none"/>
+                    
+                            <div class="medium-6 large-6 small-12 large-centered small-centered columns">
+                                <div class="row">
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <input type="text" name="fname" placeholder="First Name *" required>
+                                    </div>
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <input type="text" name="sname" placeholder="Surname *" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <input type="email" name="email" placeholder="Email Address" required>
+                                    </div>
+                                    <div class="medium-6 large-6 small-12 columns">
+                                        <input type="tel" name="phone" placeholder="Telephone">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="medium-12 large-12 small-12 columns">
+                                        <textarea name="message" rows="10" placeholder="Your message here" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="large-4 small-6 medium-4 medium-centered large-centered columns">
+                                        <input class="button" type="submit" value="Submit">
+                                    </div>                            
+                                </div>
+                            </div>                                
+                        </form>
+                    </div>
+                </div> 
+            </div> 
+        </div>
+    </section> 
+{% endblock %}
+     
