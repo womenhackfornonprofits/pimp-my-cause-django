@@ -8,7 +8,7 @@
 		<h1>Log In</h1>
         <form method="POST" action="" class="medium-3 medium-centered columns">
         	{% csrf_token %}
-        	{{ form.as_p }}
+        	{{ form }}
         	<div class="row">
                 <div class="medium-6 medium-centered columns">
         			<input class="button round right" type="submit" value="Log in" />

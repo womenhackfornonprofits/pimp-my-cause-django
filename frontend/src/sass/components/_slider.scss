@@ -2,149 +2,72 @@
    COMPONENTS / SLIDER
    ================================= */
 
-//***** Causes Panel Slider ******
+$num_of_slides: 3; // # of images
+$time_per_slide: 5; // seconds per slide
+$total_time: $time_per_slide * $num_of_slides; //total time needed for all images to display
 
-.causes-slider {
+.slider {
+    position: relative;
+    height: 20em;
     
-    .causes-left {
-        
-        background-color: $colr-slider-dark-pnl; 
-        min-height: rem-calc(360);
-        position: relative;
-        padding-bottom: rem-calc(70); // height of pink box 60px plus 10px so doesn't overlap pink box arrow
-            
-        .cause-title {
-            font-size: rem-calc(42);
-            font-family: $open-sans;
-            font-weight: lighter;
-            padding-top: rem-calc(25);
-            padding-bottom: rem-calc(15);
-            color: $colr-slider-text;
-        }
-
-        .cause-desc {
-            font-size: rem-calc(18);
-            font-family: $open-sans;
-            font-weight: lighter;
-            color: $colr-slider-text;
-        }
-        
-        .cause-arrow {
-            height: rem-calc(60);
-            width: rem-calc(60);
-            background: $pink url('../img/arrow.png') center no-repeat;
-            bottom: 0;
-            right: 0;
-            margin-top: rem-calc(5);
-            margin-left: rem-calc(5);
-            position: absolute;
-        }
+    &__slide {
+        width: 100%;
+        background: #F1F1F1;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 20em;
+        position: absolute;
+        animation: slide-fade #{$total_time}s infinite;
+        opacity:1;
+        top: 0;
+        left: 0;
     }
-    
-    .causes-right {
-        background-color: $white; 
-        min-height: rem-calc(360);
-        position: relative;
 
-        img {
-            @include centerer;
-        }
-        
+    &__img {
+        display: inline-block;
+        height: 100%;
+        flex: 1;
+        background-size: cover;
+        background-position: center center;
     }
-    
-    .slick-dots {
-        
-        margin-left: 0;
-        bottom: rem-calc(-60);
-    
-        li {
-            button {
-                &:before {
-                    height: rem-calc(8);
-                    width: rem-calc(8);
-                    font-size: 0;
-                    border: rem-calc(4) solid $white;
-                    
-                }
-            }
-        }
+
+    &__text {
+        padding: 1em;
+        display: inline-block;
+        flex: 2;
+    }
+
+    &__paragraph {
+        text-align: left;
+        color: #3c3c3c;    
+    }
+    &__title {
+        text-align: left;
+        color: #3c3c3c;    
     }
 }
 
-
-//***** Marketer Panel Slider ******
-
-.marketer-slider {
-    
-    .marketer-left {
-        
-        background-color: $white;
-        min-height: rem-calc(360);
-        position: relative;
-
-        img {
-            @include centerer;
-        }
-        
+@keyframes slide-fade {
+    0% {
+        opacity: 1;
     }
-    
-    .marketer-right {
-        
-        background-color: $white;
-        min-height: rem-calc(360);
-        position: relative;
-        padding-bottom: rem-calc(70); // height of pink box 60px plus 10px so doesn't overlap pink box arrow
-        
-        .marketer-name {
-            font-size: rem-calc(42);
-            font-family: $open-sans;
-            font-weight: lighter;
-            padding-top: rem-calc(25);
-            padding-bottom: rem-calc(5);  
-            color: $colr-slider-text;
-        }
-        
-        .marketer-title {
-            font-size: rem-calc(18);
-            font-family: $open-sans;
-            font-weight: normal;
-            color: $pink;
-            padding-bottom: rem-calc(15); 
-        }
-
-        .marketer-desc {
-            font-size: rem-calc(18);
-            font-family: $open-sans;
-            font-weight: lighter;
-            color: $colr-slider-text;
-        }
-        
-        .marketer-arrow {
-            height: rem-calc(60);
-            width: rem-calc(60);
-            background: $pink url('../img/arrow.png') center no-repeat;
-            bottom: 0;
-            right: 0;
-            position: absolute;
-        }
+    26.6666666667% {
+        opacity: 1;
     }
-    
-    .slick-dots {
-        
-        margin-left: 0;
-        bottom: rem-calc(-60);
-    
-        li {
-            button {
-                &:before {
-                    height: rem-calc(8);
-                    width: rem-calc(8);
-                    font-size: 0;
-                    border: rem-calc(4) solid $white;
-                    
-                }
-            }
-        }
+    33.3333333333% {
+        opacity: 0;
+    }
+    93.3333333333% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
     }
 }
 
+@for $index from 1 to $num_of_slides + 1 {
+    .slider__slide:nth-child(#{$index}){
+        animation-delay:#{$total_time - $time_per_slide * $index}s
+    }
+}

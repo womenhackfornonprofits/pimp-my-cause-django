@@ -1,46 +1,44 @@
-// =================
-// Site Reset
-// =================
-
-@import "base/reset";
+@import "base/normalize";
+@import "base/variables";
 @import "base/colours";
 @import "base/typography";
 @import "base/settings";
 
-// =================
-// Vendor
-// =================
-
 @import "vendors/foundation";
-@import "vendors/slick";
-@import "vendors/slick-theme";
-
-// =================
-// Site
-// =================
 
 @import "layout/footer";
 @import "layout/forms";
 @import "layout/header";
 @import "layout/nav";
 
-@import "utils/functions";
 @import "utils/mixins";
 
-@import "components/global";
 @import "components/buttons";
-@import "components/dropdown";
 @import "components/slider";
 @import "components/cubes";
 @import "components/twitter";
+@import "components/social-tile";
 
 @import "pages/home";
-@import "pages/contact";
 @import "pages/login";
 @import "pages/registration";
-@import "utils/responsive";
 
+body {
+	font-family: $open-sans;
+	font-weight: $font-weight;
 
+}
 
+a {
+    text-decoration: none;
+    font-weight: $font-weight;
+}
+.content-wrap {
+	max-width: $max-width;
+	margin: 0 auto;
+}
 
+.row {
+	max-width: 100%;
+}
 

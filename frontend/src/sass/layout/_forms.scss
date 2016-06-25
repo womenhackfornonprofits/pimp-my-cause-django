@@ -1,28 +1,45 @@
-/* =================================
-   LAYOUT / FORMS
-   ================================= */
-
-// NOTE: Form Foundation styling in base/settings
-// $input-font-color and $input-focus-bg-color - Foundation properties
-// more styling in components/buttons
+// =================================
+//   LAYOUT / FORMS
+// ================================= 
 
 
 $input-txt-height: rem-calc(52);
 
-// Input fields
-
-input[type="text"], input[type="email"], input[type="password"] {
-    
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+    width: 100%;
     height: $input-txt-height;
     line-height: $input-txt-height;
+    margin: .5em 0;
+    padding: .5em;
+    font-size: 1em;
+    font-weight: 100;
 }
 
-// Input fields with focus
+textarea {
+	width: 100%;
+	border: 0;
+	padding: .5em;
+	margin: .5em 0;
+	font-size: 1em;
+	font-weight: 100;
+}
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+.custom-dropdown {
+	-webkit-appearance: none;
+	background: url("http://garyjeffress.com/wp-content/themes/lms/framework/plugins/designthemes-core-features/page-builder/images/select-box-arrow.png") no-repeat right center;
+	background-color: $white;
+	padding: 1em;
+	border-radius: 0;
+	margin-bottom: 1em;
+	font-size: 1em;
+}
+
+input:focus, textarea:focus {
     
     background: $purple;
     color: $white;
 }
+
+
 
 

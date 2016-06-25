@@ -2,88 +2,13 @@
    COMPONENTS / BUTTONS
    ================================= */
 
-
-/* =================================
-   Front Page
-   ================================= */
-
-$hero-btn-width: rem-calc(220);
-$hero-btn-height: rem-calc(65);
-
-.btn {
- 
-    width: $hero-btn-width;
-    height: $hero-btn-height; 
-    font-size: rem-calc(24);
-    font-weight: lighter;
-}
-
-
-// **** HERO PANEL
-
-.pnl-hero {
-    
-    .button {
-        
-        @extend .btn;
-        
-        margin-top: rem-calc(50);
-        background-color: $purple;
-    }
-}
-
-// **** CONTACT US PANEL
-
-.pnl-contactus {
-    
-    .button {
-        
-        @extend .btn;
-        
-        margin-top: rem-calc(20);
-        background-color: $purple;
-    }
-}
-
-// **** NEWSLETTER SIGN-UP PANEL
-
-.pnl-signup {
-    
-    .button {
-        
-        @extend .btn;
-        
-        background-color: $purple;
-    }
-}
-
-
-
-/* =================================
-   Login Page
-   ================================= */
-
-.page-login {
-    
-    .button {
-        
-        @extend .btn;
-        
-        background-color: $pink;
-    }
-}
-
-
-/* =================================
-   Register Page
-   ================================= */
-
-.page-register {
-    
-    .button {
-        
-        @extend .btn;
-        
-        background-color: $pink;
-    }
+.button {
+    border-radius: 1em;
+    background-color: $pink;
+    text-align: center;
+    line-height: 2em;
+    padding:.5em;
+    width: 100%;
+    font-weight: 100;
+    font-size: 1em;
 }
