@@ -1503,6 +1503,9 @@ input:focus, textarea:focus {
   background: #441144;
   color: #ffffff; }
 
+.helptext {
+  display: none; }
+
 /* =================================
    LAYOUT / HEADER
    ================================= */

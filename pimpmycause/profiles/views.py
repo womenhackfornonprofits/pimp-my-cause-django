@@ -15,7 +15,7 @@ class RegistrationView(TemplateView):
     The Login view.
     """
 
-    template_name = "registration/register.html"
+    template_name = "profiles/register.html"
 
 class RegistrationComplete(TemplateView):
     """

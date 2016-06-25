@@ -2,15 +2,20 @@
 
 {% load static %}
 
+
 {% block main %} 
-	<div class="pnl-title page-register">
-		<h1>Register</h1>
-
-        <form method="POST" class="medium-3 medium-centered columns" action="">
-	        {% csrf_token %}
-	        {{ form.as_p }}
-        	<input class="button round" type="submit" value="Submit" />
-	    </form>
-	</div>
+    <div class="page-login">
+		<div class="content-wrap">
+            <div class="row"> 
+                <div class="large-12 medium-12 small -12 columns">
+                    <h1 class="pnl__title">Register</h1>
+        				<form method="POST" class="medium-3 medium-centered columns" action="">
+				        {% csrf_token %}
+				        {{ form }}
+			 			<input type="submit"  class="button" value="Submit" />
+				    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
-
