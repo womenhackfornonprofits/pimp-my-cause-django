@@ -23,3 +23,5 @@ class RegistrationComplete(TemplateView):
     """
 
     template_name = "registration/registeration_complete.html"
+
+    
