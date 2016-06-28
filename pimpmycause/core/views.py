@@ -16,8 +16,9 @@ class ContactView(TemplateView):
     """
     template_name = "core/contact.html"
 
+
 class AboutView(TemplateView):
     """
-    The About Us view.
+    The About Us View.
     """
     template_name = "core/about.html"
