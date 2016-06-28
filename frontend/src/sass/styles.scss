@@ -23,17 +23,18 @@
 @import "pages/login";
 @import "pages/registration";
 @import "pages/contact";
+@import "pages/about";
 
 body {
 	font-family: $open-sans;
 	font-weight: $font-weight;
-
 }
 
 a {
     text-decoration: none;
     font-weight: $font-weight;
 }
+
 .content-wrap {
 	max-width: $max-width;
 	margin: 0 auto;

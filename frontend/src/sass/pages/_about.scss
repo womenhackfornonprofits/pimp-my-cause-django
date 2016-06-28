@@ -1,0 +1,12 @@
+/* =================================
+   PAGES / CONTACT 
+   ================================= */
+
+.page-about {
+    @extend .pnl--dark-txt;
+    background-color: $white;
+    padding-bottom: 6em;
+    .pnl__title {
+    	color: $purple;
+    }
+}

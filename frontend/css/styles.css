@@ -1784,7 +1784,7 @@ input:focus, textarea:focus {
 .pnl--light-txt, .pnl-causes, .pnl-marketers, .pnl-marketing, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero {
   color: #FEFEFE; }
 
-.pnl--dark-txt, .pnl-contact-us .pnl__title, .pnl-summary .pnl__title, .page-login, .page-register, .page-contact {
+.pnl--dark-txt, .pnl-contact-us .pnl__title, .pnl-summary .pnl__title, .page-login, .page-register, .page-contact, .page-about {
   color: #441144; }
 
 .pnl-hero {
@@ -2031,6 +2031,15 @@ input:focus, textarea:focus {
   background-color: #E1E0E7;
   padding-bottom: 6em; }
   .page-contact .pnl__title {
+    color: #441144; }
+
+/* =================================
+   PAGES / CONTACT 
+   ================================= */
+.page-about {
+  background-color: #FEFEFE;
+  padding-bottom: 6em; }
+  .page-about .pnl__title {
     color: #441144; }
 
 body {
