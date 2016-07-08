@@ -22,6 +22,6 @@ class RegistrationComplete(TemplateView):
     The Registration Complete view.
     """
 
-    template_name = "registration/registeration_complete.html"
+    template_name = "registration/registration_complete.html"
 
     
