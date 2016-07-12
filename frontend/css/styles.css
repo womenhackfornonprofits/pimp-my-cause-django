@@ -1784,7 +1784,7 @@ input:focus, textarea:focus {
 .pnl--light-txt, .pnl-causes, .pnl-marketers, .pnl-marketing, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero {
   color: #FEFEFE; }
 
-.pnl--dark-txt, .pnl-contact-us .pnl__title, .pnl-summary .pnl__title, .page-login, .page-register, .page-contact, .page-about {
+.pnl--dark-txt, .pnl-contact-us .pnl__title, .pnl-summary .pnl__title, .page-login, .page-register, .page-contact, .page-about, .page-team {
   color: #441144; }
 
 .pnl-hero {
@@ -2041,6 +2041,30 @@ input:focus, textarea:focus {
   padding-bottom: 6em; }
   .page-about .pnl__title {
     color: #441144; }
+
+/* =================================
+   PAGES / MEET THE TEAM 
+   ================================= */
+.page-team {
+  background-color: #DC0E54;
+  padding-bottom: 6em; }
+  .page-team .pnl__title {
+    color: #441144; }
+
+.team__individual-name {
+  color: #DC0E54; }
+.team__individual-role {
+  font-weight: 100;
+  font-style: italic; }
+.team__individual-bio {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 1em; }
+  .team__individual-bio p {
+    margin-top: 0; }
+.team__individual-img {
+  display: inline-block;
+  vertical-align: top; }
 
 body {
   font-family: "Open Sans", sans-serif;

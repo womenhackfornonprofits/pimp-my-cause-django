@@ -1,0 +1,41 @@
+/* =================================
+   PAGES / MEET THE TEAM 
+   ================================= */
+
+.page-team {
+    @extend .pnl--dark-txt;
+    background-color: $pink;
+    padding-bottom: 6em;
+
+    .pnl__title {
+    	color: $purple;
+    }
+}
+
+.team {
+
+	&__individual-name {
+		color: $pink;
+	}
+
+	&__individual-role {
+		font-weight: 100;
+		font-style: italic;
+	}
+	
+	&__individual-bio {
+		display: inline-block;
+		vertical-align: top;
+		padding: 0 1em;
+
+		p {
+			margin-top: 0;
+		}
+	}
+
+	&__individual-img {
+		display: inline-block;
+		vertical-align: top;
+
+	}
+}
