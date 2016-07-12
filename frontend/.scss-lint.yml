@@ -1,0 +1,52 @@
+scss_files: 'src/scss/**/*.scss'
+
+exclude: 'src/scss/components/_icons.scss'
+
+linters:
+
+  BorderZero:
+    enabled: true
+    convention: zero
+
+  BemDepth:
+    enabled: true
+
+  Indentation:
+    severity: error
+    width: 4
+
+  PropertySortOrder:
+    enabled: false
+
+  DeclarationOrder:
+    enabled: false
+
+  ExtendDirective:
+    enabled: true
+
+  LeadingZero:
+    enabled: false
+
+  NameFormat:
+    enabled: true
+
+  PrivateNamingConvention:
+    enabled: true
+    prefix: _
+
+  ChainedClasses: 
+    enabled: true
+
+  SelectorFormat:
+    enabled: true
+    convention: hyphenated_BEM
+    class_convention: ^(?!js-).*
+    class_convention_explanation: should not be written in the form js-*
+
+  SingleLinePerProperty:
+    enabled: true
+    allow_single_line_rule_sets: false
+
+  StringQuotes:
+    enabled: true
+    style: double_quotes
