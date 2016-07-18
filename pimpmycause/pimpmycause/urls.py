@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from core.views import HomepageView, ContactView, AboutView
+from core.views import HomepageView, ContactView, AboutView, MeetTheTeam
 from profiles.views import LoginView, RegistrationView
 
 urlpatterns = [
@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^register', RegistrationView.as_view(), name="register"),
     url(r'^contact', ContactView.as_view(), name="contact"),
     url(r'^about', AboutView.as_view(), name="about"),
+    url(r'^meet-the-team', MeetTheTeam.as_view(), name="team"),
     url(r'^accounts/', include('registration.backends.default.urls')),
 ]

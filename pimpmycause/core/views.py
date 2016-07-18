@@ -22,3 +22,10 @@ class AboutView(TemplateView):
     The About Us View.
     """
     template_name = "core/about.html"
+
+
+class MeetTheTeam(TemplateView):
+    """
+    Meet The Team View.
+    """
+    template_name = "core/team.html"
