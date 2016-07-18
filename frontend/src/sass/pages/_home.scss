@@ -61,6 +61,7 @@
     }
 
     &__cubes {
+        padding: 0;
         @media(max-width:640px) {
             margin-top: 2em;
         }
