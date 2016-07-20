@@ -1612,7 +1612,8 @@ input:focus, textarea:focus {
     animation: slide-fade 15s infinite;
     opacity: 1;
     top: 0;
-    left: 0; }
+    left: 0;
+    overflow: hidden; }
   .slider__img {
     display: inline-block;
     height: 100%;
@@ -1747,9 +1748,12 @@ input:focus, textarea:focus {
   height: 20em; }
   .social-tile__wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     min-width: 10em; }
+    @media only screen and (min-width: 550px) {
+      .social-tile__wrapper {
+        flex-direction: row; } }
   .social-tile__heading {
     color: #888888;
     font-size: 1.125rem;
@@ -1810,9 +1814,11 @@ input:focus, textarea:focus {
     .pnl-hero__cubes, .pnl-hero__text {
       flex: 1;
       margin-top: 0; } }
-  @media (max-width: 640px) {
-    .pnl-hero__cubes {
-      margin-top: 2em; } }
+  .pnl-hero__cubes {
+    padding: 0; }
+    @media (max-width: 640px) {
+      .pnl-hero__cubes {
+        margin-top: 2em; } }
 
 .pnl-marketing {
   background-color: #441144;

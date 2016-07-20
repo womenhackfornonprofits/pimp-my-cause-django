@@ -14,9 +14,14 @@ $social-title-height: rem-calc(74);
 
     &__wrapper {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         min-width: 10em;
+
+        @media only screen and (min-width: 550px) {
+            flex-direction: row;
+        }
+
     }
 
     &__heading {

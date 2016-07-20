@@ -22,6 +22,7 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
         opacity:1;
         top: 0;
         left: 0;
+        overflow: hidden;
     }
 
     &__img {
