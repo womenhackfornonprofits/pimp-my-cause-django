@@ -10,6 +10,7 @@
         text-align: center;
         color: $white;
         line-height: 1.3em;
+        margin: 0;
     }   
 }
 
@@ -36,8 +37,7 @@
     // TO DO - needs refactor
     .button {
         background-color: $purple;
-        color: $white;
-        padding: .5em 2em;
+        max-width: 50%;
     }
 
     &__container {
@@ -115,7 +115,10 @@
     
     &:before {
         @include triangle (38, $colr-pnl-signup);
-    }    
+    }   
+    .button {
+        background: $purple;
+    } 
 }
 
 .pnl-talkabout {    

@@ -3,7 +3,7 @@
    ================================= */
 
 .button {
-    border-radius: 1em;
+    border: none;
     background-color: $pink;
     text-align: center;
     line-height: 2em;
@@ -11,4 +11,10 @@
     width: 100%;
     font-weight: 100;
     font-size: 1em;
+    color: $white;
+    border-radius: 1em;
+    
+    a {
+        color: $white;
+    }
 }

@@ -1473,10 +1473,9 @@ select {
   color: #FEFEFE;
   text-align: center; }
 
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="submit"] {
   width: 100%;
   height: 3.25rem;
-  line-height: 3.25rem;
   margin: .5em 0;
   padding: .5em;
   font-size: 1em;
@@ -1532,10 +1531,6 @@ input:focus, textarea:focus {
   flex: 1;
   display: inline-block;
   text-align: right; }
-  .login-side-menu .button {
-    display: block;
-    width: 8em;
-    margin: 0 0 0 auto; }
   .login-side-menu .register-text-link {
     width: 8em;
     text-align: center;
@@ -1586,14 +1581,18 @@ input:focus, textarea:focus {
    COMPONENTS / BUTTONS
    ================================= */
 .button {
-  border-radius: 1em;
+  border: none;
   background-color: #DC0E54;
   text-align: center;
   line-height: 2em;
   padding: .5em;
   width: 100%;
   font-weight: 100;
-  font-size: 1em; }
+  font-size: 1em;
+  color: #FEFEFE;
+  border-radius: 1em; }
+  .button a {
+    color: #FEFEFE; }
 
 /* =================================
    COMPONENTS / SLIDER
@@ -1783,7 +1782,8 @@ input:focus, textarea:focus {
     font-size: 3em;
     text-align: center;
     color: #FEFEFE;
-    line-height: 1.3em; }
+    line-height: 1.3em;
+    margin: 0; }
 
 .pnl--light-txt, .pnl-causes, .pnl-marketers, .pnl-marketing, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero {
   color: #FEFEFE; }
@@ -1798,8 +1798,7 @@ input:focus, textarea:focus {
   background-color: #DC0E54; }
   .pnl-hero .button {
     background-color: #441144;
-    color: #FEFEFE;
-    padding: .5em 2em; }
+    max-width: 50%; }
   .pnl-hero__container {
     display: flex;
     flex-direction: row;
@@ -1898,6 +1897,8 @@ input:focus, textarea:focus {
     position: absolute;
     z-index: 20;
     content: " "; }
+  .pnl-signup .button {
+    background: #441144; }
 
 .pnl-talkabout {
   background-color: #441144; }
