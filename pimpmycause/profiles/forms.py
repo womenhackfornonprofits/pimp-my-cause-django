@@ -1,7 +1,7 @@
 from django import forms
-from .models import Pimp_User
+from .models import PimpUser
 
 class RegistrationForm(forms.ModelForm):
     class Meta:
-        model = Pimp_User
+        model = PimpUser
         

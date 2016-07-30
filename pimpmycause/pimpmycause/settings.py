@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'profiles',
     'django_countries',
-    'registration'
+    'registration',
+    'custom_user',
+    'core'
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -126,6 +129,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'profiles.PimpUser'
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 

@@ -1,26 +1,69 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.contrib.auth.models import User
+from custom_user.models import AbstractEmailUser
 from django_countries.fields import CountryField
 
-# Create your models here.
-class Pimp_User(models.Model):
-    #main_user
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    #telephone
-    phone = models.CharField(max_length=15)
-    #country
-    country = CountryField()
-    #city
-    city = models.CharField(max_length=85)
-    #postcode
-    postcode = models.CharField(max_length=12)
-    #position
-    position = models.CharField(max_length=85)
-    #usertype
-    USERTYPE_CHOICES = (("MKTR","Marketer"),("CAUSE","Cause"))
-    usertype = models.CharField(max_length=8,choices=USERTYPE_CHOICES)
-    #twitter
-    twitter = models.CharField(max_length=30)
+class PimpUser(AbstractEmailUser):
+
+    MARKETER = 0
+    CAUSE = 1
+    USER_TYPE_CHOICES = (
+        (MARKETER, "Marketer"),
+        (CAUSE, "Cause")
+    )
+
+    ADVERTISING = 0
+    BRANDING = 1
+    BUSINESS_DEVELOPMENT = 2
+    CUSTOMER_INSIGHTS = 3
+    DIGITAL_MARKETING = 4
+    GRAPHIC_DESIGN = 5
+    INNOVATION = 6
+    MARKETING = 7
+    PHOTOGRAPHY = 8
+    PR = 9
+    SEO = 10
+    SOCIAL_MEDIA = 11
+    STRATEGIC_MARKETING = 12
+    VIDEOGRAPHY = 13
+    WEB_DEV = 14
+
+    QUALIFICATION_CHOICES = (
+        (ADVERTISING, "Advertising"),
+        (BRANDING, "Branding"),
+        (BUSINESS_DEVELOPMENT, "Business Development"),
+        (CUSTOMER_INSIGHTS, "Customer Insights"),
+        (DIGITAL_MARKETING, "Digital Marketing"),
+        (GRAPHIC_DESIGN, "Graphic Design"),
+        (INNOVATION, "Innovation"),
+        (MARKETING, "Marketing"),
+        (PHOTOGRAPHY, "Photography"),
+        (PR, "PR"),
+        (SEO, "SEO"),
+        (SOCIAL_MEDIA, "Social Media Marketing"),
+        (STRATEGIC_MARKETING, "Strategic Marketing"),
+        (VIDEOGRAPHY, "Videography"),
+        (WEB_DEV, "Web Development")
+    )
+
+    # basic info
+    name = models.CharField(max_length=24, blank=True)
+    surname = models.CharField(max_length=24, blank=True)
+    phone = models.CharField(max_length=15, blank=True)
+    country = CountryField(blank=True)
+    city = models.CharField(max_length=85, blank=True)
+    postcode = models.CharField(max_length=12, blank=True)
+
+    # professional info
+    position = models.CharField(max_length=100, blank=True)
+    usertype = models.CharField(max_length=8, choices=USER_TYPE_CHOICES, blank=True)
+    qualifications = models.CharField(max_length=8, choices=QUALIFICATION_CHOICES, blank=True)
+    experience = models.CharField(max_length=1000, blank=True)
+    bio = models.CharField(max_length=1000, blank=True)
+
+    # social accounts
+    twitter = models.URLField(max_length=100, blank=True)
+    linkedin = models.URLField(max_length=100, blank=True)
+    website = models.URLField(max_length=100, blank=True)
     
