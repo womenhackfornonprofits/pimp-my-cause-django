@@ -28,8 +28,12 @@
                 </ul>
             </nav>  
             <div class="large-1 login-side-menu"> 
-                <a href="/login" class="button round">Sign in</a>
-                <a href="/register" class="register-text-link">Not registered?</a>
+                {% if user.is_authenticated %}
+                    <p class="main-menu__username">{{ user.name }}</p>
+                {% else %}
+                    <a href="/login" class="button round">Sign in</a>
+                    <a href="accounts/register" class="register-text-link">Not registered?</a>
+                {% endif %}
             </div>
         </div>
     </header>

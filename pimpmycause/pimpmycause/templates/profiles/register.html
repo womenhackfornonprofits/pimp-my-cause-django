@@ -9,13 +9,14 @@
                 <div class="row"> 
                     <div class="large-12 medium-12 small -12 columns">
                         <form method="POST" action="">
+                            {% csrf_token %}
                             <div class="medium-6 large-6 small-12 large-centered small-centered columns">
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
-                                        <input type="text" name="fname" placeholder="First Name *" required>
+                                        <input type="text" name="name" placeholder="First Name *" required>
                                     </div>
                                     <div class="medium-6 large-6 small-12 columns">
-                                        <input type="text" name="sname" placeholder="Surname *" required>
+                                        <input type="text" name="surname" placeholder="Surname *" required>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -23,7 +24,7 @@
                                         <input type="email" name="email" placeholder="Email *" required>
                                     </div>
                                     <div class="medium-6 large-6 small-12 columns">
-                                        <input type="email" name="cemail" placeholder="Confirm Email *" required>
+                                        <input type="email" name="confirm_email" placeholder="Confirm Email *" required>
                                     </div>                            
                                 </div>
                                 <div class="row">
@@ -36,21 +37,21 @@
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
-                                        <input type="text" name="country" placeholder="Country" required>
+                                        <input type="text" name="country" placeholder="Country *" required>
                                     </div>
                                     <div class="medium-3 large-3 small-6 columns">
-                                        <input type="text" name="city" placeholder="City" required>
+                                        <input type="text" name="city" placeholder="City *" required>
                                     </div>
                                     <div class="medium-3 large-3 small-6 columns">
-                                        <input type="tel" name="phone" placeholder="Post Code *" required>
+                                        <input type="tel" name="postcode" placeholder="Post Code *" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
-                                        <input type="tel" name="phone" placeholder="Password *" required>
+                                        <input type="password" name="password1" placeholder="Password *" required>
                                     </div>
                                     <div class="medium-6 large-6 small-12 columns">
-                                        <input type="password" name="cpassword" placeholder="Confirm Password">
+                                        <input type="password" name="password2" placeholder="Confirm Password">
                                     </div>                            
                                 </div>
                                 <div class="row">
@@ -78,7 +79,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-4 small-6 columns">
-                                        <input class="button" type="submit" value="Submit">
+                                        <input class="button" type="submit" value="Register">
                                     </div>                                
                                 </div>
                             </div>                                
