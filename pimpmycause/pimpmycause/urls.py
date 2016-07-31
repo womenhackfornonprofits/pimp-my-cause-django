@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from core.views import HomepageView, ContactView, AboutView, MeetTheTeam
-from profiles.views import LoginView, RegistrationView
+from profiles.views import LoginView, RegistrationView, RegistrationComplete
 from profiles.forms import PimpUserRegistrationForm
 
 urlpatterns = [
@@ -27,7 +27,8 @@ urlpatterns = [
     url(r'^contact', ContactView.as_view(), name="contact"),
     url(r'^about', AboutView.as_view(), name="about"),
     url(r'^meet-the-team', MeetTheTeam.as_view(), name="team"),
-    #url(r'^accounts/', include('registration.backends.default.urls')),
-    url(r'accounts/register/$', RegistrationView.as_view(form_class=PimpUserRegistrationForm), name='registration_register'),
+    url(r'^accounts/register', RegistrationView.as_view(form_class=PimpUserRegistrationForm), name='registration_register'),
+    url(r'^accounts/registration-complete/', RegistrationComplete.as_view(), name='registration_complete'),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 
 ]

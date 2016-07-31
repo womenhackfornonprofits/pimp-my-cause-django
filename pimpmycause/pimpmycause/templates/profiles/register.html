@@ -10,61 +10,70 @@
                     <div class="large-12 medium-12 small -12 columns">
                         <form method="POST" action="">
                             {% csrf_token %}
+                            {{ form.non_field_errors }}
+                            {{ form.errors }}
+
                             <div class="medium-6 large-6 small-12 large-centered small-centered columns">
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
+                                        {{ form.name.errors }}
                                         <input type="text" name="name" placeholder="First Name *" required>
                                     </div>
                                     <div class="medium-6 large-6 small-12 columns">
+                                        {{ form.surname.errors }}
                                         <input type="text" name="surname" placeholder="Surname *" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
+                                        {{ form.email.errors }}
                                         <input type="email" name="email" placeholder="Email *" required>
-                                    </div>
-                                    <div class="medium-6 large-6 small-12 columns">
-                                        <input type="email" name="confirm_email" placeholder="Confirm Email *" required>
-                                    </div>                            
+                                    </div>                           
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
+                                        {{ form.phone.errors }}
                                         <input type="tel" name="phone" placeholder="Telephone *" required>
                                     </div>
                                     <div class="medium-6 large-6 small-12 columns">
-                                        <input type="text" name="twitter" placeholder="Twitter">
+                                        {{ form.twitter.errors }}
+                                        <input type="url" name="twitter" placeholder="Twitter">
                                     </div>                            
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
-                                        <input type="text" name="country" placeholder="Country *" required>
+                                        {{ form.country.errors }}
+                                        {{ form.country }}
                                     </div>
                                     <div class="medium-3 large-3 small-6 columns">
+                                        {{ form.city.errors }}
                                         <input type="text" name="city" placeholder="City *" required>
                                     </div>
                                     <div class="medium-3 large-3 small-6 columns">
-                                        <input type="tel" name="postcode" placeholder="Post Code *" required>
+                                        {{ form.postcode.errors }}
+                                        <input type="text" name="postcode" placeholder="Post Code *" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
-                                        <input type="password" name="password1" placeholder="Password *" required>
+                                        {{ form.password1.errors }}
+                                        {{ form.password1 }}
                                     </div>
                                     <div class="medium-6 large-6 small-12 columns">
-                                        <input type="password" name="password2" placeholder="Confirm Password">
+                                        {{ form.password2.errors }}
+                                        {{ form.password2 }}
                                     </div>                            
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
+                                        {{ form.position.errors }}
                                         <input type="text" name="city" placeholder="Current Position *" required>
                                     </div>      
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
-                                        <select class="custom-dropdown" name="usertype">
-                                            <option value="marketer">I am a Marketer</option> 
-                                            <option value="cause">I am a Cause</option>
-                                        </select>               
+                                        {{ form.usertype.errors }}
+                                        {{ form.usertype }}
                                     </div>                                
                                 </div>
                                 <div class="row">

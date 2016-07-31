@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 
+from registration.backends.default import views as registration_views
 from profiles.forms import PimpUserRegistrationForm
 
 
@@ -21,12 +22,11 @@ class RegistrationComplete(TemplateView):
     template_name = "registration/registration_complete.html"
 
 
-class RegistrationView(FormView):
+class RegistrationView(registration_views.RegistrationView):
+    """
+    The Registration view.
+    """
+
     template_name = 'profiles/register.html'
     form_class = PimpUserRegistrationForm
-    success_url = '/registration_complete/'
-
-    def form_valid(self, form):
-        # This method is called when valid form data has been POSTed.
-        # It should return an HttpResponse.
-        return super(RegistrationView, self).form_valid(form)
+    success_url = '/accounts/registration-complete/'

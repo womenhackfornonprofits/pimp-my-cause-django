@@ -57,7 +57,7 @@ class PimpUser(AbstractEmailUser):
 
     # professional info
     position = models.CharField(max_length=100, blank=True)
-    usertype = models.CharField(max_length=8, choices=USER_TYPE_CHOICES, blank=True)
+    usertype = models.IntegerField(choices=USER_TYPE_CHOICES, null=True)
     qualifications = models.CharField(max_length=8, choices=QUALIFICATION_CHOICES, blank=True)
     experience = models.CharField(max_length=1000, blank=True)
     bio = models.CharField(max_length=1000, blank=True)
