@@ -1,7 +1,14 @@
 from django import forms
-from .models import Pimp_User
 
-class RegistrationForm(forms.ModelForm):
-    class Meta:
-        model = Pimp_User
+from profiles.models import PimpUser
+from registration.forms import RegistrationForm
+
+class PimpUserRegistrationForm(RegistrationForm):
+	
+	class Meta:
+		model = PimpUser
+		fields = ('email','password1', 'password1', 'name', 'surname', 'phone', 'twitter', 'country',
+				 'city', 'postcode', 'usertype', 'position')
+
+
         

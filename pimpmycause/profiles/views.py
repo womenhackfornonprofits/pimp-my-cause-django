@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from django.views.generic.edit import FormView
+
+from registration.backends.default import views as registration_views
+from profiles.forms import PimpUserRegistrationForm
 
 
 # Create your views here.
@@ -10,13 +14,6 @@ class LoginView(TemplateView):
 
     template_name = "profiles/login.html"
 
-class RegistrationView(TemplateView):
-    """
-    The Login view.
-    """
-
-    template_name = "profiles/register.html"
-
 class RegistrationComplete(TemplateView):
     """
     The Registration Complete view.
@@ -24,4 +21,12 @@ class RegistrationComplete(TemplateView):
 
     template_name = "registration/registration_complete.html"
 
-    
+
+class RegistrationView(registration_views.RegistrationView):
+    """
+    The Registration view.
+    """
+
+    template_name = 'profiles/register.html'
+    form_class = PimpUserRegistrationForm
+    success_url = '/accounts/registration-complete/'

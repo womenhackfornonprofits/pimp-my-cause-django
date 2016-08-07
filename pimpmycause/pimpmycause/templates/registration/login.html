@@ -7,19 +7,21 @@
     <div class="page-login pnl">
 		<div class="content-wrap">
             <div class="row"> 
-                <div class="large-12 medium-12 small -12 columns">
+                <div class="large-12 medium-12 small-12 columns">
                     <h1 class="pnl__title">Log In</h1>
-                    <form method="POST" action="" class="medium-3 medium-centered columns">
-                    	{% csrf_token %}
-                    	{{ form }}
-                    	<div class="row">
-                            <div class="medium-6 medium-centered columns">
-                    			<input class="button round right" type="submit" value="Log in" />
-                    			<input type="hidden" name="next" value="{{ next }}" />
-                    			<a href="#">Forgot Password</a>
-                            </div>
+                        <div class="medium-6 large-3 small-12 large-centered small-centered columns">
+                        <div class="row">
+                    	   {% csrf_token %}
+                    	   {{ form.as_p }}
                         </div>
-                	</form>
+                        <div class="row">
+                            <a href="#">Forgot Password</a>                                
+                        </div>
+                        <div class="row">
+                            <input class="button round right" type="submit" value="Sign in">
+                            <a href="/accounts/register" class="underline txt-right">Not Registered? Start here</a>  
+                        </div>
+                	</div>
                 </div>
             </div>
         </div>
