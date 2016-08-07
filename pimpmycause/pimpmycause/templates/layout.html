@@ -31,8 +31,8 @@
                 {% if user.is_authenticated %}
                     <p class="main-menu__username">{{ user.email }}</p>
                 {% else %}
-                    <a href="accounts/login" class="button round">Sign in</a>
-                    <a href="accounts/register" class="register-text-link">Not registered?</a>
+                    <a href="/accounts/login" class="button round">Sign in</a>
+                    <a href="/accounts/register" class="register-text-link">Not registered?</a>
                 {% endif %}
             </div>
         </div>
