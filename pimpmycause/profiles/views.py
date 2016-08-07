@@ -30,3 +30,10 @@ class RegistrationView(registration_views.RegistrationView):
     template_name = 'profiles/register.html'
     form_class = PimpUserRegistrationForm
     success_url = '/accounts/registration-complete/'
+
+class ActivationComplete(TemplateView):
+    """
+    The Activation Complete view.
+    """
+
+    template_name = 'registration/activate_complete.html'
