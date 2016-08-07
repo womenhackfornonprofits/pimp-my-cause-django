@@ -10,5 +10,3 @@ class PimpUserRegistrationForm(RegistrationForm):
 		fields = ('email','password1', 'password1', 'name', 'surname', 'phone', 'twitter', 'country',
 				 'city', 'postcode', 'usertype', 'position')
 
-
-        

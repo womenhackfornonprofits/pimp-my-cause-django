@@ -16,18 +16,23 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from core.views import HomepageView, ContactView, AboutView, MeetTheTeam
+from core.views import HomepageView, ContactView, AboutView, MeetTheTeam, OurPartners, Partnerships, BecomeAPartner, WhoWeAre, HowItWorks
 from profiles.views import LoginView, RegistrationView, RegistrationComplete, ActivationComplete
 from profiles.forms import PimpUserRegistrationForm
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomepageView.as_view(), name="index"),
-    url(r'^login', LoginView.as_view(), name="login"),
-    url(r'^contact', ContactView.as_view(), name="contact"),
-    url(r'^about', AboutView.as_view(), name="about"),
+    url(r'^login/', LoginView.as_view(), name="login"),
+    url(r'^contact/', ContactView.as_view(), name="contact"),
+    url(r'^about/', AboutView.as_view(), name="about"),
     url(r'^meet-the-team', MeetTheTeam.as_view(), name="team"),
-    url(r'^accounts/register', RegistrationView.as_view(form_class=PimpUserRegistrationForm), name='registration_register'),
+    url(r'^who-we-are/', WhoWeAre.as_view(), name="who_we_are"),
+    url(r'^how-it-works/', HowItWorks.as_view(), name="how_it_works"),
+    url(r'^partnerships/', Partnerships.as_view(), name="partenrships"),
+    url(r'^become-a-partner/', BecomeAPartner.as_view(), name="become_a_partner"),
+    url(r'^our-partners/', OurPartners.as_view(), name="our_partners"),
+    url(r'^accounts/register/', RegistrationView.as_view(form_class=PimpUserRegistrationForm), name='registration_register'),
     url(r'^accounts/registration-complete/', RegistrationComplete.as_view(), name='registration_complete'),
     url(r'^accounts/activate/complete/', ActivationComplete.as_view(), name='activation_complete'),
     url(r'^accounts/', include('registration.backends.default.urls')),

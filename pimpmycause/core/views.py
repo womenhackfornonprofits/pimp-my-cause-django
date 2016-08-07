@@ -24,8 +24,42 @@ class AboutView(TemplateView):
     template_name = "core/about.html"
 
 
+class WhoWeAre(TemplateView):
+    """
+    The About Us View.
+    """
+    template_name = "core/who-we-are.html"
+
+
+
+class HowItWorks(TemplateView):
+    """
+    The About Us View.
+    """
+    template_name = "core/how-it-works.html"
+
+
+
 class MeetTheTeam(TemplateView):
     """
     Meet The Team View.
     """
     template_name = "core/team.html"
+
+class Partnerships(TemplateView):
+    """
+    Meet The Team View.
+    """
+    template_name = "core/partnerships.html"
+
+class OurPartners(TemplateView):
+    """
+    Meet The Team View.
+    """
+    template_name = "core/our-partners.html"
+
+class BecomeAPartner(TemplateView):
+    """
+    Meet The Team View.
+    """
+    template_name = "core/become-a-partner.html"

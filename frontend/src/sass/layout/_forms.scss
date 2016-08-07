@@ -5,11 +5,7 @@
 
 $input-txt-height: rem-calc(52);
 
-<<<<<<< HEAD
 input[type="text"], input[type="email"], input[type="password"], input[type="tel"],input[type="url"], select, textarea {
-=======
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="submit"] {
->>>>>>> master
     width: 100%;
     height: $input-txt-height;
     margin: .5em 0;
