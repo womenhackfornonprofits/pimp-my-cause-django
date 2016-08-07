@@ -3,13 +3,13 @@
     padding-bottom: 6em;
 
     &__title {
-        padding-top: rem-calc(50);
-        padding-bottom: rem-calc(20);
+        padding: 4rem;
         font-weight: 100;
         font-size: 3em;
         text-align: center;
         color: $white;
         line-height: 1.3em;
+        margin: 0;
     }   
 }
 
@@ -36,8 +36,7 @@
     // TO DO - needs refactor
     .button {
         background-color: $purple;
-        color: $white;
-        padding: .5em 2em;
+        max-width: 50%;
     }
 
     &__container {
@@ -115,7 +114,10 @@
     
     &:before {
         @include triangle (38, $colr-pnl-signup);
-    }    
+    }   
+    .button {
+        background: $purple;
+    } 
 }
 
 .pnl-talkabout {    
