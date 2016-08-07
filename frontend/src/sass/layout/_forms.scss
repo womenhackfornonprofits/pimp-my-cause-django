@@ -5,10 +5,9 @@
 
 $input-txt-height: rem-calc(52);
 
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="submit"] {
     width: 100%;
     height: $input-txt-height;
-    line-height: $input-txt-height;
     margin: .5em 0;
     padding: .5em;
     font-size: 1em;
