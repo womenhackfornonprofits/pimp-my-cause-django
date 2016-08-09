@@ -2,30 +2,64 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 
-# Create your views here.
 class HomepageView(TemplateView):
     """
-    The Homepage View.
+    Homepage view.
     """
     template_name = "index.html"
 
 
 class ContactView(TemplateView):
     """
-    The Contact Us View.
+    Contact Us view.
     """
     template_name = "core/contact.html"
 
 
 class AboutView(TemplateView):
     """
-    The About Us View.
+    About Us view.
     """
     template_name = "core/about.html"
 
 
+class WhoWeAre(TemplateView):
+    """
+    Who We Are view.
+    """
+    template_name = "core/who-we-are.html"
+
+
+class HowItWorks(TemplateView):
+    """
+    How it works view.
+    """
+    template_name = "core/how-it-works.html"
+
+
 class MeetTheTeam(TemplateView):
     """
-    Meet The Team View.
+    Meet The Team view.
     """
     template_name = "core/team.html"
+
+
+class Partnerships(TemplateView):
+    """
+    Partnerships view.
+    """
+    template_name = "core/partnerships.html"
+
+
+class OurPartners(TemplateView):
+    """
+    Our Partners view.
+    """
+    template_name = "core/our-partners.html"
+
+
+class BecomeAPartner(TemplateView):
+    """
+    Become A Partner view.
+    """
+    template_name = "core/become-a-partner.html"

@@ -2,9 +2,13 @@
    PAGES / CONTACT 
    ================================= */
 
-.page-contact {
+.page-contact,
+.page-about,
+.page-login,
+.page-register 
+{
     @extend .pnl--dark-txt;
-    background-color: $grey;
+    background-color: $white;
     padding-bottom: 6em;
     .pnl__title {
     	color: $purple;
