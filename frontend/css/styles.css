@@ -2031,6 +2031,14 @@ input:focus, textarea:focus {
   .page-team .pnl__title {
     color: #441144; }
 
+.team__individual-wrapper {
+  text-align: center;
+  margin-top: 75px; }
+.team__individual {
+  margin: 1em 0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.09);
+  background-color: #E1E0E7;
+  flex: 1; }
 .team__individual-name {
   color: #DC0E54; }
 .team__individual-role {
@@ -2041,10 +2049,13 @@ input:focus, textarea:focus {
   vertical-align: top;
   padding: 0 1em; }
   .team__individual-bio p {
-    margin-top: 0; }
+    margin-top: 0;
+    text-align: left; }
 .team__individual-img {
   display: inline-block;
-  vertical-align: top; }
+  vertical-align: top;
+  width: 150px;
+  margin-top: -75px; }
 
 body {
   font-family: "Open Sans", sans-serif;
