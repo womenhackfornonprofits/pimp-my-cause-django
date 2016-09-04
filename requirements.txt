@@ -5,4 +5,5 @@ psycopg2==2.6.1
 whitenoise==3.1
 django-custom-user==0.6
 wsgiref==0.1.2
+django-s3direct==0.4.2
 django-registration-redux==1.4

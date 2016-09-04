@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 from custom_user.models import AbstractEmailUser
 from django_countries.fields import CountryField
+from s3direct.fields import S3DirectField
 
 class PimpUser(AbstractEmailUser):
 
@@ -66,4 +67,7 @@ class PimpUser(AbstractEmailUser):
     twitter = models.URLField(max_length=100, blank=True)
     linkedin = models.URLField(max_length=100, blank=True)
     website = models.URLField(max_length=100, blank=True)
+
+    image = S3DirectField(dest='user-profile-images', blank=True)
+
     

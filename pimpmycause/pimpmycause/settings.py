@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'profiles',
+    's3direct',
     'django_countries',
     'custom_user',
     'core'
@@ -164,3 +165,19 @@ REGISTRATION_EMAIL_HTML = True
 REGISTRATION_AUTO_LOGIN = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# User image uploads to S3 bucket
+# AWS keys
+AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
+AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
+AWS_STORAGE_BUCKET_NAME = "pimpmycause-images"
+S3DIRECT_REGION = 'eu-west-1'
+
+S3DIRECT_DESTINATIONS = {
+    # Limit uploads to jpeg's and png's.
+    'user-profile-images': {
+        'key': 'uploads/imgs',
+        'allowed': ['image/jpeg', 'image/png'],
+        'cache_control': 'max-age=2592000',
+    },
+}
