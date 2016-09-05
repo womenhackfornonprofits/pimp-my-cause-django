@@ -3,7 +3,7 @@
 ## Making changes
 
 #### Updating CSS
-1. Run `grunt watch`. Grunt will auto-compile to CSS as you make changes
+1. Run `grunt watch`. Grunt will auto-compile Sass to CSS as you make changes
 2. Reload the webpage to view changes
 
 #### Building
