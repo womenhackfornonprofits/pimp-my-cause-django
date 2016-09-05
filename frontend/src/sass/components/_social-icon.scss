@@ -1,0 +1,18 @@
+/* =================================
+   COMPONENTS / SOCIAL ICONS
+   ================================= */
+
+.social-icon {
+  path {
+    transition: fill 0.2s ease-in-out;
+    fill: $white;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    path {
+      fill: $grey;
+    }
+  }
+}

@@ -1763,6 +1763,15 @@ input:focus, textarea:focus {
     color: #FEFEFE;
     font-weight: bold; }
 
+/* =================================
+   COMPONENTS / SOCIAL ICONS
+   ================================= */
+.social-icon path {
+  transition: fill 0.2s ease-in-out;
+  fill: #FEFEFE; }
+.social-icon:hover path, .social-icon:active path, .social-icon:focus path {
+  fill: #E1E0E7; }
+
 .pnl, .pnl-causes, .pnl-marketers, .pnl-marketing, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero, .pnl-summary {
   position: relative;
   padding-bottom: 6em; }
