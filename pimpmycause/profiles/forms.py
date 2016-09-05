@@ -10,3 +10,9 @@ class PimpUserRegistrationForm(RegistrationForm):
 		fields = ('email','password1', 'password1', 'name', 'surname', 'phone', 'twitter', 'country',
 				 'city', 'postcode', 'usertype', 'position')
 
+
+class PimpUserProfileForm(forms.ModelForm):
+
+	class Meta:
+		model = PimpUser
+		fields = ('bio', 'linkedin', 'website')
