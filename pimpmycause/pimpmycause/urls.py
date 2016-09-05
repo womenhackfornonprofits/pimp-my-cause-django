@@ -36,6 +36,7 @@ urlpatterns = [
     url(r'^accounts/registration-complete/', RegistrationComplete.as_view(), name='registration_complete'),
     url(r'^accounts/activate/complete/', ActivationComplete.as_view(), name='activation_complete'),
     url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^s3direct/', include('s3direct.urls')),
     url(r'^accounts/profile/', profile_update, name='profile_update'),
 
 ]
