@@ -7,6 +7,7 @@ module.exports = function(grunt) {
 
 grunt.initConfig({
 	pkg: grunt.file.readJSON('package.json'),
+
 	//------- CSS Minify -------//
 	cssmin: {
 		combine: {
@@ -15,6 +16,7 @@ grunt.initConfig({
 		  }
 		}
 	},
+
 	//------- SASS -------//
 	sass: {
 		dist: {
@@ -23,47 +25,53 @@ grunt.initConfig({
 			}
 		}
 	},
+
 	//------- Watch SASS -> CSS -------//
 	watch: {
 		sass: {
 		  files: 'src/sass/**/**.scss',
-		  tasks: ['sass']
+		  tasks: ['sass', 'cssmin']
 		}
 	},
+
 	jspaths: {
-        src: {
-                js: 'src/**/**.js'
-            },
-            dest: {
-                jsMin: '../pimpmycause/static/scripts/pimpmycause.min.js'
-            }
-        },
-    uglify: {
-        options: {
-            compress: true,
-            mangle: true,
-            sourceMap: true
-        },
-        target: {
-            src: '<%= jspaths.src.js %>',
-            dest: '<%= jspaths.dest.jsMin %>'
-        }
+    src: {
+      js: 'src/**/**.js'
     },
-    copy: {
-        img: {
-            files: [{
-                expand: true,
-                nonull: true,
-                cwd: 'src/img',
-                src: ['*.{png,jpg,jpeg,svg,gif}'],
-                dest: '../pimpmycause/static/img/',
-                filter: 'isFile'
-            }, ]
-        }
+    dest: {
+      jsMin: '../pimpmycause/static/scripts/pimpmycause.min.js'
+    }
+  },
+
+  //------- JS Minify ------//
+  uglify: {
+    options: {
+      compress: true,
+      mangle: true,
+      sourceMap: true
     },
-        
+    target: {
+      src: '<%= jspaths.src.js %>',
+      dest: '<%= jspaths.dest.jsMin %>'
+    }
+  },
+
+  //------- copy remaining static files ------//
+  copy: {
+    img: {
+      files: [{
+        expand: true,
+        nonull: true,
+        cwd: 'src/img',
+        src: ['*.{png,jpg,jpeg,svg,gif}'],
+        dest: '../pimpmycause/static/img/',
+        filter: 'isFile'
+      }, ]
+    }
+  },
+
 });
 
-    grunt.registerTask('default', ['sass', 'cssmin', 'uglify']);
+  grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'copy']);
 
 };
