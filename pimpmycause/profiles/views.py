@@ -5,7 +5,8 @@ from django.contrib.auth.decorators import login_required
 
 from registration.backends.default import views as registration_views
 from profiles.forms import PimpUserRegistrationForm, PimpUserProfileForm
-# Create your views here.
+
+
 class LoginView(TemplateView):
     """
     The Login view.
@@ -37,15 +38,6 @@ class ActivationComplete(TemplateView):
     """
 
     template_name = 'registration/activate_complete.html'
-
-
-# class EditProfileView(UpdateView):
-#     """
-#     The Profile Edit view.
-#     """
-
-#     form_class = PimpUserProfileForm
-#     template_name = 'profiles/profile.html'
 
 
 @login_required 
