@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from core.views import HomepageView, ContactView, AboutView, MeetTheTeam, OurPartners, Partnerships, BecomeAPartner, WhoWeAre, HowItWorks
-from profiles.views import LoginView, RegistrationView, RegistrationComplete, ActivationComplete
+from profiles.views import LoginView, RegistrationView, RegistrationComplete, ActivationComplete, profile_update
 from profiles.forms import PimpUserRegistrationForm
 
 urlpatterns = [
@@ -37,4 +37,6 @@ urlpatterns = [
     url(r'^accounts/activate/complete/', ActivationComplete.as_view(), name='activation_complete'),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^s3direct/', include('s3direct.urls')),
+    url(r'^accounts/profile/', profile_update, name='profile_update'),
+
 ]

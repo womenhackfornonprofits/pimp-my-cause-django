@@ -14,6 +14,28 @@ class PimpUser(AbstractEmailUser):
         (CAUSE, "Cause")
     )
 
+    # basic info
+    name = models.CharField(max_length=24, blank=True)
+    surname = models.CharField(max_length=24, blank=True)
+    phone = models.CharField(max_length=15, blank=True)
+    country = CountryField(blank=True)
+    city = models.CharField(max_length=85, blank=True)
+    postcode = models.CharField(max_length=12, blank=True)
+
+    # professional info
+    position = models.CharField(max_length=100, blank=True)
+    usertype = models.IntegerField(choices=USER_TYPE_CHOICES, null=True)
+    bio = models.CharField(max_length=1000, blank=True)
+
+    # social accounts
+    twitter = models.URLField(max_length=100, blank=True)
+    linkedin = models.URLField(max_length=100, blank=True)
+    website = models.URLField(max_length=100, blank=True)
+    
+    image = S3DirectField(dest='user-profile-images', blank=True)
+
+class MarketerProfile(models.Model):
+    
     ADVERTISING = 0
     BRANDING = 1
     BUSINESS_DEVELOPMENT = 2
@@ -48,26 +70,22 @@ class PimpUser(AbstractEmailUser):
         (WEB_DEV, "Web Development")
     )
 
-    # basic info
-    name = models.CharField(max_length=24, blank=True)
-    surname = models.CharField(max_length=24, blank=True)
-    phone = models.CharField(max_length=15, blank=True)
-    country = CountryField(blank=True)
-    city = models.CharField(max_length=85, blank=True)
-    postcode = models.CharField(max_length=12, blank=True)
+    profile = models.ForeignKey(
+        PimpUser,
+        limit_choices_to={'usertype': PimpUser.CAUSE }
+    )
 
-    # professional info
-    position = models.CharField(max_length=100, blank=True)
-    usertype = models.IntegerField(choices=USER_TYPE_CHOICES, null=True)
     qualifications = models.CharField(max_length=8, choices=QUALIFICATION_CHOICES, blank=True)
     experience = models.CharField(max_length=1000, blank=True)
-    bio = models.CharField(max_length=1000, blank=True)
 
-    # social accounts
-    twitter = models.URLField(max_length=100, blank=True)
-    linkedin = models.URLField(max_length=100, blank=True)
-    website = models.URLField(max_length=100, blank=True)
 
-    image = S3DirectField(dest='user-profile-images', blank=True)
+class CauseProfile(models.Model):
+
+    profile = models.ForeignKey(
+        PimpUser,
+        limit_choices_to={'usertype': PimpUser.CAUSE }
+    )
+
+    mission = models.CharField(max_length=1000, blank=True)
 
     

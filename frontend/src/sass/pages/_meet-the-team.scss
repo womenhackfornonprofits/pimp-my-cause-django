@@ -2,6 +2,8 @@
    PAGES / MEET THE TEAM 
    ================================= */
 
+$team-individual-img-height: 150px;
+
 .page-team {
     @extend .pnl--dark-txt;
     background-color: $pink;
@@ -13,7 +15,19 @@
 }
 
 .team {
+	
 
+	&__individual-wrapper {
+		text-align: center;
+		margin-top: $team-individual-img-height/2;
+
+	}
+
+	&__individual {
+		margin: 1em 0;
+		box-shadow: 0 1px 1px rgba(66, 57, 57, 0.26);
+		background-color: #F2F2F2;
+	}
 	&__individual-name {
 		color: $pink;
 	}
@@ -30,12 +44,14 @@
 
 		p {
 			margin-top: 0;
+			text-align: left;
 		}
 	}
 
 	&__individual-img {
 		display: inline-block;
 		vertical-align: top;
-
+		width: $team-individual-img-height;
+		margin-top: -$team-individual-img-height/2;
 	}
 }
