@@ -71,7 +71,7 @@
 
 	`python manage.py runserver`
 
-  If you get a `KeyError: 'AWS_ACCESS_KEY_ID'` error at this point, you'll need to export the AWS bucket keys. Please ask an admin if you don't have these already.
+  If you get a `KeyError: 'AWS_ACCESS_KEY_ID'` error at this point, you'll need to set up local environment variables for the AWS bucket keys. Please ask an admin if you don't have these already.
 
 3. The project is now running on [http://127.0.0.1:8000/](http://127.0.0.1:8000/), go to that address in your browser.
 
