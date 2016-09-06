@@ -6,7 +6,7 @@
         <div class="content-wrap">
             <a href="/" class="large-2 logo-container ">
                 <img class="logo" src="{% static "img/logo.png" %}"/>
-            </a> 
+            </a>
             <nav class="main-menu">
                 <ul class="">
                     <li class="has-dropdown"><a href="/about">About Us</a>
@@ -26,11 +26,14 @@
                     </li>
                     <li><a href="/contact">Contact Us</a></li>
                 </ul>
-            </nav>  
-            <div class="large-1 login-side-menu"> 
+            </nav>
+            <div class="large-1 login-side-menu">
                 {% if user.is_authenticated %}
                     <p class="main-menu__username">{{ user.email }}</p>
                 {% else %}
+                    <a href="#" target="_blank">{% include "icons/linkedin.svg" %}</a>
+                    <a href="#" target="_blank">{% include "icons/facebook.svg" %}</a>
+                    <a href="#" target="_blank">{% include "icons/twitter.svg" %}</a>
                     <a href="/accounts/login" class="button round">Sign in</a>
                     <a href="/accounts/register" class="register-text-link">Not registered?</a>
                 {% endif %}
@@ -42,4 +45,3 @@
 
 
 {% endblock %}
-
