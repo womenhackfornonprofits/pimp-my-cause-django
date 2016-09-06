@@ -1521,6 +1521,11 @@ input:focus, textarea:focus {
     width: 8em;
     text-align: center;
     font-size: .7em; }
+  .login-side-menu .social-icon {
+    margin-left: 0.25em; }
+  .login-side-menu .button {
+    margin-top: 0.5em;
+    margin-bottom: 0.25em; }
 
 /* =================================
    LAYOUT / NAV
@@ -1766,11 +1771,15 @@ input:focus, textarea:focus {
 /* =================================
    COMPONENTS / SOCIAL ICONS
    ================================= */
-.social-icon path {
-  transition: fill 0.2s ease-in-out;
-  fill: #FEFEFE; }
-.social-icon:hover path, .social-icon:active path, .social-icon:focus path {
-  fill: #E1E0E7; }
+.social-icon {
+  display: block;
+  width: 20px;
+  height: 20px; }
+  .social-icon path {
+    transition: fill 0.2s ease-in-out;
+    fill: #FEFEFE; }
+  .social-icon:hover path, .social-icon:active path, .social-icon:focus path {
+    fill: #E1E0E7; }
 
 .pnl, .pnl-causes, .pnl-marketers, .pnl-marketing, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero, .pnl-summary {
   position: relative;
