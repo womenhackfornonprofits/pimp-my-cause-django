@@ -1,4 +1,4 @@
-from fashrevwall.settings import *
+from pimpmycause.settings import *
 import dj_database_url
 
 DEBUG = False
