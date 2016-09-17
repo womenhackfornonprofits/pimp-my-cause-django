@@ -35,6 +35,13 @@ class ActivationComplete(TemplateView):
 
     template_name = 'registration/activate_complete.html'
 
+class TermsAndConditions(TemplateView):
+    """
+    The Activation Complete view.
+    """
+
+    template_name = 'core/terms_and_conditions.html'
+
 
 def logout_view(request):
     logout(request)
