@@ -10,13 +10,6 @@ from registration.backends.default import views as registration_views
 from profiles.forms import PimpUserRegistrationForm, PimpUserProfileForm
 
 
-class LoginView(TemplateView):
-    """
-    The Login view.
-    """
-
-    template_name = "profiles/login.html"
-
 class RegistrationComplete(TemplateView):
     """
     The Registration Complete view.
@@ -47,8 +40,7 @@ def logout_view(request):
     logout(request)
 
     return HttpResponseRedirect("/")
-
-
+    
 
 @login_required 
 def profile_update(request):
