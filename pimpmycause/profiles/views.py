@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView, UpdateView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+from django.http import HttpResponseRedirect
+
 
 from registration.backends.default import views as registration_views
 from profiles.forms import PimpUserRegistrationForm, PimpUserProfileForm
@@ -38,6 +41,13 @@ class ActivationComplete(TemplateView):
     """
 
     template_name = 'registration/activate_complete.html'
+
+
+def logout_view(request):
+    logout(request)
+
+    return HttpResponseRedirect("/")
+
 
 
 @login_required 
