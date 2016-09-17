@@ -32,9 +32,10 @@
 
     .dropdown {
         display: none;
-        position: fixed;
+        position: absolute;
         margin-left: -.5em; 
         z-index:21;
+        
         li {
             display: block;
             text-align: left;
