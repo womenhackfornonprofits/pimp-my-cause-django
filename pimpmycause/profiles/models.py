@@ -33,6 +33,7 @@ class PimpUser(AbstractEmailUser):
     website = models.URLField(max_length=100, blank=True)
     
     image = S3DirectField(dest='user-profile-images', blank=True)
+    featured = models.BooleanField(default=True)
 
 class MarketerProfile(models.Model):
     
