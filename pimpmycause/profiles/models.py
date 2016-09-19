@@ -77,7 +77,7 @@ class MarketerProfile(models.Model):
 
     qualifications = models.CharField(max_length=8, choices=QUALIFICATION_CHOICES, blank=True)
     experience = models.CharField(max_length=1000, blank=True)
-
+    availability = models.BooleanField(default=True)
 
 class CauseProfile(models.Model):
 
