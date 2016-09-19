@@ -31,11 +31,12 @@ class PimpUser(AbstractEmailUser):
     twitter = models.URLField(max_length=100, blank=True)
     linkedin = models.URLField(max_length=100, blank=True)
     website = models.URLField(max_length=100, blank=True)
-    
+
     image = S3DirectField(dest='user-profile-images', blank=True)
+    featured = models.BooleanField(default=False)
 
 class MarketerProfile(models.Model):
-    
+
     ADVERTISING = 0
     BRANDING = 1
     BUSINESS_DEVELOPMENT = 2
@@ -87,5 +88,3 @@ class CauseProfile(models.Model):
     )
 
     mission = models.CharField(max_length=1000, blank=True)
-
-    
