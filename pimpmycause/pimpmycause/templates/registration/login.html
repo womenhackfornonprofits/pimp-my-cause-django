@@ -10,17 +10,19 @@
                 <div class="large-12 medium-12 small-12 columns">
                     <h1 class="pnl__title">Log In</h1>
                         <div class="medium-6 large-3 small-12 large-centered small-centered columns">
-                        <div class="row">
-                    	   {% csrf_token %}
-                    	   {{ form.as_p }}
-                        </div>
-                        <div class="row">
-                            <a href="#">Forgot Password</a>                                
-                        </div>
-                        <div class="row">
-                            <input class="button round right" type="submit" value="Sign in">
-                            <a href="/accounts/register" class="underline txt-right">Not Registered? Start here</a>  
-                        </div>
+                        <form method="POST" action="">
+                            <div class="row">
+                        	   {% csrf_token %}
+                        	   {{ form.as_p }}
+                            </div>
+                            <div class="row">
+                                <a href="#">Forgot Password</a>                                
+                            </div>
+                            <div class="row">
+                                <input class="button round right" type="submit" value="Sign in">
+                                <a href="/accounts/register" class="underline txt-right">Not Registered? Start here</a>
+                            </div>
+                        </form>
                 	</div>
                 </div>
             </div>
