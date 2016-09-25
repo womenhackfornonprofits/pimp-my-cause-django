@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from core.views import HomepageView, ContactView, AboutView, MeetTheTeam, OurPartners, Partnerships, BecomeAPartner, WhoWeAre, HowItWorks
-from profiles.views import RegistrationView, RegistrationComplete, ActivationComplete, profile_update, TermsAndConditions, logout_view, LoginView
+from profiles.views import RegistrationView, RegistrationComplete, ActivationComplete, profile_update, TermsAndConditions, logout_view
 from profiles.forms import PimpUserRegistrationForm
 
 urlpatterns = [
