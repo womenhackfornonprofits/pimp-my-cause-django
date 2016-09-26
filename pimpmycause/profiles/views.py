@@ -7,7 +7,8 @@ from django.http import HttpResponseRedirect
 
 
 from registration.backends.default import views as registration_views
-from profiles.forms import PimpUserRegistrationForm, PimpUserProfileForm
+from profiles.forms import PimpUserRegistrationForm, PimpUserProfileForm, MarketerProfileForm, S3DirectUploadForm
+from s3direct.widgets import S3DirectWidget
 
 
 class RegistrationComplete(TemplateView):
@@ -53,14 +54,16 @@ def logout_view(request):
 def profile_update(request):
     if request.method == 'POST':
         profile_update_form = PimpUserProfileForm(request.POST, instance=request.user)
-        
+        profile_image_upload_form = S3DirectUploadForm(request.POST)
+
         if profile_update_form.is_valid():
             user_details = profile_update_form.save(commit=False)
             user_details.user = request.user
-            user_details.save(update_fields=["bio", "website", "linkedin"])
+            user_details.save(update_fields=["bio", "website", "linkedin", "twitter", "name", "surname", "phone", "image"])
             return redirect('profile_update')
     else:
         profile_update_form = PimpUserProfileForm(instance=request.user)
+        profile_image_upload_form = S3DirectUploadForm()
 
     context = {'profile_update_form': profile_update_form}
 

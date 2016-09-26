@@ -1,7 +1,9 @@
 from django import forms
 
-from profiles.models import PimpUser
+from profiles.models import PimpUser, MarketerProfile
 from registration.forms import RegistrationForm
+from s3direct.widgets import S3DirectWidget
+
 
 class PimpUserRegistrationForm(RegistrationForm):
 	
@@ -15,4 +17,16 @@ class PimpUserProfileForm(forms.ModelForm):
 
 	class Meta:
 		model = PimpUser
-		fields = ('bio', 'linkedin', 'website')
+		fields = ('bio', 'linkedin', 'website', 'twitter', 'name', 'surname', 'phone', 'image')
+
+
+class MarketerProfileForm(forms.ModelForm):
+
+	class Meta:
+		model = MarketerProfile
+		fields = ('experience', 'availability', 'qualifications')
+
+
+class S3DirectUploadForm(forms.Form):
+
+    images = forms.URLField(widget=S3DirectWidget(dest='user-profile-images'))

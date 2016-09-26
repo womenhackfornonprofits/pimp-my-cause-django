@@ -5,13 +5,27 @@
 
 $input-txt-height: rem-calc(52);
 
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"],input[type="url"], select, textarea {
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="tel"],
+input[type="url"], 
+select {
     width: 100%;
     height: $input-txt-height;
     margin: .5em 0;
 	padding: 0 .5em;
     font-size: 1em;
     font-weight: 100;
+}
+
+textarea {
+    width: 100%;
+    margin: .5em 0;
+	padding: 0 .5em;
+    font-size: 1em;
+    font-weight: 100;
+    text-align: left;
 }
 
 select {
@@ -21,11 +35,11 @@ select {
 	border-radius: 0;
 }
 
-input:focus, textarea:focus {
+// input:focus, textarea:focus {
     
-    background: $purple;
-    color: $white;
-}
+//     background: $purple;
+//     color: $white;
+// }
 
 
 
