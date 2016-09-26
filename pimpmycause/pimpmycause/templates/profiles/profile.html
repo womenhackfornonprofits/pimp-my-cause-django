@@ -24,6 +24,9 @@
                                         {{ profile_update_form.image.errors }}
                                         <img src="{{profile_update_form.image.value}}" alt="Profile Image">
                                         <label for="image"> Change profile picture </label>
+                                        {{ profile_image_upload_form.media }}
+                                        {{ profile_image_upload_form.as_p }}
+
                                     </div>
                                     <div class="small-12 columns">
                                         {{ profile_update_form.name.errors }}

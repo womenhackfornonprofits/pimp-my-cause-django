@@ -29,4 +29,4 @@ class MarketerProfileForm(forms.ModelForm):
 
 class S3DirectUploadForm(forms.Form):
 
-    images = forms.URLField(widget=S3DirectWidget(dest='user-profile-images'))
+    image = forms.URLField(widget=S3DirectWidget(dest='user-profile-images'))

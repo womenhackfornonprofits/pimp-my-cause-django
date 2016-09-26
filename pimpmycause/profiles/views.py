@@ -36,6 +36,7 @@ class ActivationComplete(TemplateView):
 
     template_name = 'registration/activate_complete.html'
 
+
 class TermsAndConditions(TemplateView):
     """
     The Activation Complete view.
@@ -48,24 +49,27 @@ def logout_view(request):
     logout(request)
 
     return HttpResponseRedirect("/")
-    
 
-@login_required 
+
+@login_required
 def profile_update(request):
     if request.method == 'POST':
-        profile_update_form = PimpUserProfileForm(request.POST, instance=request.user)
+        profile_update_form = PimpUserProfileForm(request.POST,
+                                                  instance=request.user)
         profile_image_upload_form = S3DirectUploadForm(request.POST)
 
-        if profile_update_form.is_valid():
+        if (profile_update_form.is_valid() & profile_image_upload_form.is_valid()):
             user_details = profile_update_form.save(commit=False)
             user_details.user = request.user
-            user_details.save(update_fields=["bio", "website", "linkedin", "twitter", "name", "surname", "phone", "image"])
+            user_details.save(update_fields=["bio", "website", "linkedin",
+                                             "twitter", "name", "surname",
+                                             "phone", "image"])
             return redirect('profile_update')
     else:
         profile_update_form = PimpUserProfileForm(instance=request.user)
         profile_image_upload_form = S3DirectUploadForm()
 
-    context = {'profile_update_form': profile_update_form}
+    context = {'profile_update_form': profile_update_form,
+               'profile_image_upload_form': profile_image_upload_form}
 
     return render(request, 'profiles/profile.html', context)
-
