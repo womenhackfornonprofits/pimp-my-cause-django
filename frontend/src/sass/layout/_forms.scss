@@ -17,6 +17,10 @@ select {
 	padding: 0 .5em;
     font-size: 1em;
     font-weight: 100;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 }
 
 textarea {
@@ -26,6 +30,10 @@ textarea {
     font-size: 1em;
     font-weight: 100;
     text-align: left;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 }
 
 select {
