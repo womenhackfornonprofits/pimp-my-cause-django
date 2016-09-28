@@ -26,7 +26,7 @@ select {
 textarea {
     width: 100%;
     margin: .5em 0;
-	padding: 0 .5em;
+	padding: .5em;
     font-size: 1em;
     font-weight: 100;
     text-align: left;
@@ -46,11 +46,5 @@ select {
 .errorlist {
     display: none;
 }
-// input:focus, textarea:focus {
-    
-//     background: $purple;
-//     color: $white;
-// }
-
 
 
