@@ -34,4 +34,16 @@
 
 .js .s3direct {
   display: block;
+  margin: 10px;
+  text-align: center;
+}
+
+.file-remove {
+    display: none !important;
+}
+
+.file-link {
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 100%;
 }
