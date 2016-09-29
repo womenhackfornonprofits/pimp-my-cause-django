@@ -20,11 +20,11 @@ class PimpUserProfileForm(forms.ModelForm):
 		fields = ('bio', 'linkedin', 'website', 'twitter', 'name', 'surname', 'phone', 'image')
 
 
-class MarketerProfileForm(forms.ModelForm):
+# class MarketerProfileForm(forms.ModelForm):
 
-	class Meta:
-		model = MarketerProfile
-		fields = ('experience', 'availability', 'qualifications')
+# 	class Meta:
+# 		model = MarketerProfile
+# 		fields = ('experience', 'availability', 'qualifications')
 
 
 class S3DirectUploadForm(forms.Form):
