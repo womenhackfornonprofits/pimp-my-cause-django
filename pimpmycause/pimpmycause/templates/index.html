@@ -25,65 +25,73 @@
                                         
                     <div class="pnl-hero__cubes large-6 medium-6 small-12 columns">
                         <div class="cube-row">
-                            <div class="cube-wrapper" onclick="location.href='#';" style="cursor: pointer;">
-                                <div class="cube flip-to-top">
-                                    <div class="default-state"> <!-- front facing div to start -->
-                                        <div class="img-wrapper">
-                                            <img src=" {% static "img/cube1-marketer-pic.png" %}" alt="Image of Marketer">
-                                        </div>
-                                    </div> <!-- end default-state --> 
-                                    <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
-                                        <img src=" {% static "img/cube1-marketer-icon.png" %}" alt="Logo for Marketer"> 
-                                        <h3>FIND A MARKETER</h3>
-                                    </div> 
-                                </div> <!-- end cube flip-to-top-->
-                            </div> <!-- end cube-wrapper -->
+                            <a href="#">
+                                <div class="cube-wrapper">
+                                    <div class="cube flip-to-top">
+                                        <div class="default-state"> <!-- front facing div to start -->
+                                            <div class="img-wrapper">
+                                                <img src=" {% static "img/cube1-marketer-pic.png" %}" alt="Image of Marketer">
+                                            </div>
+                                        </div> <!-- end default-state --> 
+                                        <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
+                                            <img src=" {% static "img/cube1-marketer-icon.png" %}" alt="Logo for Marketer"> 
+                                            <h3>FIND A MARKETER</h3>
+                                        </div> 
+                                    </div> <!-- end cube flip-to-top-->
+                                </div> <!-- end cube-wrapper -->
+                            </a><!-- end link -->
                             
                             <!-- CUBE top right - Story -->
-                            <div class="cube-wrapper"  onclick="location.href='/who-we-are';" style="cursor: pointer;">
-                                <div class="cube flip-to-top">
-                                    <div class="default-state cube-icon-txt"> <!-- front facing div to start -->
-                                        <img src=" {% static "img/cube2-story-icon.png" %}" alt="Logo for Story">
-                                        <h3>OUR STORY</h3>
-                                    </div>  
-                                    <div class="active-state"> <!-- Step 1: move div to top side of cube -->
-                                        <div class="img-wrapper">
-                                            <img src=" {% static "img/cube2-story-pic.png" %}" alt="Image of Story">
+                            <a href="/who-we-are">
+                                <div class="cube-wrapper">
+                                    <div class="cube flip-to-top">
+                                        <div class="default-state cube-icon-txt"> <!-- front facing div to start -->
+                                            <img src=" {% static "img/cube2-story-icon.png" %}" alt="Logo for Story">
+                                            <h3>OUR STORY</h3>
+                                        </div>  
+                                        <div class="active-state"> <!-- Step 1: move div to top side of cube -->
+                                            <div class="img-wrapper">
+                                                <img src=" {% static "img/cube2-story-pic.png" %}" alt="Image of Story">
+                                            </div>
                                         </div>
-                                    </div>
-                                </div> <!-- end cube flip-to-top -->        
-                            </div> <!-- end cube-wrapper -->
+                                    </div> <!-- end cube flip-to-top -->        
+                                </div> <!-- end cube-wrapper -->
+                            </a><!-- end link -->
                         </div> <!-- end cube-row - top row -->
 
                         <!-- BOTTOM ROW -->
                         <div class="cube-row">
-                            <div class="cube-wrapper"  onclick="location.href='#';" style="cursor: pointer;">
-                                <div class="cube flip-to-top">
-                                    <div class="default-state cube-icon-txt"> <!-- front facing div to start -->
-                                        <img src=" {% static "img/cube3-news-icon.png" %}" alt="Logo for News">
-                                        <h3>NEWS</h3>
-                                    </div> <!-- end default-state -->
-                                    <div class="active-state"> <!-- Step 1: move div to top side of cube -->
-                                        <div class="img-wrapper">
-                                            <img src=" {% static "img/cube3-news-pic.png"  %}" alt="Image of News">
-                                        </div>
-                                    </div> <!-- end active-state -->
-                                </div> <!-- end cube flip-to-top-->
-                            </div> <!-- end cube-wrapper -->
+                            <a href="#">
+                                <div class="cube-wrapper"  onclick="location.href='#';" style="cursor: pointer;">
+                                    <div class="cube flip-to-top">
+                                        <div class="default-state cube-icon-txt"> <!-- front facing div to start -->
+                                            <img src=" {% static "img/cube3-news-icon.png" %}" alt="Logo for News">
+                                            <h3>NEWS</h3>
+                                        </div> <!-- end default-state -->
+                                        <div class="active-state"> <!-- Step 1: move div to top side of cube -->
+                                            <div class="img-wrapper">
+                                                <img src=" {% static "img/cube3-news-pic.png"  %}" alt="Image of News">
+                                            </div>
+                                        </div> <!-- end active-state -->
+                                    </div> <!-- end cube flip-to-top-->
+                                </div> <!-- end cube-wrapper -->
+                            </a><!-- end link -->
                             
-                            <div class="cube-wrapper"  onclick="location.href='#';" style="cursor: pointer;">
-                                <div class="cube flip-to-top">
-                                    <div class="default-state"> <!-- front facing div to start -->
-                                        <div class="img-wrapper">
-                                            <img src=" {% static "img/cube4-cause-pic.png" %}" alt="Image of Cause">
+                            <a href="#">
+                                <div class="cube-wrapper"  onclick="location.href='#';" style="cursor: pointer;">
+                                    <div class="cube flip-to-top">
+                                        <div class="default-state"> <!-- front facing div to start -->
+                                            <div class="img-wrapper">
+                                                <img src=" {% static "img/cube4-cause-pic.png" %}" alt="Image of Cause">
+                                            </div>
+                                        </div>  
+                                        <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
+                                            <img src=" {% static "img/cube4-cause-icon.png" %}" alt="Logo for Cause">
+                                            <h3>FIND A CAUSE</h3>
                                         </div>
                                     </div>  
-                                    <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
-                                        <img src=" {% static "img/cube4-cause-icon.png" %}" alt="Logo for Cause">
-                                        <h3>FIND A CAUSE</h3>
-                                    </div>
-                                </div>  
-                            </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
