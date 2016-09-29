@@ -15,23 +15,7 @@ class PimpUserRegistrationForm(RegistrationForm):
 
 class PimpUserProfileForm(forms.ModelForm):
 
-	class Meta:
-		model = PimpUser
-		fields = ('bio', 'linkedin', 'website', 'twitter', 'name', 'surname', 'phone', 'image')
-
-
-# class MarketerProfileForm(forms.ModelForm):
-
-# 	class Meta:
-# 		model = MarketerProfile
-# 		fields = ('experience', 'availability', 'qualifications')
-
-
-class S3DirectUploadForm(forms.Form):
-
-    #image = forms.URLField(widget=S3DirectWidget(dest='user-profile-images'))
-    images = forms.URLField(widget=S3DirectWidget(
-        dest='user-profile-images',
+	image = forms.URLField(widget=S3DirectWidget(dest='user-profile-images',
         html=(
             '<div class="s3direct" data-policy-url="{policy_url}">'
             '  <a class="file-link" target="_blank" href="{file_url}">{file_name}</a>'
@@ -44,4 +28,9 @@ class S3DirectUploadForm(forms.Form):
             '    <div class="bar"></div>'
             '  </div>'
             '</div>'
-        )))
+        )), required=False)
+
+	class Meta:
+		model = PimpUser
+		fields = ('bio', 'linkedin', 'website', 'twitter', 'name', 'surname', 'phone', 'image')
+ 	    

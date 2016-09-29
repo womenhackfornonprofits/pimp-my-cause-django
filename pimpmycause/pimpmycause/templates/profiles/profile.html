@@ -20,20 +20,17 @@
                             {{ profile_update_form.non_field_errors }}
                             {{ profile_update_form.errors }}
 
-<!--                             {{ user_update_form.non_field_errors }}
-                            {{ user_update_form.errors }} -->
-
                            <div class="row">
-                                <div class="large-6 medium-6 small-12 columns">
+                                <div class="large-6 medium-9 small-12 columns">
                                     <div class="large-6 medium-6 small-6 columns">
                                         {{ profile_update_form.image.errors }}
 
                                         {% if not profile_update_form.image.value %}
                                             <img src="https://freeiconshop.com/files/edd/person-flat.png" alt="Profile Image">
-                                            {{ profile_image_upload_form.media }}
-                                            {{ profile_image_upload_form.as_p }}
                                         {% else %}
                                             <img src="{{profile_update_form.image.value}}" alt="Profile Image">
+                                            {{ profile_update_form.media }}
+                                            {{ profile_update_form.image }}
                                         {% endif %}
                                     </div>
                                     <div class="small-6 large-6 medium-6 columns">
