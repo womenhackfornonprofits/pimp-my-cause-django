@@ -16,11 +16,28 @@ $team-individual-img-height: 150px;
 
 .team {
 	
+	display: flex;
+	
+	&__first-column {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		width: 50%;
+	}
+
+	&__second-column {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		width: 50%;
+
+	}
 
 	&__individual-wrapper {
 		text-align: center;
 		margin-top: $team-individual-img-height/2;
-
+		width: 90%;
+		margin: 50px auto;
 	}
 
 	&__individual {
