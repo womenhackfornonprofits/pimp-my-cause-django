@@ -120,6 +120,15 @@
     } 
 }
 
+.btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $input-txt-height;
+    margin: .5em 0;
+    padding: 0 .5em;
+}
+
 .pnl-talkabout {    
     background-color: $colr-pnl-talkabout;
  
