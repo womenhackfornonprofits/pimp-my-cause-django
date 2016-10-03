@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from core.views import HomepageView, ContactView, AboutView, MeetTheTeam, OurPartners, Partnerships, BecomeAPartner, WhoWeAre, HowItWorks
+from core.views import HomepageView, ContactView, AboutView, MeetTheTeam, OurPartners, BecomeAPartner, WhoWeAre, HowItWorks
 from profiles.views import RegistrationView, RegistrationComplete, ActivationComplete, profile_update, TermsAndConditions, logout_view
 from profiles.forms import PimpUserRegistrationForm
 
@@ -29,7 +29,6 @@ urlpatterns = [
     url(r'^meet-the-team/', MeetTheTeam.as_view(), name="team"),
     url(r'^who-we-are/', WhoWeAre.as_view(), name="who_we_are"),
     url(r'^how-it-works/', HowItWorks.as_view(), name="how_it_works"),
-    url(r'^partnerships/', Partnerships.as_view(), name="partenrships"),
     url(r'^become-a-partner/', BecomeAPartner.as_view(), name="become_a_partner"),
     url(r'^our-partners/', OurPartners.as_view(), name="our_partners"),
     url(r'^terms-and-conditions/', TermsAndConditions.as_view(), name="terms_and_conditions"),
