@@ -10,7 +10,7 @@
         color: $white;
         line-height: 1.3em;
         margin: 0;
-    }   
+    }
 }
 
 .pnl--light-txt {
@@ -71,14 +71,14 @@
     background-color: $colr-pnl-marketing;
     // increase z-index so that cube rotate doesn't separate triangle from panel
     z-index: 20;
-    
+
     p {
         font-size: rem-calc(18);
         text-align: center;
     }
 
     &:before {
-        @include triangle (38, $colr-pnl-marketing);       
+        @include triangle (38, $colr-pnl-marketing);
     }
 }
 
@@ -92,7 +92,7 @@
 
 .pnl-marketers {
     background-color: $colr-pnl-marketers;
-        
+
     &:before {
         @include triangle (38, $colr-pnl-marketers);
     }
@@ -105,19 +105,19 @@
     }
     &:before {
         @include triangle (38, $colr-pnl-contactus);
-    }    
+    }
 
 }
 
 .pnl-signup {
     background-color: $colr-pnl-signup;
-    
+
     &:before {
         @include triangle (38, $colr-pnl-signup);
-    }   
+    }
     .button {
         background: $purple;
-    } 
+    }
 }
 
 .btn-wrapper {
@@ -129,17 +129,17 @@
     padding: 0 .5em;
 }
 
-.pnl-talkabout {    
+.pnl-talkabout {
     background-color: $colr-pnl-talkabout;
- 
+
     &:before {
         @include triangle (38, $colr-pnl-talkabout);
-    }  
+    }
 }
 
-// *************** 
-// SUMMARY PANEL 
-// *************** 
+// ***************
+// SUMMARY PANEL
+// ***************
 
 $summary-title-height: rem-calc(55);
 $summary-info-height: rem-calc(137);
@@ -147,10 +147,10 @@ $summary-info-height: rem-calc(137);
 .pnl-summary {
     @extend .pnl;
     background-color: $colr-pnl-summary;
- 
+
     &:before {
         @include triangle (38, $colr-pnl-summary);
-    }  
+    }
 
     .pnl__title {
         @extend .pnl--dark-txt;
@@ -162,101 +162,108 @@ $summary-info-height: rem-calc(137);
 }
 
 .summary-boxes li {
-    
+
     position: relative;
     padding: 0 rem-calc(10);
     overflow: hidden;
     margin-bottom: rem-calc(10);
-    
+
     .summary-title, .summary-info {
-        position: absolute;  
-        width: calc(100% - #{rem-calc(20)}); //sass interpolation 
+        position: absolute;
+        width: calc(100% - #{rem-calc(20)}); //sass interpolation
         left: rem-calc(10);
         text-align: center;
-        background-color: $overlay; 
+        background-color: $overlay;
         vertical-align: middle;
         text-size: rem-calc(20);
     }
-    
+
     .summary-title {
-        
+
         bottom: rem-calc(-1); // to compensate chrome pixel line
         height: rem-calc(50);
         line-height: rem-calc(50);
         z-index: 20;
         transition: background-color .5s, color .5s; // fade in at same rate as summary-info slides up - visual effect
-    
+
         &:before {
             @include triangle (12, $overlay);
             transition: border-bottom-color .5s; // same visual effect on before triangle
         }
-        
+
         // to ensure event is activated via hover on desktop and click on mobile device
         &:hover,
         &.click-event{
-            
+
             + .summary-info {
-                transform: translateY(0);  // translate next sibling 
-            }  
-        } 
+                transform: translateY(0);  // translate next sibling
+            }
+        }
     }
-    
+
     .summary-info {
-        
+
         bottom: 0;
         padding: rem-calc(10);
-        padding-bottom: rem-calc(60); //bottom padding is height of summary title and small triangle 
+        padding-bottom: rem-calc(60); //bottom padding is height of summary title and small triangle
         opacity: 0.9;
         z-index: 10;
 
         transform: translateY(100%);
         transition: transform .5s;
-        
+
         &:hover,
         &.click-event{
-            transform: translateY(0);  // translate next sibling 
-        } 
-        
+            transform: translateY(0);  // translate next sibling
+        }
+
         .read-more {
             @include readmore;
         }
     }
-    
+
 }
 
 .summary-title:hover,
 .summary-title.click-event {
-    
-    color: $overlay; 
-    
-    
+
+    color: $overlay;
+
+
     .summary-pink & {
-        background-color: $pink;  
+        background-color: $pink;
         &:before {
             border-bottom-color: $pink;
         }
     }
-    
+
     .summary-purple & {
         background-color: $purple;
         &:before {
             border-bottom-color: $purple;
         }
     }
-    
+
     .summary-green & {
         background-color: $green;
         &:before {
             border-bottom-color: $green;
         }
     }
-    
+
     .summary-mustard & {
         background-color: $mustard;
         &:before {
             border-bottom-color: $mustard;
         }
     }
-       
+
 }
-   
+
+.type-option {
+     margin-bottom: 1.75em;
+}
+
+.cont-to-reg {
+     padding: 1.25em 2.5em;
+}
