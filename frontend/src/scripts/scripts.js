@@ -22,7 +22,22 @@ $(window).on("load", function() {
         topRight.toggleClass("active");
         bottomLeft.toggleClass("active");
 
-    }, 2500); 
+    }, 2500);
+
+
+
+    //*******************************
+    //REGISTRATION - FORM VALIDATION
+    //*******************************
+
+    //validate city or postcode field - when none of these two fields is populated give an error
+
+    $( "#registrationform" ).submit(function() {
+      if ( $(".js-city").val().length == 0 && $(".js-postcode").val().length == 0 ) {
+        $("#cp-error-msg").show();
+        return false;
+      }
+    });
 
 
 // //  *******************************
