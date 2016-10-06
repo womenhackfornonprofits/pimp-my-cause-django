@@ -4,10 +4,10 @@ from profiles.models import PimpUser
 from registration.forms import RegistrationForm
 
 class PimpUserRegistrationForm(RegistrationForm):
-	
+
 	class Meta:
 		model = PimpUser
-		fields = ('email','password1', 'password1', 'name', 'surname', 'phone', 'twitter', 'country',
+		fields = ('email','password1', 'password2', 'name', 'surname', 'phone', 'twitter', 'country',
 				 'city', 'postcode', 'usertype', 'position')
 
 
