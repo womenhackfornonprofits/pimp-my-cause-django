@@ -26,12 +26,14 @@
                                         {{ profile_update_form.image.errors }}
 
                                         {% if not profile_update_form.image.value %}
-                                            <img src="https://freeiconshop.com/files/edd/person-flat.png" alt="Profile Image">
+                                            <img class="profile-img" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSwY0Ifx0mEN9C7n50Ub-viD3SQXUSrgYcNVu_nTrCRTpYcSGM9AQ-ZH0o" alt="Profile Image">
+
                                         {% else %}
-                                            <img src="{{profile_update_form.image.value}}" alt="Profile Image">
+                                            <img class="profile-img" src="{{profile_update_form.image.value}}" alt="{{ user.name }} {{ user.surname }} Profile Image">
+                                        {% endif %}
+
                                             {{ profile_update_form.media }}
                                             {{ profile_update_form.image }}
-                                        {% endif %}
                                     </div>
                                     <div class="small-6 large-6 medium-6 columns">
                                         {{ profile_update_form.name.errors }}
