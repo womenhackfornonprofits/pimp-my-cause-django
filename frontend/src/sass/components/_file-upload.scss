@@ -6,7 +6,6 @@
     position: absolute;
     z-index: -1;
 }
-
 .inputfile + label {
     display: none;
 }
@@ -30,11 +29,12 @@
 
 .s3direct {
   display: none;
+  margin-top: 10px;
+  float: none !important;
 }
 
 .js .s3direct {
   display: block;
-  margin: 10px;
   text-align: center;
 }
 
