@@ -35,48 +35,29 @@ class PimpUser(AbstractEmailUser):
     image = S3DirectField(dest='user-profile-images', blank=True)
     featured = models.BooleanField(default=False)
 
+class Qualification(models.Model):
+    Advertising = models.BooleanField(default=True)
+    Branding = models.BooleanField(default=False)
+    BusinessDevelopment = models.BooleanField(default=False)
+    CustomerInsights = models.BooleanField(default=False)
+    DigitalMarketing = models.BooleanField(default=False)
+    GraphicDesign = models.BooleanField(default=False)
+    Innovation = models.BooleanField(default=False)
+    Marketing = models.BooleanField(default=False)
+    PR = models.BooleanField(default=False)
+    SEO = models.BooleanField(default=False)
+    SocialMediaMarketing = models.BooleanField(default=False)
+    StrategicMarketing = models.BooleanField(default=False)
+    Videography = models.BooleanField(default=False)
+    WebDevelopment = models.BooleanField(default=False)
+
 class MarketerProfile(models.Model):
-
-    ADVERTISING = 0
-    BRANDING = 1
-    BUSINESS_DEVELOPMENT = 2
-    CUSTOMER_INSIGHTS = 3
-    DIGITAL_MARKETING = 4
-    GRAPHIC_DESIGN = 5
-    INNOVATION = 6
-    MARKETING = 7
-    PHOTOGRAPHY = 8
-    PR = 9
-    SEO = 10
-    SOCIAL_MEDIA = 11
-    STRATEGIC_MARKETING = 12
-    VIDEOGRAPHY = 13
-    WEB_DEV = 14
-
-    QUALIFICATION_CHOICES = (
-        (ADVERTISING, "Advertising"),
-        (BRANDING, "Branding"),
-        (BUSINESS_DEVELOPMENT, "Business Development"),
-        (CUSTOMER_INSIGHTS, "Customer Insights"),
-        (DIGITAL_MARKETING, "Digital Marketing"),
-        (GRAPHIC_DESIGN, "Graphic Design"),
-        (INNOVATION, "Innovation"),
-        (MARKETING, "Marketing"),
-        (PHOTOGRAPHY, "Photography"),
-        (PR, "PR"),
-        (SEO, "SEO"),
-        (SOCIAL_MEDIA, "Social Media Marketing"),
-        (STRATEGIC_MARKETING, "Strategic Marketing"),
-        (VIDEOGRAPHY, "Videography"),
-        (WEB_DEV, "Web Development")
-    )
-
     profile = models.ForeignKey(
         PimpUser,
         limit_choices_to={'usertype': PimpUser.CAUSE }
     )
 
-    qualifications = models.CharField(max_length=8, choices=QUALIFICATION_CHOICES, blank=True)
+    qualification = models.ForeignKey(Qualification, on_delete=models.CASCADE)
     experience = models.CharField(max_length=1000, blank=True)
     availability = models.BooleanField(default=True)
 
