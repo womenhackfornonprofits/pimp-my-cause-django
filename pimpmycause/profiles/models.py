@@ -36,20 +36,10 @@ class PimpUser(AbstractEmailUser):
     featured = models.BooleanField(default=False)
 
 class Qualification(models.Model):
-    Advertising = models.BooleanField(default=True)
-    Branding = models.BooleanField(default=False)
-    BusinessDevelopment = models.BooleanField(default=False)
-    CustomerInsights = models.BooleanField(default=False)
-    DigitalMarketing = models.BooleanField(default=False)
-    GraphicDesign = models.BooleanField(default=False)
-    Innovation = models.BooleanField(default=False)
-    Marketing = models.BooleanField(default=False)
-    PR = models.BooleanField(default=False)
-    SEO = models.BooleanField(default=False)
-    SocialMediaMarketing = models.BooleanField(default=False)
-    StrategicMarketing = models.BooleanField(default=False)
-    Videography = models.BooleanField(default=False)
-    WebDevelopment = models.BooleanField(default=False)
+    name = models.CharField(max_length=32)
+
+    def __str__(self):
+            return '%s' % (self.name)
 
 class MarketerProfile(models.Model):
     profile = models.ForeignKey(
@@ -57,7 +47,7 @@ class MarketerProfile(models.Model):
         limit_choices_to={'usertype': PimpUser.CAUSE }
     )
 
-    qualification = models.ForeignKey(Qualification, on_delete=models.CASCADE)
+    qualification = models.ManyToManyField("profiles.Qualification")
     experience = models.CharField(max_length=1000, blank=True)
     availability = models.BooleanField(default=True)
 
