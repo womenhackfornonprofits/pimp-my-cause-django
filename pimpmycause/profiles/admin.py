@@ -1,6 +1,6 @@
 from django.contrib import admin
 from custom_user.admin import EmailUserAdmin
-from .models import PimpUser, CauseProfile, MarketerProfile
+from .models import PimpUser, CauseProfile, MarketerProfile, Qualification
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -19,3 +19,4 @@ class PimpUserAdmin(EmailUserAdmin):
 admin.site.register(PimpUser, PimpUserAdmin)
 admin.site.register(MarketerProfile)
 admin.site.register(CauseProfile)
+admin.site.register(Qualification)
