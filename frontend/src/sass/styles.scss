@@ -19,6 +19,7 @@
 @import "components/twitter";
 @import "components/social-tile";
 @import "components/social-icon";
+@import "components/file-upload";
 
 @import "pages/home";
 @import "pages/generic";
@@ -42,4 +43,9 @@ a {
 
 .row {
 	max-width: 100%;
+}
+
+.profile-img {
+	width: 100%;
+	height: auto;
 }

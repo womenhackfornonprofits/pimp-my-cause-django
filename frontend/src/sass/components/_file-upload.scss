@@ -1,0 +1,49 @@
+.file-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.inputfile + label {
+    display: none;
+}
+
+.inputfile + label {
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: pink;
+}
+
+.inputfile + label {
+    cursor: pointer;
+}
+
+.file-input {
+    display: block !important;
+}
+
+.s3direct {
+  display: none;
+  margin-top: 10px;
+  float: none !important;
+}
+
+.js .s3direct {
+  display: block;
+  text-align: center;
+}
+
+.file-remove {
+    display: none !important;
+}
+
+.file-link {
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 100%;
+}

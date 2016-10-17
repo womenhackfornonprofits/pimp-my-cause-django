@@ -25,7 +25,7 @@ class PimpUser(AbstractEmailUser):
     # professional info
     position = models.CharField(max_length=100, blank=True)
     usertype = models.IntegerField(choices=USER_TYPE_CHOICES, null=True)
-    bio = models.CharField(max_length=1000, blank=True)
+    bio = models.TextField(max_length=1000, blank=True)
 
     # social accounts
     twitter = models.URLField(max_length=100, blank=True)

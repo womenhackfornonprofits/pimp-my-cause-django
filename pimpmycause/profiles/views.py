@@ -35,6 +35,7 @@ class ActivationComplete(TemplateView):
 
     template_name = 'registration/activate_complete.html'
 
+
 class TermsAndConditions(TemplateView):
     """
     The Activation Complete view.
@@ -47,17 +48,19 @@ def logout_view(request):
     logout(request)
 
     return HttpResponseRedirect("/")
-    
 
-@login_required 
+
+@login_required
 def profile_update(request):
     if request.method == 'POST':
-        profile_update_form = PimpUserProfileForm(request.POST, instance=request.user)
-        
+        profile_update_form = PimpUserProfileForm(request.POST,
+                                                  instance=request.user)
+
         if profile_update_form.is_valid():
             user_details = profile_update_form.save(commit=False)
             user_details.user = request.user
-            user_details.save(update_fields=["bio", "website", "linkedin"])
+            user_details.save()
+
             return redirect('profile_update')
     else:
         profile_update_form = PimpUserProfileForm(instance=request.user)
@@ -65,4 +68,3 @@ def profile_update(request):
     context = {'profile_update_form': profile_update_form}
 
     return render(request, 'profiles/profile.html', context)
-

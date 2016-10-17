@@ -1,14 +1,10 @@
 $(window).on("load", function() {
-
-
- //**********
- //HERO PANEL
- //**********
-
+    document.documentElement.classList.add('js');
+    
+    //********** 
+    //HERO PANEL 
+    //********** 
     //rotating the cubes on the front hero panel using a timer
-
-    //THIS IS CAUSING BUGS
-
 
     var topLeft = $(".cube").eq(0);
     var topRight = $(".cube").eq(1);
@@ -24,24 +20,23 @@ $(window).on("load", function() {
 
     }, 2500); 
 
+    // Input File
+    var inputs = document.querySelectorAll( '.js-input-file' );
+    Array.prototype.forEach.call( inputs, function( input )
+    {
+        var label    = input.nextElementSibling,
+            labelVal = label.innerHTML;
 
-// //  *******************************
-// //  FEATURED CAUSES/MARKETERS PANEL
-// //  *******************************
+        input.addEventListener( 'change', function( e )
+        {
+            var fileName = '';
+            fileName = e.target.value.split( '\\' ).pop();
 
-// // Fade Responsive Slider
-
-//     $('.fade').slick({
-//         autoplay: true,
-//         autoplaySpeed: 800,
-//         pauseOnHover: true,
-//         pauseOnFocus: true,
-//         arrows: false,
-//         dots: true,
-//         infinite: true,
-//         speed: 500,
-//         fade: true,
-//         cssEase: 'linear'
-//     });
+            if( fileName )
+                label.querySelector( 'span' ).innerHTML = fileName;
+            else
+                label.innerHTML = labelVal;
+        });
+    });
 
 });

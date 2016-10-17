@@ -6,39 +6,85 @@
         <div class="page-register pnl">
             <div class="content-wrap">
                <h1 class="pnl__title">Profile</h1> 
-                <div class="row"> 
-                    <div class="large-12 medium-12 small-12 columns">
-                        <form method="POST" action="">
+                <div class="large-12 columns">
+
+                        <div class="row">
+                            <div class="large-12 columns">
+
+                                <h2> Hi {{ user.name }}! Please take a moment to fill out your profile</h2>
+                            </div>
+                        </div>
+                    <form method="POST" action="">
+
                             {% csrf_token %}
                             {{ profile_update_form.non_field_errors }}
                             {{ profile_update_form.errors }}
 
-                            <div class="medium-6 large-6 small-12 large-centered small-centered columns">
-                                <div class="row">
-                                    <h2> Hi {{ user.email }}! Please fill out your profile</h2>
+                           <div class="row">
+                                <div class="large-6 medium-9 small-12 columns">
+                                    <div class="large-6 medium-6 small-6 columns">
+                                        {{ profile_update_form.image.errors }}
 
-                                    <div class="small-12 columns">
+                                        {% if not profile_update_form.image.value %}
+                                            <img class="profile-img" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSwY0Ifx0mEN9C7n50Ub-viD3SQXUSrgYcNVu_nTrCRTpYcSGM9AQ-ZH0o" alt="Profile Image">
+
+                                        {% else %}
+                                            <img class="profile-img" src="{{profile_update_form.image.value}}" alt="{{ user.name }} {{ user.surname }} Profile Image">
+                                        {% endif %}
+
+                                            {{ profile_update_form.media }}
+                                            {{ profile_update_form.image }}
+                                    </div>
+                                    <div class="small-6 large-6 medium-6 columns">
+                                        {{ profile_update_form.name.errors }}
+                                        <label for="name"> Name </label>
+                                        <input type="text" name="name" placeholder="Sam" value='{{ profile_update_form.name.value|default_if_none:"" }}' required>
+
+                                        {{ profile_update_form.surname.errors }}
+                                        <label for="surname"> Surname </label>
+                                        <input type="text" name="surname" placeholder="Jones" value='{{ profile_update_form.surname.value|default_if_none:"" }}' required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h2>Contact Info &amp; Social</h2>
+                            </div>
+                            <div class="row">
+                                <div class="large-6 medium-6 small-12 columns">
+                                    {{ profile_update_form.linkedin.errors }}
+                                    <label for="linkedin"> LinkedIn </label>
+                                    <input type="url" name="linkedin" placeholder="https://linkedin.com/username" value='{{ profile_update_form.linkedin.value|default_if_none:"" }}' required>
+
+                                    {{ profile_update_form.twitter.errors }}
+                                    <label for="twitter"> Twitter </label>
+                                    <input type="url" name="twitter" placeholder="https://twitter.com/username" value='{{ profile_update_form.twitter.value|default_if_none:"" }}' required>
+
+                                    {{ profile_update_form.website.errors }}
+                                    <label for="website"> Website </label>
+                                    <input type="url" name="website" placeholder="https://www.example.com" value='{{profile_update_form.website.value|default_if_none:""}}' required>
+                                </div>
+                                <div class="large-6 medium-6 small-12 columns">
+                                    {{ profile_update_form.phone.errors }}
+                                    <label for="phone"> Phone </label>
+                                    <input type="text" name="phone" placeholder="07654123456" value='{{ profile_update_form.phone.value|default_if_none:"" }}' required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h2>Background</h2>
+                            </div>
+                            <div class="row">
+                                <div class="large-12 medium-12 small-12 columns">
                                         {{ profile_update_form.bio.errors }}
-                                        <textarea name="bio" rows=20 required placeholder="Write a short bio">
-                                        {{ profile_update_form.bio.value|default_if_none:"" }}
-                                        </textarea>
-                                    </div>
-                                    <div class="small-12 columns">
-                                        {{ profile_update_form.linkedin.errors }}
-                                        <input type="url" name="linkedin" placeholder="LinkedIn" value='{{ profile_update_form.linkedin.value|default_if_none:"" }}' required>
-                                    </div>
-                                    <div class="small-12 columns">
-                                        {{ profile_update_form.website.errors }}
-                                        <input type="url" name="website" placeholder="www.example.com" value='{{profile_update_form.website.value|default_if_none:""}}' required>
-                                    </div>
+                                        <label for="bio"> Bio </label>
+                                        <textarea name="bio" rows="10" required placeholder="Hi! My name is Sam, I am a London based Marketer.">{{ profile_update_form.bio.value|default_if_none:"" }}</textarea>
                                 </div>
-                                <div class="row">
-                                    <div class="medium-6 large-4 small-6 columns">
-                                        <input class="button" type="submit" value="Update">
-                                    </div>                                
-                                </div>
-                        </form>
-                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="medium-6 large-4 small-6 columns">
+                                    <input class="button" type="submit" value="Update">
+                                </div>                                
+                            </div>
+                    </form>
                 </div>   
             </div> 
         </div>
