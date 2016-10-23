@@ -9,7 +9,7 @@
             </a>
             <nav class="main-menu">
                 <ul class="">
-                    <li class="has-dropdown"><a href="/about">About Us</a>
+                    <li class="has-dropdown"><p class="main-menu-no-link">About Us</p>
                         <ul class="dropdown">
                             <li><a href="/meet-the-team">Meet The Team</a></li>
                             <li><a href="/how-it-works">How It Works</a></li>
@@ -18,7 +18,7 @@
                     </li>
                     <li><a href="#">Find a Cause</a></li>
                     <li><a href="#">Find a Marketer</a></li>
-                    <li class="has-dropdown"><a href="/partnerships">Partnerships</a>
+                    <li class="has-dropdown"><p class="main-menu-no-link">Partnerships</p>
                         <ul class="dropdown">
                             <li><a href="/become-a-partner">Become a Partner</a></li>
                             <li><a href="/our-partners">Our Partners</a></li>
@@ -32,13 +32,13 @@
                     <p class="main-menu__username">{{ user.email }}</p>
                     <form method="POST" action="/logout/">
                         {% csrf_token %}
-                        <button type="submit">Logout</button>
+                        <button type="submit" class="button button--primary">Logout</button>
                     </form>
                 {% else %}
                     <a href="#" target="_blank">{% include "icons/linkedin.svg" %}</a>
                     <a href="#" target="_blank">{% include "icons/facebook.svg" %}</a>
                     <a href="#" target="_blank">{% include "icons/twitter.svg" %}</a>
-                    <a href="/accounts/login" class="button round">Sign in</a>
+                    <a href="/accounts/login" class="button button--primary">Sign in</a>
                     <a href="/accounts/register" class="register-text-link">Not registered?</a>
                 {% endif %}
             </div>
@@ -47,5 +47,39 @@
     {% block main %}
     {% endblock %}
 
-
+    <!-- ************* -->
+    <!-- SIGN UP PANEL -->
+    <!-- ************* -->
+    
+    <section class="pnl-signup">
+        <div class="content-wrap">
+            <div class="row"> 
+                <div class="large-12 medium-12 small -12 columns">
+                    <h4 class="pnl__title">Sign up to our newsletter</h4>                            
+                    <form method="POST" action="https://pimpmycause.us2.list-manage.com/subscribe/post">
+                        <input type="hidden" name="u" value="23c6e23757f1478af7548526b">
+                        <input type="hidden" name="id" value="eafa9094b7">
+                        <div class="medium-6 large-6 small-12 large-centered small-centered columns">
+                            <div class="row">
+                                <div class="medium-6 large-6 small-12 columns">
+                                    <input type="text" name="MERGE1" placeholder="First Name *" required>
+                                </div>
+                                <div class="medium-6 large-6 small-12 columns">
+                                    <input type="text" name="MERGE2" placeholder="Surname *" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="medium-7 large-8 small-12 columns">
+                                    <input type="email" name="MERGE0" placeholder="Email Address" required>
+                                </div>
+                                <div class="centered">
+                                    <input class="button button--secondary" type="submit" value="Sign up">
+                                </div>                            
+                            </div>
+                        </div>                                
+                    </form>
+                </div>
+            </div>   
+        </div> 
+    </section>
 {% endblock %}

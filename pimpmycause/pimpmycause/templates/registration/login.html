@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 
+{% block title %} Log in {% endblock %} 
+
 {% load static %}
 
 
@@ -19,7 +21,9 @@
                                 <a href="#">Forgot Password</a>                                
                             </div>
                             <div class="row">
-                                <input class="button round right" type="submit" value="Sign in">
+                                <input class="button button--primary" type="submit" value="Sign in">
+                            </div>
+                            <div class="row">
                                 <a href="/accounts/register" class="underline txt-right">Not Registered? Start here</a>
                             </div>
                         </form>

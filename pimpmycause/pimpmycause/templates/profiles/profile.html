@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 
+{% block title %} Profile {% endblock %} 
+
 {% load static %}
 
     {% block main %} 
-        <div class="page-register pnl">
+    <section class="page-register pnl row">
             <div class="content-wrap">
                <h1 class="pnl__title">Profile</h1> 
                 <div class="large-12 columns">
@@ -43,6 +45,18 @@
                                         {{ profile_update_form.surname.errors }}
                                         <label for="surname"> Surname </label>
                                         <input type="text" name="surname" placeholder="Jones" value='{{ profile_update_form.surname.value|default_if_none:"" }}' required>
+
+                                        {{ profile_update_form.position.errors }}
+                                        <label for="position"> Position </label>
+                                        <input type="text" name="position" placeholder="Marketer" value='{{ profile_update_form.position.value|default_if_none:"" }}' required>
+
+                                        {{ profile_update_form.city.errors }}
+                                        <label for="city"> City </label>
+                                        <input type="text" name="city" placeholder="London" value='{{ profile_update_form.city.value|default_if_none:"" }}' required>
+
+                                        {{ profile_update_form.country.errors }}
+                                        {{ profile_update_form.country }}
+
                                     </div>
                                 </div>
                             </div>
@@ -81,12 +95,12 @@
                             </div>
                             <div class="row">
                                 <div class="medium-6 large-4 small-6 columns">
-                                    <input class="button" type="submit" value="Update">
+                                    <input class="button button--primary" type="submit" value="Update">
                                 </div>                                
                             </div>
                     </form>
                 </div>   
             </div> 
         </div>
-
+    </section>
     {% endblock %}
