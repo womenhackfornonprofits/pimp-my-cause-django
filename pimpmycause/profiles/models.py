@@ -45,14 +45,19 @@ class Qualification(models.Model):
 
 
 class MarketerProfile(models.Model):
-    profile = models.ForeignKey(
+    profile = models.OneToOneField(
         PimpUser,
-        limit_choices_to={'usertype': PimpUser.CAUSE }
+        on_delete=models.CASCADE,
+        primary_key=True,
+        limit_choices_to={'usertype': PimpUser.MARKETER}
     )
 
     qualification = models.ManyToManyField("profiles.Qualification")
     experience = models.CharField(max_length=1000, blank=True)
     availability = models.BooleanField(default=True)
+
+    def __str__(self):
+        return '%s' % (self.profile)
 
 
 class CauseProfile(models.Model):
@@ -83,11 +88,16 @@ class CauseProfile(models.Model):
         (CARE_FOR_THE_ELDERY, "Care for the Eldery")
     )
 
-    profile = models.ForeignKey(
+    profile = models.OneToOneField(
         PimpUser,
+        on_delete=models.CASCADE,
+        primary_key=True,
         limit_choices_to={'usertype': PimpUser.CAUSE}
     )
 
     mission = models.CharField(max_length=1000, blank=True)
-    categories = models.CharField(max_length=8, choices=CAUSE_CATEGORY_CHOICES, blank=True)
+    category = models.CharField(max_length=8, choices=CAUSE_CATEGORY_CHOICES, blank=True)
+
+    def __str__(self):
+        return '%s' % (self.profile)
 

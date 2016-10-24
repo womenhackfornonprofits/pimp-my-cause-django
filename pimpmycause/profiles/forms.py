@@ -1,6 +1,6 @@
 from django import forms
 
-from profiles.models import PimpUser, MarketerProfile
+from profiles.models import PimpUser, MarketerProfile, Qualification, CauseProfile
 from registration.forms import RegistrationForm
 
 from s3direct.widgets import S3DirectWidget
@@ -43,7 +43,13 @@ class PimpUserProfileForm(forms.ModelForm):
 class MarketerUserProfileForm(forms.ModelForm):
 
     class Meta:
-        model = PimpUser
-        fields = ('bio', 'linkedin', 'website', 'twitter', 'name', 'surname',
-                  'phone', 'image')
+        model = MarketerProfile
+        fields = ('experience', 'availability', 'qualification')
+
+
+class CauseUserProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = CauseProfile
+        fields = ('mission', 'category')
 
