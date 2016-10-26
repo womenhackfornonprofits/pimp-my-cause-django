@@ -15,12 +15,10 @@ $team-individual-img-height: 150px;
 }
 
 .team {
-	
 
 	&__individual-wrapper {
 		text-align: center;
 		margin-top: $team-individual-img-height/2;
-
 	}
 
 	&__individual {
@@ -28,6 +26,7 @@ $team-individual-img-height: 150px;
 		box-shadow: 0 1px 1px rgba(66, 57, 57, 0.26);
 		background-color: #F2F2F2;
 	}
+	
 	&__individual-name {
 		color: $pink;
 	}

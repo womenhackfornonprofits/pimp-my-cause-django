@@ -18,7 +18,7 @@
 .logo-container{
     flex: 1 auto auto;
 	display: inline-block;
-	//width: 8em;
+
 	img {
 		width: 100%;
 		padding: 2em 0;
@@ -26,22 +26,17 @@
 }
 
 .login-side-menu {
-	flex: 1;
+	flex: 2;
 	display: inline-block;
 	text-align: right;
 
 	.register-text-link{
-		width: 8em;
+		//width: 8em;
 		text-align: center;
 		font-size: .7em;
 	}
 
-  .social-icon {
-    margin-left: 0.25em;
-  }
-
-  .button {
-    margin-top: 0.5em;
-    margin-bottom: 0.25em;
-  }
+	.social-icon {
+		margin-left: 0.25em;
+	}
 }

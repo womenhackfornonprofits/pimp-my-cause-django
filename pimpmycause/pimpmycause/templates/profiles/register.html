@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 
+{% block title %} Register {% endblock %} 
+
 {% load static %}
 
     {% block main %} 
@@ -11,7 +13,6 @@
                         <form method="POST" action="">
                             {% csrf_token %}
                             {{ form.non_field_errors }}
-                            {{ form.errors }}
 
                             <div class="medium-6 large-6 small-12 large-centered small-centered columns">
                                 <div class="row">
@@ -88,7 +89,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-4 small-6 columns">
-                                        <input class="button" type="submit" value="Register">
+                                        <input class="button button--primary" type="submit" value="Register">
                                     </div>                                
                                 </div>
                             </div>                                
