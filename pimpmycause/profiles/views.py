@@ -4,7 +4,6 @@ from django.views.generic.edit import FormView, UpdateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
-import ipdb
 
 from registration.backends.default import views as registration_views
 from profiles.forms import PimpUserRegistrationForm, PimpUserProfileForm, MarketerUserProfileForm, CauseUserProfileForm
@@ -76,7 +75,7 @@ def profile_update(request):
             profile_details = marketer_details.save(commit=False)
             profile_details.save()
 
-            
+
             return redirect('profile_update')
 
     else:
