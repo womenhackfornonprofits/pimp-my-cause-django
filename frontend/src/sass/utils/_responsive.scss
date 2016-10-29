@@ -1,163 +1,163 @@
-/* =================================
-   UTILS / RESPONSIVE
-   ================================= */
+// /* =================================
+//    UTILS / RESPONSIVE
+//    ================================= */
 
 
-// ******************************************************
-// SMALL - max-width 640px, mobile styles
-// ******************************************************
+// // ******************************************************
+// // SMALL - max-width 640px, mobile styles
+// // ******************************************************
 
-@media #{$small-up} {
+// @media #{$small-up} {
     
-    // LOGO
-    // ====
+//     // LOGO
+//     // ====
     
-     .logo-mob {
-        margin-left: rem-calc(15);
-        margin-top: rem-calc(10);
-        width: 45%;
-    } 
+//      .logo-mob {
+//         margin-left: rem-calc(15);
+//         margin-top: rem-calc(10);
+//         width: 45%;
+//     } 
     
-    // HERO PANEL
-    // ==========
+//     // HERO PANEL
+//     // ==========
 
     
-    // add space below register with social media on LHS of hero panel at mobile size
-    .h4-hero-socialregister {
+//     // add space below register with social media on LHS of hero panel at mobile size
+//     .h4-hero-socialregister {
     
-        h4 {
+//         h4 {
 
-            padding-bottom: rem-calc(15);
-        }
-    }
+//             padding-bottom: rem-calc(15);
+//         }
+//     }
     
-    .hero-continue {
+//     .hero-continue {
     
-        .button {
+//         .button {
 
-            margin-top: rem-calc(20); 
-        }
-    }    
+//             margin-top: rem-calc(20); 
+//         }
+//     }    
     
  
-} // end media query small-up
+// } // end media query small-up
 
 
-// ******************************************************
-// MEDIUM - min-width 641px and max-width 1024px, tablet
-// ******************************************************
+// // ******************************************************
+// // MEDIUM - min-width 641px and max-width 1024px, tablet
+// // ******************************************************
 
-@media #{$medium-up} {
+// @media #{$medium-up} {
     
-    // LOGO
-    // ====
+//     // LOGO
+//     // ====
     
-    // NAVIGATION
-    // ==========
+//     // NAVIGATION
+//     // ==========
 
-    .top-bar {
-        top: 65.5%;
-        left: 50%;
-        transform: translateX(-50%);
-    }
+//     .top-bar {
+//         top: 65.5%;
+//         left: 50%;
+//         transform: translateX(-50%);
+//     }
     
-    // http://stackoverflow.com/questions/13092143/prevent-css-horizontal-drop-down-menu-from-wrapping
-    .top-bar-section {
-        > ul {
-            white-space: nowrap;
-            > li {
-                display: inline-block;
-                float: none;
-            }
-        }
-    }
+//     // http://stackoverflow.com/questions/13092143/prevent-css-horizontal-drop-down-menu-from-wrapping
+//     .top-bar-section {
+//         > ul {
+//             white-space: nowrap;
+//             > li {
+//                 display: inline-block;
+//                 float: none;
+//             }
+//         }
+//     }
     
-    // SOCIAL | SIGNIN | REGISTER
-    // ==========================
+//     // SOCIAL | SIGNIN | REGISTER
+//     // ==========================
 
-    .header-social-icons {  
-        visibility: hidden;
-    }
-    .header-sign-in {
-        .button {
-            position: absolute;
-            top: rem-calc(15);
-            right: rem-calc(25);
-            padding: 0.25rem 1rem 0.3125rem 1rem;
-            width: 7rem;
-            font-size: rem-calc(17);
-        }   
-    }
-    .header-register { 
-        visibility: hidden;  
-    }
+//     .header-social-icons {  
+//         visibility: hidden;
+//     }
+//     .header-sign-in {
+//         .button {
+//             position: absolute;
+//             top: rem-calc(15);
+//             right: rem-calc(25);
+//             padding: 0.25rem 1rem 0.3125rem 1rem;
+//             width: 7rem;
+//             font-size: rem-calc(17);
+//         }   
+//     }
+//     .header-register { 
+//         visibility: hidden;  
+//     }
 
-}
+// }
 
 
-// **************************************************************************
-// LARGE: 1025px - 1440px,  X-LARGE: 1441px - 1920px,  XX-LARGE: 1921px - ...
-// **************************************************************************
+// // **************************************************************************
+// // LARGE: 1025px - 1440px,  X-LARGE: 1441px - 1920px,  XX-LARGE: 1921px - ...
+// // **************************************************************************
 
-@media #{$large-up} {
+// @media #{$large-up} {
     
-    // LOGO
-    // ====
+//     // LOGO
+//     // ====
     
-    // .logo {
-    //     position: absolute;
-    //     top: 50%;
-    //     transform: translateY(-50%);
-    //     z-index: 1;
-    //     width: 15%;
-    // } 
+//     // .logo {
+//     //     position: absolute;
+//     //     top: 50%;
+//     //     transform: translateY(-50%);
+//     //     z-index: 1;
+//     //     width: 15%;
+//     // } 
     
-    // NAVIGATION
-    // ==========
+//     // NAVIGATION
+//     // ==========
     
-    .top-bar {
-        top: 50%;
-        transform: translateY(-50%) translateX(-50%);
-        left: 51%;
-        width: auto;
-    }
+//     .top-bar {
+//         top: 50%;
+//         transform: translateY(-50%) translateX(-50%);
+//         left: 51%;
+//         width: auto;
+//     }
     
-    .top-bar-section {
-        > ul {
-            > li {
-                a {
-                    padding: 0 10% !important;
-                }
-            }
-        }
-    }
+//     .top-bar-section {
+//         > ul {
+//             > li {
+//                 a {
+//                     padding: 0 10% !important;
+//                 }
+//             }
+//         }
+//     }
     
-    // SOCIAL | SIGNIN | REGISTER
-    // ==========================
+//     // SOCIAL | SIGNIN | REGISTER
+//     // ==========================
 
-    .header-social-icons {
-        visibility: visible;
-    }
-    .header-sign-in {
-        .button {
-            position: inherit;
-            padding: 0.75rem 1.5rem 0.8125rem 1.5rem; 
-            width: 8.5rem;
-            font-size: rem-calc(18);
-        }    
-    }
-    .header-register {
-        visibility: visible;
-    }
+//     .header-social-icons {
+//         visibility: visible;
+//     }
+//     .header-sign-in {
+//         .button {
+//             position: inherit;
+//             padding: 0.75rem 1.5rem 0.8125rem 1.5rem; 
+//             width: 8.5rem;
+//             font-size: rem-calc(18);
+//         }    
+//     }
+//     .header-register {
+//         visibility: visible;
+//     }
     
-    // HERO PANEL
-    // ==========
+//     // HERO PANEL
+//     // ==========
         
-    .h2-hero {
+//     .h2-hero {
     
-        div {
-            white-space: nowrap;
-        }
-    }
+//         div {
+//             white-space: nowrap;
+//         }
+//     }
             
-}
+// }

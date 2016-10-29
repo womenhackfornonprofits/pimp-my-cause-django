@@ -3,18 +3,6 @@
    ================================= */
 .navigation {
 	background-color: $purple;
-	
-	&__menu-desktop {
-		display: none;
-
-		@media (max-width:640px) {
-			
-		} 
-	}	
-
-	&__mobile-toggle {
-		display: block;
-	}
 
 	&__link {
         color: $white;
@@ -22,11 +10,18 @@
     }
 
     &__wrap {
-    	display: flex;
-    	flex-direction: row;
-    	flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
+		width: 100%;
+	    display: flex;
+	    justify-content: space-between;
+	    align-items: center;
+
+    	@media (min-width: 900px) {
+	    	display: flex;
+	    	flex-direction: row;
+	    	flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+		}
     }
 
     &__dropdown {
@@ -77,10 +72,96 @@
 
 
 	&__menu {
-	    flex: auto;
-	    display: inline-block;
-	    max-width: 600px;
-	    text-align: right;
+		display: none;
+
+	   	@media (min-width: 900px) {
+			flex: auto;
+		    display: inline-block;
+		    max-width: 600px;
+		    text-align: right;
+		}
+
+		&--mobile {
+			display: block;
+			min-height: 100vh;
+		    width: 100%;
+		    position: fixed;
+		    top: 0;
+		   	transition: top 0.2s;
+		    bottom: 0;
+		    right: 0;
+		    margin: 0;
+		    padding: 0;
+		    z-index: 1000;	    
+			list-style: none;
+			margin: 0;
+			background-color: $purple;
+			nav ,
+			li,
+			ul {
+				display: block;
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				position: relative;
+
+				&:hover {
+					background: $purple;
+				}
+			}
+
+			a {
+				padding: 1em;
+			}
+		}
+
+	}	
+
+	&__toggle {
+		display: inline-block;
+		color: white;
+		background: transparent;
+		border: none;
+		color: $white;
+		position: relative;
+        margin: 0;
+        padding: 0;
+        height: 15px;
+        flex: 1 0 auto;
+        width: 2em;
+
+		.hamburger {
+			position: absolute;
+			top: 6px;
+			left: 0;
+			right: 0;
+			height: 2px;
+			background: $white;
+			transition: all .25s ease;
+		}
+
+		&::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: $white;
+            transition: all .25s ease;
+        }
+
+        &::before {
+           top: -4px;
+        }
+
+		&::after {
+			bottom: -4px;
+		}
+
+		@media (min-width: 900px) {
+			display: none;
+		}
 	}
 
 	&__menu--has-dropdown {
@@ -97,11 +178,7 @@
 	 }
 
 	&__login {
-		display: inline-block;
-		text-align: right;
-		display: flex;
-		flex-direction: column;
-		width: 8em;
+		display: none;
 
 		&-social {
 			display: flex;
@@ -111,6 +188,14 @@
 
 		.button {
 			margin: .5em 0;
+		}
+
+		@media (min-width: 900px) {
+			display: inline-block;
+			text-align: right;
+			display: flex;
+			flex-direction: column;
+			width: 8em;
 		}
 	}
 

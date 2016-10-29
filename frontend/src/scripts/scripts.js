@@ -39,4 +39,18 @@ $(window).on("load", function() {
         });
     });
 
+    //navigatin toggle
+
+    const navigation = document.getElementsByClassName('js-header-nav')[0];
+    const menuEl = document.getElementsByClassName('js-header-list')[0]
+
+    navigation.addEventListener('click', function (event) {
+        const srcElementClass = event.target.className;
+        if (srcElementClass.match('js-nav-toggle')) {
+            menuEl.classList.toggle('navigation__menu--mobile')
+        } else {
+            menuEl.classList.remove('navigation__menu--mobile')
+        }
+    });
+
 });
