@@ -10,11 +10,11 @@ input[type="email"],
 input[type="password"], 
 input[type="tel"],
 input[type="url"], 
+input [type="submit"],
 select {
     width: 100%;
-    height: $input-txt-height;
     margin: .5em 0;
-	padding: 0 .5em;
+	padding: .5em .8em;
     font-size: 1em;
     font-weight: 100;
     border-top: 1px solid #ccc;

@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 
+{% block title %} Home {% endblock %}
+
 {% load static %}
 
 
@@ -19,7 +21,7 @@
                                 <option value="marketer"><p>I'm a Marketer</p></option>
                                 <option value="cause">I'm a Cause</option>
                             </select>
-                            <a href="accounts/register" class="button cont-to-reg">Continue</a>
+                            <a href="accounts/register" class="button button--secondary">Continue</a>
                         </div>
                     </div>
 
@@ -307,10 +309,10 @@
                                 <div class="medium-6 large-6 small-12 large-centered small-centered columns">
                                     <div class="row">
                                         <div class="medium-6 large-6 small-12 columns">
-                                            <input type="text" name="fname" placeholder="First Name *" required>
+                                            <input type="text" name="fname" placeholder="First Name" required>
                                         </div>
                                         <div class="medium-6 large-6 small-12 columns">
-                                            <input type="text" name="sname" placeholder="Surname *" required>
+                                            <input type="text" name="sname" placeholder="Surname" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -318,7 +320,7 @@
                                             <input type="email" name="email" placeholder="Email Address" required>
                                         </div>
                                         <div class="medium-6 large-6 small-12 columns">
-                                            <input type="tel" name="phone" placeholder="Telephone">
+                                            <input type="tel" name="phone" placeholder="Telephone (optional)">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -326,10 +328,8 @@
                                             <textarea name="message" rows="10" placeholder="Your message here" required></textarea>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="large-4 small-6 medium-4 medium-centered large-centered columns">
-                                            <input class="button" type="submit" value="Submit">
-                                        </div>
+                                    <div class="centered">
+                                        <input class="button button--secondary" type="submit" value="Submit">
                                     </div>
                                 </div>
                             </form>
@@ -338,43 +338,5 @@
                 </div>
             </div>
         </section>
-
-
-        <!-- ************* -->
-        <!-- SIGN UP PANEL -->
-        <!-- ************* -->
-
-        <section class="pnl-signup">
-            <div class="content-wrap">
-                <div class="row">
-                    <div class="large-12 medium-12 small -12 columns">
-                        <h4 class="pnl__title">Sign up to our newsletter</h4>
-                        <form method="POST" action="https://pimpmycause.us2.list-manage.com/subscribe/post">
-                            <input type="hidden" name="u" value="23c6e23757f1478af7548526b">
-                            <input type="hidden" name="id" value="eafa9094b7">
-                            <div class="medium-6 large-6 small-12 large-centered small-centered columns">
-                                <div class="row">
-                                    <div class="medium-6 large-6 small-12 columns">
-                                        <input type="text" name="MERGE1" placeholder="First Name *" required>
-                                    </div>
-                                    <div class="medium-6 large-6 small-12 columns">
-                                        <input type="text" name="MERGE2" placeholder="Surname *" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="medium-6 large-6 small-12 columns">
-                                        <input type="email" name="MERGE0" placeholder="Email Address" required>
-                                    </div>
-                                    <div class="medium-6 large-6 small-12 columns btn-wrapper">
-                                        <input class="button" type="submit" value="Sign up">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
 
     {% endblock %}

@@ -5,9 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 
-
 from registration.backends.default import views as registration_views
-from profiles.forms import PimpUserRegistrationForm, PimpUserProfileForm
+from profiles.forms import PimpUserRegistrationForm, PimpUserProfileForm, MarketerUserProfileForm, CauseUserProfileForm
 
 
 class RegistrationComplete(TemplateView):
@@ -52,19 +51,45 @@ def logout_view(request):
 
 @login_required
 def profile_update(request):
+
+    #ipdb.set_trace()
+
     if request.method == 'POST':
         profile_update_form = PimpUserProfileForm(request.POST,
                                                   instance=request.user)
 
-        if profile_update_form.is_valid():
+        # Assume MARKETER
+        if (request.user.usertype == 0):
+            additional_profile_form = MarketerUserProfileForm(request.POST,
+                                                           instance=request.user.marketerprofile)
+        # CAUSE
+        else:
+            additional_profile_form = CauseUserProfileForm(request.POST,
+                                                        instance=request.user.causeprofile)
+
+        if (profile_update_form.is_valid() & additional_profile_form.is_valid()):
             user_details = profile_update_form.save(commit=False)
             user_details.user = request.user
             user_details.save()
 
+            profile_details = marketer_details.save(commit=False)
+            profile_details.save()
+
+
             return redirect('profile_update')
+
     else:
         profile_update_form = PimpUserProfileForm(instance=request.user)
 
-    context = {'profile_update_form': profile_update_form}
+        # MARKETER
+        if (request.user.usertype == 0):
+            additional_profile_form = MarketerUserProfileForm(instance=request.user.marketerprofile)
+
+        # CAUSE
+        else:
+            additional_profile_form = CauseUserProfileForm(instance=request.user.causeprofile)
+
+    context = {'profile_update_form': profile_update_form,
+               'additional_profile_form': additional_profile_form}
 
     return render(request, 'profiles/profile.html', context)
