@@ -45,7 +45,7 @@
         flex-wrap: wrap;
         align-items: center;
 
-        @media(min-width:640px) {
+        @media (min-width:640px) {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -53,7 +53,7 @@
     }
 
     &__cubes, &__text {
-        @media(min-width:640px) {
+        @media (min-width:640px) {
             flex: 1;
             margin-top: 0;
         }
@@ -61,7 +61,8 @@
 
     &__cubes {
         padding: 0;
-        @media(max-width:640px) {
+        
+        @media (max-width:640px) {
             margin-top: 2em;
         }
     }
