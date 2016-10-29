@@ -4,7 +4,8 @@
 .navigation {
 	background-color: $purple;
 
-	&__link {
+	&__link,
+	p {
         color: $white;
 		display: inline-block;
     }
