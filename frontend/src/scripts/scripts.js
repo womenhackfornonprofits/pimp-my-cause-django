@@ -1,5 +1,3 @@
-console.log("SCRIPTS");
-
 $(window).on("load", function() {
     document.documentElement.classList.add('js');
     
