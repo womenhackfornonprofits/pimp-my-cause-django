@@ -1,3 +1,5 @@
+console.log("SCRIPTS");
+
 $(window).on("load", function() {
     document.documentElement.classList.add('js');
     
@@ -39,14 +41,15 @@ $(window).on("load", function() {
         });
     });
 
-    //navigatin toggle
+    // Navigatin toggle
 
     const navigation = document.getElementsByClassName('js-header-nav')[0];
     const menuEl = document.getElementsByClassName('js-header-list')[0]
 
     navigation.addEventListener('click', function (event) {
-        const srcElementClass = event.target.className;
-        if (srcElementClass.match('js-nav-toggle')) {
+        const srcElement = event.target;
+
+        if (srcElement.classList.contains('js-nav-toggle')) {
             menuEl.classList.toggle('navigation__menu--mobile')
         } else {
             menuEl.classList.remove('navigation__menu--mobile')

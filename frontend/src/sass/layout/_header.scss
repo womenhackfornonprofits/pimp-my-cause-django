@@ -49,7 +49,7 @@
     &__username {
         color: $white;
         font-weight: bold;
-        text-decoration: underline;
+        text-decoration: none;
         text-align: right;
         margin-bottom: 0;
     }
@@ -71,6 +71,95 @@
         padding:.5em;
     }
 
+	&__menu--mobile &__toggle {
+		display: inline-block;
+  		color: #fff;
+  		position: absolute;
+  		margin-top: 0;
+  		margin-left: 0;
+  		width: 2em;
+  		height: 2em;
+        flex: 2em 0;
+    	background: transparent;
+		
+		&:before,
+        &:after {
+			content: '';
+			position: absolute;
+			top: 0px;
+			width: 2em;
+			height: 1px;
+			background-color: currentColor;
+        }
+
+        &:before {
+  			-webkit-transform: rotate(-45deg);
+        	transform: rotate(-45deg);        }
+
+		&:after {
+  			-webkit-transform: rotate(45deg);
+        	transform: rotate(45deg);		
+        }
+    }
+
+    &__menu--mobile &__button {
+    	margin-top: 3em;
+    	position: absolute;
+    	right: 3em;
+    }
+
+    &__menu--mobile .logo-container {
+		padding: 0; 
+		margin-left: 1em;
+    }
+
+    &__menu--mobile &__menu {
+		border-top: 1px solid $white;
+    }
+
+	&__menu--mobile {
+		display: block;
+		min-height: 100vh;
+	    width: 100%;
+	    position: fixed;
+	    top: 0;
+	   	transition: top 0.2s;
+	    bottom: 0;
+	    right: 0;
+	    margin: 0;
+	    padding: 0;
+	    z-index: 1000;	    
+		list-style: none;
+		margin: 0;
+		background-color: $purple;
+		border-rop: 1px solid $white;
+
+		nav,
+		li,
+		ul {
+			display: block;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			position: relative;
+
+			&:hover {
+				background: $purple;
+			}
+
+			p {
+				display: none;
+			}
+		}
+
+		.navigation__link {
+			padding: 1.5em;
+		}
+
+	   	li {
+	        text-transform: uppercase;
+	    }
+	}
 
 	&__menu {
 		display: none;
@@ -81,83 +170,50 @@
 		    max-width: 600px;
 		    text-align: right;
 		}
+	}
 
-		&--mobile {
-			display: block;
-			min-height: 100vh;
-		    width: 100%;
-		    position: fixed;
-		    top: 0;
-		   	transition: top 0.2s;
-		    bottom: 0;
-		    right: 0;
-		    margin: 0;
-		    padding: 0;
-		    z-index: 1000;	    
-			list-style: none;
-			margin: 0;
-			background-color: $purple;
-			nav ,
-			li,
-			ul {
-				display: block;
-				margin: 0;
-				padding: 0;
-				text-align: center;
-				position: relative;
-
-				&:hover {
-					background: $purple;
-				}
-			}
-
-			a {
-				padding: 1em;
-			}
-		}
-
-	}	
+	&__button {
+		flex: 3em 1;
+		position: relative;
+	    border: none;
+	    border-radius: 0;
+	    background: 0 0;
+	    padding-top: 0;
+	    padding-bottom: 0;
+	    margin: 0;
+	    padding-left: 0;
+	    max-width: 6em;
+	    height: 3em;
+    	padding: 0;
+	}
 
 	&__toggle {
-		display: inline-block;
-		color: white;
-		background: transparent;
-		border: none;
-		color: $white;
-		position: relative;
-        margin: 0;
-        padding: 0;
-        height: 15px;
-        flex: 1 0 auto;
-        width: 2em;
+		color: #fff;
+		position: absolute;
+		margin-left: 2px;
+		margin-top: 0px;
+		width: 2em;
+		height: 1px;
+		background-color: currentColor;
 
-		.hamburger {
+		&:before {
+			content: '';
 			position: absolute;
-			top: 6px;
+			top: -10px;
 			left: 0;
-			right: 0;
-			height: 2px;
-			background: $white;
-			transition: all .25s ease;
+			width: 2em;
+			height: 1px;
+			background-color: currentColor;
 		}
 
-		&::before,
-        &::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: $white;
-            transition: all .25s ease;
-        }
-
-        &::before {
-           top: -4px;
-        }
-
-		&::after {
-			bottom: -4px;
+		&:after {
+			content: '';
+			position: absolute;
+			top: 10px;
+			left: 0;
+			width: 2em;
+			height: 1px;
+			background-color: currentColor;
 		}
 
 		@media (min-width: 900px) {
@@ -204,10 +260,10 @@
 		margin: 0 .25em .25em 0;
 	}
 
-	&__register {
+	&__register,
+	&__logout {
 		text-align: right;
-		font-size: .7em;
-		display: block;
+		font-size: .8em;
 		color: $white;
 	}
 }
@@ -215,8 +271,9 @@
 
 
 .logo-container {
-    flex: 1 auto auto;
+    flex: 1 0 auto;
 	display: inline-block;
+	max-width: 7em;
 
 	img {
 		width: 100%;

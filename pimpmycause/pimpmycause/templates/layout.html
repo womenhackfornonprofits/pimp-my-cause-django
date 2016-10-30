@@ -2,53 +2,56 @@
 {% load static %}
 
 {% block layout %}
-    <header class="navigation row js-header-nav">
-        <div class="small-12 column">
-            <div class="navigation__wrap content-wrap">
-                <div class="js-header-list">
-                    <a href="/" class="logo-container">
-                        <img class="logo" src="{% static "img/logo.png" %}"/>
-                    </a>
-                    <button class="navigation__toggle js-nav-toggle"><span class="visuallyhidden">Menu</span><span class="hamburger"></span></button>
+    <header class="navigation row">
+        <div class="small-12 column js-header-nav">
+            <div class="navigation__wrap content-wrap js-header-list">
+                <a href="/" class="logo-container">
+                    <img class="logo" src="{% static "img/logo.png" %}"/>
+                </a>
+                <button class="navigation__button js-nav-toggle"><span class="visuallyhidden">Menu</span><span class="navigation__toggle"></span></button>
 
-                    <nav class="navigation__menu">
-                        <ul class="">
-                            <li class="navigation__item navigation__list navigation__menu--has-dropdown"><p>About Us</a>
-                                <ul class="navigation__dropdown">
-                                    <li class="navigation__item"><a href="/meet-the-team" class="navigation__link">Meet The Team</a></li>
-                                    <li class="navigation__item"><a href="/how-it-works" class="navigation__link">How It Works</a></li>
-                                    <li class="navigation__item"><a href="/who-we-are" class="navigation__link">Who We Are</a></li>
-                                </ul>
-                            </li>
-                            <li class="navigation__item"><a href="#" class="navigation__link">Find a Cause</a></li>
-                            <li class="navigation__item"><a href="#" class="navigation__link">Find a Marketer</a></li>
-                            <li class="navigation__item navigation__menu--has-dropdown"><p>Partnerships</p>
-                                <ul class="navigation__dropdown">
-                                    <li class="navigation__item"><a href="/become-a-partner" class="navigation__link">Become a Partner</a></li>
-                                    <li class="navigation__item"><a href="/our-partners" class="navigation__link">Our Partners</a></li>
-                                </ul>
-                            </li>
-                            <li class="navigation__item"><a href="/contact" class="navigation__link">Contact Us</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                    <div class="navigation__login">
-                        {% if user.is_authenticated %}
-                            <p class="navigation__username">{{ user.email }}</p>
-                            <form method="POST" action="/logout/">
-                                {% csrf_token %}
-                                <button type="submit" class="button button--primary">Logout</button>
-                            </form>
+                <nav class="navigation__menu">
+                    <ul class="navigation__list">
+                        <li class="navigation__item navigation__list navigation__menu--has-dropdown"><p>About Us</p>
+                            <ul class="navigation__dropdown">
+                                <li class="navigation__item"><a href="/meet-the-team" class="navigation__link">Meet The Team</a></li>
+                                <li class="navigation__item"><a href="/how-it-works" class="navigation__link">How It Works</a></li>
+                                <li class="navigation__item"><a href="/who-we-are" class="navigation__link">Who We Are</a></li>
+                            </ul>
+                        </li>
+                        <li class="navigation__item"><a href="#" class="navigation__link">Find a Cause</a></li>
+                        <li class="navigation__item"><a href="#" class="navigation__link">Find a Marketer</a></li>
+                        <li class="navigation__item navigation__menu--has-dropdown"><p>Partnerships</p>
+                            <ul class="navigation__dropdown">
+                                <li class="navigation__item"><a href="/become-a-partner" class="navigation__link">Become a Partner</a></li>
+                                <li class="navigation__item"><a href="/our-partners" class="navigation__link">Our Partners</a></li>
+                            </ul>
+                        </li>
+                        <li class="navigation__item"><a href="/contact" class="navigation__link">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <div class="navigation__login">
+                    {% if user.is_authenticated %}
+                        {% if user.name %}
+                            <p class="navigation__username"> {{ user.name }}</p>
                         {% else %}
-                            <div class="navigation__login-social">
-                                <a href="#" class="navigation__social-icon">{% include "icons/linkedin.svg" %}</a>
-                                <a href="#" class="navigation__social-icon">{% include "icons/facebook.svg" %}</a>
-                                <a href="#" class="navigation__social-icon">{% include "icons/twitter.svg" %}</a>
-                            </div>
-                            <a href="/accounts/login" class="button button--primary">Sign in</a>
-                            <a href="/accounts/register" class="navigation__register">Not registered?</a>
+                            <p class="navigation__username"> {{ user.email }}</p>
                         {% endif %}
+                        <form method="POST" action="/logout/">
+                            {% csrf_token %}
+                            <button type="submit" class="button--unstyled navigation__logout">Logout</button>
+                        </form>
+                    {% else %}
+                        <div class="navigation__login-social">
+                            <a href="#" class="navigation__social-icon">{% include "icons/linkedin.svg" %}</a>
+                            <a href="#" class="navigation__social-icon">{% include "icons/facebook.svg" %}</a>
+                            <a href="#" class="navigation__social-icon">{% include "icons/twitter.svg" %}</a>
+                        </div>
+                        <a href="/accounts/login" class="button button--primary">Sign in</a>
+                        <a href="/accounts/register" class="navigation__register">Not registered?</a>
+                    {% endif %}
                 </div>
+            </div>
         </div>
     </header>
     {% block main %}
