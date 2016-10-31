@@ -1,17 +1,19 @@
 {% extends "layout.html" %}
 
+{% block title %} Contact us {% endblock %}
+
 {% load static %}
 
-{% block main %} 
+{% block main %}
     <section class="page-contact pnl">
         <div class="content-wrap">
              <div class="row">
-                <div class="large-12 medium-12 small -12 columns">
+                <div class="large-12 medium-12 small-12 columns">
                     <h1 class="pnl__title">Contact Us</h1>
                         <form method="POST" action="//formspree.io/help@pimpmycause.org">
                             <input type="hidden" name="_subject" value="New Submission: Pimp My Cause Contact Form"/>
                             <input type="text" name="_gotcha" style="display:none"/>
-                    
+
                             <div class="medium-6 large-6 small-12 large-centered small-centered columns">
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
@@ -31,56 +33,19 @@
                                 </div>
                                 <div class="row">
                                     <div class="medium-12 large-12 small-12 columns">
-                                        <textarea name="message" rows="10" placeholder="Your message here" required></textarea>
+                                        <textarea name="message" rows="20" placeholder="Your message here" required></textarea>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="large-4 small-6 medium-4 medium-centered large-centered columns">
-                                        <input class="button" type="submit" value="Submit">
-                                    </div>                            
+                                        <input class="button button--primary" type="submit" value="Submit">
+                                    </div>
                                 </div>
-                            </div>                                
+                            </div>
                         </form>
                     </div>
-                </div> 
-            </div> 
-        </div>
-    </section> 
-
-    <!-- ************* -->
-    <!-- SIGN UP PANEL -->
-    <!-- ************* -->
-    
-    <section class="pnl-signup">
-        <div class="content-wrap">
-            <div class="row"> 
-                <div class="large-12 medium-12 small -12 columns">
-                    <h4 class="pnl__title">Sign up to our newsletter</h4>                            
-                    <form method="POST" action="https://pimpmycause.us2.list-manage.com/subscribe/post">
-                        <input type="hidden" name="u" value="23c6e23757f1478af7548526b">
-                        <input type="hidden" name="id" value="eafa9094b7">
-                        <div class="medium-6 large-6 small-12 large-centered small-centered columns">
-                            <div class="row">
-                                <div class="medium-6 large-6 small-12 columns">
-                                    <input type="text" name="MERGE1" placeholder="First Name *" required>
-                                </div>
-                                <div class="medium-6 large-6 small-12 columns">
-                                    <input type="text" name="MERGE2" placeholder="Surname *" required>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="medium-6 large-6 small-12 columns">
-                                    <input type="email" name="MERGE0" placeholder="Email Address" required>
-                                </div>
-                                <div class="medium-6 large-6 small-12 columns">
-                                    <input class="button" type="submit" value="Sign up">
-                                </div>                            
-                            </div>
-                        </div>                                
-                    </form>
                 </div>
-            </div>   
-        </div> 
+            </div>
+        </div>
     </section>
 {% endblock %}
-     

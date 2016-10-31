@@ -5,6 +5,7 @@
 .main-menu {
     flex: auto;
     display: inline-block;
+    
     ul {
         margin: 0;
         padding: 0;
@@ -13,6 +14,7 @@
         display: flex;
         flex-wrap: wrap;
         margin-left: 1em;
+        
         li {
             display: inline-block;
             flex: 2 2 auto;
@@ -21,9 +23,17 @@
         }
 
     }
-
+    
+    &-no-link,
+    a {
+        padding: 0;
+        margin: 0;
+        color: $white;
+    }
+    
     .has-dropdown:hover {
         background: #4E1B4E;
+        
         .dropdown {
             display: block;
         }
@@ -43,6 +53,7 @@
             background: $purple;
             padding-left: 1em;
             padding-right: 2em;
+            
             &:hover {
                 background: #4E1B4E;
 
@@ -54,7 +65,8 @@
         color: $white;
         font-weight: bold;
         text-decoration: underline;
-        text-align: center;
+        text-align: right;
+        margin-bottom: 0;
     }
 
 }

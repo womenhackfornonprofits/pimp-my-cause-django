@@ -5,6 +5,7 @@ from custom_user.models import AbstractEmailUser
 from django_countries.fields import CountryField
 from s3direct.fields import S3DirectField
 
+
 class PimpUser(AbstractEmailUser):
 
     MARKETER = 0
@@ -25,7 +26,7 @@ class PimpUser(AbstractEmailUser):
     # professional info
     position = models.CharField(max_length=100, blank=True)
     usertype = models.IntegerField(choices=USER_TYPE_CHOICES, null=True)
-    bio = models.CharField(max_length=1000, blank=True)
+    bio = models.TextField(max_length=1000, blank=True)
 
     # social accounts
     twitter = models.URLField(max_length=100, blank=True)
@@ -35,50 +36,29 @@ class PimpUser(AbstractEmailUser):
     image = S3DirectField(dest='user-profile-images', blank=True)
     featured = models.BooleanField(default=False)
 
+
+class Qualification(models.Model):
+    name = models.CharField(max_length=32)
+
+    def __str__(self):
+            return '%s' % (self.name)
+
+
 class MarketerProfile(models.Model):
-
-    ADVERTISING = 0
-    BRANDING = 1
-    BUSINESS_DEVELOPMENT = 2
-    CUSTOMER_INSIGHTS = 3
-    DIGITAL_MARKETING = 4
-    GRAPHIC_DESIGN = 5
-    INNOVATION = 6
-    MARKETING = 7
-    PHOTOGRAPHY = 8
-    PR = 9
-    SEO = 10
-    SOCIAL_MEDIA = 11
-    STRATEGIC_MARKETING = 12
-    VIDEOGRAPHY = 13
-    WEB_DEV = 14
-
-    QUALIFICATION_CHOICES = (
-        (ADVERTISING, "Advertising"),
-        (BRANDING, "Branding"),
-        (BUSINESS_DEVELOPMENT, "Business Development"),
-        (CUSTOMER_INSIGHTS, "Customer Insights"),
-        (DIGITAL_MARKETING, "Digital Marketing"),
-        (GRAPHIC_DESIGN, "Graphic Design"),
-        (INNOVATION, "Innovation"),
-        (MARKETING, "Marketing"),
-        (PHOTOGRAPHY, "Photography"),
-        (PR, "PR"),
-        (SEO, "SEO"),
-        (SOCIAL_MEDIA, "Social Media Marketing"),
-        (STRATEGIC_MARKETING, "Strategic Marketing"),
-        (VIDEOGRAPHY, "Videography"),
-        (WEB_DEV, "Web Development")
-    )
-
-    profile = models.ForeignKey(
+    profile = models.OneToOneField(
         PimpUser,
-        limit_choices_to={'usertype': PimpUser.CAUSE }
+        on_delete=models.CASCADE,
+        primary_key=True,
+        limit_choices_to={'usertype': PimpUser.MARKETER}
     )
 
-    qualifications = models.CharField(max_length=8, choices=QUALIFICATION_CHOICES, blank=True)
+    qualification = models.ManyToManyField("profiles.Qualification")
     experience = models.CharField(max_length=1000, blank=True)
     availability = models.BooleanField(default=True)
+
+    def __str__(self):
+        return '%s' % (self.profile)
+
 
 class CauseProfile(models.Model):
 
@@ -108,10 +88,16 @@ class CauseProfile(models.Model):
         (CARE_FOR_THE_ELDERY, "Care for the Eldery")
     )
 
-    profile = models.ForeignKey(
+    profile = models.OneToOneField(
         PimpUser,
-        limit_choices_to={'usertype': PimpUser.CAUSE }
+        on_delete=models.CASCADE,
+        primary_key=True,
+        limit_choices_to={'usertype': PimpUser.CAUSE}
     )
 
     mission = models.CharField(max_length=1000, blank=True)
-    categories = models.CharField(max_length=8, choices=CAUSE_CATEGORY_CHOICES, blank=True)
+    category = models.CharField(max_length=8, choices=CAUSE_CATEGORY_CHOICES, blank=True)
+
+    def __str__(self):
+        return '%s' % (self.profile)
+

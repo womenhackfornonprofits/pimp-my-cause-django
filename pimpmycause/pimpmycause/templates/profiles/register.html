@@ -1,57 +1,60 @@
 {% extends "layout.html" %}
 
+{% block title %} Register {% endblock %}
+
 {% load static %}
 
-    {% block main %} 
+    {% block main %}
         <div class="page-register pnl">
             <div class="content-wrap">
-               <h1 class="pnl__title">Register </h1> 
-                <div class="row"> 
+               <h1 class="pnl__title">Register </h1>
+                <div class="row">
                     <div class="large-12 medium-12 small-12 columns">
                         <form method="POST" action="">
                             {% csrf_token %}
                             {{ form.non_field_errors }}
-                            {{ form.errors }}
 
                             <div class="medium-6 large-6 small-12 large-centered small-centered columns">
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
                                         {{ form.name.errors }}
-                                        <input type="text" name="name" placeholder="First Name *" required>
+                                        <input type="text" name="name" placeholder="First Name" required>
                                     </div>
                                     <div class="medium-6 large-6 small-12 columns">
                                         {{ form.surname.errors }}
-                                        <input type="text" name="surname" placeholder="Surname *" required>
+                                        <input type="text" name="surname" placeholder="Surname" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
                                         {{ form.email.errors }}
-                                        <input type="email" name="email" placeholder="Email *" required>
-                                    </div>                           
+                                        <input type="email" name="email" placeholder="Email" required>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
                                         {{ form.phone.errors }}
-                                        <input type="tel" name="phone" placeholder="Telephone *" required>
+                                        <input type="tel" name="phone" placeholder="Telephone" required>
                                     </div>
                                     <div class="medium-6 large-6 small-12 columns">
                                         {{ form.twitter.errors }}
-                                        <input type="url" name="twitter" placeholder="Twitter">
-                                    </div>                            
+                                        <input type="url" name="twitter" placeholder="Twitter (optional)">
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
                                         {{ form.country.errors }}
                                         {{ form.country }}
                                     </div>
-                                    <div class="medium-3 large-3 small-6 columns">
+                                </div>
+                                <div class="row">
+                                    <div class="medium-6 large-6 small-12 columns">
                                         {{ form.city.errors }}
-                                        <input type="text" name="city" placeholder="City *" required>
+                                        <input type="text" name="city" placeholder="City" required>
                                     </div>
-                                    <div class="medium-3 large-3 small-6 columns">
+                                    <div class="medium-6 large-6 small-12 columns">
                                         {{ form.postcode.errors }}
-                                        <input type="text" name="postcode" placeholder="Post Code *" required>
+                                        <input type="text" name="postcode" placeholder="Post Code" required>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -62,40 +65,40 @@
                                     <div class="medium-6 large-6 small-12 columns">
                                         {{ form.password2.errors }}
                                         {{ form.password2 }}
-                                    </div>                            
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
                                         {{ form.position.errors }}
-                                        <input type="text" name="city" placeholder="Current Position *" required>
-                                    </div>      
+                                        <input type="text" name="city" placeholder="Current Position" required>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
                                         {{ form.usertype.errors }}
                                         {{ form.usertype }}
-                                    </div>                                
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="medium-12 large-12 small-12 columns">
                                         <label><input type="checkbox" name="terms" checked="checked"> I agree to the <a href="/terms-and-conditions/">Terms &amp; Conditions</a></label>
-                                    </div>                                
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="medium-12 large-12 small-12 columns">
                                         <label><input type="checkbox" name="terms" checked="checked"> Sign me up for the newsletter</label>
-                                    </div>                                
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="medium-6 large-4 small-6 columns">
-                                        <input class="button" type="submit" value="Register">
-                                    </div>                                
+                                        <input class="button button--primary" type="submit" value="Register">
+                                    </div>
                                 </div>
-                            </div>                                
+                            </div>
                         </form>
                     </div>
-                </div>   
-            </div> 
+                </div>
+            </div>
         </div>
 
     {% endblock %}

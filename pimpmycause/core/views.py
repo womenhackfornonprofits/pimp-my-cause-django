@@ -44,13 +44,6 @@ class MeetTheTeam(TemplateView):
     template_name = "core/team.html"
 
 
-class Partnerships(TemplateView):
-    """
-    Partnerships view.
-    """
-    template_name = "core/partnerships.html"
-
-
 class OurPartners(TemplateView):
     """
     Our Partners view.

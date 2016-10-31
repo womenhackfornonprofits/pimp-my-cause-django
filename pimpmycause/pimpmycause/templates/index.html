@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 
+{% block title %} Home {% endblock %}
+
 {% load static %}
 
 
-    {% block main %} 
+    {% block main %}
         <!-- ********** -->
         <!-- HERO PANEL -->
         <!-- ********** -->
@@ -15,34 +17,34 @@
                         <h1>Join Us</h1>
                         <h4>Start your pro bono marketing project today</h4>
                         <div class="large-6 medium-6 small-8">
-                            <select>
+                            <select class="type-option">
                                 <option value="marketer"><p>I'm a Marketer</p></option>
-                                <option value="cause">I'm a Cause</option>                                        
+                                <option value="cause">I'm a Cause</option>
                             </select>
-                            <a href="accounts/register" class="button">Continue</a>
+                            <a href="accounts/register" class="button button--secondary">Continue</a>
                         </div>
-                    </div> 
-                                        
+                    </div>
+
                     <div class="pnl-hero__cubes large-6 medium-6 small-12 columns">
-                        <div class="cube-row">                           
+                        <div class="cube-row">
                             <div class="cube-wrapper">
                                 <div class="cube flip-to-top">
                                     <div class="default-state"> <!-- front facing div to start -->
                                         <div class="img-wrapper">
                                             <img src=" {% static "img/cube1-marketer-pic.png" %}" alt="Image of Marketer">
                                         </div>
-                                    </div> <!-- end default-state --> 
+                                    </div> <!-- end default-state -->
                                     <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
                                         <a href="#">
-                                            <img src=" {% static "img/cube1-marketer-icon.png" %}" alt="Logo for Marketer"> 
+                                            <img src=" {% static "img/cube1-marketer-icon.png" %}" alt="Logo for Marketer">
                                             <h3>FIND A MARKETER</h3>
                                         </a><!-- end link -->
-                                    </div> 
+                                    </div>
                                 </div> <!-- end cube flip-to-top-->
                             </div> <!-- end cube-wrapper -->
-                            
-                            
-                            <!-- CUBE top right - Story -->                           
+
+
+                            <!-- CUBE top right - Story -->
                             <div class="cube-wrapper">
                                 <div class="cube flip-to-top">
                                     <div class="default-state cube-icon-txt"> <!-- front facing div to start -->
@@ -50,19 +52,19 @@
                                             <img src=" {% static "img/cube2-story-icon.png" %}" alt="Logo for Story">
                                             <h3>OUR STORY</h3>
                                         </a><!-- end link -->
-                                    </div>  
+                                    </div>
                                     <div class="active-state"> <!-- Step 1: move div to top side of cube -->
                                         <div class="img-wrapper">
                                             <img src=" {% static "img/cube2-story-pic.png" %}" alt="Image of Story">
                                         </div>
                                     </div>
-                                </div> <!-- end cube flip-to-top -->        
+                                </div> <!-- end cube flip-to-top -->
                             </div> <!-- end cube-wrapper -->
                         </div> <!-- end cube-row - top row -->
 
                         <!-- BOTTOM ROW -->
                         <div class="cube-row">
-                            
+
                             <div class="cube-wrapper">
                                 <div class="cube flip-to-top">
                                     <div class="default-state cube-icon-txt"> <!-- front facing div to start -->
@@ -78,23 +80,23 @@
                                     </div> <!-- end active-state -->
                                 </div> <!-- end cube flip-to-top-->
                             </div> <!-- end cube-wrapper -->
-                            
-                                                        
+
+
                             <div class="cube-wrapper">
                                 <div class="cube flip-to-top">
                                     <div class="default-state"> <!-- front facing div to start -->
                                         <div class="img-wrapper">
                                             <img src=" {% static "img/cube4-cause-pic.png" %}" alt="Image of Cause">
                                         </div>
-                                    </div>  
+                                    </div>
                                     <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
                                         <a href="#">
                                             <img src=" {% static "img/cube4-cause-icon.png" %}" alt="Logo for Cause">
                                             <h3>FIND A CAUSE</h3>
                                         </a>
                                     </div>
-                                </div>  
-                            </div>                           
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -113,17 +115,17 @@
                         <h1 class="pnl__title">Marketing a better world</h1>
                         <div class="large-8 large-centered columns">
                             <p>Pimp My Cause brings together thousands of charities and social enterprises with professional marketers including innovators, strategists, advertisers, graphic designers, web developers, PR specialists and researchers who can provide transformational support pro bono.</p>
-                            <p>Whether you are a cause in need of marketing or a marketer looking to diversify your experience, make new connections, showcase your talent or give something back, registration is fast and free.</p>    
-                        </div>   
-                    </div> 
-                </div> 
+                            <p>Whether you are a cause in need of marketing or a marketer looking to diversify your experience, make new connections, showcase your talent or give something back, registration is fast and free.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section> 
+        </section>
 
         <!-- ********************* -->
         <!-- FEATURED CAUSES PANEL -->
         <!-- ********************* -->
-        
+
         <section class="pnl-causes">
             <div class="content-wrap">
                 <div class="row">
@@ -162,11 +164,11 @@
                             <div class="slider__img" style="background-image: url({% static "img/slider-cause-humanity-road-logo.png" %})">
                             </div>
                         </div>
-                    </div>                            
+                    </div>
                 </div>
             </div>
         </section>
-        
+
         <!-- *************** -->
         <!-- MARKETERS PANEL -->
         <!-- *************** -->
@@ -208,11 +210,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                            
+                    </div>
                 </div>
             </div>
         </section>
-            
+
         <!-- ******************************* -->
         <!-- SUMMARY - HAVE YOU SEEN - PANEL -->
         <!-- ******************************* -->
@@ -229,14 +231,14 @@
                                 <img class="summary-img" src=" {% static "img/summary1-how-it-works.png" %}" alt="How it works">
                                 <div class="summary-title">How it works</div>
                                  <div class="summary-info">
-                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="/how-it-works/" class="read-more">Read more</a> 
+                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="/how-it-works/" class="read-more">Read more</a>
                                 </div>
                             </li>
                             <li class="summary-purple">
                                 <img class="summary-img" src=" {% static "img/summary2-meet-team.png" %}" alt="Meet the Team">
                                 <div class="summary-title">Meet the team</div>
                                  <div class="summary-info">
-                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="/meet-the-team/" class="read-more">Read more</a> 
+                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="/meet-the-team/" class="read-more">Read more</a>
                                 </div>
                             </li>
                             <li class="summary-green">
@@ -255,11 +257,11 @@
                             </li>
                         </ul>
                     </div>
-                </div>  
+                </div>
             </div>
-        </section> 
+        </section>
 
-        
+
         <!-- **************** -->
         <!-- TALK ABOUT PANEL -->
         <!-- **************** -->
@@ -270,31 +272,31 @@
                     <div class="large-12 columns">
                         <h1 class="pnl__title">What we are talking about</h1>
                     </div>
-                    <div class="social-tile__wrapper">                         
-                        <div class="social-tile"> 
-                            <div class="social-tile__heading">                                                   
+                    <div class="social-tile__wrapper">
+                        <div class="social-tile">
+                            <div class="social-tile__heading">
                                 <!-- tweets from pimp my cause -->
                                 <!--a class="twitter-timeline" data-link-color="#dc0e54" data-tweet-limit="1" data-chrome="noheader nofooter noborders transparent" href="https://twitter.com/pimpmycause" data-widget-id="708330834588274688">Tweets by @pimpmycause</a-->
                             </div>
                             <h4 class="social-tile__title pnl--light-txt ">Latest Tweet</h4>
-                        </div>                           
-                        <div class="social-tile"> 
-                            <div class="social-tile__heading">                                                   
+                        </div>
+                        <div class="social-tile">
+                            <div class="social-tile__heading">
                                 <!-- tweets from pimp my cause -->
                                 <!--a class="twitter-timeline" data-link-color="#dc0e54" data-tweet-limit="1" data-chrome="noheader nofooter noborders transparent" href="https://twitter.com/pimpmycause" data-widget-id="708330834588274688">Tweets by @pimpmycause</a-->
                             </div>
                             <h4 class="social-tile__title pnl--light-txt ">Latest Tweet</h4>
-                        </div>                    
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        
+
         <!-- **************** -->
         <!-- CONTACT US PANEL -->
         <!-- **************** -->
-        
+
         <section class="pnl-contact-us">
             <div class="content-wrap">
                  <div class="row">
@@ -303,14 +305,14 @@
                             <form method="POST" action="//formspree.io/help@pimpmycause.org">
                                 <input type="hidden" name="_subject" value="New Submission: Pimp My Cause Contact Form"/>
                                 <input type="text" name="_gotcha" style="display:none"/>
-                        
+
                                 <div class="medium-6 large-6 small-12 large-centered small-centered columns">
                                     <div class="row">
                                         <div class="medium-6 large-6 small-12 columns">
-                                            <input type="text" name="fname" placeholder="First Name *" required>
+                                            <input type="text" name="fname" placeholder="First Name" required>
                                         </div>
                                         <div class="medium-6 large-6 small-12 columns">
-                                            <input type="text" name="sname" placeholder="Surname *" required>
+                                            <input type="text" name="sname" placeholder="Surname" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -318,7 +320,7 @@
                                             <input type="email" name="email" placeholder="Email Address" required>
                                         </div>
                                         <div class="medium-6 large-6 small-12 columns">
-                                            <input type="tel" name="phone" placeholder="Telephone">
+                                            <input type="tel" name="phone" placeholder="Telephone (optional)">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -326,55 +328,15 @@
                                             <textarea name="message" rows="10" placeholder="Your message here" required></textarea>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="large-4 small-6 medium-4 medium-centered large-centered columns">
-                                            <input class="button" type="submit" value="Submit">
-                                        </div>                            
+                                    <div class="centered">
+                                        <input class="button button--secondary" type="submit" value="Submit">
                                     </div>
-                                </div>                                
+                                </div>
                             </form>
                         </div>
-                    </div> 
-                </div> 
-            </div>
-        </section> 
-
-        
-        <!-- ************* -->
-        <!-- SIGN UP PANEL -->
-        <!-- ************* -->
-        
-        <section class="pnl-signup">
-            <div class="content-wrap">
-                <div class="row"> 
-                    <div class="large-12 medium-12 small -12 columns">
-                        <h4 class="pnl__title">Sign up to our newsletter</h4>                            
-                        <form method="POST" action="https://pimpmycause.us2.list-manage.com/subscribe/post">
-                            <input type="hidden" name="u" value="23c6e23757f1478af7548526b">
-                            <input type="hidden" name="id" value="eafa9094b7">
-                            <div class="medium-6 large-6 small-12 large-centered small-centered columns">
-                                <div class="row">
-                                    <div class="medium-6 large-6 small-12 columns">
-                                        <input type="text" name="MERGE1" placeholder="First Name *" required>
-                                    </div>
-                                    <div class="medium-6 large-6 small-12 columns">
-                                        <input type="text" name="MERGE2" placeholder="Surname *" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="medium-6 large-6 small-12 columns">
-                                        <input type="email" name="MERGE0" placeholder="Email Address" required>
-                                    </div>
-                                    <div class="medium-6 large-6 small-12 columns">
-                                        <input class="button" type="submit" value="Sign up">
-                                    </div>                            
-                                </div>
-                            </div>                                
-                        </form>
                     </div>
-                </div>   
-            </div> 
+                </div>
+            </div>
         </section>
-
 
     {% endblock %}
