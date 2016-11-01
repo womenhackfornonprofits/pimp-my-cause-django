@@ -19,8 +19,8 @@ $team-individual-img-height: 150px;
 	&__individual-wrapper {
 		text-align: center;
 		margin-top: $team-individual-img-height/2;
-		width: 50%;
-		margin: 50px auto;
+		width: 49%;
+		margin: 50px 10px;
 	}
 
 	&__individual {
@@ -61,15 +61,15 @@ $team-individual-img-height: 150px;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-  	height: 7000px;
+  	height: 7500px;
   	width: 100%;	
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 846px) {
 	
 	.masonry {
 		flex-direction: row;
-		height: 10000px
+		height: 13500px
 	}
 
 	.team__individual-wrapper {
