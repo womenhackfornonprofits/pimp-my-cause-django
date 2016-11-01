@@ -52,4 +52,3 @@ class CauseUserProfileForm(forms.ModelForm):
     class Meta:
         model = CauseProfile
         fields = ('mission', 'category')
-

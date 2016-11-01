@@ -8,7 +8,6 @@ from django.http import HttpResponseRedirect
 from registration.backends.default import views as registration_views
 from profiles.forms import PimpUserRegistrationForm, PimpUserProfileForm, MarketerUserProfileForm, CauseUserProfileForm
 
-
 class RegistrationComplete(TemplateView):
     """
     The Registration Complete view.
