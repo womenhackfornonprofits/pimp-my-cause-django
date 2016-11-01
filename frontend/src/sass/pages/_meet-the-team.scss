@@ -19,6 +19,8 @@ $team-individual-img-height: 150px;
 	&__individual-wrapper {
 		text-align: center;
 		margin-top: $team-individual-img-height/2;
+		width: 49%;
+		margin: 50px 10px;
 	}
 
 	&__individual {
@@ -54,3 +56,49 @@ $team-individual-img-height: 150px;
 		margin-top: -$team-individual-img-height/2;
 	}
 }
+
+.masonry {	
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+  	height: 7500px;
+  	width: 100%;	
+}
+
+@media screen and (max-width: 846px) {
+	
+	.masonry {
+		flex-direction: row;
+		height: 13500px
+	}
+
+	.team__individual-wrapper {
+		width: 100%;
+	}
+
+	.one {
+		order: -6;
+	}
+
+	.two {
+		order: -5;
+	}
+
+	.three {
+		order: -4;
+	}
+
+	.four {
+		order: -3;
+	}
+
+	.five {
+		order: -2;
+	}
+
+	.six {
+		order: -1;
+	}
+
+}
+
