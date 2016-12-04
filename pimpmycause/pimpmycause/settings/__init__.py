@@ -164,19 +164,15 @@ REGISTRATION_DEFAULT_FROM_EMAIL = "info@pimpmycause.org"
 REGISTRATION_EMAIL_HTML = True
 REGISTRATION_AUTO_LOGIN = True
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = os.environ["SENDGRID_USERNAME"]
-EMAIL_HOST_PASSWORD = os.environ["SENDGRID_PASSWORD"]
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 # User image uploads to S3 bucket
 # AWS keys
-AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
+AWS_SECRET_ACCESS_KEY = os.environ["_AWS_SECRET_ACCESS_KEY"]
 AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
-AWS_STORAGE_BUCKET_NAME = "pimpmycause-images"
+AWS_STORAGE_BUCKET_NAME = "seo-london-images"
 S3DIRECT_REGION = 'eu-west-1'
 
 S3DIRECT_DESTINATIONS = {

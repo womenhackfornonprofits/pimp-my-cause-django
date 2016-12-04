@@ -1,10 +1,10 @@
 from django import forms
 
-from profiles.models import PimpUser, MarketerProfile, Qualification, CauseProfile
-from registration.forms import RegistrationForm
-
 from s3direct.widgets import S3DirectWidget
 from django_countries.widgets import CountrySelectWidget
+
+from profiles.models import PimpUser, MarketerProfile, Qualification, CauseProfile
+from registration.forms import RegistrationForm
 
 
 class PimpUserRegistrationForm(RegistrationForm):
@@ -52,4 +52,3 @@ class CauseUserProfileForm(forms.ModelForm):
     class Meta:
         model = CauseProfile
         fields = ('mission', 'category')
-
