@@ -42,6 +42,9 @@ class PimpUser(AbstractEmailUser):
     image = S3DirectField(dest='user-profile-images', blank=True)
     featured = models.BooleanField(default=False)
 
+    def __str__(self):
+        return '%s' % (self.name, self.surname)
+
 
 @receiver(post_save, sender=PimpUser)
 def create_user_profile(sender, instance, *args, **kwargs):
@@ -60,7 +63,7 @@ class Qualification(models.Model):
     name = models.CharField(max_length=32)
 
     def __str__(self):
-            return '%s' % (self.name)
+            return self.name
 
 
 class MarketerProfile(models.Model):
@@ -76,7 +79,7 @@ class MarketerProfile(models.Model):
     availability = models.BooleanField(default=True)
 
     def __str__(self):
-        return '%s' % (self.profile)
+        return self.profile
 
 
 class CauseProfile(models.Model):
@@ -118,4 +121,4 @@ class CauseProfile(models.Model):
     category = models.CharField(max_length=8, choices=CAUSE_CATEGORY_CHOICES, blank=True)
 
     def __str__(self):
-        return '%s' % (self.profile)
+        return self.profile
