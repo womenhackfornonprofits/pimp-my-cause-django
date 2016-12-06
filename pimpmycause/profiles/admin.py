@@ -17,8 +17,14 @@ class PimpUserAdmin(EmailUserAdmin):
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
 
+
+class CauseProfileAdmin(admin.ModelAdmin):
+
+    list_select_related = True
+
+
 # Register your models here.
 admin.site.register(PimpUser, PimpUserAdmin)
 admin.site.register(MarketerProfile)
-admin.site.register(CauseProfile)
+admin.site.register(CauseProfile, CauseProfileAdmin)
 admin.site.register(Qualification)
