@@ -34,7 +34,7 @@ LOGGING = {
             'handlers': ['console'],
             'level': 'ERROR',
         },
-        'fashrevwall': {
+        'pimpmycause': {
             'handlers': ['console'],
             'level': 'INFO',
         }

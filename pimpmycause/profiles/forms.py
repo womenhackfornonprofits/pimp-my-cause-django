@@ -1,10 +1,10 @@
 from django import forms
 
-from profiles.models import PimpUser, MarketerProfile, Qualification, CauseProfile
-from registration.forms import RegistrationForm
-
 from s3direct.widgets import S3DirectWidget
 from django_countries.widgets import CountrySelectWidget
+
+from profiles.models import PimpUser, MarketerProfile, Qualification, CauseProfile
+from registration.forms import RegistrationForm
 
 
 class PimpUserRegistrationForm(RegistrationForm):
@@ -26,7 +26,7 @@ class PimpUserProfileForm(forms.ModelForm):
                     '  <input class="file-url" type="hidden" value="{file_url}" id="{element_id}" name="{name}" />'
                     '  <input class="file-dest" type="hidden" value="{dest}">'
                     '  <input class="file-input js-input-file inputfile" type="file" id="file" name="file"/>'
-                    '  <label for="file" class="button">Choose an image</label>'
+                    '  <label for="file" class="button button--primary">Choose an image</label>'
                     '  <div class="progress progress-striped active">'
                     '    <div class="bar"></div>'
                     '  </div>'

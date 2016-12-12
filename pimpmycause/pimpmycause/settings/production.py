@@ -13,6 +13,13 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 
 ALLOWED_HOSTS = ['staging-pimpmycause.herokuapp.com']
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = os.environ["SENDGRID_USERNAME"]
+EMAIL_HOST_PASSWORD = os.environ["SENDGRID_PASSWORD"]
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -43,7 +50,7 @@ LOGGING = {
             'handlers': ['console'],
             'level': 'ERROR',
         },
-        'fashrevwall': {
+        'pimpmycause': {
             'handlers': ['console'],
             'level': 'INFO',
         }

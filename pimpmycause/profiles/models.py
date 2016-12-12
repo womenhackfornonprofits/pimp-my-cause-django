@@ -1,11 +1,19 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.utils.encoding import python_2_unicode_compatible
+
 from custom_user.models import AbstractEmailUser
 from django_countries.fields import CountryField
 from s3direct.fields import S3DirectField
+import logging
+
+log = logging.getLogger("pimpmycause")
 
 
+@python_2_unicode_compatible
 class PimpUser(AbstractEmailUser):
 
     MARKETER = 0
@@ -25,7 +33,7 @@ class PimpUser(AbstractEmailUser):
 
     # professional info
     position = models.CharField(max_length=100, blank=True)
-    usertype = models.IntegerField(choices=USER_TYPE_CHOICES, null=True)
+    usertype = models.IntegerField(choices=USER_TYPE_CHOICES, null=False)
     bio = models.TextField(max_length=1000, blank=True)
 
     # social accounts
@@ -36,14 +44,32 @@ class PimpUser(AbstractEmailUser):
     image = S3DirectField(dest='user-profile-images', blank=True)
     featured = models.BooleanField(default=False)
 
+    def __str__(self):
+        return '%s %s' % (self.surname, self.name)
 
+
+@receiver(post_save, sender=PimpUser)
+def create_user_profile(sender, instance, *args, **kwargs):
+
+    if (instance.usertype == PimpUser.MARKETER):
+        profile = MarketerProfile.objects.get_or_create(profile=instance)
+
+    elif (instance.usertype == PimpUser.CAUSE):
+        profile = CauseProfile.objects.get_or_create(profile=instance)
+
+    else:
+        log.info('Created an Admin user with no usertype set so skipping creating a profile')
+
+
+@python_2_unicode_compatible
 class Qualification(models.Model):
     name = models.CharField(max_length=32)
 
     def __str__(self):
-            return '%s' % (self.name)
+            return self.name
 
 
+@python_2_unicode_compatible
 class MarketerProfile(models.Model):
     profile = models.OneToOneField(
         PimpUser,
@@ -57,9 +83,10 @@ class MarketerProfile(models.Model):
     availability = models.BooleanField(default=True)
 
     def __str__(self):
-        return '%s' % (self.profile)
+        return self.profile.name
 
 
+@python_2_unicode_compatible
 class CauseProfile(models.Model):
 
     DISASTER_RELIEF = 0
@@ -99,5 +126,4 @@ class CauseProfile(models.Model):
     category = models.CharField(max_length=8, choices=CAUSE_CATEGORY_CHOICES, blank=True)
 
     def __str__(self):
-        return '%s' % (self.profile)
-
+        return '%s' % self.profile
