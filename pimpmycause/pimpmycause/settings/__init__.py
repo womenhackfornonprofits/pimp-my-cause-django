@@ -170,7 +170,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # User image uploads to S3 bucket
 # AWS keys
-AWS_SECRET_ACCESS_KEY = os.environ["_AWS_SECRET_ACCESS_KEY"]
+AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
 AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
 AWS_STORAGE_BUCKET_NAME = "seo-london-images"
 S3DIRECT_REGION = 'eu-west-1'
