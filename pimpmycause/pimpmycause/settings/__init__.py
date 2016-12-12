@@ -172,7 +172,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # AWS keys
 AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
 AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
-AWS_STORAGE_BUCKET_NAME = "seo-london-images"
+AWS_STORAGE_BUCKET_NAME = "pimpmycause-images"
 S3DIRECT_REGION = 'eu-west-1'
 
 S3DIRECT_DESTINATIONS = {
