@@ -4,11 +4,11 @@
 
 1. Install [virtualenv](https://virtualenv.pypa.io/en/stable/):
 
-	`sudo pip install virtualenv`
+	`pip install virtualenv`
 
 2. Install [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html):
 
-  `sudo pip install virtualenvwrapper`
+  `pip install virtualenvwrapper`
 
 3. Source the `virtualenvwrapper`:
 
