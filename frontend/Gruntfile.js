@@ -1,10 +1,6 @@
 module.exports = function(grunt) {
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-
+  require('load-grunt-tasks')(grunt);
+  
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -25,6 +21,17 @@ module.exports = function(grunt) {
         }
       }
     },
+    babel: {
+        options: {
+            sourceMap: true,
+            presets: ['es2015']
+        },
+        dist: {
+            files: {
+              '../pimpmycause/static/scripts/pimpmycause.min.js':'src/scripts/scripts.js',
+            }
+        }
+    },
 
     //------- Watch SASS -> CSS -------//
     watch: {
@@ -39,7 +46,7 @@ module.exports = function(grunt) {
         js: 'src/**/**.js'
       },
       dest: {
-        jsMin: '../pimpmycause/static/scripts/pimpmycause.min.js'
+        jsMin: '../pimpmycause/static/scripts/pimpmycause.min.js',
       }
     },
 
@@ -72,6 +79,6 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'copy']);
+  grunt.registerTask('default', ['sass', 'babel', 'cssmin', 'copy']);
 
 };
