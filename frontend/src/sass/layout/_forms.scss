@@ -44,7 +44,13 @@ select {
 }
 
 .errorlist {
-    //display: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        list-style: none;
+        color: $colr-error;
+    }
 }
 
 

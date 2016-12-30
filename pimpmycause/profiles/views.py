@@ -49,6 +49,15 @@ def logout_view(request):
     return HttpResponseRedirect("/")
 
 
+class SearchMarketerView(TemplateView):
+    """
+    Search Marketer View view.
+    """
+
+    template_name = 'search/search_marketer.html'
+
+
+
 @login_required
 def profile_update(request):
 
@@ -72,7 +81,7 @@ def profile_update(request):
             user_details.user = request.user
             user_details.save()
 
-            profile_details = marketer_details.save(commit=False)
+            profile_details = additional_profile_form.save(commit=False)
             profile_details.save()
 
 

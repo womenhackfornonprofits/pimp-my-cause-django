@@ -28,7 +28,7 @@ $grey3: #888888; // slider text
 // 136 136 136
 $grey4: #a0a0a0; // border of dropdown
 // 160 160 160
-
+$red: #ff0000;
 //$offwhite: #f1f1f1; // causes slider
 //// 200 199 199
 
@@ -72,7 +72,7 @@ $colr-slider-dark-pnl: $grey2;
 $colr-slider-text: $grey3;
 
 $colr-readmore: $pink;
-
+$colr-error: $red;
 // dropdown colours
 $colr-dropdown-border: $grey4;
 $colr-dropdown-background: $grey2;
