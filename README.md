@@ -83,6 +83,7 @@
 1. Make css and javascript changes in the `frontend` folder
 2. Make any HTML changes in the Django templates located in `pimpmycause/templates`
 3. Use `grunt default` in the frontend folder to build, watch and copy all the required files automatically into the Django static folder.
+4. For javascript changes run `browserify src/scripts/scripts.js -o ../pimpmycause/static/scripts/pimpmycause.min.js   -t [ babelify --presets [ es2015 ] ]`
 
 ## Deploying to Heroku
 1. Create a Heroku Account
