@@ -33,7 +33,7 @@
                 <div class="navigation__login">
                     {% if user.is_authenticated %}
                         {% if user.name %}
-                            <a class="navigation__username" href="/accounts/profile"> {{ user.name }}</a>
+                            <a class="navigation__username" href="/accounts/profile"> {{ user.name }} {{ user.surname }}</a>
                         {% else %}
                             <p class="navigation__username"> {{ user.email }}</p>
                         {% endif %}
