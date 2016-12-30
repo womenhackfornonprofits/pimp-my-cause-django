@@ -79,6 +79,6 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('default', ['sass', 'babel', 'cssmin', 'copy']);
+  grunt.registerTask('default', ['sass', 'cssmin', 'copy']);
 
 };

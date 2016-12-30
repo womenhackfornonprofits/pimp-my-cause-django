@@ -39,7 +39,7 @@
                         {% endif %}
                         <form method="POST" action="/logout/">
                             {% csrf_token %}
-                            <button type="submit" class="button--unstyled navigation__logout">Logout</button>
+                            <button type="submit" class="button--transparent navigation__logout">Logout</button>
                         </form>
                     {% else %}
                         <div class="navigation__login-social">
