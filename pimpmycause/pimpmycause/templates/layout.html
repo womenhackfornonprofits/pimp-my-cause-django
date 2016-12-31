@@ -43,9 +43,9 @@
                         </form>
                     {% else %}
                         <div class="navigation__login-social">
-                            <a href="#" class="navigation__social-icon">{% include "icons/linkedin.svg" %}</a>
-                            <a href="#" class="navigation__social-icon">{% include "icons/facebook.svg" %}</a>
-                            <a href="#" class="navigation__social-icon">{% include "icons/twitter.svg" %}</a>
+                            <a href="#" class="navigation__social-icon social-icon">{% include "icons/linkedin.svg" %}</a>
+                            <a href="#" class="navigation__social-icon social-icon">{% include "icons/facebook.svg" %}</a>
+                            <a href="#" class="navigation__social-icon social-icon">{% include "icons/twitter.svg" %}</a>
                         </div>
                         <a href="/accounts/login" class="button button--primary">Sign in</a>
                         <a href="/accounts/register" class="navigation__register">Not registered?</a>
@@ -93,15 +93,15 @@
     <footer class='footer'>
         <nav class='footer__navigation content-wrap'>
             <div class="footer__legal">
-                <a href="#">
+                <a href="/">
                     <img class="footer__logo" src="{% static "img/logo.png" %}"/>
                 </a>
-                <p>Copyright @ 2016 PIMP MY CAUSE </p>
+                <p>Copyright @ {% now "Y" %} PIMP MY CAUSE </p>
             </div>
             <div class="footer__info">
                 <ul>
                     <li>
-                        <a href="#">Terms of usage</a>
+                        <a href="/terms-and-conditions/">Terms of usage</a>
                     </li>
                     <li>
                         <a href="#">Support/Help</a>
@@ -112,10 +112,13 @@
                 </ul>
                 <ul class="footer__social">
                     <li>
-                        <a href="#">f</a>
+                        <a href="#" class="footer__social-icon linkedin">{% include "icons/linkedin.svg" %}</a>
+                    </li>
+                     <li>
+                        <a href="#" class="footer__social-icon twitter">{% include "icons/twitter.svg" %}</a>
                     </li>
                     <li>
-                        <a href="#">t</a>
+                        <a href="#" class="footer__social-icon facebook">{% include "icons/facebook.svg" %}</a>
                     </li>
                 </ul>
             </div>

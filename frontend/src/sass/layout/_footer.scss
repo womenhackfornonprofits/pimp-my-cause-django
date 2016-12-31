@@ -9,31 +9,71 @@
     text-align: center;
     padding: 2em 0;
     text-transform: uppercase;
-    
-    ul {
-    	padding: 0;
-    	margin: 0;
+    font-size: .7em;
+    color: $colr-footer;
 
-    	li {
-    		display: inline;
-    	}
+    a {
+        color: $colr-footer;
+        margin-right: 15px;
+
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: inline-block;
+
+        }
     }
 
     &__navigation {
-    	display: flex;
-    	flex-direction: row;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 
     &__logo {
-    	width: 5em;
+        width: 5em;
     } 
 
     &__link {
 
     }
 
+    &__legal {
+        text-align: left;
+        p {
+            display: inline;
+        }
+    }
+
+
+    &__social {
+        display: inline;
+
+        a {
+            margin: 1px;
+        }
+
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+
     &__legal,
     &__info {
-    	flex: 1 1 50%;
+        flex: 1 1 50%;
     }
 }
