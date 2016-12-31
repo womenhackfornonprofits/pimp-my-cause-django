@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import FormView, UpdateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -7,6 +7,8 @@ from django.http import HttpResponseRedirect
 
 from registration.backends.default import views as registration_views
 from profiles.forms import PimpUserRegistrationForm, PimpUserProfileForm, MarketerUserProfileForm, CauseUserProfileForm
+from profiles.models import PimpUser
+
 
 class RegistrationComplete(TemplateView):
     """
@@ -42,10 +44,24 @@ class TermsAndConditions(TemplateView):
     template_name = 'core/terms_and_conditions.html'
 
 
+
 def logout_view(request):
     logout(request)
 
     return HttpResponseRedirect("/")
+
+
+def homepage(request):
+    """
+    The home page view.
+    """
+    limit = 3
+    featured_marketer_list = PimpUser.objects.filter(featured=True).filter(usertype=0).order_by('-date_joined')[:limit]
+    featured_cause_list = PimpUser.objects.filter(featured=True).filter(usertype=1).order_by('-date_joined')[:limit]
+
+    context = {'featured_marketer_list': featured_marketer_list, 'featured_cause_list': featured_cause_list}
+
+    return render(request, 'index.html', context)
 
 
 @login_required

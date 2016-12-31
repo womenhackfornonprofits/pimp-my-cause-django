@@ -17,12 +17,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from core.views import HomepageView, ContactView, AboutView, MeetTheTeam, OurPartners, BecomeAPartner, WhoWeAre, HowItWorks
-from profiles.views import RegistrationView, RegistrationComplete, ActivationComplete, profile_update, TermsAndConditions, logout_view
+from profiles.views import RegistrationView, RegistrationComplete, ActivationComplete, profile_update, TermsAndConditions, logout_view, homepage
 from profiles.forms import PimpUserRegistrationForm
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', HomepageView.as_view(), name="index"),
+    url(r'^$', homepage, name="homepage_view"),
     url(r'^logout/', logout_view, name="logout_view"),
     url(r'^contact/', ContactView.as_view(), name="contact"),
     url(r'^about/', AboutView.as_view(), name="about"),
