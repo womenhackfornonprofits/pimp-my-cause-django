@@ -4,8 +4,11 @@
 
 .social-icon {
   display: block;
-  width: 20px;
-  height: 20px;
+  
+  svg {
+    width: 15px;
+    height: 15px;
+  }
 
   path {
     transition: fill 0.2s ease-in-out;
