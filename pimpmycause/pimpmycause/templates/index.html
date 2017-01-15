@@ -131,40 +131,20 @@
                 <div class="row">
                     <h1 class="pnl__title">Featured Causes</h1>
                     <div class="slider">
-                        <div class="slider__slide">
-                            <div class="slider__text">
-                                <h3 class="slider__title">Humanity - 1</h3>
-                                <div>
-                                     <p class="slider__paragraph">We are great at responding to disaster. We provide aid in the form of information and we're the best in the world.  But we need help creating an engaging fundraising campaign to help reach donors.  We're great at doing our job and not very good at telling our story.  Can you help us be more engaging, and effective in reaching those who can help us continue our mission? </p>
-                                    <a href="#" class="cause-arrow"></a>
+                        <div class="slider">
+                        {% for cause in featured_cause_list %}
+                            <div class="slider__slide">
+                                <div class="slider__text">
+                                    <h3 class="slider__title"> {{ cause.name }}</h3>
+                                    <div>
+                                         <p class="slider__paragraph">{{ cause.bio }}</p>
+                                         <a href="#" class="cause-arrow"></a>
+                                    </div>
+                                </div>
+                                <div class="slider__img" style="background-image: url({{ cause.image }})">
                                 </div>
                             </div>
-                            <div class="slider__img" style="background-image: url({% static "img/slider-cause-humanity-road-logo.png" %})">
-                            </div>
-                        </div>
-                        <div class="slider__slide">
-                            <div class="slider__text">
-                                <h3 class="slider__title">Humanity - 2</h3>
-                                <div>
-                                    <p class="slider__paragraph">We are great at responding to disaster. We provide aid in the form of information and we're the best in the world.  But we need help creating an engaging fundraising campaign to help reach donors.  We're great at doing our job and not very good at telling our story.  Can you help us be more engaging, and effective in reaching those who can help us continue our mission? </p>
-                                    <a href="#" class="cause-arrow"></a>
-                                </div>
-                            </div>
-                            <div class="slider__img" style="background-image: url({% static "img/slider-cause-humanity-road-logo.png" %})">
-                            </div>
-                        </div>
-                        <div class="slider__slide">
-                            <div class="slider__text">
-                                <h3 class="slider__title">Humanity - 3</h3>
-                                <div>
-                                    <p class="slider__paragraph">We are great at responding to disaster. We provide aid in the form of information and we're the best in the world.  But we need help creating an engaging fundraising campaign to help reach donors.  We're great at doing our job and not very good at telling our story.  Can you help us be more engaging, and effective in reaching those who can help us continue our mission? </p>
-                                    <a href="#" class="cause-arrow"></a>
-                                </div>
-                            </div>
-                            <div class="slider__img" style="background-image: url({% static "img/slider-cause-humanity-road-logo.png" %})">
-                            </div>
-                        </div>
-                    </div>
+                         {% endfor %}
                 </div>
             </div>
         </section>
@@ -176,40 +156,26 @@
             <div class="content-wrap">
                 <div class="row">
                     <h1 class="pnl__title">Featured Marketers</h1>
-                    <div class="slider">
-                        <div class="slider__slide">
-                            <div class="slider__img" style="background-image: url({% static "img/adam.png" %})">
-                            </div>
-                            <div class="slider__text">
-                                <h3 class="slider__title">Adam Edwards - 1</h3>
-                                <div class="slider__paragraph">
-                                    <h5>Position: Director of Digital Marketing</h5>
-                                    <p>Currently the Director of Digital Marketing at SMSW Media www.smswmedia.com working on a range of Digital projects including Social Media, SEO, e-Marketing, Content Marketing, PPC mostly in the retail sector for peo
+                        <div class="slider">
+                            {% for marketer in featured_marketer_list %}
+                                <!-- always have 3 slides for the slider effect to work -->
+                                <div class="slider__slide">
+                                    {% if marketer.image %}
+                                        <div class="slider__img" style="background-image: url({{ marketer.image }})">
+                                        </div>
+                                    {% else %}
+                                         <div class="slider__img" style="background-image: url('http://image.flaticon.com/icons/svg/26/26444.svg')">
+                                        </div>
+                                    {% endif %}
+                                    <div class="slider__text">
+                                        <h3 class="slider__title">{{ marketer.name}} {{ marketer.surname }}</h3>
+                                        <div class="slider__paragraph">
+                                            <h5>Position: {{ marketer.position }}</h5>
+                                            <p>{{ marketer.bio }}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="slider__slide">
-                            <div class="slider__img" style="background-image: url({% static "img/adam.png" %})">
-                            </div>
-                            <div class="slider__text">
-                                <h3 class="slider__title">Adam Edwards - 2</h3>
-                                <div class="slider__paragraph">
-                                    <h5>Position: Director of Digital Marketing</h5>
-                                    <p>Currently the Director of Digital Marketing at SMSW Media www.smswmedia.com working on a range of Digital projects including Social Media, SEO, e-Marketing, Content Marketing, PPC mostly in the retail sector for peo
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider__slide">
-                            <div class="slider__img" style="background-image: url({% static "img/adam.png" %})">
-                            </div>
-                            <div class="slider__text">
-                                <h3 class="slider__title">Adam Edwards - 3</h3>
-                                <div class="slider__paragraph">
-                                    <h5>Position: Director of Digital Marketing</h5>
-                                    <p>Currently the Director of Digital Marketing at SMSW Media www.smswmedia.com working on a range of Digital projects including Social Media, SEO, e-Marketing, Content Marketing, PPC mostly in the retail sector for peo
-                                </div>
-                            </div>
-                        </div>
+                            {% endfor %}
                     </div>
                 </div>
             </div>
