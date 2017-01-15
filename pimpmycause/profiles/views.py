@@ -6,22 +6,19 @@ from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 
 from registration.backends.default import views as registration_views
-from profiles.forms import PimpUserRegistrationForm, PimpUserProfileForm, MarketerUserProfileForm, CauseUserProfileForm
+from profiles.forms import PimpUserRegistrationForm, PimpUserProfileForm,
+                            MarketerUserProfileForm, CauseUserProfileForm
 from profiles.models import PimpUser
 
 
 class RegistrationComplete(TemplateView):
-    """
-    The Registration Complete view.
-    """
+    """The Registration Complete view."""
 
     template_name = "registration/registration_complete.html"
 
 
 class RegistrationView(registration_views.RegistrationView):
-    """
-    The Registration view.
-    """
+    """The Registration view."""
 
     template_name = 'profiles/register.html'
     form_class = PimpUserRegistrationForm
@@ -29,35 +26,30 @@ class RegistrationView(registration_views.RegistrationView):
 
 
 class ActivationComplete(TemplateView):
-    """
-    The Activation Complete view.
-    """
+    """The Activation Complete view."""
 
     template_name = 'registration/activate_complete.html'
 
 
 class TermsAndConditions(TemplateView):
-    """
-    The Activation Complete view.
-    """
+    """The Activation Complete view."""
 
     template_name = 'core/terms_and_conditions.html'
 
 
-
 def logout_view(request):
+    """Redirect user to homepage on logout"""
+
     logout(request)
 
     return HttpResponseRedirect("/")
 
 
 def homepage(request):
-    """
-    The home page view.
-    """
+    """The home page view."""
     limit = 3
-    featured_marketer_list = PimpUser.objects.filter(featured=True).filter(usertype=0).order_by('-date_joined')[:limit]
-    featured_cause_list = PimpUser.objects.filter(featured=True).filter(usertype=1).order_by('-date_joined')[:limit]
+    featured_marketer_list = PimpUser.objects.filter(featured=True).filter(usertype=PimpUser.MARKETER).order_by('-date_joined')[:limit]
+    featured_cause_list = PimpUser.objects.filter(featured=True).filter(usertype= PimpUser.CAUSE).order_by('-date_joined')[:limit]
 
     context = {'featured_marketer_list': featured_marketer_list, 'featured_cause_list': featured_cause_list}
 
