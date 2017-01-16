@@ -4,8 +4,11 @@
 
 .social-icon {
   display: block;
-  width: 20px;
-  height: 20px;
+  
+  svg {
+    width: 15px;
+    height: 15px;
+  }
 
   path {
     transition: fill 0.2s ease-in-out;
@@ -18,5 +21,23 @@
     path {
       fill: $grey;
     }
+  }
+}
+
+.twitter {
+  path {
+    fill: #4099FF;
+  }
+}
+
+.facebook {
+  path {
+    fill: #3b5998;
+  }
+}
+
+.linkedin {
+  path {
+    fill: #0077b5;
   }
 }
