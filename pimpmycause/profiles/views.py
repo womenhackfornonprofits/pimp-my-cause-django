@@ -6,8 +6,12 @@ from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 
 from registration.backends.default import views as registration_views
-from profiles.forms import PimpUserRegistrationForm, PimpUserProfileForm,
-                            MarketerUserProfileForm, CauseUserProfileForm
+from profiles.forms import (
+    PimpUserRegistrationForm,
+    PimpUserProfileForm,
+    MarketerUserProfileForm,
+    CauseUserProfileForm
+)
 from profiles.models import PimpUser
 
 
