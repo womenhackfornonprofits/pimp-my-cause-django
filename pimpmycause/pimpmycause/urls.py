@@ -38,4 +38,5 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^s3direct/', include('s3direct.urls')),
     url(r'^accounts/profile/', profile_update, name='profile_update'),
+    url(r'^password/reset/$', 'password_reset',name='password_reset_form'),
 ]

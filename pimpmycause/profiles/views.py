@@ -4,6 +4,8 @@ from django.views.generic.edit import FormView, UpdateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
+from django.contrib.auth.views import password_reset
+
 
 from registration.backends.default import views as registration_views
 from profiles.forms import (
@@ -104,3 +106,10 @@ def profile_update(request):
                'additional_profile_form': additional_profile_form}
 
     return render(request, 'profiles/profile.html', context)
+
+
+def password_reset(request):
+    if request.user.is_authenticated():
+       # separate logic, redirect, whatever you wish.
+       return HttpResponseRedirect("profiles/profile.html")
+    return password_reset(request, template_name='registration/password_reset_form.html', post_reset_redirect=reverse('password_reset_done'))
