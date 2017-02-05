@@ -1,14 +1,8 @@
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from core.views import (
-    ContactView,
-    AboutView,
-    MeetTheTeam,
-    OurPartners,
-    BecomeAPartner,
-    WhoWeAre,
-    HowItWorks,
+from django.views.generic.base import (
+    TemplateView,
 )
 from profiles.views import (
     RegistrationView,
@@ -40,37 +34,37 @@ urlpatterns = [
     ),
     url(
         r'^contact/',
-        ContactView.as_view(),
+        TemplateView.as_view(template_name='core/contact.html'),
         name="contact"
     ),
     url(
         r'^about/',
-        AboutView.as_view(),
+        TemplateView.as_view(template_name='core/about.html'),
         name="about"
     ),
     url(
         r'^meet-the-team/',
-        MeetTheTeam.as_view(),
+        TemplateView.as_view(template_name='core/team.html'),
         name="team"
     ),
     url(
         r'^who-we-are/',
-        WhoWeAre.as_view(),
+        TemplateView.as_view(template_name='core/who-we-are.html'),
         name="who_we_are"
     ),
     url(
         r'^how-it-works/',
-        HowItWorks.as_view(),
+        TemplateView.as_view(template_name='core/how-it-works.html'),
         name="how_it_works"
     ),
     url(
         r'^become-a-partner/',
-        BecomeAPartner.as_view(),
+        TemplateView.as_view(template_name='core/become-a-partners.html'),
         name="become_a_partner"
     ),
     url(
         r'^our-partners/',
-        OurPartners.as_view(),
+        TemplateView.as_view(template_name='core/our-partners.html'),
         name="our_partners"
     ),
     url(

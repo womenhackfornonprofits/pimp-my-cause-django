@@ -49,7 +49,6 @@ def logout_view(request):
     return HttpResponseRedirect("/")
 
 
-<<<<<<< HEAD
 class SearchMarketerView(TemplateView):
     """
     Search Marketer View view.
@@ -57,7 +56,7 @@ class SearchMarketerView(TemplateView):
 
     template_name = 'search/search_marketer.html'
 
-=======
+
 def homepage(request):
     """The home page view."""
     limit = 3
@@ -67,7 +66,6 @@ def homepage(request):
     context = {'featured_marketer_list': featured_marketer_list, 'featured_cause_list': featured_cause_list}
 
     return render(request, 'index.html', context)
->>>>>>> master
 
 
 @login_required
