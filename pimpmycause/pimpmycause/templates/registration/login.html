@@ -10,8 +10,14 @@
 		<div class="content-wrap">
             <div class="row">
                 <div class="large-12 medium-12 small-12 columns">
+                {% if user.is_authenticated %}
+
+                    {% else %}
+
+                    {% endif %}
+
                     <h1 class="pnl__title">Log In</h1>
-                        <div class="medium-6 large-3 small-12 large-centered small-centered columns">
+                    <div class="medium-6 large-3 small-12 large-centered small-centered columns">
                         <form method="POST" action="">
                             <div class="row">
                         	   {% csrf_token %}

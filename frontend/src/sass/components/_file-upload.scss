@@ -14,11 +14,6 @@
     display: inline-block;
 }
 
-.inputfile:focus + label,
-.inputfile + label:hover {
-    background-color: pink;
-}
-
 .inputfile + label {
     cursor: pointer;
 }
@@ -43,7 +38,8 @@
 }
 
 .file-link {
-    margin: 0 auto;
-    padding: 10px 0;
-    width: 100%;
+  visibility: hidden;
+  height: 0;
+  padding: 0;
+  margin: 0;
 }

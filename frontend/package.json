@@ -4,7 +4,7 @@
   "description": "Pimp My Cause",
   "main": "Gruntfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "scss-lint ."
   },
   "repository": {
     "type": "git",
@@ -17,19 +17,25 @@
   },
   "homepage": "https://github.com/womenhackfornonprofits/pimp-my-cause-django#readme",
   "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-env": "^1.1.4",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
     "grunt": "^1.0.1",
+    "grunt-babel": "^6.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
+    "load-grunt-tasks": "^3.5.2",
     "scss-lint": "0.0.0"
   },
   "dependencies": {
-    "grunt-sync": "^0.5.2"
-  },
-  "scripts": {
-    "lint": "scss-lint ."
+    "browserify": "^13.1.1",
+    "grunt-sync": "^0.5.2",
+    "qwery": "^4.0.0"
   },
   "pre-commit": [
     "lint"
