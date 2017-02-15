@@ -9,6 +9,7 @@ from profiles.views import (
     RegistrationComplete,
     ActivationComplete,
     profile_update,
+    profile_detail,
     TermsAndConditions,
     logout_view,
     homepage,
@@ -104,5 +105,10 @@ urlpatterns = [
         r'^search/marketer/',
         SearchMarketerView.as_view(),
         name='search_marketer'
+    ),
+    url(
+        r'^accounts/profile/([a-z0-9-]+)/$',
+        profile_detail,
+        name='profile_detail'
     ),
 ]
