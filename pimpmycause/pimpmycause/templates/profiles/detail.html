@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block title %} Profile {% endblock %}
+
+{% load static %}
+
+    {% block main %}
+    <section class="page-register pnl row">
+        <div class="content-wrap">
+            <h1 class="pnl__title">Profile</h1>
+                <div class="medium-12 large-12 small-10 large-centered small-centered columns">
+                        <div class="row">
+                            <div class="large-3 medium-4 small-10 small-centered medium-uncentered columns">
+
+                                {% if not profile_update_form.image.value %}
+                                    <img class="profile-img" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSwY0Ifx0mEN9C7n50Ub-viD3SQXUSrgYcNVu_nTrCRTpYcSGM9AQ-ZH0o" alt="Profile Image">
+
+                                {% else %}
+                                    <img class="profile-img" src="{{profile_update_form.image.value}}" alt="{{ user.name }} {{ user.surname }} Profile Image">
+                                {% endif %}
+                            </div>
+                            <div class="large-offset-3 medium-offset-2 large-4 medium-6 small-12 small-centered medium-uncentered columns">
+                                <label for="name"> Name </label>
+                                <input type="text" name="name" placeholder="Sam" value='{{ profile_update_form.name.value|default_if_none:"" }}' required>
+
+                                <label for="surname"> Surname </label>
+                                <input type="text" name="surname" placeholder="Jones" value='{{ profile_update_form.surname.value|default_if_none:"" }}' required>
+
+                                <label for="position"> Position </label>
+                                <input type="text" name="position" placeholder="Marketer" value='{{ profile_update_form.position.value|default_if_none:"" }}' required>
+
+                                <label for="city"> City </label>
+                                <input type="text" name="city" placeholder="London" value='{{ profile_update_form.city.value|default_if_none:"" }}' required>
+
+                            </div>
+                        </div>
+                        <div class="large-6 medium-6 small-12">
+                            <h2>Contact Info &amp; Social</h2>
+                        </div>
+                        <div class="large-12 medium-12 small-12 small-centered medium-uncentered">
+                                <div class="row">
+                                    <div class="columns small-12 medium-6">
+
+                                    <label for="linkedin"> LinkedIn </label>
+                                    <input type="url" name="linkedin" placeholder="https://linkedin.com/username" value='{{ profile_update_form.linkedin.value|default_if_none:"" }}' required>
+
+                                    <label for="twitter"> Twitter </label>
+                                    <input type="url" name="twitter" placeholder="https://twitter.com/username" value='{{ profile_update_form.twitter.value|default_if_none:"" }}' required>
+                                </div>
+                                <div class="columns small-12 medium-6">
+                                    <label for="website"> Website </label>
+                                    <input type="url" name="website" placeholder="https://www.example.com" value='{{profile_update_form.website.value|default_if_none:""}}' required>
+
+                                    <label for="phone"> Phone </label>
+                                    <input type="text" name="phone" placeholder="07654123456" value='{{ profile_update_form.phone.value|default_if_none:"" }}' required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="large-12 medium-12 small-12">
+                            <h2>Background</h2>
+                        </div>
+                        <div class="large-12 medium-12 small-12">
+                            <div class="">
+                                <label for="bio"> Bio </label>
+                                <textarea name="bio" rows="10" required placeholder="Hi! My name is Sam, I am a London based Marketer.">{{ profile_update_form.bio.value|default_if_none:"" }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="large-12 medium-12 small-12">
+                            {% if user.get_usertype_display == "Marketer" %}
+                                <h2>Volunteer profile</h2>
+                                                        </div>
+                            {% elif user.get_usertype_display == "Marketer" %}
+                                <h2>Cause profile</h2>
+                            {% endif %}
+
+                        <div class="large-6 medium-6 small-12">
+                            <div class="row">
+                                <input class="button button--primary" type="submit" value="Edit">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
