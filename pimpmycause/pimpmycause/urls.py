@@ -107,7 +107,7 @@ urlpatterns = [
         name='search_marketer'
     ),
     url(
-        r'^accounts/profile/([a-z0-9-]+)/$',
+        r'^(?P<user_id>\d+)/$',
         profile_detail,
         name='profile_detail'
     ),

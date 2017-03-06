@@ -67,9 +67,9 @@ def homepage(request):
 
     return render(request, 'index.html', context)
 
-def profile_detail(request, slug):
-    person = PimpUser.objects.get(slug=slug)
-    return render(request, 'detail.html', {'person':person})
+def profile_detail(request, user_id):
+    person = PimpUser.objects.get(instance=user_id)
+    return render(request, 'profile/detail.html', {'person':person})
 
 @login_required
 def profile_update(request):

@@ -10,8 +10,6 @@ from django_countries.fields import CountryField
 from s3direct.fields import S3DirectField
 import logging
 
-from django.utils.text import slugify
-
 log = logging.getLogger("pimpmycause")
 
 
@@ -45,8 +43,6 @@ class PimpUser(AbstractEmailUser):
 
     image = S3DirectField(dest='user-profile-images', blank=True)
     featured = models.BooleanField(default=False)
-    #updated automatically
-    slug = models.SlugField(max_length=50, blank=True)
 
     def __str__(self):
         return '%s %s' % (self.surname, self.name)

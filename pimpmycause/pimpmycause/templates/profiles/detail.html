@@ -20,17 +20,17 @@
                                 {% endif %}
                             </div>
                             <div class="large-offset-3 medium-offset-2 large-4 medium-6 small-12 small-centered medium-uncentered columns">
-                                <label for="name"> Name </label>
-                                <input type="text" name="name" placeholder="Sam" value='{{ profile_update_form.name.value|default_if_none:"" }}' required>
+                                <p> Name </p>
+                                <p>{{ profile_update_form.name.value|default_if_none:"" }}</p>
 
-                                <label for="surname"> Surname </label>
-                                <input type="text" name="surname" placeholder="Jones" value='{{ profile_update_form.surname.value|default_if_none:"" }}' required>
+                                <p> Surname </p>
+                                <p>{{ profile_update_form.surname.value|default_if_none:"" }}</p>
 
-                                <label for="position"> Position </label>
-                                <input type="text" name="position" placeholder="Marketer" value='{{ profile_update_form.position.value|default_if_none:"" }}' required>
+                                <p> Position </p>
+                                <p>{{ profile_update_form.position.value|default_if_none:"" }}</p>
 
-                                <label for="city"> City </label>
-                                <input type="text" name="city" placeholder="London" value='{{ profile_update_form.city.value|default_if_none:"" }}' required>
+                                <p for="city"> City </p>
+                                <p>{{ profile_update_form.city.value|default_if_none:"" }}</p>
 
                             </div>
                         </div>
@@ -39,20 +39,20 @@
                         </div>
                         <div class="large-12 medium-12 small-12 small-centered medium-uncentered">
                                 <div class="row">
-                                    <div class="columns small-12 medium-6">
+                                  <div class="columns small-12 medium-6">
 
-                                    <label for="linkedin"> LinkedIn </label>
-                                    <input type="url" name="linkedin" placeholder="https://linkedin.com/username" value='{{ profile_update_form.linkedin.value|default_if_none:"" }}' required>
+                                    <p> LinkedIn </p>
+                                    <p>{{ profile_update_form.linkedin.value|default_if_none:"" }}</p>
 
-                                    <label for="twitter"> Twitter </label>
-                                    <input type="url" name="twitter" placeholder="https://twitter.com/username" value='{{ profile_update_form.twitter.value|default_if_none:"" }}' required>
+                                    <p> Twitter </p>
+                                    <p>{{ profile_update_form.twitter.value|default_if_none:"" }}</p>
                                 </div>
                                 <div class="columns small-12 medium-6">
-                                    <label for="website"> Website </label>
-                                    <input type="url" name="website" placeholder="https://www.example.com" value='{{profile_update_form.website.value|default_if_none:""}}' required>
+                                    <p> Website </p>
+                                    <p>{{profile_update_form.website.value|default_if_none:""}}</p>
 
-                                    <label for="phone"> Phone </label>
-                                    <input type="text" name="phone" placeholder="07654123456" value='{{ profile_update_form.phone.value|default_if_none:"" }}' required>
+                                    <p> Phone </p>
+                                    <p>{{ profile_update_form.phone.value|default_if_none:"" }}</p>
                                 </div>
                             </div>
                         </div>
@@ -61,27 +61,19 @@
                         </div>
                         <div class="large-12 medium-12 small-12">
                             <div class="">
-                                <label for="bio"> Bio </label>
-                                <textarea name="bio" rows="10" required placeholder="Hi! My name is Sam, I am a London based Marketer.">{{ profile_update_form.bio.value|default_if_none:"" }}</textarea>
+                                <p> Bio </p>
+                                <p>{{ profile_update_form.bio.value|default_if_none:"" }}</p>
                             </div>
                         </div>
 
                         <div class="large-12 medium-12 small-12">
                             {% if user.get_usertype_display == "Marketer" %}
                                 <h2>Volunteer profile</h2>
-                                                        </div>
                             {% elif user.get_usertype_display == "Marketer" %}
                                 <h2>Cause profile</h2>
                             {% endif %}
-
-                        <div class="large-6 medium-6 small-12">
-                            <div class="row">
-                                <input class="button button--primary" type="submit" value="Edit">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+                      </div>
+              </div>
         </div>
     </section>
     {% endblock %}
