@@ -11,7 +11,7 @@ from profiles.views import (
     profile_update,
     TermsAndConditions,
     logout_view,
-    SearchMarketerView,
+    marketer_list,
 )
 from core.views import (
     homepage
@@ -104,7 +104,7 @@ urlpatterns = [
     ),
     url(
         r'^search/marketer/',
-        SearchMarketerView.as_view(),
+        marketer_list,
         name='search_marketer'
     ),
 ]

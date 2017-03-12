@@ -11,6 +11,7 @@ from profiles.forms import (
     MarketerUserProfileForm,
     CauseUserProfileForm
 )
+from profiles.models import PimpUser
 
 
 class RegistrationComplete(TemplateView):
@@ -46,10 +47,16 @@ def logout_view(request):
     return HttpResponseRedirect("/")
 
 
-class SearchMarketerView(TemplateView):
-    """Search Marketer View view."""
+def marketer_list(request):
+    """Marketer search view."""
+    marketer_list = (
+        PimpUser.objects
+        .filter(usertype=PimpUser.MARKETER)
+        .order_by('-date_joined')
+    )
+    context = {'marketer_list': marketer_list}
 
-    template_name = 'search/search_marketer.html'
+    return render(request, 'search/search_marketer.html', context)
 
 
 @login_required
