@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, ListView
-from django.views.generic.edit import FormView, UpdateView
+from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
@@ -12,7 +11,6 @@ from profiles.forms import (
     MarketerUserProfileForm,
     CauseUserProfileForm
 )
-from profiles.models import PimpUser
 
 
 class RegistrationComplete(TemplateView):
@@ -42,38 +40,37 @@ class TermsAndConditions(TemplateView):
 
 
 def logout_view(request):
-    """Redirect user to homepage on logout"""
-
+    """Redirect user to homepage on logout."""
     logout(request)
 
     return HttpResponseRedirect("/")
 
 
 class SearchMarketerView(TemplateView):
-    """
-    Search Marketer View view.
-    """
+    """Search Marketer View view."""
 
     template_name = 'search/search_marketer.html'
 
 
 @login_required
 def profile_update(request):
-
-    #ipdb.set_trace()
-
+    """Edit user profile."""
     if request.method == 'POST':
         profile_update_form = PimpUserProfileForm(request.POST,
                                                   instance=request.user)
 
         # Assume MARKETER
         if (request.user.usertype == 0):
-            additional_profile_form = MarketerUserProfileForm(request.POST,
-                                                           instance=request.user.marketerprofile)
+            additional_profile_form = MarketerUserProfileForm(
+                request.POST,
+                instance=request.user.marketerprofile,
+            )
         # CAUSE
         else:
-            additional_profile_form = CauseUserProfileForm(request.POST,
-                                                        instance=request.user.causeprofile)
+            additional_profile_form = CauseUserProfileForm(
+                request.POST,
+                instance=request.user.causeprofile
+            )
 
         if (profile_update_form.is_valid() & additional_profile_form.is_valid()):
             user_details = profile_update_form.save(commit=False)
@@ -83,7 +80,6 @@ def profile_update(request):
             profile_details = additional_profile_form.save(commit=False)
             profile_details.save()
 
-
             return redirect('profile_update')
 
     else:
@@ -91,11 +87,15 @@ def profile_update(request):
 
         # MARKETER
         if (request.user.usertype == 0):
-            additional_profile_form = MarketerUserProfileForm(instance=request.user.marketerprofile)
+            additional_profile_form = MarketerUserProfileForm(
+                instance=request.user.marketerprofile,
+            )
 
         # CAUSE
         else:
-            additional_profile_form = CauseUserProfileForm(instance=request.user.causeprofile)
+            additional_profile_form = CauseUserProfileForm(
+                instance=request.user.causeprofile,
+            )
 
     context = {'profile_update_form': profile_update_form,
                'additional_profile_form': additional_profile_form}
