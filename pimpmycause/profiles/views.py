@@ -57,17 +57,6 @@ class SearchMarketerView(TemplateView):
     template_name = 'search/search_marketer.html'
 
 
-def homepage(request):
-    """The home page view."""
-    limit = 3
-    featured_marketer_list = PimpUser.objects.filter(featured=True).filter(usertype=PimpUser.MARKETER).order_by('-date_joined')[:limit]
-    featured_cause_list = PimpUser.objects.filter(featured=True).filter(usertype= PimpUser.CAUSE).order_by('-date_joined')[:limit]
-
-    context = {'featured_marketer_list': featured_marketer_list, 'featured_cause_list': featured_cause_list}
-
-    return render(request, 'index.html', context)
-
-
 @login_required
 def profile_update(request):
 

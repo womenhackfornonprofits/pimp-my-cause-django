@@ -122,64 +122,73 @@
             </div>
         </section>
 
-        <!-- ********************* -->
-        <!-- FEATURED CAUSES PANEL -->
-        <!-- ********************* -->
+        {% if featured_cause_list %}
 
-        <section class="pnl-causes">
-            <div class="content-wrap">
-                <div class="row">
-                    <h1 class="pnl__title">Featured Causes</h1>
-                    <div class="slider">
+            <!-- ********************* -->
+            <!-- FEATURED CAUSES PANEL -->
+            <!-- ********************* -->
+
+            <section class="pnl-causes">
+                <div class="content-wrap">
+                    <div class="row">
+                        <h1 class="pnl__title">Featured Causes</h1>
                         <div class="slider">
-                        {% for cause in featured_cause_list %}
-                            <div class="slider__slide">
-                                <div class="slider__text">
-                                    <h3 class="slider__title"> {{ cause.name }}</h3>
-                                    <div>
-                                         <p class="slider__paragraph">{{ cause.bio }}</p>
-                                         <a href="#" class="cause-arrow"></a>
+                            <div class="slider">
+                                {% for cause in featured_cause_list %}
+                                    <div class="slider__slide">
+                                        <div class="slider__text">
+                                            <h3 class="slider__title"> {{ cause.name }}</h3>
+                                            <div>
+                                                 <p class="slider__paragraph">{{ cause.bio }}</p>
+                                                 <a href="#" class="cause-arrow"></a>
+                                            </div>
+                                        </div>
+                                        <div class="slider__img" style="background-image: url({{ cause.image }})">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="slider__img" style="background-image: url({{ cause.image }})">
-                                </div>
+                                 {% endfor %}
                             </div>
-                         {% endfor %}
-                </div>
-            </div>
-        </section>
-
-        <!-- *************** -->
-        <!-- MARKETERS PANEL -->
-        <!-- *************** -->
-        <section class="pnl-marketers">
-            <div class="content-wrap">
-                <div class="row">
-                    <h1 class="pnl__title">Featured Marketers</h1>
-                        <div class="slider">
-                            {% for marketer in featured_marketer_list %}
-                                <!-- always have 3 slides for the slider effect to work -->
-                                <div class="slider__slide">
-                                    {% if marketer.image %}
-                                        <div class="slider__img" style="background-image: url({{ marketer.image }})">
-                                        </div>
-                                    {% else %}
-                                         <div class="slider__img" style="background-image: url('http://image.flaticon.com/icons/svg/26/26444.svg')">
-                                        </div>
-                                    {% endif %}
-                                    <div class="slider__text">
-                                        <h3 class="slider__title">{{ marketer.name}} {{ marketer.surname }}</h3>
-                                        <div class="slider__paragraph">
-                                            <h5>Position: {{ marketer.position }}</h5>
-                                            <p>{{ marketer.bio }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endfor %}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        {% endif %}
+
+        {% if featured_marketer_list %}
+
+            <!-- *************** -->
+            <!-- MARKETERS PANEL -->
+            <!-- *************** -->
+            <section class="pnl-marketers">
+                <div class="content-wrap">
+                    <div class="row">
+                        <h1 class="pnl__title">Featured Marketers</h1>
+                            <div class="slider">
+
+                                    {% for marketer in featured_marketer_list %}
+                                        <div class="slider__slide">
+                                            {% if marketer.image %}
+                                                <div class="slider__img" style="background-image: url({{ marketer.image }})">
+                                                </div>
+                                            {% else %}
+                                                 <div class="slider__img" style="background-image: url('http://image.flaticon.com/icons/svg/26/26444.svg')">
+                                                </div>
+                                            {% endif %}
+                                            <div class="slider__text">
+                                                <h3 class="slider__title">{{ marketer.name}} {{ marketer.surname }}</h3>
+                                                <div class="slider__paragraph">
+                                                    <h5>Position: {{ marketer.position }}</h5>
+                                                    <p>{{ marketer.bio }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        {% endif %}
+
 
         <!-- ******************************* -->
         <!-- SUMMARY - HAVE YOU SEEN - PANEL -->

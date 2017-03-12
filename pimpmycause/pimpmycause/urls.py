@@ -11,8 +11,10 @@ from profiles.views import (
     profile_update,
     TermsAndConditions,
     logout_view,
-    homepage,
     SearchMarketerView,
+)
+from core.views import (
+    homepage
 )
 
 from profiles.forms import PimpUserRegistrationForm
@@ -25,7 +27,7 @@ urlpatterns = [
     url(
         r'^$',
         homepage,
-        name="homepage_view"
+        name="homepage"
     ),
     url(
         r'^logout/',

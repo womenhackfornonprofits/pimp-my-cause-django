@@ -9,14 +9,14 @@ DATABASES['default'] = dj_database_url.config()
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = get_env("SECRET_KEY")
 
-ALLOWED_HOSTS = ['staging-pimpmycause.herokuapp.com']
+ALLOWED_HOSTS = get_list('ALLOWED_HOSTS', separator=',')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = os.environ["SENDGRID_USERNAME"]
-EMAIL_HOST_PASSWORD = os.environ["SENDGRID_PASSWORD"]
+EMAIL_HOST_USER = get_env("SENDGRID_USERNAME")
+EMAIL_HOST_PASSWORD = get_env("SENDGRID_PASSWORD")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -56,12 +56,3 @@ LOGGING = {
         }
     }
 }
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = os.environ["SENDGRID_USERNAME"]
-EMAIL_HOST_PASSWORD = os.environ["SENDGRID_PASSWORD"]
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-

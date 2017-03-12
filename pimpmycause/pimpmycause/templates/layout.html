@@ -5,7 +5,7 @@
     <header class="navigation row">
         <div class="small-12 column js-header-nav">
             <div class="navigation__wrap content-wrap js-header-list">
-                <a href="{% url 'index' %}" class="logo-container">
+                <a href="{% url 'homepage' %}" class="logo-container">
                     <img class="logo" src="{% static "img/logo.png" %}"/>
                 </a>
                 <button class="navigation__button js-nav-toggle"><span class="visuallyhidden">Menu</span><span class="navigation__toggle"></span></button>
@@ -37,7 +37,7 @@
                         {% else %}
                             <p class="navigation__username"> {{ user.email }}</p>
                         {% endif %}
-                        <form method="POST" action="{% url 'logout' %}">
+                        <form method="POST" action="{% url 'logout_view' %}">
                             {% csrf_token %}
                             <button type="submit" class="button--transparent navigation__logout">Logout</button>
                         </form>

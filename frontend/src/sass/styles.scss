@@ -1,14 +1,16 @@
+@import "vendors/foundation";
+@import "font-awesome/font-awesome";
+
 @import "base/normalize";
 @import "base/variables";
 @import "base/colours";
 @import "base/typography";
 @import "base/settings";
 
-@import "vendors/foundation";
-
 @import "layout/footer";
 @import "layout/forms";
 @import "layout/header";
+
 
 @import "utils/mixins";
 
