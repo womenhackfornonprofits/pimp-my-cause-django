@@ -1,14 +1,15 @@
+@import "vendors/foundation";
+
 @import "base/normalize";
 @import "base/variables";
 @import "base/colours";
 @import "base/typography";
 @import "base/settings";
 
-@import "vendors/foundation";
-
 @import "layout/footer";
 @import "layout/forms";
 @import "layout/header";
+
 
 @import "utils/mixins";
 
@@ -19,6 +20,7 @@
 @import "components/social-tile";
 @import "components/social-icon";
 @import "components/file-upload";
+@import "components/marketer-search";
 
 @import "pages/home";
 @import "pages/generic";

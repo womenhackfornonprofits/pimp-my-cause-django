@@ -11,8 +11,10 @@ from profiles.views import (
     profile_update,
     TermsAndConditions,
     logout_view,
-    homepage,
-    SearchMarketerView,
+    marketer_list,
+)
+from core.views import (
+    homepage
 )
 
 from profiles.forms import PimpUserRegistrationForm
@@ -23,12 +25,16 @@ urlpatterns = [
         admin.site.urls
     ),
     url(
-        r'^$',
-        homepage,
-        name="homepage_view"
+        r'^accounts/',
+        include('registration.backends.default.urls')
     ),
     url(
-        r'^logout/',
+        r'^$',
+        homepage,
+        name="homepage"
+    ),
+    url(
+        r'^accounts/logout/',
         logout_view,
         name="logout_view"
     ),
@@ -59,7 +65,7 @@ urlpatterns = [
     ),
     url(
         r'^become-a-partner/',
-        TemplateView.as_view(template_name='core/become-a-partners.html'),
+        TemplateView.as_view(template_name='core/become-a-partner.html'),
         name="become_a_partner"
     ),
     url(
@@ -88,10 +94,6 @@ urlpatterns = [
         name='activation_complete'
     ),
     url(
-        r'^accounts/',
-        include('registration.backends.default.urls')
-    ),
-    url(
         r'^s3direct/',
         include('s3direct.urls')
     ),
@@ -102,7 +104,7 @@ urlpatterns = [
     ),
     url(
         r'^search/marketer/',
-        SearchMarketerView.as_view(),
+        marketer_list,
         name='search_marketer'
     ),
 ]
