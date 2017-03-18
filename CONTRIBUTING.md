@@ -3,6 +3,7 @@ Before picking up a ticket please make sure you are fully setup and ready to wor
 1. Follow the README instructions to get setup
 2. Make sure you have a Flake8 linter installed for Python and ScssLint for Sass.
 3. Do not add any new dependecies to the project without someones approval form the core team
+4. Pick up tickets from the [GitHub Board](https://github.com/womenhackfornonprofits/pimp-my-cause-django/projects)
 
 # A few simple rules
 Please make sure you follow the current naming, coding and language conventions by revieweing the existing code and the existing way of working with the team.
