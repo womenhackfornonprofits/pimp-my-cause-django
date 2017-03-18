@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     's3direct',
     'django_countries',
     'custom_user',
-    # pimpmycause importd
+    # pimpmycause imports
     'core',
     'profiles'
 
