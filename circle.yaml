@@ -13,10 +13,6 @@ machine:
     DJANGO_SETTINGS_MODULE: pimpmycause.settings.testing
     SECRET_KEY: test-secret-key
 
-test:
-  override:
-    - tox
-
 deployment:
   staging:
     branch: master
