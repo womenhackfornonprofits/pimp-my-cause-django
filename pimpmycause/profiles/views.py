@@ -13,6 +13,7 @@ from profiles.forms import (
     CauseUserProfileForm
 )
 from profiles.models import PimpUser
+from django.shortcuts import get_object_or_404
 
 
 class RegistrationComplete(TemplateView):
@@ -68,8 +69,14 @@ def homepage(request):
     return render(request, 'index.html', context)
 
 def profile_detail(request, user_id):
-    person = PimpUser.objects.get(instance=user_id)
-    return render(request, 'profile/detail.html', {'person':person})
+    user = get_object_or_404(
+        PimpUser,
+        id=user_id,
+    )
+    if request.method == 'GET':
+        profile_detail_form = PimpUserProfileForm(instance=user)
+    context = {'profile_detail_form': profile_detail_form}
+    return render(request, 'profiles/detail.html', context)
 
 @login_required
 def profile_update(request):
