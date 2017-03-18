@@ -4,3 +4,7 @@ frontend/css/
 .DS_Store
 pimpmycause/db.sqlite3
 **.pyc
+# Testing
+.cache
+.junit
+.tox
