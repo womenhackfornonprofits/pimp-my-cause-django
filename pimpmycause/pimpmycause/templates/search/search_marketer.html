@@ -5,13 +5,57 @@
 {% load static %}
 
 {% block main %} 
-    <div class="page-register pnl">
+
+    <section class="page-about pnl">
         <div class="content-wrap">
-            <div class="row"> 
-                <div class="large-12 medium-12 small-12 columns">
+             <div class="row">
+                <div class="large-12 medium-12 small-12">
                     <h1 class="pnl__title">Find a Marketer</h1>
-                </div>
-            </div>   
-        </div> 
-    </div>
+                    {% if marketer_list %}
+                        <div class="row">
+                           {% for marketer in marketer_list %}
+                                <div class="marketer large-4 medium-6 small-12 column">
+                                    <div class="marketer__wrapper">
+                                        <div class="marketer__image-wrapper">
+                                            {% if marketer.image %}
+                                                <div class="marketer__image" style="background-image:url('{{ marketer.image }}')"></div>
+                                            {% else %}
+                                                <div class="marketer__icon">
+                                                    <i class="fa fa-user fa-5" aria-hidden="true"></i>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <div>
+                                            <h2 class="marketer__title"> {{ marketer.name }} {{ marketer.surname }}</h2>
+                                            <a href="TODO" class="marketer__info">
+                                                {% if marketer.position %}
+                                                    <h3>{{ marketer.position }}</h3>
+                                                {% endif %}
+                                                {% if marketer.city %}
+                                                    <p><b>City:</b> {{ marketer.city }}</p>
+                                                {% endif %}
+
+                                                {% if marketer.marketerprofile.qualification.all|length %}
+
+                                                    <p><b>Qualifications:</b></p>
+                                                    <ul>
+                                                        {% for qualification in  marketer.marketerprofile.qualification.all|slice:":3" %}
+                                                            <li>{{ qualification }}</li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% endif %}
+                                                <p class="marketer__link">See {{ marketer.name }}'s profile</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                    {% endif %}
+                </div> 
+            </div> 
+        </div>
+    </section> 
 {% endblock %}
+     

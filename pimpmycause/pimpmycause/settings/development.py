@@ -1,8 +1,15 @@
 from pimpmycause.settings import *
 
+
 DEBUG = True
 
 SECRET_KEY = 'FAKEforDEV'
+
+ALLOWED_HOSTS = []
+
+# AWS keys
+AWS_SECRET_ACCESS_KEY = get_env("AWS_SECRET_ACCESS_KEY", "test")
+AWS_ACCESS_KEY_ID = get_env("AWS_ACCESS_KEY_ID", "test")
 
 LOGGING = {
     'version': 1,
