@@ -25,12 +25,16 @@ urlpatterns = [
         admin.site.urls
     ),
     url(
+        r'^accounts/',
+        include('registration.backends.default.urls')
+    ),
+    url(
         r'^$',
         homepage,
         name="homepage"
     ),
     url(
-        r'^logout/',
+        r'^accounts/logout/',
         logout_view,
         name="logout_view"
     ),
@@ -61,7 +65,7 @@ urlpatterns = [
     ),
     url(
         r'^become-a-partner/',
-        TemplateView.as_view(template_name='core/become-a-partners.html'),
+        TemplateView.as_view(template_name='core/become-a-partner.html'),
         name="become_a_partner"
     ),
     url(
@@ -88,10 +92,6 @@ urlpatterns = [
         r'^accounts/activate/complete/',
         ActivationComplete.as_view(),
         name='activation_complete'
-    ),
-    url(
-        r'^accounts/',
-        include('registration.backends.default.urls')
     ),
     url(
         r'^s3direct/',
