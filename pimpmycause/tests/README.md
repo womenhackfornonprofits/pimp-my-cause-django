@@ -1,6 +1,6 @@
-## OCD Action Django App
+## Pimp My Cause Django App
 
-Our tests package: `ocdaction.tests` is a valid Django app and should
+Our tests package: `pimpmycause.tests` is a valid Django app and should
 be installed in Django's `INSTALLED_APPS` setting during test suite runs.
 
 ## Test Placement
