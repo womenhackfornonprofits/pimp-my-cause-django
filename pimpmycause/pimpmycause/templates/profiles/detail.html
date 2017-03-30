@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block title %} Profile {% endblock %}
+
+{% load static %}
+
+    {% block main %}
+    <section class="page-register pnl row">
+        <div class="content-wrap">
+            <h1 class="pnl__title">Profile</h1>
+                <div class="medium-12 large-12 small-10 large-centered small-centered columns">
+                        <div class="row">
+                            <div class="large-3 medium-4 small-10 small-centered medium-uncentered columns">
+
+                                {% if not profile_detail_form.image.value %}
+                                    <img class="profile-img" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSwY0Ifx0mEN9C7n50Ub-viD3SQXUSrgYcNVu_nTrCRTpYcSGM9AQ-ZH0o" alt="Profile Image">
+
+                                {% else %}
+                                    <img class="profile-img" src="{{profile_detail_form.image.value}}" alt="{{ user.name }} {{ user.surname }} Profile Image">
+                                {% endif %}
+                            </div>
+                            <div class="large-offset-3 medium-offset-2 large-4 medium-6 small-12 small-centered medium-uncentered columns">
+                                <p> Name </p>
+                                <p>{{ profile_detail_form.name.value|default_if_none:"" }}</p>
+
+                                <p> Surname </p>
+                                <p>{{ profile_detail_form.surname.value|default_if_none:"" }}</p>
+
+                                <p> Position </p>
+                                <p>{{ profile_detail_form.position.value|default_if_none:"" }}</p>
+
+                                <p for="city"> City </p>
+                                <p>{{ profile_detail_form.city.value|default_if_none:"" }}</p>
+
+                            </div>
+                        </div>
+                        <div class="large-6 medium-6 small-12">
+                            <h2>Contact Info &amp; Social</h2>
+                        </div>
+                        <div class="large-12 medium-12 small-12 small-centered medium-uncentered">
+                                <div class="row">
+                                  <div class="columns small-12 medium-6">
+
+                                    <p> LinkedIn </p>
+                                    <p>{{ profile_detail_form.linkedin.value|default_if_none:"" }}</p>
+
+                                    <p> Twitter </p>
+                                    <p>{{ profile_detail_form.twitter.value|default_if_none:"" }}</p>
+                                </div>
+                                <div class="columns small-12 medium-6">
+                                    <p> Website </p>
+                                    <p>{{profile_detail_form.website.value|default_if_none:""}}</p>
+
+                                    <p> Phone </p>
+                                    <p>{{ profile_detail_form.phone.value|default_if_none:"" }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="large-12 medium-12 small-12">
+                            <h2>Background</h2>
+                        </div>
+                        <div class="large-12 medium-12 small-12">
+                            <div class="">
+                                <p> Bio </p>
+                                <p>{{ profile_detail_form.bio.value|default_if_none:"" }}</p>
+                            </div>
+                        </div>
+
+                        <div class="large-12 medium-12 small-12">
+                            {% if user.get_usertype_display == "Marketer" %}
+                                <h2>Volunteer profile</h2>
+                            {% elif user.get_usertype_display == "Marketer" %}
+                                <h2>Cause profile</h2>
+                            {% endif %}
+                      </div>
+              </div>
+        </div>
+    </section>
+    {% endblock %}
