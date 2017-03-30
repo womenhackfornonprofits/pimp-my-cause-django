@@ -35,7 +35,7 @@
                                         </div>
                                     </div> <!-- end default-state -->
                                     <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
-                                        <a href="#">
+                                        <a href="{% url 'search_marketer' %}">
                                             <img src=" {% static "img/cube1-marketer-icon.png" %}" alt="Logo for Marketer">
                                             <h3>FIND A MARKETER</h3>
                                         </a><!-- end link -->
@@ -140,7 +140,7 @@
                                             <h3 class="slider__title"> {{ cause.name }}</h3>
                                             <div>
                                                  <p class="slider__paragraph">{{ cause.bio|truncatechars:100 }}...</p>
-                                                 <a href="#" class="cause-arrow"></a>
+                                                 <a href="{% url 'profile_detail' user_id=cause.id %}"  class="cause-arrow"></a>
                                             </div>
                                         </div>
                                         <div class="slider__img" style="background-image: url({{ cause.image }})">
@@ -179,7 +179,7 @@
                                                 <div class="slider__paragraph">
                                                     <h5>Position: {{ marketer.position }}</h5>
                                                     <p>{{ marketer.bio | truncatechars:200 }}...</p>
-                                                    <a href="#">Go to their profile</a>
+                                                    <a href="{% url 'profile_detail' user_id=marketer.id %}"">Go to their profile</a>
                                                 </div>
                                             </div>
                                         </div>

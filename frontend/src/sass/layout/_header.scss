@@ -254,7 +254,7 @@
 			text-align: right;
 			display: flex;
 			flex-direction: column;
-			width: 8em;
+			// width: 8em;
 		}
 	}
 
@@ -267,6 +267,8 @@
 		text-align: right;
 		font-size: .8em;
 		color: $white;
+		border-radius: 50%;
+		display: inline;
 	}
 }
 

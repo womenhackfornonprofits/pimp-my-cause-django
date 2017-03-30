@@ -37,10 +37,7 @@
                         {% else %}
                             <p class="navigation__username"> {{ user.email }}</p>
                         {% endif %}
-                        <form method="POST" action="{% url 'logout_view' %}">
-                            {% csrf_token %}
-                            <button type="submit" class="button--transparent navigation__logout">Logout</button>
-                        </form>
+                        <a href="{% url 'logout_view' %}?next=/" class="button button--transparent navigation__logout"> Logout</a>
                     {% else %}
                         <div class="navigation__login-social">
                             <a href="#" class="navigation__social-icon social-icon">{% include "icons/linkedin.svg" %}</a>

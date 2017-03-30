@@ -42,5 +42,39 @@ select {
 	background-color: $white;
 	border-radius: 0;
 }
+form {
+    p {
+        margin-top: 0;
+    }
+}
 
+.has-error input {
+    border: 1px red solid;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-error {
+    font-size: .9em;
+    margin: 0;
+}
+.text-danger {
+    color: red;
+}
+.errorlist  {
+    padding: 0;
+    margin: 0;
+    display: block;
+    
+    li {
+        color: red;
+        line-height: 1em;
+        line-height: .6em;
+        font-size: .7em;
+        list-style: none;
+    }
+}
 
+.errorlist + p > input {
+    border: 1px red solid;
+}

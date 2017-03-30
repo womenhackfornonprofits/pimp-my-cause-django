@@ -1,39 +1,51 @@
 {% extends "layout.html" %}
 
+{% load static widget_tweaks %}
+
 {% block title %} Log in {% endblock %}
-
-{% load static %}
-
 
 {% block main %}
     <div class="page-login pnl">
-		<div class="content-wrap">
+        <div class="content-wrap">
             <div class="row">
                 <div class="large-12 medium-12 small-12 columns">
-                {% if user.is_authenticated %}
-
-                    {% else %}
-
-                    {% endif %}
-
                     <h1 class="pnl__title">Log In</h1>
-                    <div class="medium-6 large-3 small-12 large-centered small-centered columns">
-                        <form method="POST" action="">
-                            <div class="row">
-                        	   {% csrf_token %}
-                        	   {{ form.as_p }}
+
+                        {% if user.is_authenticated %}
+                            <p class="centered"> You are logged in as {{ user.name }}, please log out first</p>
+                        {% else %}
+                            <div class="medium-6 large-3 small-12 large-centered small-centered columns">
+                                    <form class="" role="form" action="" method="POST">
+                                        {% csrf_token %}
+                                        {% if form.non_field_errors %}
+                                            <div class="row non-field-errors">
+                                            {% for error in form.non_field_errors %}
+                                                <p class="form-error text-danger">{{ error }}</p>
+                                            {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                        {% for field in form %}
+                                            <div class="form-group row {% if field.errors %} has-error {% endif %}">
+                                                {% if field.errors %}
+                                                    {% for error in field.errors %}
+                                                        <p class="form-error pull-left text-danger">{{ error }}</p>
+                                                    {% endfor %}
+                                                {% endif %}
+                                                {% render_field field placeholder=field.label %}
+                                            </div>
+                                        {% endfor %}
+                                    <div class="row">
+                                        <a href="/accounts/password/reset">Forgot Password</a>                                
+                                    </div>
+                                    <div class="row">
+                                        <input class="button button--primary" type="submit" value="Sign in">
+                                    </div>
+                                    <div class="row">
+                                        <a href="/accounts/register" class="underline txt-right">Not Registered? Start here</a>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="row">
-                                <a href="/accounts/password/reset">Forgot Password</a>                                
-                            </div>
-                            <div class="row">
-                                <input class="button button--primary" type="submit" value="Sign in">
-                            </div>
-                            <div class="row">
-                                <a href="/accounts/register" class="underline txt-right">Not Registered? Start here</a>
-                            </div>
-                        </form>
-                	</div>
+                    {% endif %}
                 </div>
             </div>
         </div>
