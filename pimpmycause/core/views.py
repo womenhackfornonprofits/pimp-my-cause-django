@@ -1,58 +1,29 @@
-# from django.shortcuts import render
-# from django.views.generic import TemplateView
+from django.shortcuts import render
+
+from profiles.models import PimpUser
 
 
-# class HomepageView(TemplateView):
-#     """
-#     Homepage view.
-#     """
-#     template_name = "index.html"
+def homepage(request):
+    """The home page view."""
+    limit = 3
+    featured_marketer_list = (
+        PimpUser.objects
+        .filter(featured=True)
+        .filter(usertype=PimpUser.MARKETER)
+        .order_by('-date_joined')[:limit]
+    )
+    featured_cause_list = (
+        PimpUser.objects
+        .filter(featured=True)
+        .filter(usertype=PimpUser.CAUSE)
+        .order_by('-date_joined')[:limit]
+    )
 
-
-# class ContactView(TemplateView):
-#     """
-#     Contact Us view.
-#     """
-#     template_name = "core/contact.html"
-
-
-# class AboutView(TemplateView):
-#     """
-#     About Us view.
-#     """
-#     template_name = "core/about.html"
-
-
-# class WhoWeAre(TemplateView):
-#     """
-#     Who We Are view.
-#     """
-#     template_name = "core/who-we-are.html"
-
-
-# class HowItWorks(TemplateView):
-#     """
-#     How it works view.
-#     """
-#     template_name = "core/how-it-works.html"
-
-
-# class MeetTheTeam(TemplateView):
-#     """
-#     Meet The Team view.
-#     """
-#     template_name = "core/team.html"
-
-
-# class OurPartners(TemplateView):
-#     """
-#     Our Partners view.
-#     """
-#     template_name = "core/our-partners.html"
-
-
-# class BecomeAPartner(TemplateView):
-#     """
-#     Become A Partner view.
-#     """
-#     template_name = "core/become-a-partner.html"
+    return render(
+        request,
+        'index.html',
+        {
+            'featured_marketer_list': featured_marketer_list,
+            'featured_cause_list': featured_cause_list,
+        }
+    )

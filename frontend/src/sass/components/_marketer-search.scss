@@ -1,0 +1,82 @@
+$colr-marketer: pink;
+
+.marketer {
+
+	&__wrapper {
+		position: relative;
+		position: relative;
+		background: $silver-grey;
+	}
+
+	&__title {
+		text-align: center;
+		background: $green;
+		margin: 0;
+		color: $white;
+		padding: 10px 0;
+	}
+
+	&__info {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 5px;
+		display: none;
+		padding: 1em;
+		color: $white;
+	}
+
+
+	&__link {
+		background-color: $white;
+		padding: 6px 8px;
+		color: $black;
+		display: inline;
+		
+		&::after {
+			content: '→';
+			margin-left: 5px;
+		}
+	}
+
+	&__image {
+		padding-top: 4em;
+		height: 10em;
+		width: 10em;
+		background-color: gray;
+		background-size: cover;
+		background-position: 50% 50%;
+		border-radius: 50%;
+		margin: auto;
+	}
+	&__image-wrapper {
+		padding: 1em;
+	}
+
+	&__icon {
+		font-size: 10em;
+		border: 1px solid $green;
+		border-radius: 50%;
+		text-align: center;
+		color: $green;
+		width: 1.5em;
+		height: 1.5em;
+		margin: 0 auto;
+	}
+
+	&__wrapper:hover &__icon {
+		color: $white;
+		background: $green;
+	}
+
+	&__wrapper:hover &__info {
+		background: $green;
+		display: block;
+
+	}
+
+
+}
