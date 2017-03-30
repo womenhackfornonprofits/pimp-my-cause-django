@@ -28,11 +28,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'profiles',
     's3direct',
     'django_countries',
     'custom_user',
-    'core'
+    # pimpmycause imports
+    'core',
+    'profiles'
 
 ]
 

@@ -139,7 +139,7 @@
                                         <div class="slider__text">
                                             <h3 class="slider__title"> {{ cause.name }}</h3>
                                             <div>
-                                                 <p class="slider__paragraph">{{ cause.bio }}</p>
+                                                 <p class="slider__paragraph">{{ cause.bio|truncatechars:100 }}...</p>
                                                  <a href="#" class="cause-arrow"></a>
                                             </div>
                                         </div>
@@ -178,7 +178,8 @@
                                                 <h3 class="slider__title">{{ marketer.name}} {{ marketer.surname }}</h3>
                                                 <div class="slider__paragraph">
                                                     <h5>Position: {{ marketer.position }}</h5>
-                                                    <p>{{ marketer.bio }}</p>
+                                                    <p>{{ marketer.bio | truncatechars:200 }}...</p>
+                                                    <a href="#">Go to their profile</a>
                                                 </div>
                                             </div>
                                         </div>
