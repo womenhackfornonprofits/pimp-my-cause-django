@@ -59,15 +59,17 @@ def marketer_list(request):
 
     return render(request, 'search/search_marketer.html', context)
 
+
 def profile_detail(request, user_id):
     user = get_object_or_404(
         PimpUser,
         id=user_id,
     )
-    if request.method == 'GET':
-        profile_detail_form = PimpUserProfileForm(instance=user)
-    context = {'profile_detail_form': profile_detail_form}
+
+    context = {'marketer': user}
+
     return render(request, 'profiles/detail.html', context)
+
 
 @login_required
 def profile_update(request):
@@ -76,8 +78,8 @@ def profile_update(request):
         profile_update_form = PimpUserProfileForm(request.POST,
                                                   instance=request.user)
 
-        # Assume MARKETER
-        if (request.user.usertype == 0):
+        # MARKETER
+        if (request.user.usertype == PimpUser.MARKETER):
             additional_profile_form = MarketerUserProfileForm(
                 request.POST,
                 instance=request.user.marketerprofile,
@@ -103,7 +105,7 @@ def profile_update(request):
         profile_update_form = PimpUserProfileForm(instance=request.user)
 
         # MARKETER
-        if (request.user.usertype == 0):
+        if (request.user.usertype == PimpUser.MARKETER):
             additional_profile_form = MarketerUserProfileForm(
                 instance=request.user.marketerprofile,
             )

@@ -42,6 +42,7 @@ select {
 	background-color: $white;
 	border-radius: 0;
 }
+
 form {
     p {
         margin-top: 0;
@@ -51,16 +52,20 @@ form {
 .has-error input {
     border: 1px red solid;
 }
+
 .form-group {
     margin-bottom: 1rem;
 }
+
 .form-error {
     font-size: .9em;
     margin: 0;
 }
+
 .text-danger {
     color: red;
 }
+
 .errorlist  {
     padding: 0;
     margin: 0;

@@ -2,13 +2,26 @@
    COMPONENTS / CUBES
    ================================= */
 
-.cube-box {
-    padding: 0;
+.cube {
+    &-box {
+        padding: 0;
+    }
+    
+    &-row {
+        width: 100%;
+    }
+
+    &__title {
+        color: $colr-txt-accent;
+        font-weight: 600;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
 }
 
-.cube-row {
-    width: 100%;
-}
+
 
 .cube-wrapper {
     width: 50%;
@@ -55,16 +68,6 @@
         transform: translateX(-50%);
         top: 5%;
         height: 60%;
-    }
-
-    h3 {
-        color: $colr-txt-accent !important;
-        font-weight: 600;
-        position: absolute;
-        bottom: 5%;
-        left: 50%;
-        transform: translateX(-50%);
-        white-space: nowrap;
     }
 }
 

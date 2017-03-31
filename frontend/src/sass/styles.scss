@@ -5,6 +5,7 @@
 @import "base/colours";
 @import "base/typography";
 @import "base/settings";
+@import "base/helpers";
 
 @import "layout/footer";
 @import "layout/forms";
@@ -18,7 +19,6 @@
 @import "components/cubes";
 @import "components/twitter";
 @import "components/social-tile";
-@import "components/social-icon";
 @import "components/file-upload";
 @import "components/marketer-search";
 
@@ -58,19 +58,4 @@ a {
 	height: 0;
 	padding: 0;
 	margin: 0;
-}
-
-.centered {
-	text-align: center;
-}
-
-.visuallyhidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
 }

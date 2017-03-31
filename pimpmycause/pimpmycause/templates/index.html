@@ -10,22 +10,25 @@
         <!-- HERO PANEL -->
         <!-- ********** -->
 
-        <section class="pnl-hero row">
+        <section class="pnl-hero row pnl--light-txt">
             <div class="content-wrap">
                 <div class="pnl-hero__container large-12">
-                    <div class="pnl-hero__text large-6 small-12 medium-6 columns">
-                        <h1>Join Us</h1>
-                        <h4>Start your pro bono marketing project today</h4>
-                        <div class="large-6 medium-6 small-8">
-                            <select class="type-option">
-                                <option value="marketer"><p>I'm a Marketer</p></option>
-                                <option value="cause">I'm a Cause</option>
-                            </select>
-                            <a href="accounts/register" class="button button--secondary">Continue</a>
+                    <div class="pnl-hero__text large-6 small-12 medium-12 columns">
+                        <h1 class="pnl--light-txt text-align-left">Join Us</h1>
+                        <h4 class="pnl--light-txt text-align-left margin-top-0">Start your pro bono marketing project today</h4>
+    
+                        <div clas="row">
+                            <div class="large-6 medium-6 small-8">
+                                <select class="type-option">
+                                    <option value="marketer"><p>I'm a Marketer</p></option>
+                                    <option value="cause">I'm a Cause</option>
+                                </select>
+                                <a href="accounts/register" class="button button--secondary">Continue</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="pnl-hero__cubes large-6 medium-6 small-12 columns">
+                    <div class="pnl-hero__cubes large-6 medium-12 small-12 columns">
                         <div class="cube-row">
                             <div class="cube-wrapper">
                                 <div class="cube flip-to-top">
@@ -37,7 +40,7 @@
                                     <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
                                         <a href="{% url 'search_marketer' %}">
                                             <img src=" {% static "img/cube1-marketer-icon.png" %}" alt="Logo for Marketer">
-                                            <h3>FIND A MARKETER</h3>
+                                            <h3 class="h4 uppercase cube__title">Find a Marketer</h3>
                                         </a><!-- end link -->
                                     </div>
                                 </div> <!-- end cube flip-to-top-->
@@ -50,7 +53,7 @@
                                     <div class="default-state cube-icon-txt"> <!-- front facing div to start -->
                                         <a href="/who-we-are">
                                             <img src=" {% static "img/cube2-story-icon.png" %}" alt="Logo for Story">
-                                            <h3>OUR STORY</h3>
+                                            <h3 class="h4 uppercase cube__title">Our Story</h3>
                                         </a><!-- end link -->
                                     </div>
                                     <div class="active-state"> <!-- Step 1: move div to top side of cube -->
@@ -70,7 +73,7 @@
                                     <div class="default-state cube-icon-txt"> <!-- front facing div to start -->
                                         <a href="#">
                                             <img src=" {% static "img/cube3-news-icon.png" %}" alt="Logo for News">
-                                            <h3>NEWS</h3>
+                                            <h3 class="h4 uppercase cube__title">News</h3>
                                         </a><!-- end link -->
                                     </div> <!-- end default-state -->
                                     <div class="active-state"> <!-- Step 1: move div to top side of cube -->
@@ -92,7 +95,7 @@
                                     <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
                                         <a href="#">
                                             <img src=" {% static "img/cube4-cause-icon.png" %}" alt="Logo for Cause">
-                                            <h3>FIND A CAUSE</h3>
+                                            <h3 class="h4 uppercase cube__title">Find a Cause</h3>
                                         </a>
                                     </div>
                                 </div>
@@ -114,8 +117,8 @@
                     <div class="large-12 columns">
                         <h1 class="pnl__title">Marketing a better world</h1>
                         <div class="large-8 large-centered columns">
-                            <p>Pimp My Cause brings together thousands of charities and social enterprises with professional marketers including innovators, strategists, advertisers, graphic designers, web developers, PR specialists and researchers who can provide transformational support pro bono.</p>
-                            <p>Whether you are a cause in need of marketing or a marketer looking to diversify your experience, make new connections, showcase your talent or give something back, registration is fast and free.</p>
+                            <p class="pnl--light-txt">Pimp My Cause brings together thousands of charities and social enterprises with professional marketers including innovators, strategists, advertisers, graphic designers, web developers, PR specialists and researchers who can provide transformational support pro bono.</p>
+                            <p class="pnl--light-txt">Whether you are a cause in need of marketing or a marketer looking to diversify your experience, make new connections, showcase your talent or give something back, registration is fast and free.</p>
                         </div>
                     </div>
                 </div>

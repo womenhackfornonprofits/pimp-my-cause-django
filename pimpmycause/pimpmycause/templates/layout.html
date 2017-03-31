@@ -37,7 +37,7 @@
                         {% else %}
                             <p class="navigation__username"> {{ user.email }}</p>
                         {% endif %}
-                        <a href="{% url 'logout_view' %}?next=/" class="button button--transparent navigation__logout"> Logout</a>
+                        <a href="{% url 'logout_view' %}?next=/path_to_the_page" class="button button--transparent navigation__logout"> Logout</a>
                     {% else %}
                         <div class="navigation__login-social">
                             <a href="#" class="navigation__social-icon social-icon">{% include "icons/linkedin.svg" %}</a>
@@ -93,18 +93,18 @@
                 <a href="/">
                     <img class="footer__logo" src="{% static 'img/logo.png' %}"/>
                 </a>
-                <p>Copyright @ {% now "Y" %} PIMP MY CAUSE </p>
+                <p class="small">Copyright @ {% now "Y" %} PIMP MY CAUSE </p>
             </div>
             <div class="footer__info">
                 <ul>
                     <li>
-                        <a href="/terms-and-conditions/">Terms of usage</a>
+                        <a href="/terms-and-conditions/" class="small">Terms of usage</a>
                     </li>
                     <li>
-                        <a href="#">Support/Help</a>
+                        <a href="#" class="small">Support/Help</a>
                     </li>
                     <li>
-                        <a href="#">Privacy</a>
+                        <a href="#" class="small">Privacy</a>
                     </li>
                 </ul>
                 <ul class="footer__social">

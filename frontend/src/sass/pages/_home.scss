@@ -47,7 +47,7 @@
     }
 
     &__cubes, &__text {
-        @media (min-width:640px) {
+        @media (min-width: 780px) {
             flex: 1;
             margin-top: 0;
         }
