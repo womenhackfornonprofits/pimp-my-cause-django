@@ -174,15 +174,16 @@
                                                 <div class="slider__img" style="background-image: url({{ marketer.image }})">
                                                 </div>
                                             {% else %}
-                                                 <div class="slider__img" style="background-image: url('http://image.flaticon.com/icons/svg/26/26444.svg')">
+                                                <div class="marketer__icon margin-30">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
                                                 </div>
                                             {% endif %}
                                             <div class="slider__text">
                                                 <h3 class="slider__title">{{ marketer.name}} {{ marketer.surname }}</h3>
                                                 <div class="slider__paragraph">
-                                                    <h5>Position: {{ marketer.position }}</h5>
+                                                    <h5 class="text-align-left">{{ marketer.position }}</h5>
                                                     <p>{{ marketer.bio | truncatechars:200 }}...</p>
-                                                    <a href="{% url 'profile_detail' user_id=marketer.id %}"">Go to their profile</a>
+                                                    <a href="{% url 'profile_detail' user_id=marketer.id %}" class="slider__link">Go to their profile</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -33,6 +33,15 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
         background-position: center center;
     }
 
+    &__link {
+        color: $purple;
+        font-weight: bold;
+
+        &::after {
+            content: '→';
+        }
+    }
+
     &__text {
         padding: 1em;
         display: inline-block;

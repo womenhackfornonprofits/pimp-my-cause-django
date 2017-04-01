@@ -37,7 +37,7 @@
                         {% else %}
                             <p class="navigation__username"> {{ user.email }}</p>
                         {% endif %}
-                        <a href="{% url 'logout_view' %}?next=/path_to_the_page" class="button button--transparent navigation__logout"> Logout</a>
+                        <a href="{% url 'logout_view' %}?next=/path_to_the_page" class="navigation__logout">                                                     <i class="fa fa-sign-out margin-right-5" aria-hidden="true"></i>Logout</a>
                     {% else %}
                         <div class="navigation__login-social">
                             <a href="#" class="navigation__social-icon social-icon">{% include "icons/linkedin.svg" %}</a>
