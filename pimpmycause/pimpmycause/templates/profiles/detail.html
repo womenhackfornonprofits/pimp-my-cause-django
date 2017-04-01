@@ -7,7 +7,7 @@
     {% block main %}
     <section class="pnl pnl--dark-txt row">
         <div class="content-wrap">
-            <h1 class="pnl__title">{{marketer.name}}'s Profile</h1>
+            <h1 class="pnl__title">{{marketer.name | title}}'s Profile</h1>
                 <div class="medium-12 large-12 small-10 large-centered small-centered columns">
                         <div class="row">
                             <div class="marketer large-4 medium-8 small-10 small-centered large-centered columns">
@@ -67,7 +67,7 @@
                                 Experience
                             </h2>
                                 {% if marketer.marketerprofile.experience %}
-                                    <p>{{ marketer.marketerprofile.experience }}</p>
+                                    <p>{{ marketer.marketerprofile.experience | title }}</p>
                                 {% else %}
                                     <p clas="helptext">
                                         <i class="fa fa-comments-o" aria-hidden="true"></i>
