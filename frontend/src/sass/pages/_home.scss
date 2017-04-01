@@ -14,14 +14,19 @@
 }
 
 .pnl--light-txt {
-    color: $colr-txt;
+    h1,
+    p {
+        color: $colr-txt;
+    }
 }
 
 .pnl--dark-txt {
-    color: $colr-txt-accent;
+    h1 {
+        color: $colr-txt-accent;
+    }
 }
 
-.pnl-causes, .pnl-marketers, .pnl-marketing, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero  {
+.pnl-causes, .pnl-marketing, .pnl-hero, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero  {
     @extend .pnl;
     @extend .pnl--light-txt;
 }
@@ -55,7 +60,7 @@
 
     &__cubes {
         padding: 0;
-        
+
         @media (max-width:640px) {
             margin-top: 2em;
         }
