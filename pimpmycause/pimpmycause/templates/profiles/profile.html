@@ -15,11 +15,13 @@
                         {{ profile_update_form.errors }}
                         
                         <div class="row">
-                            <div class="large-3 medium-4 small-10 small-centered medium-uncentered columns">
+                            <div class="large-4 medium-4 small-10 small-centered medium-uncentered columns">
                                 {{ profile_update_form.image.errors }}
 
                                 {% if not profile_update_form.image.value %}
-                                    <img class="profile-img" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSwY0Ifx0mEN9C7n50Ub-viD3SQXUSrgYcNVu_nTrCRTpYcSGM9AQ-ZH0o" alt="Profile Image">
+                                    <div class="marketer__icon">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </div>
 
                                 {% else %}
                                     <img class="profile-img" src="{{profile_update_form.image.value}}" alt="{{ user.name }} {{ user.surname }} Profile Image">
@@ -50,7 +52,7 @@
                             </div>
                         </div>
                         <div class="large-6 medium-6 small-12">
-                            <h2>Contact Info &amp; Social</h2>
+                            <h2 class="text-align-left"><i class="fa fa-comments-o margin-right-5" aria-hidden="true"></i>Contact Info &amp; Social</h2>
                         </div>
                         <div class="large-12 medium-12 small-12 small-centered medium-uncentered">
                                 <div class="row">
@@ -75,7 +77,7 @@
                             </div>
                         </div>
                         <div class="large-12 medium-12 small-12">
-                            <h2>Background</h2>
+                            <h2 class="text-align-left"><i class="fa fa-user-circle-o margin-right-5" aria-hidden="true"></i>About</h2>
                         </div>
                         <div class="large-12 medium-12 small-12">
                             <div class="">
@@ -86,16 +88,10 @@
                         </div>
 
                         <div class="large-12 medium-12 small-12">
-                            {% if user.get_usertype_display == "Marketer" %}
-                                <h2>Volunteer profile</h2>
-                                                        </div>
                             {{ additional_profile_form.non_field_errors }}
 
                             {{ additional_profile_form.errors }}
                             {{ additional_profile_form.as_p }}
-                            {% elif user.get_usertype_display == "Marketer" %}
-                                <h2>Cause profile</h2>
-                            {% endif %}
 
                         <div class="large-6 medium-6 small-12">
                             <div class="row">

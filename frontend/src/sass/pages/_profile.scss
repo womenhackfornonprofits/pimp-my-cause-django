@@ -1,0 +1,22 @@
+/* =================================
+   PAGES / Profile 
+   ================================= */
+.profile {
+	&__social {
+		list-style: none;
+		display: inline;
+		margin: 0;
+		padding: 0;
+
+		&-item {
+			display: inline-block;
+			margin: 0 5px 0;
+		}
+
+		&-icon {
+			font-size: 25px;
+			color: $green;
+		}
+	}
+
+}

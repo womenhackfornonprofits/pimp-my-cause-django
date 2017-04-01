@@ -16,6 +16,12 @@ $colr-marketer: pink;
 		padding: 10px 0;
 	}
 
+	&__text {
+		color: $white;
+		text-align: left;
+		margin-top: 0;
+	}
+
 	&__info {
 		position: absolute;
 		top: 0;

@@ -14,7 +14,7 @@
                     {% if marketer_list %}
                         <div class="row">
                            {% for marketer in marketer_list %}
-                                <div class="marketer large-4 medium-6 small-12 column">
+                                <div class="marketer large-4 medium-6 small-12 column margin-bottom-30">
                                     <div class="marketer__wrapper">
                                         <div class="marketer__image-wrapper">
                                             {% if marketer.image %}
@@ -26,25 +26,26 @@
                                             {% endif %}
                                         </div>
                                         <div>
-                                            <h2 class="marketer__title"> {{ marketer.name }} {{ marketer.surname }}</h2>
-                                            <a href="TODO" class="marketer__info">
+                                            <h2 class="marketer__title"> {{ marketer.name | title }} {{ marketer.surname | title }}</h2>
+                                            <a href="{% url 'profile_detail' user_id=marketer.id %}" class="marketer__info">
                                                 {% if marketer.position %}
-                                                    <h3>{{ marketer.position }}</h3>
+                                                    <h3 class="marketer__text">{{ marketer.position | title }}</h3>
                                                 {% endif %}
                                                 {% if marketer.city %}
-                                                    <p><b>City:</b> {{ marketer.city }}</p>
+                                                    <p class="marketer__text"><i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ marketer.city | title }}</p>
                                                 {% endif %}
+
 
                                                 {% if marketer.marketerprofile.qualification.all|length %}
 
-                                                    <p><b>Qualifications:</b></p>
+                                                    <p class="marketer__text"><i class="fa fa-graduation-cap margin-right-5" aria-hidden="true"></i><b>Qualifications:</b></p>
                                                     <ul>
                                                         {% for qualification in  marketer.marketerprofile.qualification.all|slice:":3" %}
                                                             <li>{{ qualification }}</li>
                                                         {% endfor %}
                                                     </ul>
                                                 {% endif %}
-                                                <p class="marketer__link">See {{ marketer.name }}'s profile</p>
+                                                <p class="marketer__link">See {{ marketer.name | title }}'s profile</p>
                                             </a>
                                         </div>
                                     </div>

@@ -20,11 +20,11 @@ $team-individual-img-height: 150px;
 		text-align: center;
 		margin-top: $team-individual-img-height/2;
 		width: 49%;
-		margin: 50px 10px;
+		margin: 70px 0 0;
 	}
 
 	&__individual {
-		margin: 1em 0;
+		margin: 1em;
 		box-shadow: 0 1px 1px rgba(66, 57, 57, 0.26);
 		background-color: #F2F2F2;
 	}
@@ -36,12 +36,13 @@ $team-individual-img-height: 150px;
 	&__individual-role {
 		font-weight: 100;
 		font-style: italic;
+		padding: 0 60px;
 	}
 	
 	&__individual-bio {
 		display: inline-block;
 		vertical-align: top;
-		padding: 0 1em;
+		padding: 0 20px;
 
 		p {
 			margin-top: 0;
@@ -69,7 +70,7 @@ $team-individual-img-height: 150px;
 	
 	.masonry {
 		flex-direction: row;
-		height: 13500px
+		height: 13500px;
 	}
 
 	.team__individual-wrapper {
