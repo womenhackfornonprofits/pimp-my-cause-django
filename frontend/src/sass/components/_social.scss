@@ -1,0 +1,29 @@
+// Social Icons
+.social {
+    display: inline;
+    padding: 0;
+    margin: 0;
+
+    &__item {
+        list-style: none;
+        margin-right: 5px;
+        display: inline-block;
+    }
+
+    &__icon {
+        color: $white;
+    }
+}
+
+.fa-twitter-square {
+    color: #4099FF;
+}
+
+.fa-linkedin-square {
+    color: #0077b5;
+}
+
+.fa-facebook-square {
+    color: #3b5998;
+}
+

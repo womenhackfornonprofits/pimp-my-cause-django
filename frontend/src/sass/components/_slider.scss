@@ -9,7 +9,7 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
 .slider {
     position: relative;
     height: 20em;
-    
+
     &__slide {
         width: 100%;
         background: #F1F1F1;
@@ -50,11 +50,11 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
 
     &__paragraph {
         text-align: left;
-        color: #3c3c3c;    
+        color: #3c3c3c;
     }
     &__title {
         text-align: left;
-        color: #3c3c3c;    
+        color: #3c3c3c;
     }
 }
 

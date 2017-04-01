@@ -1,15 +1,16 @@
 /* =================================
-   PAGES / CONTACT 
+   PAGES / CONTACT
    ================================= */
 
 .page-contact,
 .page-about,
 .page-login,
-.page-register 
+.page-register
 {
     @extend .pnl--dark-txt;
     background-color: $white;
     padding-bottom: 6em;
+
     .pnl__title {
     	color: $purple;
     }

@@ -39,11 +39,23 @@
                         {% endif %}
                         <a href="{% url 'logout_view' %}?next=/" class="navigation__logout">                                                     <i class="fa fa-sign-out margin-right-5" aria-hidden="true"></i>Logout</a>
                     {% else %}
-                        <div class="navigation__login-social">
-                            <a href="#" class="navigation__social-icon social-icon">{% include "icons/linkedin.svg" %}</a>
-                            <a href="#" class="navigation__social-icon social-icon">{% include "icons/facebook.svg" %}</a>
-                            <a href="#" class="navigation__social-icon social-icon">{% include "icons/twitter.svg" %}</a>
-                        </div>
+                        <ul class="social">
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <i class="fa fa-linkedin social__icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#"" class="social__link">
+                                    <i class="fa fa-facebook social__icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <i class="fa fa-twitter social__icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
                         <a href="/accounts/login" class="button button--primary">Sign in</a>
                         <a href="{% url 'registration_register' %}" class="navigation__register">Not registered?</a>
                     {% endif %}
@@ -98,24 +110,30 @@
             <div class="footer__info">
                 <ul>
                     <li>
-                        <a href="/terms-and-conditions/" class="small">Terms of usage</a>
+                        <a href="/terms-and-conditions/" class="small footer__link">Terms of usage</a>
                     </li>
                     <li>
-                        <a href="#" class="small">Support/Help</a>
+                        <a href="#" class="small footer__link">Support/Help</a>
                     </li>
                     <li>
-                        <a href="#" class="small">Privacy</a>
+                        <a href="#" class="small footer__link">Privacy</a>
                     </li>
                 </ul>
-                <ul class="footer__social">
-                    <li>
-                        <a href="#" class="footer__social-icon linkedin">{% include "icons/linkedin.svg" %}</a>
+                <ul class="social">
+                    <li class="social__item">
+                        <a href="#" class="social__link">
+                            <i class="fa fa-linkedin-square social__icon" aria-hidden="true"></i>
+                        </a>
                     </li>
-                     <li>
-                        <a href="#" class="footer__social-icon twitter">{% include "icons/twitter.svg" %}</a>
+                    <li class="social__item">
+                        <a href="#"" class="social__link">
+                            <i class="fa fa-facebook-square social__icon" aria-hidden="true"></i>
+                        </a>
                     </li>
-                    <li>
-                        <a href="#" class="footer__social-icon facebook">{% include "icons/facebook.svg" %}</a>
+                    <li class="social__item">
+                        <a href="#" class="social__link">
+                            <i class="fa fa-twitter-square social__icon" aria-hidden="true"></i>
+                        </a>
                     </li>
                 </ul>
             </div>

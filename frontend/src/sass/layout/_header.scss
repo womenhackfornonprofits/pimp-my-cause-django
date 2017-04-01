@@ -29,10 +29,10 @@
     &__dropdown {
 	        display: none;
 	        position: absolute;
-	        margin-left: -.5em; 
+	        margin-left: -.5em;
 	        z-index:21;
 	        padding: 0;
-	        
+
 	        li {
 	            display: block;
 	            text-align: left;
@@ -83,7 +83,7 @@
   		height: 2em;
         flex: 2em 0;
     	background: transparent;
-		
+
 		&:before,
         &:after {
 			content: '';
@@ -100,7 +100,7 @@
 
 		&:after {
   			-webkit-transform: rotate(45deg);
-        	transform: rotate(45deg);		
+        	transform: rotate(45deg);
         }
     }
 
@@ -111,7 +111,7 @@
     }
 
     &__menu--mobile .logo-container {
-		padding: 0; 
+		padding: 0;
 		margin-left: 1em;
     }
 
@@ -130,7 +130,7 @@
 	    right: 0;
 	    margin: 0;
 	    padding: 0;
-	    z-index: 1000;	    
+	    z-index: 1000;
 		list-style: none;
 		margin: 0;
 		background-color: $purple;
@@ -230,10 +230,10 @@
 
 			.navigation__dropdown {
 				display: block;
-			}  
+			}
 
 		}
-	       
+
 	 }
 
 	&__login {
@@ -254,12 +254,7 @@
 			text-align: right;
 			display: flex;
 			flex-direction: column;
-			// width: 8em;
 		}
-	}
-
-	&__social-icon {
-		margin-left: .25em;
 	}
 
 	&__register,

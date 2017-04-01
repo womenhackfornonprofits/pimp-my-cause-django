@@ -12,12 +12,6 @@
     font-size: .7em;
     color: $colr-footer;
 
-    a {
-        color: $colr-footer;
-        margin-right: 15px;
-
-    }
-
     ul {
         padding: 0;
         margin: 0;
@@ -37,16 +31,19 @@
 
     &__logo {
         width: 5em;
-    } 
+    }
 
     &__link {
-
+        color: $colr-footer;
+        margin-right: 15px;
     }
 
     &__legal {
         text-align: left;
+
         p {
             display: inline;
+            color: $colr-footer;
         }
     }
 
