@@ -8,6 +8,12 @@ $colr-marketer: pink;
 		background: $silver-grey;
 	}
 
+    &__edit {
+        margin-left: 15px;
+        font-size: .7em;
+        color: #809b29;
+    }
+
 	&__title {
 		text-align: center;
 		background: $green;
@@ -41,7 +47,7 @@ $colr-marketer: pink;
 		padding: 6px 8px;
 		color: $black;
 		display: inline;
-		
+
 		&::after {
 			content: '→';
 			margin-left: 5px;
@@ -50,8 +56,8 @@ $colr-marketer: pink;
 
 	&__image {
 		padding-top: 4em;
-		height: 10em;
-		width: 10em;
+		height: 240px;
+		width: 240px;
 		background-color: gray;
 		background-size: cover;
 		background-position: 50% 50%;

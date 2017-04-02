@@ -3,7 +3,7 @@ from django import forms
 from s3direct.widgets import S3DirectWidget
 from django_countries.widgets import CountrySelectWidget
 
-from profiles.models import PimpUser, MarketerProfile, Qualification, CauseProfile
+from profiles.models import PimpUser, MarketerProfile, CauseProfile
 from registration.forms import RegistrationForm
 
 

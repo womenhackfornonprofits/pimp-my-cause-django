@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
+{% load static widget_tweaks %}
 
 {% block title %} Profile {% endblock %} 
 
-{% load static %}
 
     {% block main %} 
     <section class="page-register pnl row">
@@ -19,9 +19,7 @@
                                 {{ profile_update_form.image.errors }}
 
                                 {% if not profile_update_form.image.value %}
-                                    <div class="marketer__icon">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                    </div>
+                                    <img class="profile-img" src="https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png" alt="Example Profile Image">
 
                                 {% else %}
                                     <img class="profile-img" src="{{profile_update_form.image.value}}" alt="{{ user.name }} {{ user.surname }} Profile Image">
@@ -80,18 +78,23 @@
                             <h2 class="text-align-left"><i class="fa fa-user-circle-o margin-right-5" aria-hidden="true"></i>About</h2>
                         </div>
                         <div class="large-12 medium-12 small-12">
-                            <div class="">
-                                {{ profile_update_form.bio.errors }}
-                                <label for="bio"> Bio </label>
-                                <textarea name="bio" rows="10" required placeholder="Hi! My name is Sam, I am a London based Marketer.">{{ profile_update_form.bio.value|default_if_none:"" }}</textarea>
-                            </div>
+                            {{ profile_update_form.bio.errors }}
+                            <label for="bio"> Bio </label>
+                            <textarea name="bio" rows="10" required placeholder="Hi! My name is Sam, I am a London based Marketer.">{{ profile_update_form.bio.value|default_if_none:"" }}</textarea>
                         </div>
 
                         <div class="large-12 medium-12 small-12">
                             {{ additional_profile_form.non_field_errors }}
+                            
+                            {{ additional_profile_form.experience.errors }}
+                            <label for="experience"> Experience </label>
+                            <textarea name="experience" rows="10" required placeholder="Work Experience">{{ additional_profile_form.experience.value }}</textarea>
 
-                            {{ additional_profile_form.errors }}
-                            {{ additional_profile_form.as_p }}
+                            {{ additional_profile_form.availability.errors }}
+
+                            {{ additional_profile_form.availability }}
+                            <label for="availability"> I am available to be contacted for help for projects by Causes </label>
+                            {{ additional_profile_form.qualification }}
 
                         <div class="large-6 medium-6 small-12">
                             <div class="row">

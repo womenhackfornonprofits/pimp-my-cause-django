@@ -9,4 +9,4 @@ wsgiref==0.1.2
 django-s3direct==0.4.2                      # Handles asset uploads to s3
 django-registration-redux==1.4              # Double opt-in user registration flow
 python-env-utils==0.2.0                     # Deals nicely with environment var typing
-django-widget-tweaks==1.4.1                  # Help render and tweak forms
+django-widget-tweaks==1.4.1                 # Help render and tweak forms

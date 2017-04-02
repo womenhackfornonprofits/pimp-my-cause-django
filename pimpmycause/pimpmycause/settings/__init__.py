@@ -162,8 +162,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # User image uploads to S3 bucket
-# AWS keys
-
 AWS_STORAGE_BUCKET_NAME = get_env("AWS_BUCKET_NAME", "pimpmycause-images")
 S3DIRECT_REGION = get_env("AWS_BUCKET_NAME", 'eu-west-1')
 
@@ -171,7 +169,7 @@ S3DIRECT_DESTINATIONS = {
     # Limit uploads to jpeg's and png's.
     'user-profile-images': {
         'key': 'uploads/imgs',
-        'allowed': ['image/jpeg', 'image/png'],
+        'allowed': ['image/jpeg', 'image/png', 'image/jpg'],
         'cache_control': 'max-age=2592000',
     },
 }

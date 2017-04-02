@@ -7,109 +7,110 @@
     {% block main %}
     <section class="pnl pnl--dark-txt row">
         <div class="content-wrap">
-            <h1 class="pnl__title">{{marketer.name | title}}'s Profile</h1>
+
+            <h1 class="pnl__title margin-right-5">{{marketer.name | title}}'s Profile</h1>
                 <div class="medium-12 large-12 small-10 large-centered small-centered columns">
-                        <div class="row">
-                            <div class="marketer large-4 medium-8 small-10 small-centered large-centered columns">
-                                {% if not marketer.image %}
-                                    <div class="marketer__icon">
-                                        <i class="fa fa-user fa-5" aria-hidden="true"></i>
-                                    </div>
-                                {% else %}
-                                    <img class="profile-img" src="{{profile_detail_form.image.value}}" alt="{{ user.name }} {{ user.surname }} Profile Image">
-                                {% endif %}
-                            </div>
-                            <div class="large-4 medium-4 small-10 small-centered large-centered columns text-align-center">
-                                <h1 class="text-align-center">{{ marketer.name | title }} {{ marketer.surname | title }}</h1>
-                                <h2 class="h2 margin-top-0">{{ marketer.position | title }}</h2>
-                                {% if marketer.marketerprofile.availability %}
-                                    <p class="helptext text-align-center"><i class="fa fa-check-square-o margin-right-5" aria-hidden="true"></i>I am available to help, please get in touch.</p>
-                                {% else %}
-                                    <p class="helptext text-align-center text-danger margin-top-0"><i class="fa fa-ban margin-right-5" aria-hidden="true"></i>I am not available at the moment, please check back in the future.</p>
-                                {% endif %}
-                            </div>
-                            <div class="large-4 medium-8 small-10 small-centered large-centered columns text-align-center">
-                                {% if marketer.city %}
-                                    <p class="text-align-center h4 display-inline-block">
-                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                        {{ marketer.city | title }} |
-                                    </p>
-                                {% endif %}
+                    <div class="row">
+                        <div class="marketer large-4 medium-4 small-10 small-centered large-centered columns">
+                            {% if not marketer.image %}
+                                <div class="marketer__icon">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </div>
+                            {% else %}
+                                <img class="profile-img" src="{{marketer.image}}" alt="{{ marketer.name }} {{ marketer.surname }} Profile Image">
+                            {% endif %}
+                        </div>
+                        <div class="large-4 medium-4 small-10 small-centered large-centered columns text-align-center">
+                            <h1 class="text-align-center">{{ marketer.name | title }} {{ marketer.surname | title }}{% if user.id == marketer.id %}<a href="{% url 'profile_update' %}" title="Edit your profile" class="marketer__edit"><i class="fa fa-pencil margin-right-5" aria-hidden="true"></i>Edit</a>{% endif %}</h1>
+                            <h2 class="h2 margin-top-0">{{ marketer.position | title }}</h2>
+                            {% if marketer.marketerprofile.availability %}
+                                <p class="helptext text-align-center"><i class="fa fa-check-square-o margin-right-5" aria-hidden="true"></i>I am available to help, please get in touch.</p>
+                            {% else %}
+                                <p class="helptext text-align-center text-danger margin-top-0"><i class="fa fa-ban margin-right-5" aria-hidden="true"></i>I am not available at the moment, please check back in the future.</p>
+                            {% endif %}
+                        </div>
+                        <div class="large-4 medium-8 small-10 small-centered large-centered columns text-align-center">
+                            {% if marketer.city %}
+                                <p class="text-align-center h4 display-inline-block">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    {{ marketer.city | title }} |
+                                </p>
+                            {% endif %}
 
-                                <ul class="profile__social">
-                                    {% if marketer.linkedin %}
-                                        <li class="profile__social-item">
-                                            <a href="{{ marketer.linkedin  }}" class="profile__social-icon">
-                                                <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                    {% endif %}
-                                    {% if marketer.twitter %}
-                                        <li class="profile__social-item">
-                                            <a href="{{ marketer.twitter }}" class="profile__social-icon">
-                                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                    {% endif %}
-                                    {% if marketer.website %}
-                                        <li class="profile__social-item">
-                                            <a href="{{ marketer.website }}" class="profile__social-icon">
-                                                <i class="fa fa-globe" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                    {% endif %}
+                            <ul class="profile__social">
+                                {% if marketer.linkedin %}
+                                    <li class="profile__social-item">
+                                        <a href="{{ marketer.linkedin  }}" class="profile__social-icon">
+                                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% if marketer.twitter %}
+                                    <li class="profile__social-item">
+                                        <a href="{{ marketer.twitter }}" class="profile__social-icon">
+                                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% if marketer.website %}
+                                    <li class="profile__social-item">
+                                        <a href="{{ marketer.website }}" class="profile__social-icon">
+                                            <i class="fa fa-globe" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="large-8 medium-8 small-12 columns small-centered large-centered ">
+                        <h2 class="text-align-left">
+                            <i class="fa fa-briefcase margin-right-5" aria-hidden="true"></i>
+                            Experience
+                        </h2>
+                            {% if marketer.marketerprofile.experience %}
+                                <p>{{ marketer.marketerprofile.experience | title }}</p>
+                            {% else %}
+                                <p clas="helptext">
+                                    <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                    {{ marketer.name | title }} is yet to share this information.
+                                </p>
+                            {% endif %}
+
+                        <h2 class="text-align-left">
+                            <i class="fa fa-file-text margin-right-5" aria-hidden="true"></i>
+                            Bio
+                        </h2>
+                            {% if marketer.bio %}
+                                <p>{{ marketer.bio | title }}</p>
+                            {% else %}
+                                <p clas="helptext">
+                                    <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                    {{ marketer.name  | title }} is yet to share this information.
+                                </p>
+                            {% endif %}
+
+                        <h2 class="text-align-left">
+                            <i class="fa fa-graduation-cap margin-right-5" aria-hidden="true"></i>
+                            Qualifications
+                        </h2>
+                            {% if marketer.marketerprofile.qualification.all|length %}
+                                <ul>
+                                    {% for qualification in marketer.marketerprofile.qualification.all %}
+                                        <li>{{ qualification | title }}</li>
+                                    {% endfor %}
                                 </ul>
-                            </div>
+                            {% else %}
+                                <p clas="helptext">
+                                    <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                    {{ marketer.name | title }} is yet to share this information.
+                                </p>
+                            {% endif %}
                         </div>
-                        <div class="large-8 medium-8 small-12 columns small-centered large-centered ">
-                            <h2 class="text-align-left">
-                                <i class="fa fa-briefcase margin-right-5" aria-hidden="true"></i>
-                                Experience
-                            </h2>
-                                {% if marketer.marketerprofile.experience %}
-                                    <p>{{ marketer.marketerprofile.experience | title }}</p>
-                                {% else %}
-                                    <p clas="helptext">
-                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                        {{ marketer.name | title }} is yet to share this information.
-                                    </p>
-                                {% endif %}
+                    </div>
 
-                            <h2 class="text-align-left">
-                                <i class="fa fa-file-text margin-right-5" aria-hidden="true"></i>
-                                Bio
-                            </h2>
-                                {% if marketer.bio %}
-                                    <p>{{ marketer.bio | title }}</p>
-                                {% else %}
-                                    <p clas="helptext">
-                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                        {{ marketer.name  | title }} is yet to share this information.
-                                    </p>
-                                {% endif %}
-
-                            <h2 class="text-align-left">
-                                <i class="fa fa-graduation-cap margin-right-5" aria-hidden="true"></i>
-                                Qualifications
-                            </h2>
-                                {% if marketer.marketerprofile.qualification.all|length %}
-                                    <ul>
-                                        {% for qualification in marketer.marketerprofile.qualification.all %}
-                                            <li>{{ qualification | title }}</li>
-                                        {% endfor %}
-                                    </ul>
-                                {% else %}
-                                    <p clas="helptext">
-                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                        {{ marketer.name | title }} is yet to share this information.
-                                    </p>
-                                {% endif %}
-                            </div>
-                        </div>
-
-                        <div class="large-8 medium-8 small-12 columns small-centered large-centered margin-top-30">
-                            <a href="TODO" class="button button--primary">Message {{ profile_detail_form.name.value }}</a>
-                        </div>
+                    <div class="large-8 medium-8 small-12 columns small-centered large-centered margin-top-30">
+                        <a href="TODO" class="button button--primary">Message {{ profile_detail_form.name.value }}</a>
+                    </div>
                 </div>
         </section>
     {% endblock %}
