@@ -21,7 +21,7 @@
                             {% endif %}
                         </div>
                         <div class="large-4 medium-4 small-10 small-centered large-centered columns text-align-center">
-                            <h1 class="text-align-center">{{ marketer.name | title }} {{ marketer.surname | title }}{% if user.id == marketer.id %}<a href="{% url 'profile_update' %}" title="Edit your profile" class="marketer__edit"><i class="fa fa-pencil margin-right-5" aria-hidden="true"></i>Edit</a>{% endif %}</h1>
+                            <h1 class="text-align-center">{{ marketer.name | title }} {{ marketer.surname | title }}</h1>
                             <h2 class="h2 margin-top-0">{{ marketer.position | title }}</h2>
                             {% if marketer.marketerprofile.availability %}
                                 <p class="helptext text-align-center"><i class="fa fa-check-square-o margin-right-5" aria-hidden="true"></i>I am available to help, please get in touch.</p>
@@ -62,6 +62,11 @@
                             </ul>
                         </div>
                     </div>
+                    {% if user.id == marketer.id %}
+                        <div class="large-4 medium-4 small-10 small-centered large-centered columns text-align-center">
+                            <a href="{% url 'profile_update' %}" title="Edit your profile" class="h2 button button--primary"><i class="fa fa-pencil margin-right-5" aria-hidden="true"></i>Edit your profile</a>
+                        </div>
+                    {% endif %}
                     <div class="large-8 medium-8 small-12 columns small-centered large-centered ">
                         <h2 class="text-align-left">
                             <i class="fa fa-briefcase margin-right-5" aria-hidden="true"></i>
@@ -107,10 +112,12 @@
                             {% endif %}
                         </div>
                     </div>
-
-                    <div class="large-8 medium-8 small-12 columns small-centered large-centered margin-top-30">
-                        <a href="TODO" class="button button--primary">Message {{ profile_detail_form.name.value }}</a>
-                    </div>
+                    
+                    {% if not user.id == marketer.id %}
+                        <div class="large-8 medium-8 small-12 columns small-centered large-centered margin-top-30">
+                            <a href="TODO" class="button button--primary">Message {{ profile_detail_form.name.value }}</a>
+                        </div>
+                    {% endif %}
                 </div>
         </section>
     {% endblock %}
