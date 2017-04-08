@@ -116,10 +116,9 @@
                                         {{ profile_user.name | title }} is yet to share this information.
                                     </p>
                                 {% endif %}
-                            </div>
                         </div>
                         
-                        {% if not profile_user.id == profile_user.id %}
+                        {% if not user.id == profile_user.id %}
                             <div class="large-8 medium-8 small-12 columns small-centered large-centered margin-top-30">
                                 <a href="TODO" class="button button--primary">Message {{ profile_detail_form.name.value }}</a>
                             </div>
@@ -133,27 +132,30 @@
                             <i class="fa fa-briefcase margin-right-5" aria-hidden="true"></i>
                             Mission
                         </h2>
-                            {% if profile_user.causeprofile.mission %}
-                                <p>{{ profile_user.causeprofile.mission | title }}</p>
-                            {% else %}
-                                <p clas="helptext">
-                                    <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                    {{ profile_user.name | title }} is yet to share this information.
-                                </p>
-                            {% endif %}
+                        {% if profile_user.causeprofile.mission %}
+                            <p>{{ profile_user.causeprofile.mission | title }}</p>
+                        {% else %}
+                            <p clas="helptext">
+                                <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                {{ profile_user.name | title }} is yet to share this information.
+                            </p>
+                        {% endif %}
 
                         <h2 class="text-align-left">
-                            <i class="fa fa-file-text margin-right-5" aria-hidden="true"></i>
+                            <i class="fa fa fa-tags margin-right-5" aria-hidden="true"></i>
                             Category
                         </h2>
-                            {% if profile_user.causeprofile.category %}
-                                <p>{{ profile_user.causeprofile.get_category_display }}</p>
-                            {% else %}
-                                <p clas="helptext">
-                                    <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                    {{ profile_user.name  | title }} is yet to share this information.
-                                </p>
-                            {% endif %}
+                        {% if profile_user.causeprofile.category %}
+                            <p>{{ profile_user.causeprofile.get_category_display }}</p>
+
+                        {% endif %}
+                    </div>
+                    <div class="large-8 medium-8 small-12 columns small-centered large-centered ">
+                        <h2 class="text-align-left"><i class="fa fa-wpforms margin-right-5" aria-hidden="true"></i>Help Wanted Ads</h2>
+                        <p clas="helptext">
+                            <i class="fa fa-comments-o" aria-hidden="true"></i>
+                            {{ profile_user.causeprofile.cause_name | title }} currently have no Help Wanted Ads.
+                        </p>
                     </div>
                 {% endif %}
 
