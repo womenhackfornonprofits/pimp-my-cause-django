@@ -1,0 +1,44 @@
+.partners {
+    &__title,
+    &__description {
+        text-align: center;
+
+        @media (min-width:640px) {
+            text-align: left;
+        }
+    }
+
+    &__list {
+        margin: 0;
+        padding: 4em 2em;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    &__item {
+        list-style: none;
+        flex: 1 0 auto;
+        max-width: 50%;
+
+        @media (min-width:640px) {
+            max-width: 25%;
+        }
+    }
+
+    &__logo {
+        list-style: none;
+        max-height: 100%;
+        padding: 1.5em;
+    }
+
+    &__title--right,
+    &__description--right {
+        text-align: center;
+
+        @media (min-width:640px) {
+            text-align: right;
+        }
+    }
+}

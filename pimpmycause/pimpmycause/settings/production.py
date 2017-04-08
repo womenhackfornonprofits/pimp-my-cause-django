@@ -8,6 +8,9 @@ DATABASES['default'] = dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# AWS keys
+AWS_SECRET_ACCESS_KEY = get_env("AWS_SECRET_ACCESS_KEY")
+AWS_ACCESS_KEY_ID = get_env("AWS_ACCESS_KEY_ID")
 
 SECRET_KEY = get_env("SECRET_KEY")
 

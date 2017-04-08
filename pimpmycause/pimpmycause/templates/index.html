@@ -116,7 +116,7 @@
                  <div class="row">
                     <div class="large-12 columns">
                         <h1 class="pnl__title">Marketing a better world</h1>
-                        <div class="large-8 large-centered columns">
+                        <div class="large-8 medium-8 large-centered medium-centered columns">
                             <p class="pnl--light-txt">Pimp My Cause brings together thousands of charities and social enterprises with professional marketers including innovators, strategists, advertisers, graphic designers, web developers, PR specialists and researchers who can provide transformational support pro bono.</p>
                             <p class="pnl--light-txt">Whether you are a cause in need of marketing or a marketer looking to diversify your experience, make new connections, showcase your talent or give something back, registration is fast and free.</p>
                         </div>
@@ -140,9 +140,9 @@
                                 {% for cause in featured_cause_list %}
                                     <div class="slider__slide">
                                         <div class="slider__text">
-                                            <h3 class="slider__title"> {{ cause.name }}</h3>
+                                            <h3 class="slider__title"> {{ cause.name | title }}</h3>
                                             <div>
-                                                 <p class="slider__paragraph">{{ cause.bio|truncatechars:100 }}...</p>
+                                                 <p class="slider__paragraph">{{ cause.bio|truncatechars:100 | title}}...</p>
                                                  <a href="{% url 'profile_detail' user_id=cause.id %}"  class="cause-arrow"></a>
                                             </div>
                                         </div>
@@ -178,10 +178,10 @@
                                             </div>
                                             {% endif %}
                                             <div class="slider__text">
-                                                <h3 class="slider__title">{{ marketer.name}} {{ marketer.surname }}</h3>
+                                                <h3 class="slider__title">{{ marketer.name | title}} {{ marketer.surname | title}}</h3>
                                                 <div class="slider__paragraph">
-                                                    <h5 class="text-align-left">{{ marketer.position }}</h5>
-                                                    <p>{{ marketer.bio | truncatechars:200 }}...</p>
+                                                    <h5 class="text-align-left">{{ marketer.position | title }}</h5>
+                                                    <p>{{ marketer.bio | truncatechars:200 | title }}...</p>
                                                     <a href="{% url 'profile_detail' user_id=marketer.id %}" class="slider__link">See {{ marketer.name | title }}'s profile</a>
                                                 </div>
                                             </div>
@@ -210,7 +210,7 @@
                                 <img class="summary-img" src=" {% static "img/summary1-how-it-works.png" %}" alt="How it works">
                                 <div class="summary-title">How it works</div>
                                  <div class="summary-info">
-                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="/how-it-works/" class="read-more">Read more</a>
+                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="{% url 'how_it_works' %}" class="read-more">Read more</a>
                                 </div>
                             </li>
                             <li class="summary-purple">

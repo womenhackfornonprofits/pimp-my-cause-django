@@ -33,7 +33,9 @@
                 <div class="navigation__login">
                     {% if user.is_authenticated %}
                         {% if user.name %}
-                            <a class="navigation__username" href="{% url 'profile_update' %}"> {{ user.name }} {{ user.surname }}</a>
+                            <a class="navigation__username" href="{% url 'profile_update' %}"> {{ user.name }} {{ user.surname }}
+                                <i class="fa fa-cog" aria-hidden="true"></i>
+                            </a>
                         {% else %}
                             <p class="navigation__username"> {{ user.email }}</p>
                         {% endif %}

@@ -10,39 +10,73 @@
              <div class="row">
                 <div class="large-12 medium-12 small-12 columns">
                     <h1 class="pnl__title">Contact Us</h1>
-                        <form method="POST" action="//formspree.io/help@pimpmycause.org">
-                            <input type="hidden" name="_subject" value="New Submission: Pimp My Cause Contact Form"/>
-                            <input type="text" name="_gotcha" style="display:none"/>
 
-                            <div class="medium-6 large-6 small-12 large-centered small-centered columns">
-                                <div class="row">
-                                    <div class="medium-6 large-6 small-12 columns">
-                                        <input type="text" name="fname" placeholder="First Name" required>
-                                    </div>
-                                    <div class="medium-6 large-6 small-12 columns">
-                                        <input type="text" name="sname" placeholder="Surname" required>
-                                    </div>
+                    <div class="medium-7 large-6 small-12 large-centered small-centered columns">
+                        <div class="row">
+                            <p class="row text-align-center margin-bottom-30">The quickest way to get an answer to your question is to use the form below to get in touch. You can also have a look at our <a href="{% url 'how_it_works' %}" class="text-link">How it works</a> page if you want to learn more about how Pimp My Cause works.</p>
+                        </div>
+                    </div>
+                    <form method="POST" action="//formspree.io/help@pimpmycause.org">
+                        <input type="hidden" name="_subject" value="New Submission: Pimp My Cause Contact Form"/>
+                        <input type="text" name="_gotcha" style="display:none"/>
+
+                        <div class="medium-6 large-6 small-12 large-centered small-centered columns">
+                            <div class="row">
+                                <div class="medium-6 large-6 small-12 columns">
+                                    <input type="text" name="fname" placeholder="First Name" required>
                                 </div>
-                                <div class="row">
-                                    <div class="medium-6 large-6 small-12 columns">
-                                        <input type="email" name="email" placeholder="Email Address" required>
-                                    </div>
-                                    <div class="medium-6 large-6 small-12 columns">
-                                        <input type="tel" name="phone" placeholder="Telephone (optional)">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="medium-12 large-12 small-12 columns">
-                                        <textarea name="message" rows="20" placeholder="Your message here" required></textarea>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="large-4 small-6 medium-4 medium-centered large-centered columns">
-                                        <input class="button button--primary" type="submit" value="Submit">
-                                    </div>
+                                <div class="medium-6 large-6 small-12 columns">
+                                    <input type="text" name="sname" placeholder="Surname" required>
                                 </div>
                             </div>
-                        </form>
+                            <div class="row">
+                                <div class="medium-6 large-6 small-12 columns">
+                                    <input type="email" name="email" placeholder="Email Address" required>
+                                </div>
+                                <div class="medium-6 large-6 small-12 columns">
+                                    <input type="tel" name="phone" placeholder="Telephone (optional)">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="medium-12 large-12 small-12 columns">
+                                    <textarea name="message" rows="10" placeholder="Your message here" required></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-4 small-6 medium-4 medium-centered large-centered columns">
+                                    <input class="button button--primary" type="submit" value="Submit">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="medium-6 large-6 small-12 large-centered small-centered columns">
+                        <div class="row text-align-center">
+                            <h2 class="h1 accent-color">You can find us on social media</h2>
+                            <ul class="social">
+                                <li class="social__item">
+                                    <a href="#" class="social__link social__link--large">
+                                        <i class="fa fa-linkedin-square social__icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="#"" class="social__link social__link--large">
+                                        <i class="fa fa-facebook-square social__icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="#" class="social__link social__link--large">
+                                        <i class="fa fa-twitter-square social__icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="margin-top-30">
+                                <a href="mailto:help@pimpmycause.org" class="social__link social__link--large text-link">
+                                    <i class="fa fa-envelope text-link" aria-hidden="true"></i>
+                                    help@pimpmycause.org
+                                </a>
+                            </div>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
