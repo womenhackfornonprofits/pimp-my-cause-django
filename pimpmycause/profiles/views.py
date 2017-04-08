@@ -3,6 +3,8 @@ from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
+from django.db.models import Count
+from django.shortcuts import get_object_or_404
 
 from registration.backends.default import views as registration_views
 from profiles.forms import (
@@ -12,7 +14,7 @@ from profiles.forms import (
     CauseUserProfileForm
 )
 from profiles.models import PimpUser
-from django.shortcuts import get_object_or_404
+from adverts.models import Advert
 
 
 class RegistrationComplete(TemplateView):
@@ -64,9 +66,14 @@ def cause_list(request):
     """Cause search view."""
     cause_list = (
         PimpUser.objects
+        .all()
+        .select_related()
         .filter(usertype=PimpUser.CAUSE)
-        .order_by('-date_joined')
+        .annotate(
+            ads_count=Count('causeprofile__advert')
+        )
     )
+
     context = {'cause_list': cause_list}
 
     return render(request, 'search/search_cause.html', context)
@@ -78,7 +85,19 @@ def profile_detail(request, user_id):
         id=user_id,
     )
 
-    context = {'profile_user': user}
+    if user.usertype == PimpUser.CAUSE:
+        adverts_list = (
+            Advert.objects
+            .all()
+        )
+
+        context = {
+            'adverts_list': adverts_list,
+            'profile_user': user
+        }
+
+    else:
+        context = {'profile_user': user}
 
     return render(request, 'profiles/detail.html', context)
 

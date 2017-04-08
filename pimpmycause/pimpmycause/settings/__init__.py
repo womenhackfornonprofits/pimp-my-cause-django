@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
     # pimpmycause imports
     'core',
-    'profiles'
+    'profiles',
+    'adverts'
 
 ]
 

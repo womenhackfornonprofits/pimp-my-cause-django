@@ -14,7 +14,7 @@
                         <h1 class="pnl__title">Meet the Marketers</h1>
                         <h3 class="margin-top-0 small-10 small-centered medium-8 medium-centered columns">Browse or search our listings of professionals. Build your network and find new potential collaborators.</h3>
                     </div>
-                    {% if marketer_list %}
+                    {% if marketer_list|length > 0 %}
                         <div class="row">
                            {% for marketer in marketer_list %}
                                 <div class="marketer large-4 medium-6 small-12 column margin-bottom-30 margin-top-30">
@@ -56,6 +56,7 @@
                             {% endfor %}
                         </div>
                     {% else %}
+                        <h3><i class="fa fa-frown-o margin-right-5" aria-hidden="true"></i> Sorry, we couldn't find any Marketers to display.</h3>
                     {% endif %}
                 </div> 
             </div> 
