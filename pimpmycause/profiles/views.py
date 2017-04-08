@@ -24,9 +24,9 @@ class RegistrationComplete(TemplateView):
 class RegistrationView(registration_views.RegistrationView):
     """The Registration view."""
 
-    template_name = 'profiles/register.html'
+    template_name = 'registration/registration_form.html'
     form_class = PimpUserRegistrationForm
-    success_url = '/accounts/registration-complete/'
+    success_url = 'accounts/registration-complete/'
 
 
 class ActivationComplete(TemplateView):
@@ -60,13 +60,25 @@ def marketer_list(request):
     return render(request, 'search/search_marketer.html', context)
 
 
+def cause_list(request):
+    """Cause search view."""
+    cause_list = (
+        PimpUser.objects
+        .filter(usertype=PimpUser.CAUSE)
+        .order_by('-date_joined')
+    )
+    context = {'cause_list': cause_list}
+
+    return render(request, 'search/search_cause.html', context)
+
+
 def profile_detail(request, user_id):
     user = get_object_or_404(
         PimpUser,
         id=user_id,
     )
 
-    context = {'marketer': user}
+    context = {'profile_user': user}
 
     return render(request, 'profiles/detail.html', context)
 
@@ -99,7 +111,12 @@ def profile_update(request):
             profile_details = additional_profile_form.save(commit=False)
             profile_details.save()
 
-            return redirect('profile_update')
+            additional_profile_form.save_m2m()
+
+        return redirect(
+            'profile_detail',
+            user_id=request.user.id
+        )
 
     else:
         profile_update_form = PimpUserProfileForm(instance=request.user)

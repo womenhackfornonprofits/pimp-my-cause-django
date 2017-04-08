@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %} Registration Complete {% endblock %} 
+
+{% load static %}
+
+{% block main %} 
+
+    <section class="page-about pnl">
+        <div class="content-wrap">
+             <div class="row">
+                <div class="large-12 medium-12 small-12">
+                    <h1 class="pnl__title">Find a Marketer</h1>
+                    {% if cause_list %}
+                        <div class="row">
+                           {% for cause in cause_list %}
+                                <div class="cause large-4 medium-6 small-12 column margin-bottom-30">
+                                    <div class="cause__wrapper">
+                                        <div class="cause__image-wrapper">
+                                            {% if cause.image %}
+                                                <div class="cause__image" style="background-image:url('{{ cause.image }}')"></div>
+                                            {% else %}
+                                                <div class="cause__icon">
+                                                    <i class="fa fa-user fa-5" aria-hidden="true"></i>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <div>
+                                            <h2 class="cause__title"> {{ cause.name | title }} {{ cause.surname | title }}</h2>
+                                            <a href="{% url 'profile_detail' user_id=cause.id %}" class="cause__info">
+                                                {% if cause.position %}
+                                                    <h3 class="cause__text">{{ cause.position | title }}</h3>
+                                                {% endif %}
+                                                {% if cause.city %}
+                                                    <p class="cause__text"><i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ cause.city | title }}</p>
+                                                {% endif %}
+
+
+                                                {% if cause.causeprofile.qualification.all|length %}
+
+                                                    <p class="cause__text"><i class="fa fa-graduation-cap margin-right-5" aria-hidden="true"></i><b>Qualifications:</b></p>
+                                                    <ul>
+                                                        {% for qualification in  cause.causeprofile.qualification.all|slice:":3" %}
+                                                            <li>{{ qualification }}</li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% endif %}
+                                                <p class="cause__link">See {{ cause.name | title }}'s profile</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                    {% endif %}
+                </div> 
+            </div> 
+        </div>
+    </section> 
+{% endblock %}
+     

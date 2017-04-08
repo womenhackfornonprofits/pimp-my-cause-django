@@ -10,6 +10,7 @@ ALLOWED_HOSTS = []
 # AWS keys
 AWS_SECRET_ACCESS_KEY = get_env("AWS_SECRET_ACCESS_KEY")
 AWS_ACCESS_KEY_ID = get_env("AWS_ACCESS_KEY_ID")
+DJANGO_SETTINGS_MODULE = get_env("DJANGO_SETTINGS_MODULE", "pimpmycause.settings.development")
 
 LOGGING = {
     'version': 1,
