@@ -51,4 +51,4 @@ class CauseUserProfileForm(forms.ModelForm):
 
     class Meta:
         model = CauseProfile
-        fields = ('mission', 'category')
+        fields = ('mission', 'category', 'cause_name')

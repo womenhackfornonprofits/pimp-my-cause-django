@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %} Registration Complete {% endblock %} 
+
+{% load static %}
+
+{% block main %} 
+
+    <section class="page-about pnl">
+        <div class="content-wrap">
+             <div class="row">
+                <div class="large-12 medium-12 small-12">
+                    <div class="row">
+                        <h1 class="pnl__title">Find a Cause</h1>
+                        <h3 class="margin-top-0 small-10 small-centered medium-8 medium-centered columns">Browse or search our listings of professionals. Build your network and find new potential collaborators.</h3>
+                    </div>
+                    {% if cause_list %}
+                           {% for cause in cause_list %}
+                                <div class="cause small-12 columns margin-top-30">
+                                    <div class="cause__wrapper">
+                                        <div class="small-12 medium-3 columns show-for-medium-up">
+                                            <div class="cause__image-wrapper">
+                                                {% if cause.image %}
+                                                    <img class="cause__image" src="{{ cause.image }}" alt="{{ cause.causeprofile.cause_name }} Profile Image"></img>
+                                                {% else %}
+                                                    <img class="profile-img" src="https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png" alt="{{ cause.causeprofile.cause_name }} Profile Image">
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="cause__info small-12 medium-6 columns">
+                                            <div clas="col-xs-12 columns">
+                                                <h2 class="cause__title"> {{ cause.causeprofile.cause_name | title }}</h2>
+                                                <h3 class="cause__title">Our Mission</h3>
+                                                {% if cause.causeprofile.mission %}
+                                                    <p class="cause__text">{{ cause.causeprofile.mission | title }}</p>
+                                                {% else %}
+                                                    <p clas="helptext">
+                                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                                        {{ cause.causeprofile.cause_name | title }} is yet to share this information.
+                                                    </p>                                            
+                                                {% endif %}
+
+                                                <footer class="margin-top-30">
+                                                    {% if cause.causeprofile.category %}
+                                                        <p class="cause__text"><i class="fa fa-tags margin-right-5" aria-hidden="true"></i>{{ cause.causeprofile.get_category_display | title }}
+                                                    {% endif %}
+                                                    {% if cause.city %}
+                                                        | <i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ cause.city | title }}</p>
+                                                    {% endif %}
+                                                </footer>
+                                            </div>
+
+                                        </div>
+                                        <div class="small-12 medium-3 columns">
+                                        <div class="cause__ads">
+                                            <h2 class="cause__title h5"><i class="fa fa-wpforms margin-right-5" aria-hidden="true"></i>25 Help Wanted Ads</h2>
+                                        </div>
+                                        <a href="{% url 'profile_detail' user_id=cause.id %}" class="button button--secondary display-inline-block">
+                                                 See Profile
+                                        </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            {% endfor %}
+                    {% else %}
+                    {% endif %}
+                </div> 
+            </div> 
+        </div>
+    </section> 
+{% endblock %}
+     

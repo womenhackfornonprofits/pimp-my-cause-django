@@ -125,7 +125,7 @@
             </div>
         </section>
 
-        {% if featured_cause_list %}
+        {% if featured_cause_list|length == 3 %}
 
             <!-- ********************* -->
             <!-- FEATURED CAUSES PANEL -->
@@ -137,19 +137,25 @@
                         <h1 class="pnl__title">Featured Causes</h1>
                         <div class="slider">
                             <div class="slider">
-                                {% for cause in featured_cause_list %}
+                                 {% for cause in featured_cause_list %}
                                     <div class="slider__slide">
                                         <div class="slider__text">
-                                            <h3 class="slider__title"> {{ cause.name | title }}</h3>
-                                            <div>
-                                                 <p class="slider__paragraph">{{ cause.bio|truncatechars:100 | title}}...</p>
-                                                 <a href="{% url 'profile_detail' user_id=cause.id %}"  class="cause-arrow"></a>
+                                            <h3 class="slider__title">{{ cause.causeprofile.cause_name | title}}</h3>
+                                            <div class="slider__paragraph">
+                                                <h5 class="text-align-left">{{ cause.causeprofile.get_category_display| title }}</h5>
+                                                <p class="slider__paragraph">{{ cause.causeprofile.mission | truncatechars:200 | title }}...</p>
+                                                <a href="{% url 'profile_detail' user_id=cause.id %}" class="slider__link">See {{ cause.causeprofile.cause_name | title }}'s profile</a>
                                             </div>
                                         </div>
-                                        <div class="slider__img" style="background-image: url({{ cause.image }})">
+                                         {% if cause.image %}
+                                            <div class="slider__img" style="background-image: url({{ cause.image }})">
+                                            </div>
+                                        {% else %}
+                                         <div class="slider__img" style="background-image: url(https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png)">
                                         </div>
+                                        {% endif %}
                                     </div>
-                                 {% endfor %}
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

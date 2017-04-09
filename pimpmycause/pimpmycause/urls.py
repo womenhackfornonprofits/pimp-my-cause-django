@@ -6,13 +6,12 @@ from django.views.generic.base import (
 )
 from profiles.views import (
     RegistrationView,
-    RegistrationComplete,
     ActivationComplete,
     profile_update,
     profile_detail,
-    TermsAndConditions,
     logout_view,
     marketer_list,
+    cause_list,
 )
 from core.views import (
     homepage
@@ -24,10 +23,6 @@ urlpatterns = [
     url(
         r'^admin/',
         admin.site.urls
-    ),
-    url(
-        r'^accounts/',
-        include('registration.backends.default.urls')
     ),
     url(
         r'^$',
@@ -76,7 +71,7 @@ urlpatterns = [
     ),
     url(
         r'^terms-and-conditions/',
-        TermsAndConditions.as_view(),
+        TemplateView.as_view(template_name='core/terms_and_conditions.html'),
         name="terms_and_conditions"
     ),
     url(
@@ -86,7 +81,7 @@ urlpatterns = [
     ),
     url(
         r'^accounts/registration-complete/',
-        RegistrationComplete.as_view(),
+        TemplateView.as_view(template_name="registration/registration_complete.htm"),
         name='registration_complete'
     ),
     url(
@@ -109,8 +104,17 @@ urlpatterns = [
         name='search_marketer'
     ),
     url(
+        r'^search/cause/',
+        cause_list,
+        name='search_cause'
+    ),
+    url(
         r'^(?P<user_id>\d+)/$',
         profile_detail,
         name='profile_detail'
+    ),
+    url(
+        r'^accounts/',
+        include('registration.backends.default.urls')
     ),
 ]

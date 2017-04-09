@@ -18,10 +18,13 @@ class PimpUser(AbstractEmailUser):
 
     MARKETER = 0
     CAUSE = 1
+    ADMIN = 2
     USER_TYPE_CHOICES = (
         (MARKETER, "Marketer"),
-        (CAUSE, "Cause")
+        (CAUSE, "Cause"),
+        (ADMIN, "Admin")
     )
+    REQUIRED_FIELDS = ['usertype']
 
     # basic info
     name = models.CharField(max_length=24, blank=True)
@@ -33,7 +36,10 @@ class PimpUser(AbstractEmailUser):
 
     # professional info
     position = models.CharField(max_length=100, blank=True)
-    usertype = models.IntegerField(choices=USER_TYPE_CHOICES, null=False)
+    usertype = models.IntegerField(
+        choices=USER_TYPE_CHOICES,
+        default=MARKETER,
+    )
     bio = models.TextField(max_length=1000, blank=True)
 
     # social accounts
@@ -47,6 +53,18 @@ class PimpUser(AbstractEmailUser):
     def __str__(self):
         return '%s %s' % (self.surname, self.name)
 
+    @property
+    def is_admin(self):
+        return self.usertype in [PimpUser.ADMIN]
+
+    @property
+    def is_marketer(self):
+        return self.usertype in [PimpUser.MARKETER]
+
+    @property
+    def is_cause(self):
+        return self.usertype in [PimpUser.CAUSE]
+
 
 @receiver(post_save, sender=PimpUser)
 def create_user_profile(sender, instance, *args, **kwargs):
@@ -58,7 +76,7 @@ def create_user_profile(sender, instance, *args, **kwargs):
         profile = CauseProfile.objects.get_or_create(profile=instance)
 
     else:
-        log.info('Created an Admin user with no usertype set so skipping creating a profile')
+        log.info('Created an Admin user without a profile')
 
 
 @python_2_unicode_compatible
@@ -78,7 +96,7 @@ class MarketerProfile(models.Model):
         limit_choices_to={'usertype': PimpUser.MARKETER}
     )
 
-    qualification = models.ManyToManyField("profiles.Qualification")
+    qualification = models.ManyToManyField("profiles.Qualification", blank=True)
     experience = models.CharField(max_length=1000, blank=True)
     availability = models.BooleanField(default=True)
 
@@ -121,9 +139,9 @@ class CauseProfile(models.Model):
         primary_key=True,
         limit_choices_to={'usertype': PimpUser.CAUSE}
     )
-
+    cause_name = models.CharField(max_length=1000)
     mission = models.CharField(max_length=1000, blank=True)
-    category = models.CharField(max_length=8, choices=CAUSE_CATEGORY_CHOICES, blank=True)
+    category = models.IntegerField(choices=CAUSE_CATEGORY_CHOICES, blank=True)
 
     def __str__(self):
         return '%s' % self.profile

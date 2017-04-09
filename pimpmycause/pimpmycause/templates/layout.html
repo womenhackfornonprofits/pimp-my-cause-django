@@ -8,7 +8,7 @@
                 <a href="{% url 'homepage' %}" class="logo-container">
                     <img class="logo" src="{% static 'img/logo.png' %}"/>
                 </a>
-                <button class="navigation__button js-nav-toggle"><span class="visuallyhidden">Menu</span><span class="navigation__toggle"></span></button>
+                <button class="navigation__button js-nav-toggle hide-for-medium-up"><span class="visuallyhidden">Menu</span><span class="navigation__toggle"></span></button>
 
                 <nav class="navigation__menu">
                     <ul class="navigation__list">
@@ -19,7 +19,7 @@
                                 <li class="navigation__item"><a href="{% url 'who_we_are' %}" class="navigation__link">Who We Are</a></li>
                             </ul>
                         </li>
-                        <li class="navigation__item"><a href="#" class="navigation__link">Find a Cause</a></li>
+                        <li class="navigation__item"><a href="{% url 'search_cause' %}" class="navigation__link">Find a Cause</a></li>
                         <li class="navigation__item"><a href="{% url 'search_marketer' %}" class="navigation__link">Find a Marketer</a></li>
                         <li class="navigation__item navigation__menu--has-dropdown"><p>Partnerships</p>
                             <ul class="navigation__dropdown">
