@@ -42,7 +42,7 @@
 
                             <ul class="profile__social">
                                 {% if profile_user.linkedin %}
-                                    <li class="profile__social-item">
+                                    <li class="profile__social-item h4">
                                         <a href="{{ profile_user.linkedin  }}" class="profile__social-icon">
                                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                                         </a>
@@ -82,7 +82,7 @@
                                     <p>{{ profile_user.marketerprofile.experience | title }}</p>
                                 {% else %}
                                     <p class="helptext">
-                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                        <i class="fa fa-comments-o margin-right-5" aria-hidden="true"></i>
                                         {{ profile_user.name | title }} is yet to share this information.
                                     </p>
                                 {% endif %}

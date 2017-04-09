@@ -32,21 +32,13 @@
                                             <h2 class="marketer__title"> {{ marketer.name | title }} {{ marketer.surname | title }}</h2>
                                             <a href="{% url 'profile_detail' user_id=marketer.id %}" class="marketer__info">
                                                 {% if marketer.position %}
-                                                    <h3 class="marketer__text">{{ marketer.position | title }}</h3>
+                                                    <h3 class="marketer__text  margin-bottom-15">{{ marketer.position | title }}</h3>
                                                 {% endif %}
                                                 {% if marketer.city %}
                                                     <p class="marketer__text"><i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ marketer.city | title }}</p>
                                                 {% endif %}
-
-
-                                                {% if marketer.marketerprofile.qualification.all|length %}
-
-                                                    <p class="marketer__text"><i class="fa fa-graduation-cap margin-right-5" aria-hidden="true"></i><b>Qualifications:</b></p>
-                                                    <ul>
-                                                        {% for qualification in  marketer.marketerprofile.qualification.all|slice:":3" %}
-                                                            <li>{{ qualification }}</li>
-                                                        {% endfor %}
-                                                    </ul>
+                                                {% if marketer.bio %}
+                                                    <p class="marketer__text margin-top-30 margin-bottom-30">{{ marketer.bio|truncatechars:200 }}</p>
                                                 {% endif %}
                                                 <p class="marketer__link">See {{ marketer.name | title }}'s profile</p>
                                             </a>

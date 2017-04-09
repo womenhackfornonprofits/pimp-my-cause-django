@@ -16,3 +16,20 @@
 .icon--super {
     font-size: 12em;
 }
+
+.pnl {
+    &--primary {
+        background: $pink;
+    }
+
+    &--secondary {
+        background: $purple;
+    }
+
+    &--primary,
+    &--secondary {
+        * {
+            color: $white;
+        }
+    }
+}
