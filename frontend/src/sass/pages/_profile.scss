@@ -11,13 +11,6 @@
 		&-item {
 			display: inline-block;
 			margin: 0 5px 0;
-
-            &:first-of-type {
-                &::before {
-                    content: ' | ';
-                    display: inline-block;
-                }
-            }
 		}
 
 		&-icon {

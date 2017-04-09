@@ -213,31 +213,39 @@
                     <div class="large-12 columns">
                         <ul class="small-block-grid-2 large-block-grid-4 summary-boxes">
                             <li class="summary-pink">
-                                <img class="summary-img" src=" {% static "img/summary1-how-it-works.png" %}" alt="How it works">
+                                <a href="{% url 'how_it_works' %}">
+                                    <img class="summary-img" src=" {% static "img/summary1-how-it-works.png" %}" alt="How it works">
+                                </a>
                                 <div class="summary-title">How it works</div>
                                  <div class="summary-info">
                                     Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="{% url 'how_it_works' %}" class="read-more">Read more</a>
                                 </div>
                             </li>
                             <li class="summary-purple">
-                                <img class="summary-img" src=" {% static "img/summary2-meet-team.png" %}" alt="Meet the Team">
+                                <a href="{% url 'team' %}">
+                                    <img class="summary-img" src=" {% static "img/summary2-meet-team.png" %}" alt="Meet the Team">
+                                </a>
                                 <div class="summary-title">Meet the team</div>
                                  <div class="summary-info">
                                     Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="/meet-the-team/" class="read-more">Read more</a>
                                 </div>
                             </li>
                             <li class="summary-green">
-                                <img class="summary-img" src=" {% static "img/summary3-challenges.png" %}"alt="Challenges">
+                                <a href="#TODO">
+                                    <img class="summary-img" src=" {% static "img/summary3-challenges.png" %}"alt="Challenges">
+                                </a>
                                 <div class="summary-title">Challenges</div>
                                 <div class="summary-info">
                                     Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="#" class="read-more">Read more</a>
                                 </div>
                             </li>
                             <li class="summary-mustard">
-                                <img class="summary-img" src=" {% static "img/summary4-partners.png" %}" alt="Partners">
+                                <a href="{% url 'become_a_partner' %}">
+                                    <img class="summary-img" src=" {% static "img/summary4-partners.png" %}" alt="Partners">
+                                </a>
                                 <div class="summary-title">Our partners</div>
                                 <div class="summary-info">
-                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="/our-partners/" class="read-more">Read more</a>
+                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="{% url 'become_a_partner' %}" class="read-more">Read more</a>
                                 </div>
                             </li>
                         </ul>

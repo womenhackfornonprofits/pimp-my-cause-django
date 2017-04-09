@@ -21,11 +21,9 @@
                                     <div class="marketer__wrapper">
                                         <div class="marketer__image-wrapper">
                                             {% if marketer.image %}
-                                                <div class="marketer__image" style="background-image:url('{{ marketer.image }}')"></div>
+                                                <div class="marketer__image" style="background-image:url('{{ marketer.image }}')" alt="{{ marketer.name | title }} {{ marketer.surname | title }} Profile Image"></div>
                                             {% else %}
-                                                <div class="marketer__icon">
-                                                    <i class="fa fa-user fa-5" aria-hidden="true"></i>
-                                                </div>
+                                                <div class="marketer__image" style="background-image:url('https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png')" alt="{{ marketer.name | title }} {{ marketer.surname | title }} Profile Image"></div>
                                             {% endif %}
                                         </div>
                                         <div>
