@@ -22,6 +22,7 @@
 @import "components/file-upload";
 @import "components/marketer-search";
 @import "components/cause-search";
+@import "components/adverts";
 
 // Social Icons
 @import "components/social";
@@ -34,8 +35,8 @@
 
 
 body {
-	font-family: $open-sans;
-	font-weight: $font-weight;
+    font-family: $open-sans;
+    font-weight: $font-weight;
 }
 
 a {
@@ -44,23 +45,23 @@ a {
 }
 
 .content-wrap {
-	max-width: $max-width;
-	margin: 0 auto;
+    max-width: $max-width;
+    margin: 0 auto;
 }
 
 .row {
-	max-width: 100%;
+    max-width: 100%;
 }
 
 .profile-img {
-	width: 100%;
-	height: auto;
+    width: 100%;
+    height: auto;
 }
 
 .file-link {
-	display: none;
-	visibility: hidden;
-	height: 0;
-	padding: 0;
-	margin: 0;
+    display: none;
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    margin: 0;
 }

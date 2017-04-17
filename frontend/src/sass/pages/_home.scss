@@ -32,11 +32,8 @@
 }
 
 .pnl-hero {
-    padding-bottom: 0;
-}
-
-.pnl-hero {
     background-color: $colr-pnl-hero;
+    padding-bottom: 0;
 
     &__container {
         display: flex;

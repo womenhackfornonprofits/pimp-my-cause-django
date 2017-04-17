@@ -7,19 +7,17 @@
     {% block main %}
     <section class="pnl pnl--dark-txt row">
         <div class="content-wrap">
-
-            <h1 class="pnl__title margin-right-5">
-                {% if profile_user.is_cause %}{{profile_user.causeprofile.cause_name | title}}{% else %}{{profile_user.name | title}}{%endif %}</h1>
-                <div class="medium-12 large-12 small-10 large-centered small-centered columns">
+                <div class="medium-12 large-12 small-10 large-centered small-centered columns margin-top-45">
                     <div class="row">
                         <div class="marketer large-4 medium-4 small-10 small-centered large-centered columns">
-                            {% if not profile_user.image %}
-                                <div class="marketer__icon">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                </div>
-                            {% else %}
-                                <img class="profile-img" src="{{profile_user.image}}" alt="{{ profile_user.name }} {{ profile_user.surname }} Profile Image">
-                            {% endif %}
+                            <div class="profile__img-wrapper text-align-center">
+                                {% if not profile_user.image %}
+                                    <img class="profile__img" src="https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png" alt="Example Profile Image">
+
+                                {% else %}
+                                    <img class="profile__img" src="{{profile_user.image}}" alt="{{ profile_user.name }} {{ profile_user.surname }} Profile Image">
+                                {% endif %}
+                            </div>
                         </div>
                         <div class="large-4 medium-4 small-10 small-centered large-centered columns text-align-center">
                             <h1 class="text-align-center">{{ profile_user.name | title }} {{ profile_user.surname | title }}</h1>
@@ -39,30 +37,6 @@
                                     {{ profile_user.city | title }}
                                 </p>
                             {% endif %}
-
-                            <ul class="profile__social">
-                                {% if profile_user.linkedin %}
-                                    <li class="profile__social-item">
-                                        <a href="{{ profile_user.linkedin  }}" class="profile__social-icon">
-                                            <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                {% endif %}
-                                {% if profile_user.twitter %}
-                                    <li class="profile__social-item">
-                                        <a href="{{ profile_user.twitter }}" class="profile__social-icon">
-                                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                {% endif %}
-                                {% if profile_user.website %}
-                                    <li class="profile__social-item">
-                                        <a href="{{ profile_user.website }}" class="profile__social-icon">
-                                            <i class="fa fa-globe" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                {% endif %}
-                            </ul>
                         </div>
                     </div>
                     {% if user.id == profile_user.id %}
@@ -75,44 +49,54 @@
 
                         <div class="large-8 medium-8 small-12 columns small-centered large-centered ">
                             <h2 class="text-align-left">
-                                <i class="fa fa-briefcase margin-right-5" aria-hidden="true"></i>
-                                Experience
+                                Skills Offered
                             </h2>
-                                {% if profile_user.marketerprofile.experience %}
-                                    <p>{{ profile_user.marketerprofile.experience | title }}</p>
+                                {% if profile_user.marketerprofile.skill.all|length %}
+                                    <ul>
+                                        {% for skill in profile_user.marketerprofile.skill.all %}
+                                            <li>{{ skill | title }}</li>
+                                        {% endfor %}
+                                    </ul>
                                 {% else %}
-                                    <p clas="helptext">
+                                    <p class="helptext">
                                         <i class="fa fa-comments-o" aria-hidden="true"></i>
                                         {{ profile_user.name | title }} is yet to share this information.
                                     </p>
                                 {% endif %}
-
-                            <h2 class="text-align-left">
-                                <i class="fa fa-file-text margin-right-5" aria-hidden="true"></i>
-                                Bio
-                            </h2>
-                                {% if profile_user.bio %}
-                                    <p>{{ profile_user.bio | title }}</p>
-                                {% else %}
-                                    <p clas="helptext">
-                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                        {{ profile_user.name  | title }} is yet to share this information.
-                                    </p>
-                                {% endif %}
-
-                            <h2 class="text-align-left">
-                                <i class="fa fa-graduation-cap margin-right-5" aria-hidden="true"></i>
-                                Qualifications
-                            </h2>
+                                <h2 class="text-align-left">
+                                    Personal Introduction
+                                </h2>
+                                    {% if profile_user.bio %}
+                                        <p>{{ profile_user.bio | title }}</p>
+                                    {% else %}
+                                        <p class="helptext">
+                                            <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                            {{ profile_user.name  | title }} is yet to share this information.
+                                        </p>
+                                    {% endif %}
+                                <h2 class="text-align-left">
+                                    Qualifications
+                                </h2>
                                 {% if profile_user.marketerprofile.qualification.all|length %}
                                     <ul>
-                                        {% for qualification in profile_user.marketerprofile.qualification.all %}
+                                        {% for skill in profile_user.qualification.skill.all %}
                                             <li>{{ qualification | title }}</li>
                                         {% endfor %}
                                     </ul>
                                 {% else %}
                                     <p clas="helptext">
                                         <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                        {{ profile_user.name | title }} is yet to share this information.
+                                    </p>
+                                {% endif %}
+                            <h2 class="text-align-left">
+                                Experience
+                            </h2>
+                                {% if profile_user.marketerprofile.experience %}
+                                    <p>{{ profile_user.marketerprofile.experience | title }}</p>
+                                {% else %}
+                                    <p class="helptext">
+                                        <i class="fa fa-comments-o margin-right-5" aria-hidden="true"></i>
                                         {{ profile_user.name | title }} is yet to share this information.
                                     </p>
                                 {% endif %}
@@ -125,6 +109,7 @@
                         {% endif %}
                     </div>
                 {% endif %}
+                </div>
 
                 {% if profile_user.is_cause %}
                     <div class="large-8 medium-8 small-12 columns small-centered large-centered ">
@@ -135,7 +120,7 @@
                         {% if profile_user.causeprofile.mission %}
                             <p>{{ profile_user.causeprofile.mission | title }}</p>
                         {% else %}
-                            <p clas="helptext">
+                            <p class="helptext">
                                 <i class="fa fa-comments-o" aria-hidden="true"></i>
                                 {{ profile_user.name | title }} is yet to share this information.
                             </p>
@@ -150,14 +135,99 @@
 
                         {% endif %}
                     </div>
-                    <div class="large-8 medium-8 small-12 columns small-centered large-centered ">
-                        <h2 class="text-align-left"><i class="fa fa-wpforms margin-right-5" aria-hidden="true"></i>Help Wanted Ads</h2>
-                        <p clas="helptext">
+                {% endif %}
+        </div>
+    </section>
+    
+    {% if profile_user.is_cause %}
+
+        <section class="adverts pnl pnl--dark-txt row">
+            <div class="content-wrap">
+              <div class="large-12 medium-12 small-12 columns small-centered large-centered margin-top-30">
+                    <h2 class="text-align-center"><i class="fa fa-wpforms margin-right-5" aria-hidden="true"></i>Help Wanted Ads</h2>
+                    {% if adverts_list %}
+                        {% for advert in adverts_list %}
+                            <article class="small-12 columns margin-top-30">
+                                <div class="cause__wrapper">
+                                    <div class="small-12 medium-3 columns">
+                                        {% if advert.deadline %}
+                                            <h2 class="h4 cause__title">
+                                                <i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>
+                                                {{ advert.deadline|date:"M d, Y"  }}
+                                            </h4> 
+                                        {% endif %}
+                                    </div>
+                                    <div class="small-12 medium-9 columns">
+                                        <div class="col-xs-12 columns">
+                                            <h2 class="cause__title"> {{ advert.title | title }}</h2>
+                                            <h3 class="cause__title">Description</h3>
+                                            {% if advert.description %}
+                                                <p class="cause__text">{{ advert.description | title }}</p>
+                                            {% else %}
+                                                <p class="helptext">
+                                                    <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                                    {{ cause.causeprofile.cause_name | title }} is yet to share this information.
+                                                </p>                                            
+                                            {% endif %}
+                                            <h3 class="cause__title">Skills Required</h3>
+                                            
+                                            {% if advert.skill.all|length %}
+                                                <ul>
+                                                    {% for skill in advert.skill.all %}
+                                                        <li>{{ skill | title }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% else %}
+                                                <p class="helptext">
+                                                    <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                                    {{ cause.causeprofile.cause_name | title }} is yet to share this information.
+                                                </p>                                            
+                                            {% endif %}
+                                            <p class="helptext margin-top-30">
+                                                <i class="fa fa-clock-o margin-right-5" aria-hidden="true"></i>
+                                                Posted on {{ advert.created_at|date:"M d, Y"  }}
+                                            </p> 
+                                            <div class="margin-top-30">
+                                                <a href="TODO" class="button button--primary">Send a message</a>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </article>
+                        {% endfor %}
+                    {% else %}
+                         <p class="helptext">
                             <i class="fa fa-comments-o" aria-hidden="true"></i>
                             {{ profile_user.causeprofile.cause_name | title }} currently have no Help Wanted Ads.
                         </p>
-                    </div>
-                {% endif %}
+                    {% endif %}
+                </div>
+            </section>
+    {% endif %}
+    <section class="pnl pnl--dark-txt row text-align-center">
+        <ul class="profile__social">
+            {% if profile_user.linkedin %}
+                <li class="profile__social-item h4">
+                    <a href="{{ profile_user.linkedin  }}" class="profile__social-icon">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                </li>
+            {% endif %}
+            {% if profile_user.twitter %}
+                <li class="profile__social-item">
+                    <a href="{{ profile_user.twitter }}" class="profile__social-icon">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+            {% endif %}
+            {% if profile_user.website %}
+                <li class="profile__social-item">
+                    <a href="{{ profile_user.website }}" class="profile__social-icon">
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </section>
 
-        </section>
     {% endblock %}

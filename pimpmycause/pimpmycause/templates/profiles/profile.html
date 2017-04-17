@@ -17,9 +17,8 @@
                             {{ additional_profile_form.non_field_errors }}
                             
                             <div class="row">
-                                <div class="large-4 medium-4 small-10 small-centered medium-uncentered columns">
+                                <div class="large-4 medium-4 small-10 small-centered medium-uncentered columns">                                
                                     {{ profile_update_form.image.errors }}
-
                                     {% if not profile_update_form.image.value %}
                                         <img class="profile-img" src="https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png" alt="Example Profile Image">
 
@@ -116,7 +115,7 @@
                                 </div>
                             {% else %}
                                 <div class="small-6">                            
-                                    <label for="qualification">Category</label>
+                                    <label for="category">Category</label>
                                     <p class="helptext">Please select the categoy that describes your Cause</p>
                                     {{ additional_profile_form.category }}
                                     

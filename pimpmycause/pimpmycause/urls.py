@@ -65,11 +65,6 @@ urlpatterns = [
         name="become_a_partner"
     ),
     url(
-        r'^our-partners/',
-        TemplateView.as_view(template_name='core/our-partners.html'),
-        name="our_partners"
-    ),
-    url(
         r'^terms-and-conditions/',
         TemplateView.as_view(template_name='core/terms_and_conditions.html'),
         name="terms_and_conditions"

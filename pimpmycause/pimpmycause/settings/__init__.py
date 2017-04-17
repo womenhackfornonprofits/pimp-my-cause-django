@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
     # pimpmycause imports
     'core',
-    'profiles'
+    'profiles',
+    'adverts'
 
 ]
 
@@ -158,7 +159,12 @@ REGISTRATION_EMAIL_HTML = True
 REGISTRATION_AUTO_LOGIN = True
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+DEFAULT_FROM_EMAIL = get_env('DEFAULT_FROM_EMAIL', 'webmaster@localhost')
 
 
 # User image uploads to S3 bucket

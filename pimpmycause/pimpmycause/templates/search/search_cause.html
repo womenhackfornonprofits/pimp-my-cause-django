@@ -14,7 +14,7 @@
                         <h1 class="pnl__title">Find a Cause</h1>
                         <h3 class="margin-top-0 small-10 small-centered medium-8 medium-centered columns">Browse or search our listings of professionals. Build your network and find new potential collaborators.</h3>
                     </div>
-                    {% if cause_list %}
+                    {% if cause_list|length > 0 %}
                            {% for cause in cause_list %}
                                 <div class="cause small-12 columns margin-top-30">
                                     <div class="cause__wrapper">
@@ -53,10 +53,10 @@
                                         </div>
                                         <div class="small-12 medium-3 columns">
                                         <div class="cause__ads">
-                                            <h2 class="cause__title h5"><i class="fa fa-wpforms margin-right-5" aria-hidden="true"></i>25 Help Wanted Ads</h2>
+                                            <h2 class="cause__title h5"><i class="fa fa-wpforms margin-right-5" aria-hidden="true"></i>{{ cause.ads_count }} Help Wanted Ads</h2>
                                         </div>
                                         <a href="{% url 'profile_detail' user_id=cause.id %}" class="button button--secondary display-inline-block">
-                                                 See Profile
+                                        See Profile
                                         </a>
                                         </div>
 
@@ -64,6 +64,8 @@
                                 </div>
                             {% endfor %}
                     {% else %}
+                        <h3><i class="fa fa-frown-o margin-right-5" aria-hidden="true"></i> Sorry, we couldn't find any Causes to display.</h3>
+
                     {% endif %}
                 </div> 
             </div> 
