@@ -8,139 +8,130 @@
     <section class="page-profile pnl row">
         <div class="content-wrap">
             <h1 class="pnl__title">Profile</h1> 
-                <div class="medium-12 large-12 small-10 large-centered small-centered columns">
-                    <div class="row">
-                        <form method="POST" action="" class="large-10 medium-9 small-12 columns small-centered">
-                            {% csrf_token %}
-                            
-                            {{ profile_update_form.non_field_errors }}
-                            {{ additional_profile_form.non_field_errors }}
-                            
-                            <div class="row">
-                                <div class="large-4 medium-4 small-10 small-centered medium-uncentered columns">                                
-                                    {{ profile_update_form.image.errors }}
-                                    {% if not profile_update_form.image.value %}
-                                        <img class="profile-img" src="https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png" alt="Example Profile Image">
+            <div class="medium-12 large-12 small-10 large-centered small-centered columns">
+                <div class="row">
+                    <form method="POST" action="{% url 'profile_update' %}" class="large-10 medium-9 small-12 columns small-centered">
+                        {% csrf_token %}
+                        
+                        {{ profile_update_form.non_field_errors }}
+                        {{ additional_profile_form.non_field_errors }}
+                        
+                        <div class="row">
+                            <div class="large-4 medium-4 small-10 small-centered medium-uncentered columns">                                
+                                {{ profile_update_form.image.errors }}
+                                {% if not profile_update_form.image.value %}
+                                    <img class="profile-img" src="https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png" alt="Example Profile Image">
 
-                                    {% else %}
-                                        <img class="profile-img" src="{{profile_update_form.image.value}}" alt="{{ user.name }} {{ user.surname }} Profile Image">
-                                    {% endif %}
+                                {% else %}
+                                    <img class="profile-img" src="{{profile_update_form.image.value}}" alt="{{ user.name }} {{ user.surname }} Profile Image">
+                                {% endif %}
 
-                                        {{ profile_update_form.media }}
-                                        {{ profile_update_form.image }}
-                                </div>
-                                <div class="large-offset-3 medium-offset-2 large-4 medium-6 small-12 small-centered medium-uncentered columns">
-                                    {% if user.is_cause %}
-                                        {{ additional_profile_form.cause_name.errors }}
-                                        <label for="cause_name"> Cause Name</label>
-                                        {{ additional_profile_form.cause_name }}
-
-                                    {% endif %}
-
-                                    {{ profile_update_form.name.errors }}
-                                    <label for="name"> {% if user.is_cause %} Contact {% endif %}Name </label>
-                                    <input type="text" name="name" placeholder="Sam" value='{{ profile_update_form.name.value|default_if_none:"" }}' required>
-
-                                    {{ profile_update_form.surname.errors }}
-                                    <label for="surname"> {% if user.is_cause %} Contact {% endif %}Surname </label>
-                                    <input type="text" name="surname" placeholder="Jones" value='{{ profile_update_form.surname.value|default_if_none:"" }}' required>
-
-                                    {{ profile_update_form.position.errors }}
-                                    <label for="position"> {% if user.is_cause %} Contact {% endif %}Position </label>
-                                    <input type="text" name="position" placeholder="Marketer" value='{{ profile_update_form.position.value|default_if_none:"" }}' required>
-
-                                    {{ profile_update_form.city.errors }}
-                                    <label for="city"> City </label>
-                                    <input type="text" name="city" placeholder="London" value='{{ profile_update_form.city.value|default_if_none:"" }}' required>
-
-                                    <label for="country"> Country </label>
-
-                                    {{ profile_update_form.country.errors }}
-                                    {{ profile_update_form.country }}
-                                </div>
+                                    {{ profile_update_form.media }}
+                                    {{ profile_update_form.image }}
                             </div>
-                            <div class="large-6 medium-6 small-12">
-                                <h2 class="text-align-left"><i class="fa fa-comments-o margin-right-5" aria-hidden="true"></i>Contact Info &amp; Social</h2>
+                            <div class="large-offset-3 medium-offset-2 large-4 medium-6 small-12 small-centered medium-uncentered columns">
+                                {% if user.is_cause %}
+                                    {{ additional_profile_form.cause_name.errors }}
+                                    <label for="cause_name">Cause Name</label>
+                                    {{ additional_profile_form.cause_name }}
+
+                                {% endif %}
+
+                                {{ profile_update_form.name.errors }}
+                                <label for="name"> {% if user.is_cause %} Contact {% endif %}Name </label>
+                                <input type="text" name="name" placeholder="Sam" value='{{ profile_update_form.name.value|default_if_none:"" }}' required>
+
+                                {{ profile_update_form.surname.errors }}
+                                <label for="surname"> {% if user.is_cause %} Contact {% endif %}Surname </label>
+                                <input type="text" name="surname" placeholder="Jones" value='{{ profile_update_form.surname.value|default_if_none:"" }}' required>
+
+                                {{ profile_update_form.position.errors }}
+                                <label for="position"> {% if user.is_cause %} Contact {% endif %}Position </label>
+                                <input type="text" name="position" placeholder="Marketer" value='{{ profile_update_form.position.value|default_if_none:"" }}' required>
+
+                                {{ profile_update_form.city.errors }}
+                                <label for="city"> City </label>
+                                <input type="text" name="city" placeholder="London" value='{{ profile_update_form.city.value|default_if_none:"" }}' required>
+
+                                <label for="country"> Country </label>
+
+                                {{ profile_update_form.country.errors }}
+                                {{ profile_update_form.country }}
                             </div>
-                            <div class="large-12 medium-12 small-12 small-centered medium-uncentered">
-                                    <div class="row">
-                                        <div class="columns small-12 medium-6">
-
-                                        {{ profile_update_form.linkedin.errors }}
-                                        <label for="linkedin"> LinkedIn </label>
-                                        <input type="url" name="linkedin" placeholder="https://linkedin.com/username" value='{{ profile_update_form.linkedin.value|default_if_none:"" }}'>
-
-                                        {{ profile_update_form.twitter.errors }}
-                                        <label for="twitter"> Twitter </label>
-                                        <input type="url" name="twitter" placeholder="https://twitter.com/username" value='{{ profile_update_form.twitter.value|default_if_none:"" }}'>
-                                    </div>
+                        </div>
+                        <div class="large-6 medium-6 small-12">
+                            <h2 class="text-align-left"><i class="fa fa-comments-o margin-right-5" aria-hidden="true"></i>Contact Info &amp; Social</h2>
+                        </div>
+                        <div class="large-12 medium-12 small-12 small-centered medium-uncentered">
+                                <div class="row">
                                     <div class="columns small-12 medium-6">
-                                        {{ profile_update_form.website.errors }}
-                                        <label for="website"> Website </label>
-                                        <input type="url" name="website" placeholder="https://www.example.com" value='{{profile_update_form.website.value|default_if_none:""}}'>
-                                        {{ profile_update_form.phone.errors }}
-                                        <label for="phone"> Phone <span class="helptext">(this wont be shared)</span></label>
-                                        <input type="text" name="phone" placeholder="07654123456" value='{{ profile_update_form.phone.value|default_if_none:"" }}' required>
-                                    </div>
+
+                                    {{ profile_update_form.linkedin.errors }}
+                                    <label for="linkedin"> LinkedIn </label>
+                                    <input type="url" name="linkedin" placeholder="https://linkedin.com/username" value='{{ profile_update_form.linkedin.value|default_if_none:"" }}'>
+
+                                    {{ profile_update_form.twitter.errors }}
+                                    <label for="twitter"> Twitter </label>
+                                    <input type="url" name="twitter" placeholder="https://twitter.com/username" value='{{ profile_update_form.twitter.value|default_if_none:"" }}'>
+                                </div>
+                                <div class="columns small-12 medium-6">
+                                    {{ profile_update_form.website.errors }}
+                                    <label for="website"> Website </label>
+                                    <input type="url" name="website" placeholder="https://www.example.com" value='{{profile_update_form.website.value|default_if_none:""}}'>
+                                    {{ profile_update_form.phone.errors }}
+                                    <label for="phone"> Phone <span class="helptext">(this wont be shared)</span></label>
+                                    <input type="text" name="phone" placeholder="07654123456" value='{{ profile_update_form.phone.value|default_if_none:"" }}' required>
                                 </div>
                             </div>
-                            <div class="large-12 medium-12 small-12">
-                                <h2 class="text-align-left"><i class="fa fa-user-circle-o margin-right-5" aria-hidden="true"></i>About</h2>
+                        </div>
+                        <div class="large-12 medium-12 small-12">
+                            <h2 class="text-align-left"><i class="fa fa-user-circle-o margin-right-5" aria-hidden="true"></i>About</h2>
+                        </div>
+                        <div class="large-12 medium-12 small-12">
+                            {{ profile_update_form.bio.errors }}
+                            <label for="bio">Bio</label>
+                            <textarea name="bio" rows="10" required placeholder="{% if user.is_marketer  %}Hi! My name is Sam, I am a London based Marketer.{% else %}Example Cause has been founded in 2007 and our aim is...{%endif%}">{{ profile_update_form.bio.value|title}}</textarea>
+                        </div>
+
+                        {% if user.is_marketer  %}
+
+                            <div class="large-12 medium-12 small-12">                            
+                                {{ additional_profile_form.experience.errors }}
+                                <label for="experience">Experience</label>
+
+                                <textarea name="experience" rows="10" required placeholder="Work Experience">{{ additional_profile_form.experience.value | title}}</textarea>
                             </div>
-                            <div class="large-12 medium-12 small-12">
-                                {{ profile_update_form.bio.errors }}
-                                <label for="bio">Bio</label>
-                                <textarea name="bio" rows="10" required placeholder="Hi! My name is Sam, I am a London based Marketer.">{{ profile_update_form.bio.value|title}}</textarea>
+                            <div class="large-12 medium-12 small-12">                            
+
+                                <label for="skill">Skills</label>
+                                <p class="helptext">Please choose all that apply</p>
+                                {{ additional_profile_form.skill }}
+                                
                             </div>
-
-                            {% if user.is_marketer  %}
-
-                                <div class="large-12 medium-12 small-12">                            
-                                    {{ additional_profile_form.experience.errors }}
-                                    <label for="experience">Experience</label>
-
-                                    <textarea name="experience" rows="10" required placeholder="Work Experience">{{ additional_profile_form.experience.value | title}}</textarea>
-                                </div>
-                                <div class="large-12 medium-12 small-12">                            
-
-                                    <label for="qualification">Qualifications</label>
-                                    <p class="helptext">Please choose all that apply</p>
-                                    {{ additional_profile_form.qualification }}
-                                    
-                                </div>
-                                <div class="large-12 medium-12 small-12">                            
-                                    {{ additional_profile_form.availability.errors }}
-                                    {{ additional_profile_form.availability }}
-                                    <label for="availability"> I am available to be contacted for help for projects by Causes </label>
-                                </div>
-                            {% else %}
-                                <div class="small-6">                            
-                                    <label for="category">Category</label>
-                                    <p class="helptext">Please select the categoy that describes your Cause</p>
-                                    {{ additional_profile_form.category }}
-                                    
-                                </div>
-                                <div class="large-12 medium-12 small-12">                            
-                                    {{ additional_profile_form.mission.errors }}
-                                    <label for="experience">Mission</label>
-
-                                    <textarea name="experience" rows="10" required placeholder="Work Experience">{{ additional_profile_form.mission.value|title }}</textarea>
-                                </div>
-                            {% endif %}
-                            <div class="large-6 medium-6 small-12">
-                                <input class="button button--primary margin-top-30" type="submit" value="Update">
+                            <div class="large-12 medium-12 small-12">                            
+                                {{ additional_profile_form.availability.errors }}
+                                {{ additional_profile_form.availability }}
+                                <label for="availability"> I am available to be contacted for help for projects by Causes </label>
                             </div>
-                        </form>
-                    </div>
-                    <div class="row">
-                        {% if user.is_cause %}
-                            <h2><i class="fa fa-info-circle margin-right-5" aria-hidden="true"></i>You don't have any Help Wanted Ads yet</h2>
-                            <div class="small-centered columns small-6 text-align-center">
-                                <a href="#" class="button button--primary"><i class="fa fa-plus margin-right-5" aria-hidden="true"></i>Create a Help Wanted Ad</a>
+                        {% else %}
+                            <div class="small-6">                            
+                                <label for="category">Category</label>
+                                <p class="helptext">Please select the categoy that describes your Cause</p>
+                                {{ additional_profile_form.category }}
+                                
+                            </div>
+                            <div class="large-12 medium-12 small-12">                            
+                                {{ additional_profile_form.mission.errors }}
+                                <label for="mission">Mission</label>
+
+                                <textarea name="mission" rows="10" required placeholder="What is your Cause Mission?">{{ additional_profile_form.mission.value|title }}</textarea>
                             </div>
                         {% endif %}
-                    </div>
-                </div>   
+                        <div class="large-6 medium-6 small-12">
+                            <input class="button button--primary margin-top-30" type="submit" value="Update">
+                        </div>
+                    </form>
+                </div> 
             </div> 
         </div>
     </section>

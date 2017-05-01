@@ -20,14 +20,16 @@
                             </div>
                         </div>
                         <div class="large-4 medium-4 small-10 small-centered large-centered columns text-align-center">
-                            <h1 class="text-align-center">{{ profile_user.name | title }} {{ profile_user.surname | title }}</h1>
-                            <h2 class="h2 margin-top-0">{{ profile_user.position | title }}</h2>
                             {% if profile_user.is_marketer %}
+                                <h1 class="text-align-center">{{ profile_user.name | title }} {{ profile_user.surname | title }}</h1>
+                                <h2 class="h2 margin-top-0">{{ profile_user.position | title }}</h2>
                                 {% if profile_user.marketerprofile.availability %}
                                     <p class="helptext text-align-center"><i class="fa fa-check-square-o margin-right-5" aria-hidden="true"></i>I am available to help, please get in touch.</p>
                                 {% else %}
                                     <p class="helptext text-align-center text-danger margin-top-0"><i class="fa fa-ban margin-right-5" aria-hidden="true"></i>I am not available at the moment, please check back in the future.</p>
                                 {% endif %}
+                            {% else %}
+                                <h1 class="text-align-center">{{ profile_user.causeprofile.cause_name | title }}</h1>
                             {% endif %}
                         </div>
                         <div class="large-4 medium-8 small-10 small-centered large-centered columns text-align-center">
@@ -96,7 +98,6 @@
                                     <p>{{ profile_user.marketerprofile.experience | title }}</p>
                                 {% else %}
                                     <p class="helptext">
-                                        <i class="fa fa-comments-o margin-right-5" aria-hidden="true"></i>
                                         {{ profile_user.name | title }} is yet to share this information.
                                     </p>
                                 {% endif %}
@@ -114,120 +115,151 @@
                 {% if profile_user.is_cause %}
                     <div class="large-8 medium-8 small-12 columns small-centered large-centered ">
                         <h2 class="text-align-left">
-                            <i class="fa fa-briefcase margin-right-5" aria-hidden="true"></i>
                             Mission
                         </h2>
                         {% if profile_user.causeprofile.mission %}
                             <p>{{ profile_user.causeprofile.mission | title }}</p>
                         {% else %}
                             <p class="helptext">
-                                <i class="fa fa-comments-o" aria-hidden="true"></i>
                                 {{ profile_user.name | title }} is yet to share this information.
                             </p>
                         {% endif %}
 
                         <h2 class="text-align-left">
-                            <i class="fa fa fa-tags margin-right-5" aria-hidden="true"></i>
                             Category
                         </h2>
                         {% if profile_user.causeprofile.category %}
                             <p>{{ profile_user.causeprofile.get_category_display }}</p>
-
+                        {% endif %}
+                        <h2 class="text-align-left">
+                            Introduction
+                        </h2>
+                        {% if profile_user.bio %}
+                            <p>{{ profile_user.bio | title }}</p>
+                        {% else %}
+                            <p class="helptext">
+                                {{ profile_user.name  | title }} is yet to share this information.
+                            </p>
                         {% endif %}
                     </div>
                 {% endif %}
         </div>
     </section>
     
-    {% if profile_user.is_cause %}
+    {% if profile_user.linkedin or profile_user.twitter or profile_user.website %}
+        <section class="pnl pnl--dark-txt row text-align-center">
 
-        <section class="adverts pnl pnl--dark-txt row">
-            <div class="content-wrap">
-              <div class="large-12 medium-12 small-12 columns small-centered large-centered margin-top-30">
-                    <h2 class="text-align-center"><i class="fa fa-wpforms margin-right-5" aria-hidden="true"></i>Help Wanted Ads</h2>
-                    {% if adverts_list %}
-                        {% for advert in adverts_list %}
-                            <article class="small-12 columns margin-top-30">
-                                <div class="cause__wrapper">
-                                    <div class="small-12 medium-3 columns">
-                                        {% if advert.deadline %}
-                                            <h2 class="h4 cause__title">
-                                                <i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>
-                                                {{ advert.deadline|date:"M d, Y"  }}
-                                            </h4> 
-                                        {% endif %}
-                                    </div>
-                                    <div class="small-12 medium-9 columns">
-                                        <div class="col-xs-12 columns">
-                                            <h2 class="cause__title"> {{ advert.title | title }}</h2>
-                                            <h3 class="cause__title">Description</h3>
-                                            {% if advert.description %}
-                                                <p class="cause__text">{{ advert.description | title }}</p>
-                                            {% else %}
-                                                <p class="helptext">
-                                                    <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                                    {{ cause.causeprofile.cause_name | title }} is yet to share this information.
-                                                </p>                                            
-                                            {% endif %}
-                                            <h3 class="cause__title">Skills Required</h3>
-                                            
-                                            {% if advert.skill.all|length %}
-                                                <ul>
-                                                    {% for skill in advert.skill.all %}
-                                                        <li>{{ skill | title }}</li>
-                                                    {% endfor %}
-                                                </ul>
-                                            {% else %}
-                                                <p class="helptext">
-                                                    <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                                    {{ cause.causeprofile.cause_name | title }} is yet to share this information.
-                                                </p>                                            
-                                            {% endif %}
-                                            <p class="helptext margin-top-30">
-                                                <i class="fa fa-clock-o margin-right-5" aria-hidden="true"></i>
-                                                Posted on {{ advert.created_at|date:"M d, Y"  }}
-                                            </p> 
-                                            <div class="margin-top-30">
-                                                <a href="TODO" class="button button--primary">Send a message</a>
-                                            </div>
-                                        </div>  
+            <h4>Follow {{profile_user.name}} on social media</h4>
+            <ul class="profile__social">
+                {% if profile_user.linkedin %}
+                    <li class="profile__social-item h4">
+                        <a href="{{ profile_user.linkedin  }}" class="profile__social-icon">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if profile_user.twitter %}
+                    <li class="profile__social-item">
+                        <a href="{{ profile_user.twitter }}" class="profile__social-icon">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if profile_user.website %}
+                    <li class="profile__social-item">
+                        <a href="{{ profile_user.website }}" class="profile__social-icon">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </section>
+
+    {% endif %}
+
+        <section class="{% if not adverts_list %}pnl{%endif%} row text-align-center pnl--secondary">
+        <div class="content-wrap margin-top-30">
+            <div class="large-6 medium-6 small-12 columns small-centered large-centered margin-top-30 clearfix">
+                <h2 class="text-align-center"><i class="fa fa-wpforms margin-right-5" aria-hidden="true"></i>Help Wanted Ads</h2>
+
+                {% if not adverts_list %}
+                    <p class="text-align-center margin-bottom-30">
+                        <i class="fa fa-comments-o" aria-hidden="true"></i>
+                        0 Help Wanted Ads
+                    </p>
+
+                    {% if user.id == profile_user.id and profile_user.is_cause %}
+                        <h4>Create at least one help wanted ad so that our marketing members are aware of what marketing assistance you need. A Help Wanted Ad is the role that you're asking marketing members to do.</h4>
+                        <a class="button button--primary" href="{% url 'advert_add' cause_id=user.id %}"><i class="fa fa-plus margin-right-5" aria-hidden="true"></i>Create a new Help Wanted Ad</a>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    {% if adverts_list %}
+
+    <section class="pnl row text-align-center">
+        <div class="content-wrap">
+            {% if user.id == profile_user.id and profile_user.is_cause %}
+                <div class="large-6 medium-6 small-12 columns small-centered large-centered margin-top-30 clearfix">
+                    <h4>Create at least one help wanted ad so that our marketing members are aware of what marketing assistance you need. A Help Wanted Ad is the role that you're asking marketing members to do.</h4>
+                    <a class="button button--secondary" href="{% url 'advert_add' cause_id=user.id %}"><i class="fa fa-plus margin-right-5" aria-hidden="true"></i>New Help Wanted Ad</a>
+                </div>
+            {% endif %}
+            <div class="large-12 medium-12 small-12 columns small-centered large-centered margin-top-30 clearfix">
+
+                {% for advert in adverts_list %}
+                    <article class="small-12 columns margin-top-30 clearfix">
+                        <div class="cause__wrapper">
+                            <div class="small-12 medium-3 columns">
+                                {% if advert.deadline %}
+                                    <h4 class="h4 cause__title">
+                                        <i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>
+                                        {{ advert.deadline|date:"M d, Y"  }}
+                                    </h4> 
+                                {% endif %}
+                            </div>
+                            <div class="small-12 medium-9 columns">
+                                <h2 class="cause__title"> {{ advert.title | title }}</h2>
+                                <h3 class="cause__title">Description</h3>
+                                {% if advert.description %}
+                                    <p class="cause__text">{{ advert.description | title }}</p>
+                                {% else %}
+                                    <p class="helptext">
+                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                        {{ profile_user.causeprofile.cause_name | title }} is yet to share this information.
+                                    </p>                                            
+                                {% endif %}
+                                <h3 class="cause__title">Skills Required</h3>
+                                
+                                {% if advert.skill|length %}
+                                    {{ advert.skill }}
+                                {% else %}
+                                    <p class="helptext">
+                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                        {{ profile_user.causeprofile.cause_name | title }} is yet to share this information.
+                                    </p>                                            
+                                {% endif %}
+                                <p class="helptext margin-top-30 margin-bottom-30 padding-bottom-30">
+                                    <i class="fa fa-clock-o margin-right-5" aria-hidden="true"></i>
+                                    Posted on {{ advert.created_at|date:"M d, Y"  }}
+                                </p> 
+                            </div> 
+                            {% if user.id == profile_user.id and profile_user.is_cause %}
+                                <div class="small-12 medium-9 columns text-align-left">
+                                    <div class="row">
+                                        <a href="#" class="button button--secondary "><i class="fa fa-pencil margin-right-5" aria-hidden="true"></i>Edit</a>
+                                        <a href="#" class="button button--danger"><i class="fa fa-trash margin-right-5" aria-hidden="true"></i>Delete</a>
                                     </div>
                                 </div>
-                            </article>
-                        {% endfor %}
-                    {% else %}
-                         <p class="helptext">
-                            <i class="fa fa-comments-o" aria-hidden="true"></i>
-                            {{ profile_user.causeprofile.cause_name | title }} currently have no Help Wanted Ads.
-                        </p>
-                    {% endif %}
-                </div>
-            </section>
-    {% endif %}
-    <section class="pnl pnl--dark-txt row text-align-center">
-        <ul class="profile__social">
-            {% if profile_user.linkedin %}
-                <li class="profile__social-item h4">
-                    <a href="{{ profile_user.linkedin  }}" class="profile__social-icon">
-                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                    </a>
-                </li>
-            {% endif %}
-            {% if profile_user.twitter %}
-                <li class="profile__social-item">
-                    <a href="{{ profile_user.twitter }}" class="profile__social-icon">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                </li>
-            {% endif %}
-            {% if profile_user.website %}
-                <li class="profile__social-item">
-                    <a href="{{ profile_user.website }}" class="profile__social-icon">
-                        <i class="fa fa-globe" aria-hidden="true"></i>
-                    </a>
-                </li>
-            {% endif %}
-        </ul>
+                            {% endif %}
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </div>
     </section>
+    {% endif %}
 
     {% endblock %}

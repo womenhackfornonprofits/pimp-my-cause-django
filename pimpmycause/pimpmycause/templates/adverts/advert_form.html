@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% load static widget_tweaks %}
+
+{% block title %} Add new Help Wanted Ad {% endblock %}
+
+{% block main %}
+    <section class="pnl pnl--dark-txt row">
+        <div class="content-wrap">
+            <div class="medium-12 large-12 small-10 large-centered small-centered columns margin-top-45">
+                <div class="row">
+                    <h1 class="pnl__title">Add new Help Wanted Ad</h1>
+                        <div class="medium-9 large-6 small-12 large-centered small-centered columns">
+                            <form role="form" method="POST">
+                                {% csrf_token %}
+                                {% if advert_form.non_field_errors %}
+                                    <div class="row non-field-errors">
+                                    {% for error in advert_form.non_field_errors %}
+                                        <p class="form-error text-danger">{{ error }}</p>
+                                    {% endfor %}
+                                    </div>
+                                {% endif %}
+                                {% for field in advert_form %}
+                                    <div class="form-group row {% if field.errors %} has-error {% endif %}">
+                                        {% if field.errors %}
+                                            {% for error in field.errors %}
+                                                <p class="form-error pull-left text-danger">{{ error }}</p>
+                                            {% endfor %}
+                                        {% endif %}
+                                        <label for="{{field.id_for_label}}">{{field.name|title}}</label>
+                                        {% render_field field placeholder=field.label %}
+                                    </div>
+                                {% endfor %}
+                            <div class="row">
+                                <button class="button button--primary" type="Submit">Create</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
-from django.http import HttpResponseRedirect
+
 from django.db.models import Count
 from django.shortcuts import get_object_or_404
 
@@ -17,18 +16,12 @@ from profiles.models import PimpUser
 from adverts.models import Advert
 
 
-class RegistrationComplete(TemplateView):
-    """The Registration Complete view."""
-
-    template_name = "registration/registration_complete.html"
-
-
 class RegistrationView(registration_views.RegistrationView):
     """The Registration view."""
 
     template_name = 'registration/registration_form.html'
     form_class = PimpUserRegistrationForm
-    success_url = 'accounts/registration-complete/'
+    success_url = '/accounts/registration/complete/'
 
 
 class ActivationComplete(TemplateView):
@@ -43,18 +36,11 @@ class TermsAndConditions(TemplateView):
     template_name = 'core/terms_and_conditions.html'
 
 
-def logout_view(request):
-    """Redirect user to homepage on logout."""
-    logout(request)
-
-    return HttpResponseRedirect("/")
-
-
 def marketer_list(request):
     """Marketer search view."""
     marketer_list = (
         PimpUser.objects
-        .filter(usertype=PimpUser.MARKETER)
+        .filter(usertype=PimpUser.MARKETER, is_active=True)
         .order_by('-date_joined')
     )
     context = {'marketer_list': marketer_list}
@@ -68,7 +54,7 @@ def cause_list(request):
         PimpUser.objects
         .all()
         .select_related()
-        .filter(usertype=PimpUser.CAUSE)
+        .filter(usertype=PimpUser.CAUSE, is_active=True)
         .annotate(
             ads_count=Count('causeprofile__advert')
         )
@@ -105,6 +91,7 @@ def profile_detail(request, user_id):
 @login_required
 def profile_update(request):
     """Edit user profile."""
+
     if request.method == 'POST':
         profile_update_form = PimpUserProfileForm(request.POST,
                                                   instance=request.user)
@@ -123,14 +110,14 @@ def profile_update(request):
             )
 
         if (profile_update_form.is_valid() & additional_profile_form.is_valid()):
+
             user_details = profile_update_form.save(commit=False)
             user_details.user = request.user
             user_details.save()
 
             profile_details = additional_profile_form.save(commit=False)
-            profile_details.save()
-
             additional_profile_form.save_m2m()
+            profile_details.save()
 
         return redirect(
             'profile_detail',

@@ -12,17 +12,16 @@ button {
     padding: .5em 2.3em;
     font-size: 1em;
     font-weight: 100;
-    color: $white; 
+    color: #fff;
 
     a {
-        color: $white;
+        color: #fff;
     }
 }
 
 .button--primary {
     background-color: $pink;
     border: 1px solid $pink;
-
 }
 
 .button--secondary {
@@ -40,6 +39,11 @@ button {
     background-color: transparent;
     border: 0;
     padding: 0;
-    border: 1px solid white;
+    border: 1px solid #fff;
     padding: .3em .8em;
+}
+
+.button--danger {
+    background-color: $red;
+    border: 1px solid $red;
 }
