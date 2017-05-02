@@ -8,30 +8,31 @@ from django.shortcuts import (
 
 from profiles.models import PimpUser
 from adverts.forms import AdvertForm
+import ipdb
 
 
 @login_required
-def advert_add(request, cause_id):
+def advert_add(request, user_id):
     """Help wanted advert add new view"""
-    cause = get_object_or_404(PimpUser, id=cause_id)
+    user = get_object_or_404(
+        PimpUser,
+        id=user_id,
+    )
 
-    if request.method == 'POST':
+    if request.method == 'POST' and user.usertype == PimpUser.CAUSE:
         advert_form = AdvertForm(
             request.POST,
-            instance=cause
+            instance=user.causeprofile
         )
 
         if advert_form.is_valid():
-            advert_form.save(commit=False)
-            advert_form.cause_profile = cause.id
+            advert = advert_form.save(commit=False)
+            advert.cause_profile = user.causeprofile
+            advert.save()
 
-            return redirect(
-                'profile_update'
-            )
     else:
-        advert_form = AdvertForm(instance=cause)
+        advert_form = AdvertForm(instance=user.causeprofile)
 
     return render(request, 'adverts/advert_form.html', {
         'advert_form': advert_form,
     })
-    return

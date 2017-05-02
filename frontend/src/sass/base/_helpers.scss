@@ -72,3 +72,12 @@
 .uppercase {
 	text-transform: uppercase !important;
 }
+
+.unstyled-list {
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style: none;
+    }
+}

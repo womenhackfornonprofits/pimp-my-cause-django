@@ -190,7 +190,7 @@
 
                     {% if user.id == profile_user.id and profile_user.is_cause %}
                         <h4>Create at least one help wanted ad so that our marketing members are aware of what marketing assistance you need. A Help Wanted Ad is the role that you're asking marketing members to do.</h4>
-                        <a class="button button--primary" href="{% url 'advert_add' cause_id=user.id %}"><i class="fa fa-plus margin-right-5" aria-hidden="true"></i>Create a new Help Wanted Ad</a>
+                        <a class="button button--primary" href="{% url 'advert_add' user_id=user.id %}"><i class="fa fa-plus margin-right-5" aria-hidden="true"></i>Create a new Help Wanted Ad</a>
                     {% endif %}
                 {% endif %}
             </div>
@@ -204,7 +204,7 @@
             {% if user.id == profile_user.id and profile_user.is_cause %}
                 <div class="large-6 medium-6 small-12 columns small-centered large-centered margin-top-30 clearfix">
                     <h4>Create at least one help wanted ad so that our marketing members are aware of what marketing assistance you need. A Help Wanted Ad is the role that you're asking marketing members to do.</h4>
-                    <a class="button button--secondary" href="{% url 'advert_add' cause_id=user.id %}"><i class="fa fa-plus margin-right-5" aria-hidden="true"></i>New Help Wanted Ad</a>
+                    <a class="button button--secondary" href="{% url 'advert_add' user_id=user.id %}"><i class="fa fa-plus margin-right-5" aria-hidden="true"></i>New Help Wanted Ad</a>
                 </div>
             {% endif %}
             <div class="large-12 medium-12 small-12 columns small-centered large-centered margin-top-30 clearfix">

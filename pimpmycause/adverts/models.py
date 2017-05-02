@@ -7,6 +7,7 @@ from s3direct.fields import S3DirectField
 from profiles.models import (
     CauseProfile,
     Skill,
+    PimpUser,
 )
 
 
@@ -24,6 +25,8 @@ class Advert(models.Model):
     deadline = models.DateTimeField()
     cause_profile = models.ForeignKey(
         CauseProfile,
+        primary_key=True,
+        limit_choices_to={'profile__usertype': PimpUser.CAUSE},
         on_delete=models.CASCADE
     )
 

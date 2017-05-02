@@ -119,7 +119,7 @@ urlpatterns = [
         include('registration.backends.default.urls')
     ),
     url(
-        r'^cause/(?P<cause_id>\d+)/adverts/add$',
+        r'^cause/(?P<user_id>\d+)/adverts/add$',
         advert_add,
         name='advert_add'
     ),
