@@ -93,7 +93,7 @@
                             <textarea name="bio" rows="10" required placeholder="{% if user.is_marketer  %}Hi! My name is Sam, I am a London based Marketer.{% else %}Example Cause has been founded in 2007 and our aim is...{%endif%}">{{ profile_update_form.bio.value|title}}</textarea>
                         </div>
 
-                        {% if user.is_marketer  %}
+                        {% if profile_update_form.user.is_marketer  %}
 
                             <div class="large-12 medium-12 small-12">                            
                                 {{ additional_profile_form.experience.errors }}

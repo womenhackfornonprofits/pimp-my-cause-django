@@ -25,7 +25,6 @@ class Advert(models.Model):
     deadline = models.DateTimeField()
     cause_profile = models.ForeignKey(
         CauseProfile,
-        primary_key=True,
         limit_choices_to={'profile__usertype': PimpUser.CAUSE},
         on_delete=models.CASCADE
     )

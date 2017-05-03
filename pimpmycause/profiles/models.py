@@ -161,5 +161,6 @@ class CauseProfile(models.Model):
     mission = models.CharField(max_length=1000, blank=True)
     category = models.IntegerField(choices=CAUSE_CATEGORY_CHOICES, null=True)
 
+
     def __str__(self):
         return '%s' % self.cause_name
