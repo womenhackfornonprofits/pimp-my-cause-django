@@ -43,6 +43,8 @@ def advert_form(request, advert_id=None):
             advert.cause_profile = cause_profile
             advert.created_at = datetime.now()
             advert.save()
+            advert_form.save_m2m()
+
             return redirect('profile_detail', user_id=request.user.id)
 
     else:
