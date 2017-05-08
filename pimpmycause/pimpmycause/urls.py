@@ -14,8 +14,6 @@ from profiles.views import (
     cause_list,
 )
 from core.views import homepage
-from adverts.views import advert_add
-
 from profiles.forms import PimpUserRegistrationForm
 
 urlpatterns = [
@@ -119,8 +117,7 @@ urlpatterns = [
         include('registration.backends.default.urls')
     ),
     url(
-        r'^adverts/add$',
-        advert_add,
-        name='advert_add'
+        r'^adverts/',
+        include('adverts.urls')
     ),
 ]

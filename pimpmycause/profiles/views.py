@@ -75,6 +75,7 @@ def profile_detail(request, user_id):
         adverts_list = (
             Advert.objects
             .all()
+            .filter(cause_profile=user_id)
         )
 
         context = {

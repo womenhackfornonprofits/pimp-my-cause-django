@@ -53,14 +53,14 @@
                             <h2 class="text-align-left">
                                 Skills Offered
                             </h2>
-                                {% if profile_user.marketerprofile.skill.all|length %}
-                                    <ul>
-                                        {% for skill in profile_user.marketerprofile.skill.all %}
+                                {% if profile_user.marketerprofile.skills.all|length %}
+                                    <ul class="unstyled-list text-align-left">
+                                        {% for skill in profile_user.marketerprofile.skills.all %}
                                             <li>{{ skill | title }}</li>
                                         {% endfor %}
                                     </ul>
                                 {% else %}
-                                    <p class="helptext">
+                                    <p class="helptext margin-top-0">
                                         <i class="fa fa-comments-o" aria-hidden="true"></i>
                                         {{ profile_user.name | title }} is yet to share this information.
                                     </p>
@@ -71,7 +71,7 @@
                                     {% if profile_user.bio %}
                                         <p>{{ profile_user.bio | title }}</p>
                                     {% else %}
-                                        <p class="helptext">
+                                        <p class="helptext margin-top-0">
                                             <i class="fa fa-comments-o" aria-hidden="true"></i>
                                             {{ profile_user.name  | title }} is yet to share this information.
                                         </p>
@@ -81,7 +81,7 @@
                                 </h2>
                                 {% if profile_user.marketerprofile.qualification.all|length %}
                                     <ul>
-                                        {% for skill in profile_user.qualification.skill.all %}
+                                        {% for qualification in profile_user.qualification.all %}
                                             <li>{{ qualification | title }}</li>
                                         {% endfor %}
                                     </ul>
@@ -178,8 +178,8 @@
     {% endif %}
 
         <section class="{% if not adverts_list %}pnl{%endif%} row text-align-center pnl--secondary">
-        <div class="content-wrap margin-top-30">
-            <div class="large-6 medium-6 small-12 columns small-centered large-centered margin-top-30 clearfix">
+        <div class="content-wrap">
+            <div class="large-6 medium-6 small-12 columns small-centered large-centered clearfix">
                 <h2 class="text-align-center"><i class="fa fa-wpforms margin-right-5" aria-hidden="true"></i>Help Wanted Ads</h2>
 
                 {% if not adverts_list %}
@@ -208,8 +208,8 @@
                 </div>
             {% endif %}
             <div class="large-12 medium-12 small-12 columns small-centered large-centered margin-top-30 clearfix">
-
                 {% for advert in adverts_list %}
+                    {{ advert }}
                     <article class="small-12 columns margin-top-30 clearfix">
                         <div class="cause__wrapper">
                             <div class="small-12 medium-3 columns">
@@ -226,17 +226,22 @@
                                 {% if advert.description %}
                                     <p class="cause__text">{{ advert.description | title }}</p>
                                 {% else %}
-                                    <p class="helptext">
+                                    <p class="helptext margin-top-0">
                                         <i class="fa fa-comments-o" aria-hidden="true"></i>
                                         {{ profile_user.causeprofile.cause_name | title }} is yet to share this information.
                                     </p>                                            
                                 {% endif %}
                                 <h3 class="cause__title">Skills Required</h3>
-                                
-                                {% if advert.skill|length %}
-                                    {{ advert.skill }}
+
+                                {% if advert.skills.all|length %}
+                                    <ul class="unstyled-list text-align-left">
+                                        {% for skill in advert.skills.all%}
+                                            <li>{{ skill | title }}</li>
+                                        {% endfor %}
+                                    </ul>
+
                                 {% else %}
-                                    <p class="helptext">
+                                    <p class="helptext margin-top-0">
                                         <i class="fa fa-comments-o" aria-hidden="true"></i>
                                         {{ profile_user.causeprofile.cause_name | title }} is yet to share this information.
                                     </p>                                            
@@ -249,8 +254,8 @@
                             {% if user.id == profile_user.id and profile_user.is_cause %}
                                 <div class="small-12 medium-9 columns text-align-left">
                                     <div class="row">
-                                        <a href="#" class="button button--secondary "><i class="fa fa-pencil margin-right-5" aria-hidden="true"></i>Edit</a>
-                                        <a href="#" class="button button--danger"><i class="fa fa-trash margin-right-5" aria-hidden="true"></i>Delete</a>
+                                        <a href="{% url 'advert_edit' advert_id=advert.id  %}" class="button button--secondary "><i class="fa fa-pencil margin-right-5" aria-hidden="true"></i>Edit</a>
+                                        <a href="{% url 'advert_delete' advert_id=advert.id  %}" class="button button--danger"><i class="fa fa-trash margin-right-5" aria-hidden="true"></i>Delete</a>
                                     </div>
                                 </div>
                             {% endif %}

@@ -16,7 +16,7 @@ class Advert(models.Model):
     title = models.CharField(max_length=100, blank=True)
     description = models.TextField(max_length=1000, blank=True)
     image = S3DirectField(dest='user-profile-images', blank=True)
-    skill = models.ManyToManyField(
+    skills = models.ManyToManyField(
         Skill,
         blank=True,
         related_name='advert_skill'

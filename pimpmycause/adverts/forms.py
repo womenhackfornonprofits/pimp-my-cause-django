@@ -9,7 +9,7 @@ from s3direct.widgets import S3DirectWidget
 
 class AdvertForm(forms.ModelForm):
 
-    skill = forms.ModelMultipleChoiceField(
+    skills = forms.ModelMultipleChoiceField(
         widget=forms.CheckboxSelectMultiple(),
         queryset=Skill.objects.all()
     )
@@ -31,4 +31,4 @@ class AdvertForm(forms.ModelForm):
 
     class Meta:
         model = Advert
-        fields = ('title', 'description', 'image', 'skill', 'deadline')
+        fields = ('title', 'description', 'image', 'skills', 'deadline')
