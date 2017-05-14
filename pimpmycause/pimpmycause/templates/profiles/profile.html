@@ -93,7 +93,7 @@
                             <textarea name="bio" rows="10" required placeholder="{% if user.is_marketer  %}Hi! My name is Sam, I am a London based Marketer.{% else %}Example Cause has been founded in 2007 and our aim is...{%endif%}">{{ profile_update_form.bio.value|title}}</textarea>
                         </div>
 
-                        {% if profile_update_form.user.is_marketer  %}
+                        {% if user.is_marketer  %}
 
                             <div class="large-12 medium-12 small-12">                            
                                 {{ additional_profile_form.experience.errors }}
@@ -105,13 +105,20 @@
 
                                 <label for="skill">Skills</label>
                                 <p class="helptext">Please choose all that apply</p>
-                                {{ additional_profile_form.skill }}
                                 
+                                <ul class="unstyled-list text-align-left">
+                                    {% for skill in additional_profile_form.skill %}
+                                        <li>{{ skill | title }}</li>
+                                    {% endfor %}
+                                </ul>
                             </div>
-                            <div class="large-12 medium-12 small-12">                            
-                                {{ additional_profile_form.availability.errors }}
-                                {{ additional_profile_form.availability }}
-                                <label for="availability"> I am available to be contacted for help for projects by Causes </label>
+                            <div class="large-12 medium-12 small-12"> 
+                                <div class="margin-top-30">  
+                                    <label class="display-block">Availability</label>                         
+                                    {{ additional_profile_form.availability.errors }}
+                                    {{ additional_profile_form.availability }}
+                                    <label for="availability"> I am available to be contacted for help by Causes </label>
+                                </div>
                             </div>
                         {% else %}
                             <div class="small-6">                            

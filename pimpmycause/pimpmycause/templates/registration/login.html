@@ -12,7 +12,7 @@
                     <h1 class="pnl__title">Log In</h1>
 
                         {% if user.is_authenticated %}
-                            <p class="centered"> You are logged in as {{ user.name }}, please log out first</p>
+                            <p class="text-align-center"> You are logged in as {{ user.name }}, please log out first</p>
                         {% else %}
                             <div class="medium-6 large-3 small-12 large-centered small-centered columns">
                                     <form class="" role="form" action="{% url 'login' %}" method="POST">

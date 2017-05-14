@@ -53,10 +53,10 @@
                             <h2 class="text-align-left">
                                 Skills Offered
                             </h2>
-                                {% if profile_user.marketerprofile.skills.all|length %}
+                                {% if profile_user.marketerprofile.skill.all|length %}
                                     <ul class="unstyled-list text-align-left">
-                                        {% for skill in profile_user.marketerprofile.skills.all %}
-                                            <li>{{ skill | title }}</li>
+                                        {% for skill in profile_user.marketerprofile.skill.all %}
+                                            <li><i class="fa fa-graduation-cap margin-right-5" aria-hidden="true"></i>{{ skill | title }}</li>
                                         {% endfor %}
                                     </ul>
                                 {% else %}
@@ -177,6 +177,9 @@
 
     {% endif %}
 
+    
+    {% if not profile_user.is_marketer %}
+
         <section class="{% if not adverts_list %}pnl{%endif%} row text-align-center pnl--secondary">
         <div class="content-wrap">
             <div class="large-6 medium-6 small-12 columns small-centered large-centered clearfix">
@@ -195,75 +198,76 @@
                 {% endif %}
             </div>
         </div>
-    </section>
+        </section>
 
-    {% if adverts_list %}
+        {% if adverts_list %}
 
-    <section class="pnl row text-align-center">
-        <div class="content-wrap">
-            {% if user.id == profile_user.id and profile_user.is_cause %}
-                <div class="large-6 medium-6 small-12 columns small-centered large-centered margin-top-30 clearfix">
-                    <h4>Create at least one help wanted ad so that our marketing members are aware of what marketing assistance you need. A Help Wanted Ad is the role that you're asking marketing members to do.</h4>
-                    <a class="button button--secondary" href="{% url 'advert_add' %}"><i class="fa fa-plus margin-right-5" aria-hidden="true"></i>New Help Wanted Ad</a>
-                </div>
-            {% endif %}
-            <div class="large-12 medium-12 small-12 columns small-centered large-centered margin-top-30 clearfix">
-                {% for advert in adverts_list %}
-                    <article class="small-12 columns margin-top-30 clearfix">
-                        <div class="cause__wrapper">
-                            <div class="small-12 medium-3 columns">
-                                {% if advert.deadline %}
-                                    <h4 class="h4 cause__title">
-                                        <i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>
-                                        {{ advert.deadline|date:"M d, Y"  }}
-                                    </h4> 
+        <section class="pnl row text-align-center">
+            <div class="content-wrap">
+                {% if user.id == profile_user.id and profile_user.is_cause %}
+                    <div class="large-6 medium-6 small-12 columns small-centered large-centered margin-top-30 clearfix">
+                        <h4>Create at least one help wanted ad so that our marketing members are aware of what marketing assistance you need. A Help Wanted Ad is the role that you're asking marketing members to do.</h4>
+                        <a class="button button--secondary" href="{% url 'advert_add' %}"><i class="fa fa-plus margin-right-5" aria-hidden="true"></i>New Help Wanted Ad</a>
+                    </div>
+                {% endif %}
+                <div class="large-12 medium-12 small-12 columns small-centered large-centered margin-top-30 clearfix">
+                    {% for advert in adverts_list %}
+                        <article class="small-12 columns margin-top-30 clearfix">
+                            <div class="cause__wrapper">
+                                <div class="small-12 medium-3 columns">
+                                    {% if advert.deadline %}
+                                        <h4 class="h4 cause__title">
+                                            <i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>
+                                            {{ advert.deadline|date:"M d, Y"  }}
+                                        </h4> 
+                                    {% endif %}
+                                </div>
+                                <div class="small-12 medium-9 columns">
+                                    <h2 class="cause__title"> {{ advert.title | title }}</h2>
+                                    <h3 class="cause__title">Description</h3>
+                                    {% if advert.description %}
+                                        <p class="cause__text">{{ advert.description | title }}</p>
+                                    {% else %}
+                                        <p class="helptext margin-top-0">
+                                            <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                            {{ profile_user.causeprofile.cause_name | title }} is yet to share this information.
+                                        </p>                                            
+                                    {% endif %}
+                                    <h3 class="cause__title">Skills Required</h3>
+
+                                    {% if advert.skills.all|length %}
+                                        <ul class="unstyled-list text-align-left">
+                                            {% for skill in advert.skills.all%}
+                                                <li>{{ skill | title }}</li>
+                                            {% endfor %}
+                                        </ul>
+
+                                    {% else %}
+                                        <p class="helptext margin-top-0">
+                                            <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                            {{ profile_user.causeprofile.cause_name | title }} is yet to share this information.
+                                        </p>                                            
+                                    {% endif %}
+                                    <p class="helptext margin-top-30 margin-bottom-30 padding-bottom-30">
+                                        <i class="fa fa-clock-o margin-right-5" aria-hidden="true"></i>
+                                        Posted on {{ advert.created_at|date:"M d, Y"  }}
+                                    </p> 
+                                </div> 
+                                {% if user.id == profile_user.id and profile_user.is_cause %}
+                                    <div class="small-12 medium-9 columns text-align-left">
+                                        <div class="row">
+                                            <a href="{% url 'advert_edit' advert_id=advert.id  %}" class="button button--secondary "><i class="fa fa-pencil margin-right-5" aria-hidden="true"></i>Edit</a>
+                                            <a href="{% url 'advert_delete' advert_id=advert.id  %}" class="button button--danger"><i class="fa fa-trash margin-right-5" aria-hidden="true"></i>Delete</a>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             </div>
-                            <div class="small-12 medium-9 columns">
-                                <h2 class="cause__title"> {{ advert.title | title }}</h2>
-                                <h3 class="cause__title">Description</h3>
-                                {% if advert.description %}
-                                    <p class="cause__text">{{ advert.description | title }}</p>
-                                {% else %}
-                                    <p class="helptext margin-top-0">
-                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                        {{ profile_user.causeprofile.cause_name | title }} is yet to share this information.
-                                    </p>                                            
-                                {% endif %}
-                                <h3 class="cause__title">Skills Required</h3>
-
-                                {% if advert.skills.all|length %}
-                                    <ul class="unstyled-list text-align-left">
-                                        {% for skill in advert.skills.all%}
-                                            <li>{{ skill | title }}</li>
-                                        {% endfor %}
-                                    </ul>
-
-                                {% else %}
-                                    <p class="helptext margin-top-0">
-                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                        {{ profile_user.causeprofile.cause_name | title }} is yet to share this information.
-                                    </p>                                            
-                                {% endif %}
-                                <p class="helptext margin-top-30 margin-bottom-30 padding-bottom-30">
-                                    <i class="fa fa-clock-o margin-right-5" aria-hidden="true"></i>
-                                    Posted on {{ advert.created_at|date:"M d, Y"  }}
-                                </p> 
-                            </div> 
-                            {% if user.id == profile_user.id and profile_user.is_cause %}
-                                <div class="small-12 medium-9 columns text-align-left">
-                                    <div class="row">
-                                        <a href="{% url 'advert_edit' advert_id=advert.id  %}" class="button button--secondary "><i class="fa fa-pencil margin-right-5" aria-hidden="true"></i>Edit</a>
-                                        <a href="{% url 'advert_delete' advert_id=advert.id  %}" class="button button--danger"><i class="fa fa-trash margin-right-5" aria-hidden="true"></i>Delete</a>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        </div>
-                    </article>
-                {% endfor %}
+                        </article>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+        {% endif %}
     {% endif %}
 
     {% endblock %}
