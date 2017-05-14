@@ -2,3 +2,26 @@
 .adverts {
     background: $grey;;
 }
+
+.advert {
+
+    &__skills {
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+    }
+
+    &__deadline {
+
+        select {
+            width: 25%;
+            margin-right: 5px;
+        }
+
+    }
+}

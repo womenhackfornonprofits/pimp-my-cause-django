@@ -136,6 +136,7 @@ STATIC_URL = '/staticfiles/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'pimpmycause/staticfiles')
 
+LOGIN_REDIRECT_URL = '/accounts/profile/edit'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),

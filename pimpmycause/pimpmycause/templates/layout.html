@@ -34,13 +34,13 @@
                 <div class="navigation__login">
                     {% if user.is_authenticated %}
                         {% if user.name %}
-                            <a class="navigation__username" href="{% url 'profile_update' %}"> {{ user.name }} {{ user.surname }}
+                            <a class="navigation__username" href="{% url 'profile_detail' user_id=user.id %}""> {{ user.name }} {{ user.surname }}
                                 <i class="fa fa-cog" aria-hidden="true"></i>
                             </a>
                         {% else %}
                             <p class="navigation__username"> {{ user.email }}</p>
                         {% endif %}
-                        <a href="{% url 'logout_view' %}?next=/" class="navigation__logout">                                                     <i class="fa fa-sign-out margin-right-5" aria-hidden="true"></i>Logout</a>
+                        <a href="{% url 'logout' %}?next=/" class="navigation__logout">                                                     <i class="fa fa-sign-out margin-right-5" aria-hidden="true"></i>Logout</a>
                     {% else %}
                         <ul class="social">
                             <li class="social__item">
@@ -59,7 +59,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <a href="/accounts/login" class="button button--primary">Sign in</a>
+                        <a href="{% url 'login' %}" class="button button--primary">Sign in</a>
                         <a href="{% url 'registration_register' %}" class="navigation__register">Not registered?</a>
                     {% endif %}
                 </div>

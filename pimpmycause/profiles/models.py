@@ -107,8 +107,14 @@ class MarketerProfile(models.Model):
         limit_choices_to={'usertype': PimpUser.MARKETER}
     )
 
-    skill = models.ManyToManyField("profiles.Skill", blank=True)
-    qualification = models.ManyToManyField("profiles.Qualification", blank=True)
+    skill = models.ManyToManyField(
+        "profiles.Skill",
+        blank=True
+    )
+    qualification = models.ManyToManyField(
+        "profiles.Qualification",
+        blank=True
+    )
     experience = models.CharField(max_length=1000, blank=True)
     availability = models.BooleanField(default=True)
 
@@ -154,6 +160,7 @@ class CauseProfile(models.Model):
     cause_name = models.CharField(max_length=1000)
     mission = models.CharField(max_length=1000, blank=True)
     category = models.IntegerField(choices=CAUSE_CATEGORY_CHOICES, null=True)
+
 
     def __str__(self):
         return '%s' % self.cause_name

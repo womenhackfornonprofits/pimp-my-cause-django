@@ -3,7 +3,13 @@ from django.utils.translation import ugettext_lazy as _
 
 from custom_user.admin import EmailUserAdmin
 
-from .models import PimpUser, CauseProfile, MarketerProfile, Qualification
+from .models import (
+    PimpUser,
+    CauseProfile,
+    MarketerProfile,
+    Qualification,
+    Skill
+)
 
 
 class CauseProfileAdmin(admin.StackedInline):
@@ -36,3 +42,4 @@ class PimpUserAdmin(EmailUserAdmin):
 # Register your models here.
 admin.site.register(PimpUser, PimpUserAdmin)
 admin.site.register(Qualification)
+admin.site.register(Skill)
