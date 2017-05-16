@@ -30,7 +30,7 @@
                                             <h2 class="marketer__title"> {{ marketer.name | title }} {{ marketer.surname | title }}</h2>
                                             <a href="{% url 'profile_detail' user_id=marketer.id %}" class="marketer__info">
                                                 {% if marketer.position %}
-                                                    <h3 class="marketer__text  margin-bottom-15">{{ marketer.position | title }}</h3>
+                                                    <h4 class="marketer__text  margin-bottom-15">{{ marketer.position | title |truncatechars:50 }}</h4>
                                                 {% endif %}
                                                 {% if marketer.city %}
                                                     <p class="marketer__text"><i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ marketer.city | title }}</p>

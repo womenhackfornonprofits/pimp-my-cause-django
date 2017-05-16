@@ -10,21 +10,13 @@ from profiles.views import (
     ActivationComplete,
     profile_update,
     profile_detail,
-    marketer_list,
-    cause_list,
 )
-from core.views import homepage
 from profiles.forms import PimpUserRegistrationForm
 
 urlpatterns = [
     url(
         r'^admin/',
         admin.site.urls
-    ),
-    url(
-        r'^$',
-        homepage,
-        name="homepage"
     ),
     url(
         r'^logout/$',
@@ -37,41 +29,6 @@ urlpatterns = [
         auth_views.login,
         {'template_name': 'profiles/login.html'},
         name='login',
-    ),
-    url(
-        r'^contact/$',
-        TemplateView.as_view(template_name='core/contact.html'),
-        name="contact"
-    ),
-    url(
-        r'^about/$',
-        TemplateView.as_view(template_name='core/about.html'),
-        name="about"
-    ),
-    url(
-        r'^meet-the-team/$',
-        TemplateView.as_view(template_name='core/team.html'),
-        name="team"
-    ),
-    url(
-        r'^who-we-are/$',
-        TemplateView.as_view(template_name='core/who-we-are.html'),
-        name="who_we_are"
-    ),
-    url(
-        r'^how-it-works/$',
-        TemplateView.as_view(template_name='core/how-it-works.html'),
-        name="how_it_works"
-    ),
-    url(
-        r'^become-a-partner/$',
-        TemplateView.as_view(template_name='core/become-a-partner.html'),
-        name="become_a_partner"
-    ),
-    url(
-        r'^terms-and-conditions/$',
-        TemplateView.as_view(template_name='core/terms_and_conditions.html'),
-        name="terms_and_conditions"
     ),
     url(
         r'^accounts/register/$',
@@ -98,16 +55,6 @@ urlpatterns = [
         name='profile_update'
     ),
     url(
-        r'^search/marketer/$',
-        marketer_list,
-        name='search_marketer'
-    ),
-    url(
-        r'^search/cause/$',
-        cause_list,
-        name='search_cause'
-    ),
-    url(
         r'^accounts/profile/(?P<user_id>\d+)/$',
         profile_detail,
         name='profile_detail'
@@ -117,7 +64,15 @@ urlpatterns = [
         include('registration.backends.default.urls')
     ),
     url(
+        r'',
+        include('core.urls')
+    ),
+    url(
         r'^adverts/',
         include('adverts.urls')
+    ),
+    url(
+        r'^search/',
+        include('search.urls')
     ),
 ]

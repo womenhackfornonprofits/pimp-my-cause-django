@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django_countries',
     'custom_user',
     'widget_tweaks',
+    'django_filters',
     # pimpmycause imports
     'core',
     'profiles',
