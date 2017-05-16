@@ -7,11 +7,11 @@ from search.filters import MarketerFilter
 
 def marketer_list(request):
     """Marketer search view."""
-    marketer_list = (
-        PimpUser.objects
-        .filter(usertype=PimpUser.MARKETER, is_active=True)
-        .order_by('-date_joined')
-    )
+    # marketer_list = (
+    #     PimpUser.objects
+    #     .filter(usertype=PimpUser.MARKETER, is_active=True)
+    #     .order_by('-date_joined')
+    # )
 
     marketer_list = MarketerFilter(
         request.GET,

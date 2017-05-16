@@ -7,4 +7,8 @@ class MarketerFilter(django_filters.FilterSet):
 
     class Meta:
         model = PimpUser
-        fields = ['city']
+        fields = {
+            'city': ['contains'],
+            'position': ['contains'],
+            'country': ['exact'],
+        }
