@@ -103,12 +103,13 @@
                             </div>
                             <div class="large-12 medium-12 small-12">                            
 
-                                <label for="skill">Skills</label>
+                                <label for="id_skill">Skills</label>
                                 <p class="helptext">Please choose all that apply</p>
-                                
-                                <ul class="unstyled-list text-align-left">
+                            
+
+                                <ul id="id_skill" class="unstyled-list text-align-left">
                                     {% for skill in additional_profile_form.skill %}
-                                        <li>{{ skill | title }}</li>
+                                        <li>{{ skill }}</li>
                                     {% endfor %}
                                 </ul>
                             </div>

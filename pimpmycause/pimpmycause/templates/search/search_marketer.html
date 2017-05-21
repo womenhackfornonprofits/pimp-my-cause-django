@@ -15,14 +15,36 @@
                         <h3 class="margin-top-0 small-10 small-centered medium-8 medium-centered columns">Browse or search our listings of professionals. Build your network and find new potential collaborators.</h3>
                     </div>
                     
-                    <div class="row">
+<!--                     <div class="row">
                         <div class="large-4 medium-6 small-12">
                             <form action="" method="get">
                                 {{ marketer_list.form.as_p }}
                                 <input class="button button--primary" type="submit" value="Search">
                             </form>
                         </div>
-                    </div>
+                    </div> -->
+
+
+                    <form action="" method="get" class="margin-bottom-30">
+                        <div class="row filters">
+                            <div class="filters__item">
+                                <label for="city__contains">City</label>
+                                {{ marketer_list.form.city__contains }}
+                            </div>
+                            <div class="filters__item">
+                                <label for="city__contains">Country</label>
+                                {{ marketer_list.form.country }}
+                            </div>
+                            <div class="filters__item">
+                                <label for="position__contains">Current Position</label>
+                                {{ marketer_list.form.position__icontains }}
+                            </div>
+                            <div class="filters__item text-align-center">
+                                <input class="button button--primary" type="submit" value="Apply Filters">
+                            </div>
+                        </div>
+                    </form>
+
                     {% if marketer_list %}
                         <div class="row">
                            {% for marketer in marketer_list.qs %}

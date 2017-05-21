@@ -8,8 +8,6 @@ from django.views.generic.base import (
 from profiles.views import (
     RegistrationView,
     ActivationComplete,
-    profile_update,
-    profile_detail,
 )
 from profiles.forms import PimpUserRegistrationForm
 
@@ -46,18 +44,16 @@ urlpatterns = [
         name='activation_complete'
     ),
     url(
+        r'^profile/',
+        include('profiles.urls')
+    ),
+    url(
         r'^s3direct/',
         include('s3direct.urls')
     ),
     url(
-        r'^accounts/profile/edit$',
-        profile_update,
-        name='profile_update'
-    ),
-    url(
-        r'^accounts/profile/(?P<user_id>\d+)/$',
-        profile_detail,
-        name='profile_detail'
+        r'',
+        include('core.urls')
     ),
     url(
         r'^accounts/',

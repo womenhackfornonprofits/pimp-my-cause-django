@@ -9,6 +9,6 @@ class MarketerFilter(django_filters.FilterSet):
         model = PimpUser
         fields = {
             'city': ['contains'],
-            'position': ['contains'],
+            'position': ['icontains'],
             'country': ['exact'],
         }
