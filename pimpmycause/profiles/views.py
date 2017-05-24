@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
 from registration.backends.default import views as registration_views
@@ -80,7 +79,7 @@ def profile_edit(request):
                 instance=request.user.causeprofile
             )
 
-        if (profile_update_form.is_valid() & additional_profile_form.is_valid()):
+        if profile_update_form.is_valid() and additional_profile_form.is_valid():
 
             user_details = profile_update_form.save(commit=False)
             user_details.user = request.user
@@ -90,10 +89,10 @@ def profile_edit(request):
             profile_details.save()
             additional_profile_form.save_m2m()
 
-        return redirect(
-            'profile_detail',
-            user_id=request.user.id
-        )
+            return redirect(
+                'profile_detail',
+                user_id=request.user.id
+            )
 
     else:
         profile_update_form = PimpUserProfileForm(instance=request.user)

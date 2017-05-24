@@ -23,6 +23,12 @@ class PimpUserRegistrationForm(RegistrationForm):
 
 class PimpUserProfileForm(forms.ModelForm):
 
+    name = forms.CharField(label='Your name', required=True)
+    surname = forms.CharField(required=True)
+    phone = forms.CharField(required=True)
+    position = forms.CharField(required=True)
+    bio = forms.CharField(widget=forms.Textarea, required=True)
+
     image = forms.URLField(widget=S3DirectWidget(dest='user-profile-images',
                 html=(
                     '<div class="s3direct" data-policy-url="{policy_url}">'
@@ -43,6 +49,12 @@ class PimpUserProfileForm(forms.ModelForm):
         fields = ('bio', 'linkedin', 'website', 'twitter', 'name', 'surname',
                   'phone', 'image', 'city', 'country', 'position')
         widgets = {'country': CountrySelectWidget()}
+
+    # def __init__(self, *args, **kwargs):
+    #     super(PimpUserProfileForm, self).__init__(*args, **kwargs)
+
+    #     for key in self.fields:
+    #         self.fields[key].required = True
 
 
 class MarketerUserProfileForm(forms.ModelForm):

@@ -16,21 +16,23 @@
                     </div>
 
                     <form action="" method="get" class="margin-bottom-30">
-                        <div class="row filters">
-                            <div class="filters__item">
-                                <label for="city__contains">City</label>
-                                {{ marketer_list.form.city__contains }}
-                            </div>
-                            <div class="filters__item">
-                                <label for="city__contains">Country</label>
-                                {{ marketer_list.form.country }}
-                            </div>
-                            <div class="filters__item">
-                                <label for="position__contains">Current Position</label>
-                                {{ marketer_list.form.position__icontains }}
-                            </div>
-                            <div class="filters__item text-align-center">
-                                <input class="button button--primary" type="submit" value="Apply Filters">
+                        <div class="row">
+                            <div class="large-12 medium-12 small-12">
+                                <div class="filters__item">
+                                    <label for="city__contains">City</label>
+                                    {{ marketer_list.form.city__contains }}
+                                </div>
+                                <div class="filters__item">
+                                    <label for="city__contains">Country</label>
+                                    {{ marketer_list.form.country }}
+                                </div>
+                                <div class="filters__item">
+                                    <label for="position__contains">Current Position</label>
+                                    {{ marketer_list.form.position__icontains }}
+                                </div>
+                                <div class="filters__item text-align-center">
+                                    <input class="button button--primary" type="submit" value="Apply Filters">
+                                </div>
                             </div>
                         </div>
                     </form>

@@ -5,53 +5,88 @@
 
 
     {% block main %} 
+
     <section class="page-profile pnl row">
         <div class="content-wrap">
             <h1 class="pnl__title">Profile</h1> 
             <div class="medium-12 large-12 small-10 large-centered small-centered columns">
                 <div class="row">
-                    <form method="POST" action="{% url 'profile_update' %}" class="large-10 medium-9 small-12 columns small-centered">
+                    <form method="POST" action="{% url 'profile_update' %}" class="large-10 medium-9 small-12 columns small-centered" novalidate>
+                        
                         {% csrf_token %}
-                        
-                        {{ profile_update_form.non_field_errors }}
-                        {{ additional_profile_form.non_field_errors }}
-                        
                         <div class="row">
-                            <div class="large-4 medium-4 small-10 small-centered medium-uncentered columns">                                
-                                {{ profile_update_form.image.errors }}
-                                {% if not profile_update_form.image.value %}
-                                    <img class="profile-img" src="https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png" alt="Example Profile Image">
-
-                                {% else %}
-                                    <img class="profile-img" src="{{profile_update_form.image.value}}" alt="{{ user.name }} {{ user.surname }} Profile Image">
+                            <div class="large-6 medium-6 small-10 small-centered columns">  
+                                {% if profile_update_form.errors %}
+                                    <h4 class="text-danger"><i class="fa fa-exclamation-triangle margin-right-5" aria-hidden="true"></i>Please correct the following errors:</h4>
+                                        <ul class="unstyled-list text-align-center margin-bottom-30">
+                                            {% for field in profile_update_form %}
+                                                {% for error in field.errors %}
+                                                    <li class="text-danger"><b>{{ field.name|title }}</b>: {{ error|escape }}</li>
+                                                {% endfor %}
+                                            {% endfor %}
+                                            {% for error in profile_update_form.non_field_errors %}
+                                                <p class="text-danger">{{ error|escape }}</p>
+                                            {% endfor %}
+                                         </ul>
                                 {% endif %}
 
-                                    {{ profile_update_form.media }}
-                                    {{ profile_update_form.image }}
+                                {% if additional_profile_form.errors %}
+                                    <ul class="unstyled-list text-align-center margin-bottom-30">
+                                        {% for field in additional_profile_form %}
+                                            {% for error in field.errors %}
+                                                <li class="text-danger">{{ field.name|title }}: {{ error|escape }}</li>
+                                            {% endfor %}
+                                        {% endfor %}
+                                        {% for error in additional_profile_form.non_field_errors %}
+                                            <p class="text-danger">{{ error|escape }}</p>
+                                        {% endfor %}
+                                     </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-4 medium-4 small-10 small-centered medium-uncentered columns">  
+
+                                {% if not profile_update_form.image.value %}
+                                    <img class="profile-img " src="https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png" alt="Example Profile Image">
+                                {% else %}
+                                    <img class="profile-img {% if profile_update_form.image.errors %} has-error {% endif %}" src="{{profile_update_form.image.value}}" alt="{{ user.name }} {{ user.surname }} Profile Image">
+                                    
+                                    {% if profile_update_form.image.errors %}
+                                        {% for error in profile_update_form.image.errors %}
+                                            <p class="form-error pull-left text-danger">{{ error }}</p>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+
+                                {{ profile_update_form.media }}
+                                {{ profile_update_form.image }}
                             </div>
                             <div class="large-offset-3 medium-offset-2 large-4 medium-6 small-12 small-centered medium-uncentered columns">
                                 {% if user.is_cause %}
-                                    {{ additional_profile_form.cause_name.errors }}
                                     <label for="cause_name">Cause Name</label>
-                                    {{ additional_profile_form.cause_name }}
-
+                                    <span class="{% if additional_profile_form.cause_name.errors %} has-error {% endif %}">
+                                        {{ additional_profile_form.cause_name }}
+                                    </span>
+                                    {% if additional_profile_form.cause_name.errors %}
+                                        {% for error in additional_profile_form.cause_name.errors %}
+                                            <p class="form-error pull-left text-danger">{{ error }}</p>
+                                        {% endfor %}
+                                    {% endif %}
                                 {% endif %}
 
-                                {{ profile_update_form.name.errors }}
                                 <label for="name"> {% if user.is_cause %} Contact {% endif %}Name </label>
-                                <input type="text" name="name" placeholder="Sam" value='{{ profile_update_form.name.value|default_if_none:"" }}' required>
+                                <input class="{% if profile_update_form.name.errors %}has-error{% endif %}" type="text" name="name" placeholder="Sam" value='{{ profile_update_form.name.value|default_if_none:"" }}' required>
 
-                                {{ profile_update_form.surname.errors }}
                                 <label for="surname"> {% if user.is_cause %} Contact {% endif %}Surname </label>
-                                <input type="text" name="surname" placeholder="Jones" value='{{ profile_update_form.surname.value|default_if_none:"" }}' required>
+                                <input class="{% if profile_update_form.surname.errors %}has-error{% endif %}" type="text" name="surname" placeholder="Jones" value='{{ profile_update_form.surname.value|default_if_none:"" }}' required>
 
-                                {{ profile_update_form.position.errors }}
                                 <label for="position"> {% if user.is_cause %} Contact {% endif %}Position </label>
-                                <input type="text" name="position" placeholder="Marketer" value='{{ profile_update_form.position.value|default_if_none:"" }}' required>
+                                <input class="{% if profile_update_form.position.errors %}has-error{% endif %}" type="text" name="position" placeholder="Marketer" value='{{ profile_update_form.position.value|default_if_none:"" }}' required>
 
-                                {{ profile_update_form.city.errors }}
                                 <label for="city"> City </label>
-                                <input type="text" name="city" placeholder="London" value='{{ profile_update_form.city.value|default_if_none:"" }}' required>
+                                <input class="{% if profile_update_form.city.errors %}has-error{% endif %}" type="text" name="city" placeholder="London" value='{{ profile_update_form.city.value|default_if_none:"" }}' required>
 
                                 <label for="country"> Country </label>
 
@@ -66,21 +101,18 @@
                                 <div class="row">
                                     <div class="columns small-12 medium-6">
 
-                                    {{ profile_update_form.linkedin.errors }}
                                     <label for="linkedin"> LinkedIn </label>
-                                    <input type="url" name="linkedin" placeholder="https://linkedin.com/username" value='{{ profile_update_form.linkedin.value|default_if_none:"" }}'>
+                                    <input class="{% if profile_update_form.linkedin.errors %}has-error{% endif %}" type="url" name="linkedin" placeholder="https://linkedin.com/username" value='{{ profile_update_form.linkedin.value|default_if_none:"" }}'>
 
-                                    {{ profile_update_form.twitter.errors }}
                                     <label for="twitter"> Twitter </label>
-                                    <input type="url" name="twitter" placeholder="https://twitter.com/username" value='{{ profile_update_form.twitter.value|default_if_none:"" }}'>
+                                    <input class="{% if profile_update_form.twitter.errors %}has-error{% endif %}" type="url" name="twitter" placeholder="https://twitter.com/username" value='{{ profile_update_form.twitter.value|default_if_none:"" }}'>
                                 </div>
                                 <div class="columns small-12 medium-6">
-                                    {{ profile_update_form.website.errors }}
                                     <label for="website"> Website </label>
-                                    <input type="url" name="website" placeholder="https://www.example.com" value='{{profile_update_form.website.value|default_if_none:""}}'>
-                                    {{ profile_update_form.phone.errors }}
+                                    <input class="{% if profile_update_form.website.errors %}has-error{% endif %}" type="url" name="website" placeholder="https://www.example.com" value='{{profile_update_form.website.value|default_if_none:""}}'>
+                                    
                                     <label for="phone"> Phone <span class="helptext">(this wont be shared)</span></label>
-                                    <input type="text" name="phone" placeholder="07654123456" value='{{ profile_update_form.phone.value|default_if_none:"" }}' required>
+                                    <input class="{% if profile_update_form.phone.errors %}has-error{% endif %}" type="text" name="phone" placeholder="07654123456" value='{{ profile_update_form.phone.value|default_if_none:"" }}' required>
                                 </div>
                             </div>
                         </div>
@@ -88,9 +120,8 @@
                             <h2 class="text-align-left"><i class="fa fa-user-circle-o margin-right-5" aria-hidden="true"></i>About</h2>
                         </div>
                         <div class="large-12 medium-12 small-12">
-                            {{ profile_update_form.bio.errors }}
                             <label for="bio">Bio</label>
-                            <textarea name="bio" rows="10" required placeholder="{% if user.is_marketer  %}Hi! My name is Sam, I am a London based Marketer.{% else %}Example Cause has been founded in 2007 and our aim is...{%endif%}">{{ profile_update_form.bio.value|title}}</textarea>
+                            <textarea class="{% if profile_update_form.bio.errors %}has-error{% endif %}" name="bio" rows="10" placeholder="{% if user.is_marketer  %}Hi! My name is Sam, I am a London based Marketer.{% else %}Example Cause has been founded in 2007 and our aim is...{%endif%}" required>{{ profile_update_form.bio.value|title}}</textarea>
                         </div>
 
                         {% if user.is_marketer  %}
@@ -99,13 +130,12 @@
                                 {{ additional_profile_form.experience.errors }}
                                 <label for="experience">Experience</label>
 
-                                <textarea name="experience" rows="10" required placeholder="Work Experience">{{ additional_profile_form.experience.value | title}}</textarea>
+                                <textarea name="experience" rows="10" placeholder="Work Experience" required>{{ additional_profile_form.experience.value | title}}</textarea>
                             </div>
                             <div class="large-12 medium-12 small-12">                            
 
                                 <label for="id_skill">Skills</label>
                                 <p class="helptext">Please choose all that apply</p>
-                            
 
                                 <ul id="id_skill" class="unstyled-list text-align-left">
                                     {% for skill in additional_profile_form.skill %}
@@ -132,7 +162,7 @@
                                 {{ additional_profile_form.mission.errors }}
                                 <label for="mission">Mission</label>
 
-                                <textarea name="mission" rows="10" required placeholder="What is your Cause Mission?">{{ additional_profile_form.mission.value|title }}</textarea>
+                                <textarea name="mission" rows="10" placeholder="What is your Cause Mission?" required>{{ additional_profile_form.mission.value|title }}</textarea>
                             </div>
                         {% endif %}
                         <div class="large-6 medium-6 small-12">
@@ -143,4 +173,5 @@
             </div> 
         </div>
     </section>
+
     {% endblock %}

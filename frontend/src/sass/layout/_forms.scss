@@ -43,7 +43,7 @@ select {
 	border-radius: 0;
 }
 
-form {
+form {input
     p {
         margin-top: 0;
     }
@@ -55,8 +55,8 @@ form {
     }
 }
 
-.has-error input {
-    border: 1px red solid;
+.has-error {
+    border: 1px red solid !important;
 }
 
 .form-group {
@@ -84,8 +84,4 @@ form {
         font-size: .7em;
         list-style: none;
     }
-}
-
-.errorlist + p > input {
-    border: 1px red solid;
 }
