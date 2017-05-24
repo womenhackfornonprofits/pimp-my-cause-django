@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
-
-from django.db.models import Count
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
 from registration.backends.default import views as registration_views
@@ -14,6 +13,7 @@ from profiles.forms import (
 )
 from profiles.models import PimpUser
 from adverts.models import Advert
+import ipdb
 
 
 class RegistrationView(registration_views.RegistrationView):
@@ -34,35 +34,6 @@ class TermsAndConditions(TemplateView):
     """The Activation Complete view."""
 
     template_name = 'core/terms_and_conditions.html'
-
-
-def marketer_list(request):
-    """Marketer search view."""
-    marketer_list = (
-        PimpUser.objects
-        .filter(usertype=PimpUser.MARKETER, is_active=True)
-        .order_by('-date_joined')
-    )
-    context = {'marketer_list': marketer_list}
-
-    return render(request, 'search/search_marketer.html', context)
-
-
-def cause_list(request):
-    """Cause search view."""
-    cause_list = (
-        PimpUser.objects
-        .all()
-        .select_related()
-        .filter(usertype=PimpUser.CAUSE, is_active=True)
-        .annotate(
-            ads_count=Count('causeprofile__advert')
-        )
-    )
-
-    context = {'cause_list': cause_list}
-
-    return render(request, 'search/search_cause.html', context)
 
 
 def profile_detail(request, user_id):
@@ -90,7 +61,7 @@ def profile_detail(request, user_id):
 
 
 @login_required
-def profile_update(request):
+def profile_edit(request):
     """Edit user profile."""
 
     if request.method == 'POST':
@@ -117,8 +88,8 @@ def profile_update(request):
             user_details.save()
 
             profile_details = additional_profile_form.save(commit=False)
-            additional_profile_form.save_m2m()
             profile_details.save()
+            additional_profile_form.save_m2m()
 
         return redirect(
             'profile_detail',

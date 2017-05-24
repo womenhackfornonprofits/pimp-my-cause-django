@@ -14,9 +14,30 @@
                         <h1 class="pnl__title">Meet the Marketers</h1>
                         <h3 class="margin-top-0 small-10 small-centered medium-8 medium-centered columns">Browse or search our listings of professionals. Build your network and find new potential collaborators.</h3>
                     </div>
-                    {% if marketer_list|length > 0 %}
+
+                    <form action="" method="get" class="margin-bottom-30">
+                        <div class="row filters">
+                            <div class="filters__item">
+                                <label for="city__contains">City</label>
+                                {{ marketer_list.form.city__contains }}
+                            </div>
+                            <div class="filters__item">
+                                <label for="city__contains">Country</label>
+                                {{ marketer_list.form.country }}
+                            </div>
+                            <div class="filters__item">
+                                <label for="position__contains">Current Position</label>
+                                {{ marketer_list.form.position__icontains }}
+                            </div>
+                            <div class="filters__item text-align-center">
+                                <input class="button button--primary" type="submit" value="Apply Filters">
+                            </div>
+                        </div>
+                    </form>
+
+                    {% if marketer_list %}
                         <div class="row">
-                           {% for marketer in marketer_list %}
+                           {% for marketer in marketer_list.qs %}
                                 <div class="marketer large-4 medium-6 small-12 column margin-bottom-30 margin-top-30">
                                     <div class="marketer__wrapper">
                                         <div class="marketer__image-wrapper">
@@ -30,7 +51,7 @@
                                             <h2 class="marketer__title"> {{ marketer.name | title }} {{ marketer.surname | title }}</h2>
                                             <a href="{% url 'profile_detail' user_id=marketer.id %}" class="marketer__info">
                                                 {% if marketer.position %}
-                                                    <h3 class="marketer__text  margin-bottom-15">{{ marketer.position | title }}</h3>
+                                                    <h4 class="marketer__text  margin-bottom-15">{{ marketer.position | title |truncatechars:50 }}</h4>
                                                 {% endif %}
                                                 {% if marketer.city %}
                                                     <p class="marketer__text"><i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ marketer.city | title }}</p>

@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django_countries',
     'custom_user',
     'widget_tweaks',
+    'django_filters',
     # pimpmycause imports
     'core',
     'profiles',
@@ -136,7 +137,7 @@ STATIC_URL = '/staticfiles/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'pimpmycause/staticfiles')
 
-LOGIN_REDIRECT_URL = '/accounts/profile/edit'
+LOGIN_REDIRECT_URL = '/profile/edit'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
