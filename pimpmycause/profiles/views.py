@@ -13,7 +13,6 @@ from profiles.forms import (
 )
 from profiles.models import PimpUser
 from adverts.models import Advert
-import ipdb
 
 
 class RegistrationView(registration_views.RegistrationView):
