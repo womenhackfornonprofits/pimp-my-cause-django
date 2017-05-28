@@ -8,3 +8,4 @@ INSTALLED_APPS = INSTALLED_APPS + [
 
 APP_DOMAIN = 'pimpmycause.test'
 SECRET_KEY = get_env("SECRET_KEY", "todo")
+

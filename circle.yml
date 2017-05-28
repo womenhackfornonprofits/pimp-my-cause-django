@@ -1,6 +1,9 @@
 machine:
+  python:
+    version: 2.7
+  services:
+    - postgresql
   environment:
-    DATABASE_URL: 'sqlite://:memory:'
     APP_DOMAIN: example.com
     AWS_ACCESS_KEY_ID: test
     AWS_SECRET_ACCESS_KEY: test
@@ -14,9 +17,11 @@ deployment:
     branch: master
     heroku:
       appname: staging-pimp-my-cause
-      
-experimental:
-  notify:
-    branches:
-      only:
-        - master
+  master:
+    branch: master
+    heroku:
+      appname: pimp-my-cause
+
+dependencies:
+  override:
+    - echo "CircleCI dependency install overridden - Tox handles dependencies"
