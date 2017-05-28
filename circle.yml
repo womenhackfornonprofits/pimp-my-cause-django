@@ -1,9 +1,6 @@
 machine:
-  python:
-    version: 2.7
-  services:
-    - postgresql
   environment:
+    DATABASE_URL: 'sqlite://:memory:'
     APP_DOMAIN: example.com
     AWS_ACCESS_KEY_ID: test
     AWS_SECRET_ACCESS_KEY: test
@@ -16,8 +13,8 @@ deployment:
   staging:
     branch: master
     heroku:
-      appname: pimpmycause-staging
-
+      appname: staging-pimp-my-cause
+      
 experimental:
   notify:
     branches:
