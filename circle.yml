@@ -10,7 +10,7 @@ machine:
     AWS_STORAGE_BUCKET_NAME: test
     DATABASE_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
     DEBUG: 0
-    DJANGO_SETTINGS_MODULE: pimpmycause.settings.testing
+    DJANGO_SETTINGS_MODULE: settings.testing
     SECRET_KEY: test-secret-key
 deployment:
   staging:
