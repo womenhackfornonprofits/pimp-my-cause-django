@@ -50,12 +50,6 @@ class PimpUserProfileForm(forms.ModelForm):
                   'phone', 'image', 'city', 'country', 'position')
         widgets = {'country': CountrySelectWidget()}
 
-    # def __init__(self, *args, **kwargs):
-    #     super(PimpUserProfileForm, self).__init__(*args, **kwargs)
-
-    #     for key in self.fields:
-    #         self.fields[key].required = True
-
 
 class MarketerUserProfileForm(forms.ModelForm):
 
