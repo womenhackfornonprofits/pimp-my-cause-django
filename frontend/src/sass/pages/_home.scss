@@ -3,13 +3,17 @@
     padding-bottom: 6em;
 
     &__title {
-        padding: 4rem 2rem 2rem;
+        padding: 3rem 1rem 1rem;
         font-weight: 100;
         font-size: 3em;
         text-align: center;
         color: $white;
         line-height: 1.3em;
         margin: 0;
+
+        @media only screen and (min-width: 550px) {
+            padding: 4rem 2rem 2rem;
+        }
     }
 }
 

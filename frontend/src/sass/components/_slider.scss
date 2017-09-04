@@ -8,7 +8,8 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
 
 .slider {
     position: relative;
-    height: 20em;
+    min-height: 25em;
+    background: #F1F1F1;
 
     &__slide {
         width: 100%;
@@ -16,10 +17,10 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        height: 20em;
+        min-height: 20em;
         position: absolute;
         animation: slide-fade #{$total_time}s infinite;
-        opacity:1;
+        opacity: 1;
         top: 0;
         left: 0;
         overflow: hidden;
@@ -27,8 +28,8 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
 
     &__img {
         display: inline-block;
-        height: 100%;
-        flex: 1;
+        height: 25em;
+        flex: 1 1 8em;
         background-size: cover;
         background-position: center center;
     }
@@ -52,6 +53,7 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
         text-align: left;
         color: #3c3c3c;
     }
+
     &__title {
         text-align: left;
         color: #3c3c3c;

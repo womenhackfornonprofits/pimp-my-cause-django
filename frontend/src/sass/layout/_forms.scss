@@ -39,8 +39,10 @@ textarea {
 
 select {
 	-webkit-appearance: none;
-	background: url("http://garyjeffress.com/wp-content/themes/lms/framework/plugins/designthemes-core-features/page-builder/images/select-box-arrow.png") no-repeat right center;
+	background: url("https://s3-eu-west-1.amazonaws.com/pimpmycause-images/custom-icons/chevron-down.svg") no-repeat right center;
 	background-color: $white;
+    background-position-x: 95%;
+    background-size: 16px;
 	border-radius: 0;
 }
 
