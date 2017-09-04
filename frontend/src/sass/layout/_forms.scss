@@ -10,6 +10,7 @@ input[type="email"],
 input[type="password"],
 input[type="tel"],
 input[type="url"],
+input[type="number"],
 input [type="submit"],
 select {
     width: 100%;
@@ -43,7 +44,7 @@ select {
 	border-radius: 0;
 }
 
-form {input
+form {
     p {
         margin-top: 0;
     }
@@ -55,7 +56,10 @@ form {
     }
 }
 
-.has-error {
+.has-error > select,
+.has-error > input,
+.has-error > textarea,
+.has-error > img {
     border: 1px red solid !important;
 }
 

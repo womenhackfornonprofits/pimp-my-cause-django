@@ -17,7 +17,6 @@ from adverts.models import Advert
 @login_required
 def advert_form(request, advert_id=None):
     """Help wanted advert add/edit"""
-
     if advert_id:
         advert = get_object_or_404(
             Advert,
@@ -55,10 +54,21 @@ def advert_form(request, advert_id=None):
     })
 
 
+def advert_detail(request, advert_id):
+    """Help wanted advert add/edit"""
+    advert = get_object_or_404(
+        Advert,
+        id=advert_id,
+    )
+
+    context = {'advert': advert}
+
+    return render(request, 'adverts/advert_detail.html', context)
+
+
 @login_required
 def advert_delete(request, advert_id):
     """Delete a given Help Wanted Ad"""
-
     advert = get_object_or_404(
         Advert,
         id=advert_id,
