@@ -135,7 +135,7 @@
                 <div class="content-wrap">
                     <div class="row">
                         <h1 class="pnl__title">Featured Causes</h1>
-                        <div class="slider">
+                        <div class="large-12 columns">
                             <div class="slider">
                                  {% for cause in featured_cause_list %}
                                     <div class="slider__slide">
@@ -148,10 +148,10 @@
                                             </div>
                                         </div>
                                          {% if cause.image %}
-                                            <div class="slider__img" style="background-image: url({{ cause.image }})">
+                                            <div class="slider__img hide-for-small-only" style="background-image: url({{ cause.image }})">
                                             </div>
                                         {% else %}
-                                         <div class="slider__img" style="background-image: url(https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png)">
+                                         <div class="slider__img hide-for-small-only" style="background-image: url(https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png)">
                                         </div>
                                         {% endif %}
                                     </div>
@@ -172,27 +172,29 @@
                 <div class="content-wrap">
                     <div class="row">
                         <h1 class="pnl__title">Featured Marketers</h1>
-                            <div class="slider">
+                            <div class="large-12 columns">
+                                <div class="slider">
 
                                     {% for marketer in featured_marketer_list %}
                                         <div class="slider__slide">
                                             {% if marketer.image %}
-                                                <div class="slider__img" style="background-image: url({{ marketer.image }})">
+                                                <div class="slider__img hide-for-small-only" style="background-image: url({{ marketer.image }})">
                                                 </div>
                                             {% else %}
-                                             <div class="slider__img" style="background-image: url(https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png)">
+                                             <div class="slider__img hide-for-small-only" style="background-image: url(https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png)">
                                             </div>
                                             {% endif %}
                                             <div class="slider__text">
                                                 <h3 class="slider__title">{{ marketer.name | title}} {{ marketer.surname | title}}</h3>
                                                 <div class="slider__paragraph">
-                                                    <h5 class="text-align-left">{{ marketer.position | title }}</h5>
+                                                    <h5 class="text-align-left slider__subtitle margin-top-0">{{ marketer.position | title }}</h5>
                                                     <p>{{ marketer.bio | truncatechars:200 | title }}...</p>
                                                     <a href="{% url 'profile_detail' user_id=marketer.id %}" class="slider__link">See {{ marketer.name | title }}'s profile</a>
                                                 </div>
                                             </div>
                                         </div>
                                     {% endfor %}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -204,7 +206,7 @@
         <!-- SUMMARY - HAVE YOU SEEN - PANEL -->
         <!-- ******************************* -->
 
-        <section class="pnl-summary">
+        <section class="pnl-summary pnl--dark-txt">
             <div class="content-wrap">
                 <div class="large-12 columns">
                     <h1 class="pnl__title">Have You Seen</h1>
@@ -271,14 +273,14 @@
                                 <!-- tweets from pimp my cause -->
                                 <!--a class="twitter-timeline" data-link-color="#dc0e54" data-tweet-limit="1" data-chrome="noheader nofooter noborders transparent" href="https://twitter.com/pimpmycause" data-widget-id="708330834588274688">Tweets by @pimpmycause</a-->
                             </div>
-                            <h4 class="social-tile__title pnl--light-txt ">Latest Tweet</h4>
+                            <h4 class="social-tile__title pnl--light-txt">Latest Tweet</h4>
                         </div>
                         <div class="social-tile">
                             <div class="social-tile__heading">
                                 <!-- tweets from pimp my cause -->
                                 <!--a class="twitter-timeline" data-link-color="#dc0e54" data-tweet-limit="1" data-chrome="noheader nofooter noborders transparent" href="https://twitter.com/pimpmycause" data-widget-id="708330834588274688">Tweets by @pimpmycause</a-->
                             </div>
-                            <h4 class="social-tile__title pnl--light-txt ">Latest Tweet</h4>
+                            <h4 class="social-tile__title pnl--light-txt">Latest Tweet</h4>
                         </div>
                     </div>
                 </div>
@@ -290,10 +292,10 @@
         <!-- CONTACT US PANEL -->
         <!-- **************** -->
 
-        <section class="pnl-contact-us">
+        <section class="pnl-contact-us pnl--dark-txt">
             <div class="content-wrap">
                  <div class="row">
-                    <div class="large-12 medium-12 small -12 columns">
+                    <div class="large-12 medium-12 small-12 columns">
                         <h1 class="pnl__title">Contact Us</h1>
                             <form method="POST" action="//formspree.io/help@pimpmycause.org">
                                 <input type="hidden" name="_subject" value="New Submission: Pimp My Cause Contact Form"/>

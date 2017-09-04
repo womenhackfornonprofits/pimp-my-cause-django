@@ -35,7 +35,7 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
     }
 
     &__link {
-        color: $purple;
+        color: $pink;
         font-weight: bold;
 
         &::after {
@@ -52,6 +52,10 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
     &__paragraph {
         text-align: left;
         color: #3c3c3c;
+    }
+
+    &__subtitle {
+        color: $pink;
     }
 
     &__title {

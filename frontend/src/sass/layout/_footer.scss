@@ -24,13 +24,27 @@
 
     &__navigation {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
+
+        @media only screen and (min-width: 720px) {
+            flex-direction: row;
+        }
     }
 
     &__logo {
         width: 5em;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 16px;
+
+        @media only screen and (min-width: 720px) {
+            display: inline;
+            margin-bottom: 0;
+
+        }
     }
 
     &__link {
@@ -49,7 +63,9 @@
 
 
     &__social {
-        display: inline;
+        display: block;
+        margin: 0 auto;
+        margin-top: 16px;
 
         a {
             margin: 1px;
@@ -59,18 +75,27 @@
             width: 15px;
             height: 15px;
         }
+
+        @media only screen and (min-width: 720px) {
+            display: inline;
+            margin-top: 0;
+        }
     }
 
     &__info {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-end;
+
+        @media only screen and (min-width: 720px) {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-end;
+        }
     }
 
 
     &__legal,
     &__info {
-        flex: 1 1 50%;
+        flex: 1 0 auto;
     }
 }

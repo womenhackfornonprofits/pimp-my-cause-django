@@ -15,39 +15,37 @@
                         <h3 class="margin-top-0 small-10 small-centered medium-8 medium-centered columns">Browse or search our listings of professionals. Build your network and find new potential collaborators.</h3>
                     </div>
                     <form action="" method="get" class="margin-bottom-30">
-                        <div class="row">
+                        <div class="columns">
                             <div class="large-12 medium-12 small-12">
-                                <div class="row">
-                                    <div class="filters__item medium-4 small-12 column">
-                                        <label for="city__contains">City</label>
-                                        {{ marketer_list.form.city__icontains }}
-                                    </div>
-                                    <div class="filters__item medium-4 small-12 column">
-                                        <label for="city__contains">Country</label>
-                                        {{ marketer_list.form.country }}
-                                    </div>
-                                    <div class="filters__item medium-4 small-12 column">
-                                        <label for="position__contains">Current Position</label>
-                                        {{ marketer_list.form.position__icontains }}
-                                    </div>
-                                    <div class="filters__item medium-6 small-12 column">
-                                        <label for="position__contains">Profile contains</label>
-                                        {{ marketer_list.form.position__icontains }}
-                                    </div>
-                                    <div class="filters__item medium-6 small-12 column">
-                                        <label for="marketerprofile__skill__contains">Skills</label>
-                                        {{ marketer_list.form.marketerprofile__skill__contains }}
-                                    </div>
-                                    <div class="filters__item text-align-center">
-                                        <input class="button button--primary" type="submit" value="Apply Filters">
-                                    </div>
+                                <div class="filters__item medium-4 small-12 column">
+                                    <label for="city__contains">City</label>
+                                    {{ marketer_list.form.city__icontains }}
+                                </div>
+                                <div class="filters__item medium-4 small-12 column">
+                                    <label for="city__contains">Country</label>
+                                    {{ marketer_list.form.country }}
+                                </div>
+                                <div class="filters__item medium-4 small-12 column">
+                                    <label for="position__contains">Current Position</label>
+                                    {{ marketer_list.form.position__icontains }}
+                                </div>
+                                <div class="filters__item medium-6 small-12 column">
+                                    <label for="position__contains">Profile contains</label>
+                                    {{ marketer_list.form.position__icontains }}
+                                </div>
+                                <div class="filters__item medium-6 small-12 column">
+                                    <label for="marketerprofile__skill__contains">Skills</label>
+                                    {{ marketer_list.form.marketerprofile__skill__contains }}
+                                </div>
+                                <div class="filters__item text-align-center">
+                                    <input class="button button--primary" type="submit" value="Apply Filters">
                                 </div>
                             </div>
                         </div>
                     </form>
 
                     {% if marketer_list.qs|length > 0 %}
-                        <div class="row">
+                        <div class="columns">
 
                            {% for marketer in marketer_list.qs %}
 
