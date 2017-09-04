@@ -9,8 +9,6 @@ from search.filters import (
     HelpWantedAdsFilter,
 )
 
-import ipdb
-
 
 def marketer_list(request):
     """Marketer search view."""

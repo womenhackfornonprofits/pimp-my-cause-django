@@ -73,7 +73,7 @@
                                         </div>
                                         <div class="cause__info small-12 medium-6 columns">
                                             <div clas="col-xs-12 columns">
-                                                <h2 class="cause__title"> {{ cause.causeprofile.cause_name | title }}</h2>
+                                                <a href="{% url 'profile_detail' user_id=cause.id %}"><h2 class="cause__title">{{ cause.causeprofile.cause_name | title }}</h2></a>
                                                 <h3 class="cause__title">Our Mission</h3>
                                                 {% if cause.causeprofile.mission %}
                                                     <p class="cause__text">{{ cause.causeprofile.mission | title }}</p>

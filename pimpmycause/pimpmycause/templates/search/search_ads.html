@@ -53,7 +53,10 @@
                                                 {% endif %}
                                             </div>
                                             <div class="small-12 medium-9 columns">
-                                                <h2 class="cause__title"> {{ advert.title | title }}</h2>
+                                                <a href=""><h2 class="cause__title">{{ advert.title | title }}</h2></a>
+                                                <h3 class="cause__title">Cause</h3>
+                                                <a href="{% url 'profile_detail' user_id=advert.cause_profile_id %}" class="cause__text">{{ advert.cause_profile | title }}</a>
+
                                                 <h3 class="cause__title">Description</h3>
                                                 {% if advert.description %}
                                                     <p class="cause__text">{{ advert.description | title }}</p>

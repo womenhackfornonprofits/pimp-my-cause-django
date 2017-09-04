@@ -10,48 +10,48 @@
             <div class="medium-12 large-12 small-10 large-centered small-centered columns margin-top-45">
                 <div class="row">
                     <h1 class="pnl__title">Add new Help Wanted Ad</h1>
-                        <div class="large-10 medium-9 small-12 columns small-centered">
-                            <form role="form" method="POST" class="advert">
-                                {% csrf_token %}
-                                {% if advert_form.non_field_errors %}
-                                    <div class="row non-field-errors">
-                                    {% for error in advert_form.non_field_errors %}
-                                        <p class="form-error text-danger">{{ error }}</p>
-                                    {% endfor %}
-                                    </div>
-                                {% endif %}
-                                <div class="row">
-                                    <div class="small-12 medium-4 small-centered medium-uncentered columns">                                
-                                        {{ advert_form.image.errors }}
-                                        {% if not advert_form.image.value %}
-                                            <img class="profile-img" src="https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png" alt="Example Profile Image">
-
-                                        {% else %}
-                                            <img class="profile-img" src="{{profile_update_form.image.value}}" alt="{{ user.name }} {{ user.surname }} Profile Image">
-                                        {% endif %}
-
-                                            {{ advert_form.media }}
-                                            {{ advert_form.image }}
-                                    </div>
-                                    <div class="small-12 medium-8 large-8 small-centered medium-uncentered columns margin-bottom-30">
-                                        {% for field in advert_form %}
-                                            {% if field != advert_form.image %}
-                                                <div class="form-group {% if field.errors %} has-error {% endif %}">
-                                                    {% if field.errors %}
-                                                        {% for error in field.errors %}
-                                                            <p class="form-error text-danger">{{ error }}</p>
-                                                        {% endfor %}
-                                                    {% endif %}
-                                                    <label for="{{field.id_for_label}}">{{field.name|title}}</label>
-                                                    <div class="advert__{{field.name}}">
-                                                        {% render_field field %}
-                                                    </div>
-                                                </div>
-                                            {% endif %}
-                                        {% endfor %}
-                                        <button class="button button--primary" type="Submit">Save</a>
-                                    </div>
+                    <div class="large-10 medium-9 small-12 columns small-centered">
+                        <form role="form" method="POST" class="advert">
+                            {% csrf_token %}
+                            {% if advert_form.non_field_errors %}
+                                <div class="row non-field-errors">
+                                {% for error in advert_form.non_field_errors %}
+                                    <p class="form-error text-danger">{{ error }}</p>
+                                {% endfor %}
                                 </div>
+                            {% endif %}
+                            <div class="row">
+                                <div class="small-12 medium-4 small-centered medium-uncentered columns">                                
+                                    {{ advert_form.image.errors }}
+                                    {% if not advert_form.image.value %}
+                                        <img class="profile-img" src="https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png" alt="Example Profile Image">
+
+                                    {% else %}
+                                        <img class="profile-img" src="{{profile_update_form.image.value}}" alt="{{ user.name }} {{ user.surname }} Profile Image">
+                                    {% endif %}
+
+                                        {{ advert_form.media }}
+                                        {{ advert_form.image }}
+                                </div>
+                                <div class="small-12 medium-8 large-8 small-centered medium-uncentered columns margin-bottom-30">
+                                    {% for field in advert_form %}
+                                        {% if field != advert_form.image %}
+                                            <div class="form-group {% if field.errors %} has-error {% endif %}">
+                                                {% if field.errors %}
+                                                    {% for error in field.errors %}
+                                                        <p class="form-error text-danger">{{ error }}</p>
+                                                    {% endfor %}
+                                                {% endif %}
+                                                <label for="{{field.id_for_label}}">{{field.name|title}}</label>
+                                                <div class="advert__{{field.name}}">
+                                                    {% render_field field %}
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <button class="button button--primary" type="Submit">Save</a>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
