@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %} Log in {% endblock %}
+
+{% block main %}
+    <div class="page-login pnl">
+        <div class="content-wrap">
+            <div class="row">
+                <div class="large-12 medium-12 small-12 columns">
+                    {% if news_post_list|length > 0 %}
+                        {% for post in news_post_list %}
+                            <div class="cause small-12 columns margin-top-30">
+                                    <div class="cause__wrapper">
+                                        <div class="small-12 medium-3 columns show-for-medium-up">
+                                            <div class="cause__image-wrapper margin-top-15">
+                                                {% if post.image %}
+                                                    <img class="cause__image" src="{{ post.image }}" alt="{{ post.title }} Hero Image"></img>
+                                                {% else %}
+                                                    <img class="profile-img" src="https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png" alt="{{ post.title }} Hero Image">
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="cause__info small-12 medium-6 columns">
+                                            <div clas="col-xs-12 columns">
+                                                <a href="{% url 'news_post_detail' slug=post.slug %}"><h2 class="cause__title">{{ post.title | title }}</h2></a>
+                                                {% if post.content %}
+                                                    <p class="cause__text">{{ post.content | safe | title | truncatechars:350 }}</p>
+                                                {% else %}
+                                                    <p clas="helptext">
+                                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                                        Oops, there seems to be nothing here.
+                                                    </p>                                            
+                                                {% endif %}
+                                            </div>
+                                            <footer class="cause__ads">
+                                                <p class="cause__title"><b><i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>{{ post.created_at|date:"M d, Y"  }}</b></p>
+                                            </footer>
+                                        </div>
+                                        <div class="small-12 medium-3 columns">
+                                            <a href="{% url 'news_post_detail' slug=post.slug %}" class="button button--secondary display-inline-block">
+                                            Read More
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="row">
+                            <div class="small-12">
+                                <h3><i class="fa fa-frown-o margin-right-5" aria-hidden="true"></i> Sorry, we couldn't find any News to display.</h3>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

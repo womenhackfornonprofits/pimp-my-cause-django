@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from profiles.models import PimpUser
+from news.models import NewsPost
 
 
 def homepage(request):
@@ -18,6 +19,10 @@ def homepage(request):
         .filter(usertype=PimpUser.CAUSE)
         .order_by('-date_joined')[:limit]
     )
+    news_post_list = (
+        NewsPost.objects
+        .order_by('created_at')[:limit]
+    )
 
     return render(
         request,
@@ -25,5 +30,6 @@ def homepage(request):
         {
             'featured_marketer_list': featured_marketer_list,
             'featured_cause_list': featured_cause_list,
+            'news_post_list': news_post_list,
         }
     )

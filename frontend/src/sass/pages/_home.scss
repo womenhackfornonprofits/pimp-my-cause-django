@@ -18,19 +18,19 @@
 }
 
 .pnl--light-txt {
-    h1,
+    > h1,
     p {
         color: $colr-txt;
     }
 }
 
 .pnl--dark-txt {
-    h1 {
+    > h1 {
         color: $colr-txt-accent;
     }
 }
 
-.pnl-causes, .pnl-marketing, .pnl-hero, .pnl-signup, .pnl-contact-us, .pnl-talkabout, .pnl-hero  {
+.pnl-causes, .pnl-marketing, .pnl-hero, .pnl-signup, .pnl-contact-us, .pnl-hero  {
     @extend .pnl;
     @extend .pnl--light-txt;
 }

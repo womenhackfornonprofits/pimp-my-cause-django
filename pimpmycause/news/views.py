@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from django.shortcuts import (
     get_object_or_404,
     render,
@@ -10,7 +8,6 @@ from news.models import NewsPost
 
 
 def news_post_detail(request, slug):
-    """Help wanted advert add/edit"""
     news_post = get_object_or_404(
         NewsPost,
         slug=slug,
@@ -22,5 +19,12 @@ def news_post_detail(request, slug):
 
 
 def news_post_list(request):
+    news_post_list = (
+        NewsPost.objects
+        .order_by('created_at')
+    )
 
-    pass
+    context = {'news_post_list': news_post_list}
+
+    return render(request, 'news/news_post_list.html', context)
+

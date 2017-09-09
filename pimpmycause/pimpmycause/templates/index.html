@@ -71,7 +71,7 @@
                             <div class="cube-wrapper">
                                 <div class="cube flip-to-top">
                                     <div class="default-state cube-icon-txt"> <!-- front facing div to start -->
-                                        <a href="#">
+                                        <a href="{% url 'news_post_list' %}">
                                             <img src=" {% static "img/cube3-news-icon.png" %}" alt="Logo for News">
                                             <h3 class="h4 uppercase cube__title">News</h3>
                                         </a><!-- end link -->
@@ -220,7 +220,7 @@
                                 </a>
                                 <div class="summary-title">How it works</div>
                                  <div class="summary-info">
-                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="{% url 'how_it_works' %}" class="read-more">Read more</a>
+                                    <p>Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="{% url 'how_it_works' %}" class="read-more">Read more</a></p>
                                 </div>
                             </li>
                             <li class="summary-purple">
@@ -229,7 +229,7 @@
                                 </a>
                                 <div class="summary-title">Meet the team</div>
                                  <div class="summary-info">
-                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="/meet-the-team/" class="read-more">Read more</a>
+                                    <p>Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="{% url 'team' %}" class="read-more">Read more</a></p>
                                 </div>
                             </li>
                             <li class="summary-green">
@@ -238,7 +238,7 @@
                                 </a>
                                 <div class="summary-title">Challenges</div>
                                 <div class="summary-info">
-                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="#" class="read-more">Read more</a>
+                                    Paul created Pimp My Cause and has led the platform to creating over £15 million of social value, making pro bono marketing accessible.. <a href="#TODO" class="read-more">Read more</a>
                                 </div>
                             </li>
                             <li class="summary-mustard">
@@ -267,15 +267,21 @@
                     <div class="large-12 columns">
                         <h1 class="pnl__title">What we are talking about</h1>
                     </div>
-                    <div class="social-tile__wrapper">
+                    <div class="social-tile__wrapper margin-bottom-30">
                         <div class="social-tile">
-                            <div class="social-tile__heading">
-
+                            <div class="social-tile__body">
+                                {% for post in news_post_list %}
+                                    <article class="margin-top-30">
+                                        <h1 class="text-align-left h4 margin-top-0">{{ post.title | title }}</h1>
+                                        <p class="social-tile__paragraph">{{ post.content | safe | truncatechars:250 }}</p>
+                                        <a href="{% url 'news_post_detail' slug=post.slug %}" class="read-more">Read More</a>
+                                    </article>
+                                {% endfor %}
                             </div>
                             <h4 class="social-tile__title pnl--light-txt">Latest News</h4>
                         </div>
                         <div class="social-tile">
-                            <div class="social-tile__heading">
+                            <div class="social-tile__body">
                                 <!-- tweets from pimp my cause -->
                                 <a class="twitter-timeline" data-lang="en" data-link-color="#dc0e54" data-height="320" data-tweet-limit="3" href="https://twitter.com/pimpmycause">Tweets by @pimpmycause</a> 
                             </div>
