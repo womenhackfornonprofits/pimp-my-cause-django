@@ -10,7 +10,7 @@ $social-title-height: rem-calc(74);
     background-color: $colr-social-tile-bg;
     display: flex;
     flex-direction: column;
-    height: 20em;
+    min-height: 808px;
 
     &__wrapper {
         display: flex;
@@ -28,8 +28,8 @@ $social-title-height: rem-calc(74);
         color: $colr-slider-text;
         font-size: rem-calc(18);
         font-family: $open-sans;
-        color: $colr-slider-text;   
-        flex: auto;    
+        color: $colr-slider-text;
+        flex: auto;
         text-align: left;
         padding: rem-calc(18);
     }
@@ -44,5 +44,5 @@ $social-title-height: rem-calc(74);
         align-items: flex-end;
         color: $colr-txt;
         font-weight: bold;
-    }  
+    }
 }
