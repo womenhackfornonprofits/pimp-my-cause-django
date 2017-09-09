@@ -71,4 +71,13 @@ urlpatterns = [
         r'^search/',
         include('search.urls')
     ),
+    url(
+        r'^news/',
+        include('news.urls')
+    ),
+    url(
+        r'^tinymce/',
+        include('tinymce.urls')
+    ),
+
 ]

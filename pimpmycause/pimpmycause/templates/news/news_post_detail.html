@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% load static widget_tweaks %}
+
+{% block title %} Log in {% endblock %}
+
+{% block main %}
+    <div class="page-login pnl">
+        <div class="content-wrap">
+            <div class="row">
+                <div class="large-12 medium-12 small-12 columns">
+                    <h1 class="pnl__title">{{ news_post.title }}</h1>
+
+                    <div class="medium-8 large-8 small-12 large-centered small-centered columns">
+                        {% if news_post.image %}
+                            <img class="" src="{{news_post.image}}" alt="{{ news_post.title }} News Post Image">
+                        {% endif %}
+                        
+                        {{news_post.content | safe}}
+                        <div class="sharethis-inline-share-buttons"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

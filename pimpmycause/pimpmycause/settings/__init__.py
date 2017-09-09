@@ -33,10 +33,12 @@ INSTALLED_APPS = [
     'custom_user',
     'widget_tweaks',
     'django_filters',
+    'tinymce',
     # pimpmycause imports
     'core',
     'profiles',
-    'adverts'
+    'adverts',
+    'news'
 
 ]
 
@@ -174,13 +176,29 @@ AWS_STORAGE_BUCKET_NAME = get_env("AWS_BUCKET_NAME", "pimpmycause-images")
 S3DIRECT_REGION = get_env("AWS_BUCKET_NAME", 'eu-west-1')
 
 S3DIRECT_DESTINATIONS = {
-    # Limit uploads to jpeg's and png's.
     'user-profile-images': {
         'key': 'uploads/imgs',
         'allowed': ['image/jpeg', 'image/png', 'image/jpg'],
         'cache_control': 'max-age=2592000',
     },
+    'news-post-images': {
+        'key': 'uploads/imgs',
+        'allowed': ['image/jpeg', 'image/png', 'image/jpg'],
+        'cache_control': 'max-age=2592000',
+    }
 }
+
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+    'paste_as_text': True,
+    'width': '100%',
+    'height': 500
+}
+TINYMCE_SPELLCHECKER = True
+
 
 ########
 # i18n #

@@ -11,3 +11,4 @@ django-registration-redux==1.4              # Double opt-in user registration fl
 python-env-utils==0.2.0                     # Deals nicely with environment var typing
 django-widget-tweaks==1.4.1                 # Help render and tweak forms
 django-filter==1.0.2						# Help filter the model queryset by it's fields
+django-tinymce==2.6.0
