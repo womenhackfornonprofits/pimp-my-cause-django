@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "browserify": "^13.1.1",
+    "eslint": "^4.7.2",
     "grunt-sync": "^0.5.2",
     "qwery": "^4.0.0"
   },

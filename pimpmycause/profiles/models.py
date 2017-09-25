@@ -4,6 +4,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.encoding import python_2_unicode_compatible
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 from custom_user.models import AbstractEmailUser
 from django_countries.fields import CountryField
@@ -30,9 +31,20 @@ class PimpUser(AbstractEmailUser):
     name = models.CharField(max_length=24, blank=True)
     surname = models.CharField(max_length=24, blank=True)
     phone = models.CharField(max_length=15, blank=True)
+    image = S3DirectField(dest='user-profile-images', blank=True)
+
+    # location info
     country = CountryField(blank=True)
     city = models.CharField(max_length=85, blank=True)
     postcode = models.CharField(max_length=12, blank=True)
+    latitude = models.IntegerField(
+        validators=[MaxValueValidator(90), MinValueValidator(-90)],
+        blank=True
+    )
+    longtitude = models.IntegerField(
+        validators=[MaxValueValidator(180), MinValueValidator(-180)],
+        blank=True
+    )
 
     # professional info
     position = models.CharField(max_length=100, blank=True)
@@ -47,7 +59,6 @@ class PimpUser(AbstractEmailUser):
     linkedin = models.URLField(max_length=100, blank=True)
     website = models.URLField(max_length=100, blank=True)
 
-    image = S3DirectField(dest='user-profile-images', blank=True)
     featured = models.BooleanField(default=False)
 
     def __str__(self):
@@ -160,7 +171,6 @@ class CauseProfile(models.Model):
     cause_name = models.CharField(max_length=1000)
     mission = models.CharField(max_length=1000, blank=True)
     category = models.IntegerField(choices=CAUSE_CATEGORY_CHOICES, null=True)
-
 
     def __str__(self):
         return '%s' % self.cause_name

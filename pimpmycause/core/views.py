@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from profiles.models import PimpUser
 from news.models import NewsPost
+from core.models import TeamMember
 
 
 def homepage(request):
@@ -24,12 +25,30 @@ def homepage(request):
         .order_by('created_at')[:limit]
     )
 
+    context = {
+        'featured_marketer_list': featured_marketer_list,
+        'featured_cause_list': featured_cause_list,
+        'news_post_list': news_post_list,
+    }
+
     return render(
         request,
         'index.html',
-        {
-            'featured_marketer_list': featured_marketer_list,
-            'featured_cause_list': featured_cause_list,
-            'news_post_list': news_post_list,
-        }
+        context
+    )
+
+
+def team_member_list(request):
+    team_member_list = (
+        TeamMember.objects
+        .values_list('name', 'surname', 'bio', 'image', 'position', 'visual_priority')
+        .order_by('visual_priority')
+    )
+
+    context = {'team_member_list': list(team_member_list)}
+
+    return render(
+        request,
+        'core/team.html',
+        context
     )

@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
-  
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -21,6 +21,7 @@ module.exports = function(grunt) {
         }
       }
     },
+
     babel: {
         options: {
             sourceMap: true,
@@ -28,7 +29,7 @@ module.exports = function(grunt) {
         },
         dist: {
             files: {
-              '../pimpmycause/static/scripts/pimpmycause.min.js':'src/scripts/scripts.js',
+              '../pimpmycause/static/scripts/pimpmycause.min.js': ['src/scripts/scripts.js'],
             }
         }
     },
@@ -38,6 +39,10 @@ module.exports = function(grunt) {
       sass: {
         files: 'src/sass/**/**.scss',
         tasks: ['sass', 'cssmin']
+      },
+      js: {
+        files: '<%= jspaths.src.js %>',
+        tasks: ['babel']
       }
     },
 
@@ -79,6 +84,6 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('default', ['sass', 'cssmin', 'copy']);
+  grunt.registerTask('default', ['sass', 'cssmin', 'copy', 'babel']);
 
 };

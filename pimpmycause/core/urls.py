@@ -4,7 +4,10 @@ from django.views.generic.base import (
     TemplateView,
 )
 
-from core.views import homepage
+from core.views import (
+    homepage,
+    team_member_list,
+)
 
 urlpatterns = [
     url(
@@ -24,7 +27,7 @@ urlpatterns = [
     ),
     url(
         r'^meet-the-team/$',
-        TemplateView.as_view(template_name='core/team.html'),
+        team_member_list,
         name="team"
     ),
     url(
