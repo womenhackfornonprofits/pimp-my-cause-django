@@ -114,10 +114,6 @@
                         <div class="large-12 medium-12 small-12">
                             <h2 class="text-align-left"><i class="fa fa-user-circle-o margin-right-5" aria-hidden="true"></i>About</h2>
                         </div>
-                        <div class="large-12 medium-12 small-12 {% if profile_update_form.bio.errors %}has-error{% endif %}">
-                            <label for="bio">Bio</label>
-                            <textarea name="bio" rows="10" placeholder="{% if user.is_marketer  %}Hi! My name is Sam, I am a London based Marketer.{% else %}Example Cause has been founded in 2007 and our aim is...{%endif%}" required>{{ profile_update_form.bio.value|title}}</textarea>
-                        </div>
 
                         {% if user.is_marketer  %}
 
@@ -159,6 +155,10 @@
                                 <textarea name="mission" rows="10" placeholder="What is your Cause Mission?" required>{{ additional_profile_form.mission.value|title }}</textarea>
                             </div>
                         {% endif %}
+                        <div class="large-12 medium-12 small-12 {% if profile_update_form.bio.errors %}has-error{% endif %}">
+                            <label for="bio">Additional information</label>
+                            <textarea name="bio" rows="10" placeholder="{% if user.is_marketer  %}Hi! My name is Sam, I am a London based Marketer.{% else %}Example Cause has been founded in 2007 and our aim is...{%endif%}">{{ profile_update_form.bio.value|title}}</textarea>
+                        </div>
                         <div class="large-6 medium-6 small-12">
                             <input class="button button--primary margin-top-30" type="submit" value="Update">
                         </div>

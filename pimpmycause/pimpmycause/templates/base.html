@@ -1,3 +1,5 @@
+{% load render_bundle from webpack_loader %}
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -39,8 +41,7 @@
    
         {% block layout %} {% endblock %}
         <!-- Latest compiled and minified JavaScript -->
-
-        <script src="{% static "scripts/pimpmycause.min.js" %}"></script>
+        {% render_bundle 'main' 'js' %}
 
         {% if not debug and not request.user.is_staff %}
         <script>
@@ -52,7 +53,6 @@
            ga('send', 'pageview');
         </script>
         {% endif %}
-        <script async src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
         <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
         <script async type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=59b3d438cd8c7e0012a72571&product=inline-share-buttons"></script>
     </body>

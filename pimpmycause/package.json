@@ -1,0 +1,61 @@
+{
+  "name": "pimpmycause",
+  "version": "1.0.0",
+  "description": "Front end build for Pimp My Cause",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "lint": "scss-lint .",
+    "build": "./node_modules/webpack/bin/webpack.js",
+    "watch": "./node_modules/webpack/bin/webpack.js --watch",
+    "postinstall": "webpack"
+  },
+  "engines": {
+    "node": "6.9.4",
+    "npm": "4.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/womenhackfornonprofits/pimp-my-cause-django.git"
+  },
+  "author": "Pimp My Cause",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/womenhackfornonprofits/pimp-my-cause-django/issues"
+  },
+  "homepage": "https://github.com/womenhackfornonprofits/pimp-my-cause-django#readme",
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "css-loader": "0.26.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta",
+    "file-loader": "^0.9.0",
+    "postcss-loader": "^1.2.2",
+    "sass-loader": "^4.1.1",
+    "scss-lint": "0.0.0",
+    "style-loader": "^0.13.1",
+    "webpack-bundle-tracker": "^0.2.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie < 11"
+  ],
+  "dependencies": {
+    "babel-preset-env": "^1.6.0",
+    "browserify": "^13.1.1",
+    "eslint": "^4.7.2",
+    "exports-loader": "^0.6.3",
+    "grunt-sync": "^0.5.2",
+    "imports-loader": "^0.7.0",
+    "node-sass": "^4.5.3",
+    "qwery": "^4.0.0",
+    "resolve-url-loader": "^1.6.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^3.6.0"
+  },
+  "pre-commit": [
+    "lint"
+  ]
+}

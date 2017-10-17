@@ -1,7 +1,10 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.db.models.signals import post_save
+from django.db.models.signals import (
+    post_save,
+    pre_save
+)
 from django.dispatch import receiver
 from django.utils.encoding import python_2_unicode_compatible
 from django.core.validators import MaxValueValidator, MinValueValidator
@@ -9,7 +12,9 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from custom_user.models import AbstractEmailUser
 from django_countries.fields import CountryField
 from s3direct.fields import S3DirectField
+
 import logging
+import geocoder
 
 log = logging.getLogger("pimpmycause")
 
@@ -37,13 +42,19 @@ class PimpUser(AbstractEmailUser):
     country = CountryField(blank=True)
     city = models.CharField(max_length=85, blank=True)
     postcode = models.CharField(max_length=12, blank=True)
-    latitude = models.IntegerField(
+    latitude = models.DecimalField(
+        max_digits=10,
+        decimal_places=7,
         validators=[MaxValueValidator(90), MinValueValidator(-90)],
-        blank=True
+        blank=True,
+        null=True
     )
-    longtitude = models.IntegerField(
+    longtitude = models.DecimalField(
+        max_digits=10,
+        decimal_places=7,
         validators=[MaxValueValidator(180), MinValueValidator(-180)],
-        blank=True
+        blank=True,
+        null=True
     )
 
     # professional info
@@ -75,6 +86,20 @@ class PimpUser(AbstractEmailUser):
     @property
     def is_cause(self):
         return self.usertype in [PimpUser.CAUSE]
+
+
+@receiver(pre_save, sender=PimpUser)
+def geolocate_user(sender, instance, *args, **kwargs):
+    g = geocoder.google("'{0}', '{1}'".format(instance.city, instance.postcode))
+
+    if g.latlng:
+        instance.latitude = g.latlng[0]
+        instance.longtitude = g.latlng[1]
+    else:
+        instance.latitude = 0
+        instance.longtitude = 0
+
+    log.info("Geolocating user %s", g.latlng)
 
 
 @receiver(post_save, sender=PimpUser)

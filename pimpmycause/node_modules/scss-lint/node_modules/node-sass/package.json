@@ -1,0 +1,69 @@
+{
+  "name": "node-sass",
+  "version": "2.1.1",
+  "libsass": "3.1.0",
+  "description": "Wrapper around libsass",
+  "license": "MIT",
+  "homepage": "https://github.com/sass/node-sass",
+  "repository": "sass/node-sass",
+  "author": {
+    "name": "Andrew Nesbitt",
+    "email": "andrewnez@gmail.com",
+    "url": "http://andrew.github.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "main": "lib/index.js",
+  "bin": {
+    "node-sass": "bin/node-sass"
+  },
+  "gypfile": true,
+  "scripts": {
+    "coverage": "node scripts/coverage.js",
+    "install": "node scripts/install.js",
+    "postinstall": "node scripts/build.js",
+    "pretest": "node_modules/.bin/jshint bin lib test",
+    "test": "node_modules/.bin/mocha test"
+  },
+  "files": [
+    "bin",
+    "binding.gyp",
+    "lib",
+    "scripts",
+    "src",
+    "test"
+  ],
+  "keywords": [
+    "css",
+    "libsass",
+    "preprocessor",
+    "sass",
+    "scss",
+    "style"
+  ],
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "cross-spawn": "^0.2.6",
+    "gaze": "^0.5.1",
+    "get-stdin": "^4.0.1",
+    "meow": "^3.0.0",
+    "mkdirp": "^0.5.0",
+    "mocha": "^2.1.0",
+    "nan": "^1.6.2",
+    "npmconf": "^2.1.1",
+    "object-assign": "^2.0.0",
+    "replace-ext": "0.0.1",
+    "request": "^2.53.0",
+    "sass-graph": "^1.0.3",
+    "semver": "^4.2.2",
+    "shelljs": "^0.3.0",
+    "pangyp": "^2.1.0"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.2",
+    "jscoverage": "^0.5.9",
+    "jshint": "^2.6.0",
+    "mocha-lcov-reporter": "^0.0.1"
+  }
+}

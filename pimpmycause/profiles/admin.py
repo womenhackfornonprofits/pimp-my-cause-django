@@ -31,7 +31,7 @@ class PimpUserAdmin(EmailUserAdmin):
     fieldsets = (
         (None, {'fields': ('email', 'password', 'linkedin', 'twitter', 'name',
                 'surname', 'phone', 'country', 'city', 'postcode', 'position',
-                'usertype', 'bio', 'website', 'image', 'featured')}),
+                'usertype', 'bio', 'website', 'image', 'featured', 'latitude', 'longtitude')}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
