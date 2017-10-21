@@ -2,6 +2,8 @@ from django import forms
 
 from s3direct.widgets import S3DirectWidget
 from django_countries.widgets import CountrySelectWidget
+from mapwidgets.widgets import GooglePointFieldWidget, GoogleStaticOverlayMapWidget
+
 
 from profiles.models import (
     PimpUser,
@@ -18,7 +20,11 @@ class PimpUserRegistrationForm(RegistrationForm):
         model = PimpUser
         fields = ('email', 'password1', 'password2', 'name', 'surname',
                   'phone', 'twitter', 'city', 'postcode',
-                  'usertype', 'position', 'country')
+                  'usertype', 'position', 'country', 'location')
+        widgets = {
+            'location': GooglePointFieldWidget,
+            'city': GoogleStaticOverlayMapWidget,
+        }
 
 
 class PimpUserProfileForm(forms.ModelForm):

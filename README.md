@@ -61,6 +61,10 @@
 	 `npm install`
 
 	 This will get all the dependencies.
+12. Install PostGIS and it's dependencies to help with geo proximity search
+`brew install postgis`
+`brew install gdal`
+`brew install libgeoip`
 
 ## Running the project locally
 1. Go inside the django app directory:

@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
+    'mapwidgets',
     's3direct',
     'django_countries',
     'custom_user',
@@ -85,7 +87,7 @@ WSGI_APPLICATION = 'pimpmycause.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'pimpmycause',
         'USER': '',
         'PASSWORD': '',
@@ -209,6 +211,14 @@ WEBPACK_LOADER = {
         'TIMEOUT': None,
         'IGNORE': ['.+\.hot-update.js', '.+\.map']
     }
+}
+
+MAP_WIDGETS = {
+    "GooglePointFieldWidget": (
+        ("zoom", 15),
+        ("mapCenterLocationName", 'London'),
+    ),
+    "GOOGLE_MAP_API_KEY": "AIzaSyCJgu94uAjXhfeGOc1zTQQYQnbeYPYYLIg"
 }
 
 ########

@@ -1,8 +1,10 @@
-from django.contrib import admin
+from django.contrib.gis import admin
+from django.contrib.gis.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from custom_user.admin import EmailUserAdmin
+from mapwidgets.widgets import GooglePointFieldWidget
 
+from custom_user.admin import EmailUserAdmin
 from .models import (
     PimpUser,
     CauseProfile,
@@ -25,13 +27,16 @@ class MarketerProfileAdmin(admin.StackedInline):
 
 
 class PimpUserAdmin(EmailUserAdmin):
+    formfield_overrides = {
+        models.PointField: {"widget": GooglePointFieldWidget}
+    }
 
     inlines = [MarketerProfileAdmin, CauseProfileAdmin]
 
     fieldsets = (
         (None, {'fields': ('email', 'password', 'linkedin', 'twitter', 'name',
                 'surname', 'phone', 'country', 'city', 'postcode', 'position',
-                'usertype', 'bio', 'website', 'image', 'featured', 'latitude', 'longtitude')}),
+                'usertype', 'bio', 'website', 'image', 'featured', 'location')}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )

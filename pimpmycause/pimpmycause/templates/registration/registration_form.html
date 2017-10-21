@@ -10,10 +10,12 @@
                <h1 class="pnl__title">Register </h1>
                 <div class="row">
                     <div class="large-12 medium-12 small-12 columns">
+                        {{ form }}
+                        {{ form.media }}
                         <form method="POST" action="{% url 'registration_register' %}">
                             {% csrf_token %}
                             {{ form.non_field_errors }}
-
+                            {{ form.media }}
                             <div class="medium-6 large-6 small-12 large-centered small-centered columns">
                                 <div class="row">
                                     <div class="medium-6 large-6 small-12 columns">
