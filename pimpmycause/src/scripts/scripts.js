@@ -7,7 +7,6 @@ const profileImagePreview = require('./components/profile-image-preview');
 const geolocator = require('./components/geolocation')
 const masonry = require('./components/masonry')
 
-const $html = $('html');
-$html.classList.add('js');
+const $html = $('html')[0];
 
-console.log("PIMP")
+$html.classList.add('js');

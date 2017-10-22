@@ -144,9 +144,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'pimpmycause/staticfiles')
 
 LOGIN_REDIRECT_URL = '/profile/edit'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static-bundles'),
+)
 
 CONTEXT_PROCESSORS = [
     "django.contrib.auth.context_processors.auth",
@@ -200,6 +200,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'width': '100%',
     'height': 500
 }
+
 TINYMCE_SPELLCHECKER = True
 
 WEBPACK_LOADER = {
@@ -218,7 +219,7 @@ MAP_WIDGETS = {
         ("zoom", 15),
         ("mapCenterLocationName", 'London'),
     ),
-    "GOOGLE_MAP_API_KEY": "AIzaSyCJgu94uAjXhfeGOc1zTQQYQnbeYPYYLIg"
+    "GOOGLE_MAP_API_KEY": "AIzaSyCUPZH_omt-HoKJ_wzjA33RV7q399G4_yE"
 }
 
 ########

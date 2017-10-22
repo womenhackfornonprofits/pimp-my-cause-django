@@ -1,7 +1,12 @@
-var path = require('path')
-var autoprefixer = require('autoprefixer')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var BundleTracker = require('webpack-bundle-tracker')
+const path = require('path')
+const autoprefixer = require('autoprefixer')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const BundleTracker = require('webpack-bundle-tracker')
+const extractSass = new ExtractTextPlugin({
+    filename: "[name].[contenthash].css",
+    disable: process.env.NODE_ENV === "development"
+});
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   context: __dirname,
@@ -11,7 +16,7 @@ module.exports = {
   ],
   output: {
     filename: '[name]-[hash].js',
-    path: path.resolve('../pimpmycause/static-bundles/')
+    path: path.resolve('./static-bundles/')
   },
   devtool: 'source-map',
   module: {
@@ -35,27 +40,22 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [{
-                loader: "style-loader" // creates style nodes from JS strings
-            }, {
-                loader: "css-loader" // translates CSS into CommonJS
-            }, {
-                loader: "sass-loader" // compiles Sass to CSS
-            }]
+            use: extractSass.extract({
+                use: [{
+                    loader: "css-loader"
+                }, {
+                    loader: "sass-loader"
+                }],
+                // use style-loader in development
+                fallback: "style-loader"
+            })
       },
-      // {
-      //   loader: 'postcss-loader', // postcss loader so we can use autoprefixer
-      //   options: {
-      //     config: {
-      //       path: "postcss.config.js"
-      //     }
-      //   }
-      // },
     ]
   },
   externals: ['window'],
   plugins: [
-    new ExtractTextPlugin({ filename: '[name]-[hash].css', disable: false, allChunks: true }),
-    new BundleTracker({filename: './webpack-stats.json'})
+    extractSass,
+    new BundleTracker({filename: './webpack-stats.json'}),
+    new CleanWebpackPlugin(['./static-bundles/'])
   ]
 }

@@ -2,67 +2,71 @@
 {% load static %}
 
 {% block layout %}
-    <header class="navigation row">
-        <div class="small-12 column js-header-nav">
-            <div class="navigation__wrap content-wrap js-header-list">
-                <a href="{% url 'homepage' %}" class="logo-container">
-                    <img class="logo" src="{% static 'img/logo.png' %}"/>
-                </a>
-                <button class="navigation__button js-nav-toggle hide-for-medium-up"><span class="visuallyhidden">Menu</span><span class="navigation__toggle"></span></button>
+    <header class="navigation row js-header-nav">
+        <div class="column">
+            <div class="small-12 content-wrap js-header-list">
+                <div class="navigation__wrap">
+                    <div class="navigation__header">
+                        <a href="{% url 'homepage' %}" class="logo-container">
+                            <img class="logo" src="{% static 'img/logo.png' %}"/>
+                        </a>
+                        <button class="navigation__button js-nav-toggle hide-for-medium-up"><span class="visuallyhidden">Menu</span><span class="navigation__toggle"></span></button>
+                    </div>
 
-                <nav class="navigation__menu">
-                    <ul class="navigation__list">
-                        <li class="navigation__item navigation__list navigation__menu--has-dropdown"><p>About Us</p>
-                            <ul class="navigation__dropdown">
-                                <li class="navigation__item"><a href="{% url 'team' %}" class="navigation__link">Meet The Team</a></li>
-                                <li class="navigation__item"><a href="{% url 'how_it_works' %}" class="navigation__link">How It Works</a></li>
-                                <li class="navigation__item"><a href="{% url 'who_we_are' %}" class="navigation__link">Who We Are</a></li>
-                                <li class="navigation__item"><a href="{% url 'news_post_list' %}" class="navigation__link">News</a></li>
-                            </ul>
-                        </li>
-                        <li class="navigation__item"><a href="{% url 'search_cause' %}" class="navigation__link">Find a Cause</a></li>
-                        <li class="navigation__item"><a href="{% url 'search_marketer' %}" class="navigation__link">Find a Marketer</a></li>
-                        <li class="navigation__item navigation__menu--has-dropdown"><p>Partnerships</p>
-                            <ul class="navigation__dropdown">
-                                <li class="navigation__item"><a href="#TODO" class="navigation__link">Team Challenges</a></li>
-                                <li class="navigation__item"><a href="{% url 'become_a_partner' %}" class="navigation__link">Become a Partner</a></li>
-                                <li class="navigation__item"><a href="{% url 'become_a_partner' %}#our-partners" class="navigation__link">Our Partners</a></li>
-                            </ul>
-                        </li>
-                        <li class="navigation__item"><a href="{% url 'contact' %}" class="navigation__link">Contact Us</a></li>
-                    </ul>
-                </nav>
-                <div class="navigation__login">
-                    {% if user.is_authenticated %}
-                        {% if user.name %}
-                            <a class="navigation__username" href="{% url 'profile_detail' user_id=user.id %}""> {{ user.name }} {{ user.surname }}
-                                <i class="fa fa-cog" aria-hidden="true"></i>
-                            </a>
-                        {% else %}
-                            <p class="navigation__username"> {{ user.email }}</p>
-                        {% endif %}
-                        <a href="{% url 'logout' %}?next=/" class="navigation__logout">                                                     <i class="fa fa-sign-out margin-right-5" aria-hidden="true"></i>Logout</a>
-                    {% else %}
-                        <ul class="social">
-                            <li class="social__item">
-                                <a href="#" class="social__link">
-                                    <i class="fa fa-linkedin social__icon" aria-hidden="true"></i>
-                                </a>
+                    <nav class="navigation__menu">
+                        <ul class="navigation__list">
+                            <li class="navigation__item navigation__list navigation__menu--has-dropdown"><p>About Us</p>
+                                <ul class="navigation__dropdown">
+                                    <li class="navigation__item"><a href="{% url 'team' %}" class="navigation__link">Meet The Team</a></li>
+                                    <li class="navigation__item"><a href="{% url 'how_it_works' %}" class="navigation__link">How It Works</a></li>
+                                    <li class="navigation__item"><a href="{% url 'who_we_are' %}" class="navigation__link">Who We Are</a></li>
+                                    <li class="navigation__item"><a href="{% url 'news_post_list' %}" class="navigation__link">News</a></li>
+                                </ul>
                             </li>
-                            <li class="social__item">
-                                <a href="#"" class="social__link">
-                                    <i class="fa fa-facebook social__icon" aria-hidden="true"></i>
-                                </a>
+                            <li class="navigation__item"><a href="{% url 'search_cause' %}" class="navigation__link">Find a Cause</a></li>
+                            <li class="navigation__item"><a href="{% url 'search_marketer' %}" class="navigation__link">Find a Marketer</a></li>
+                            <li class="navigation__item navigation__menu--has-dropdown"><p>Partnerships</p>
+                                <ul class="navigation__dropdown">
+                                    <li class="navigation__item"><a href="#TODO" class="navigation__link">Team Challenges</a></li>
+                                    <li class="navigation__item"><a href="{% url 'become_a_partner' %}" class="navigation__link">Become a Partner</a></li>
+                                    <li class="navigation__item"><a href="{% url 'become_a_partner' %}#our-partners" class="navigation__link">Our Partners</a></li>
+                                </ul>
                             </li>
-                            <li class="social__item">
-                                <a href="#" class="social__link">
-                                    <i class="fa fa-twitter social__icon" aria-hidden="true"></i>
-                                </a>
-                            </li>
+                            <li class="navigation__item"><a href="{% url 'contact' %}" class="navigation__link">Contact Us</a></li>
                         </ul>
-                        <a href="{% url 'login' %}" class="button button--primary">Sign in</a>
-                        <a href="{% url 'registration_register' %}" class="navigation__register">Not registered?</a>
-                    {% endif %}
+                    </nav>
+                    <div class="navigation__login">
+                        {% if user.is_authenticated %}
+                            {% if user.name %}
+                                <a class="navigation__username" href="{% url 'profile_detail' user_id=user.id %}""> {{ user.name }} {{ user.surname }}
+                                    <i class="fa fa-cog" aria-hidden="true"></i>
+                                </a>
+                            {% else %}
+                                <p class="navigation__username"> {{ user.email }}</p>
+                            {% endif %}
+                            <a href="{% url 'logout' %}?next=/" class="navigation__logout">                                                     <i class="fa fa-sign-out margin-right-5" aria-hidden="true"></i>Logout</a>
+                        {% else %}
+                            <ul class="social">
+                                <li class="social__item">
+                                    <a href="#" class="social__link">
+                                        <i class="fa fa-linkedin social__icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="#"" class="social__link">
+                                        <i class="fa fa-facebook social__icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="#" class="social__link">
+                                        <i class="fa fa-twitter social__icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <a href="{% url 'login' %}" class="button button--primary">Sign in</a>
+                            <a href="{% url 'registration_register' %}" class="navigation__register">Not registered?</a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>

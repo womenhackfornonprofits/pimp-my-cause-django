@@ -1,0 +1,7 @@
+{% extends "email/base.html" %}
+
+{% block content %}
+    <h2>Welcome to Pimp My Cause!</h2>
+    <p>Before you can login online at pimpmycause.org, we need you to verify your email address by clicking the link below:</p>
+    <p><a href="{{ activation_url }}">{{ activation_url }}</a></p>
+{% endblock %}

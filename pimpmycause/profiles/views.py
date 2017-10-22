@@ -12,6 +12,9 @@ from profiles.forms import (
 )
 from profiles.models import PimpUser
 from adverts.models import Advert
+import logging
+
+log = logging.getLogger("pimpmycause")
 
 
 class RegistrationView(registration_views.RegistrationView):
@@ -73,11 +76,14 @@ def profile_edit(request):
                 instance=request.user.marketerprofile,
             )
         # CAUSE
-        else:
+        elif (request.user.usertype == PimpUser.CAUSE):
             additional_profile_form = CauseUserProfileForm(
                 request.POST,
                 instance=request.user.causeprofile
             )
+        else:
+            log.info('Comething seriously wrong')
+
 
         if profile_update_form.is_valid() and additional_profile_form.is_valid():
 

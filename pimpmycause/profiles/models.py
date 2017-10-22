@@ -6,13 +6,15 @@ from django.db.models.signals import (
 )
 from django.dispatch import receiver
 from django.utils.encoding import python_2_unicode_compatible
+from django.contrib.gis.geos import Point
 
 from custom_user.models import AbstractEmailUser
 from django_countries.fields import CountryField
 from s3direct.fields import S3DirectField
 
 import logging
-# import geocoder
+import geocoder
+
 
 log = logging.getLogger("pimpmycause")
 
@@ -37,10 +39,10 @@ class PimpUser(AbstractEmailUser):
     image = S3DirectField(dest='user-profile-images', blank=True)
 
     # location info
-    country = CountryField(blank=True)
+    country = CountryField(blank=True, blank_label='Select country')
     city = models.CharField(max_length=85, blank=True)
     postcode = models.CharField(max_length=12, blank=True)
-    location = models.PointField(default='POINT(0.0 0.0)')
+    location = models.PointField(blank=True, null=True)
 
     # professional info
     position = models.CharField(max_length=100, blank=True)
@@ -71,6 +73,19 @@ class PimpUser(AbstractEmailUser):
     @property
     def is_cause(self):
         return self.usertype in [PimpUser.CAUSE]
+
+
+@receiver(post_save, sender=PimpUser)
+def geolocate_user(sender, instance, *args, **kwargs):
+
+    if (not instance.location):
+        address = '{}, {}, {}'.format(instance.city, instance.postcode, instance.country)
+        g = geocoder.google(address)
+
+        if g.latlng:
+            instance.location = Point(g.latlng[0], g.latlng[1])
+    else:
+        log.info('User already has a location set %s' % instance.location)
 
 
 @receiver(post_save, sender=PimpUser)
