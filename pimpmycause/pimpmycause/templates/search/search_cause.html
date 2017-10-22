@@ -96,7 +96,7 @@
                                         </div>
                                         <div class="small-12 medium-3 columns">
                                             <div class="cause__ads">
-                                                <p class="cause__title"><b><i class="fa fa-wpforms margin-right-5" aria-hidden="true"></i>{{ cause.ads_count }} Help Wanted {% if cause.ads_count = 1 %}Ad{% else %}Ads{% endif %}</b></p>
+                                                <p class="cause__title"><b><i class="fa fa-wpforms margin-right-5" aria-hidden="true"></i>{{ cause.ads_count }} Help Wanted {% if cause.ads_count is 1 %}Ad{% else %}Ads{% endif %}</b></p>
                                             </div>
                                             <a href="{% url 'profile_detail' user_id=cause.id %}" class="button button--secondary display-inline-block">
                                             See Profile

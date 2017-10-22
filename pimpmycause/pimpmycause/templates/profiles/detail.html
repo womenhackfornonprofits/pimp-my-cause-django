@@ -86,7 +86,7 @@
                                         {% endfor %}
                                     </ul>
                                 {% else %}
-                                    <p clas="helptext">
+                                    <p class="helptext margin-top-0">
                                         <i class="fa fa-comments-o" aria-hidden="true"></i>
                                         {{ profile_user.name | title }} is yet to share this information.
                                     </p>
@@ -98,6 +98,7 @@
                                     <p>{{ profile_user.marketerprofile.experience | title }}</p>
                                 {% else %}
                                     <p class="helptext">
+                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
                                         {{ profile_user.name | title }} is yet to share this information.
                                     </p>
                                 {% endif %}

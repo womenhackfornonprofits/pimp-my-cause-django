@@ -1,0 +1,9 @@
+Welcome to Pimp My Cause!
+
+Before you can login online at pimpmycause.org, we need you to verify your email address by clicking the link below:
+
+http://{{site.domain}}{% url 'registration_activate' activation_key %}
+
+This link will expire in {{expiration_days}} days.
+Thanks,
+Pimp My Cause Team
