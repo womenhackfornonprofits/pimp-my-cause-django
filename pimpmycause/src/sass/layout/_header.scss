@@ -14,6 +14,7 @@
     &__wrap {
 		width: 100%;
 	    display: block;
+        padding: 1em 0;
 
     	@media (min-width: 900px) {
 	    	display: flex;
