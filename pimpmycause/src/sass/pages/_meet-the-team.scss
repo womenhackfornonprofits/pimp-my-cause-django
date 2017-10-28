@@ -17,130 +17,32 @@ $team-individual-img-height: 150px;
 
 .team {
 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 7500px;
-    width: 100%;
-
     &__individual-wrapper {
-     // text-align: center;
-     margin-top: $team-individual-img-height/2;
-     // width: 49%;
-     margin: 70px 0 0;
-    }
-
-    &__individual {
-        //margin: 1em;
-        box-shadow: 0 1px 1px rgba(66, 57, 57, 0.26);
+        margin: 70px 0 0;
+        border-top: $team-individual-img-height/2 solid $white;
         background-color: #F2F2F2;
     }
 
-    // &__individual-name {
-    //     color: $pink;
-    // }
+    &__individual {
+        padding: 1em;
+        box-shadow: 0 1px 1px rgba(66, 57, 57, 0.26);
+    }
+
+    &__individual-name {
+        color: $pink;
+    }
 
     &__individual-role {
-        //font-weight: 100;
         font-style: italic;
-        //padding: 0 60px;
     }
 
     &__individual-image {
         display: block;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
         width: 15em;
-        height: 15em;
+        height: auto;
         margin: 0 auto;
-
+        margin-top: -$team-individual-img-height/2;
+        border: 1px solid #eee;
     }
 }
-
-
-// .team {
-
-// 	&__individual-wrapper {
-// 		text-align: center;
-// 		margin-top: $team-individual-img-height/2;
-// 		width: 49%;
-// 		margin: 70px 0 0;
-// 	}
-
-// 	&__individual {
-// 		margin: 1em;
-// 		box-shadow: 0 1px 1px rgba(66, 57, 57, 0.26);
-// 		background-color: #F2F2F2;
-// 	}
-
-// 	&__individual-name {
-// 		color: $pink;
-// 	}
-
-// 	&__individual-role {
-// 		font-weight: 100;
-// 		font-style: italic;
-// 		padding: 0 60px;
-// 	}
-
-// 	&__individual-bio {
-// 		display: inline-block;
-// 		vertical-align: top;
-// 		padding: 0 20px;
-
-// 		p {
-// 			margin-top: 0;
-// 			text-align: left;
-// 		}
-// 	}
-
-// 	&__individual-img {
-// 		display: inline-block;
-// 		vertical-align: top;
-// 		width: $team-individual-img-height;
-// 		margin-top: -$team-individual-img-height/2;
-// 	}
-// }
-
-// .masonry {
-
-// }
-
-// @media screen and (max-width: 846px) {
-
-// 	.masonry {
-// 		flex-direction: row;
-// 		height: 13500px;
-// 	}
-
-// 	.team__individual-wrapper {
-// 		width: 100%;
-// 	}
-
-// 	.one {
-// 		order: -6;
-// 	}
-
-// 	.two {
-// 		order: -5;
-// 	}
-
-// 	.three {
-// 		order: -4;
-// 	}
-
-// 	.four {
-// 		order: -3;
-// 	}
-
-// 	.five {
-// 		order: -2;
-// 	}
-
-// 	.six {
-// 		order: -1;
-// 	}
-
-// }
 

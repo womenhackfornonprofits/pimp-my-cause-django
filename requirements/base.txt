@@ -1,4 +1,4 @@
-django==1.11.4                             # Our web framework
+django==1.11.4                              # Our web framework
 django-countries==5.0
 dj-database-url==0.4.1
 gunicorn==19.5.0                            # Python WSGI HTTP Server
@@ -6,7 +6,7 @@ psycopg2==2.6.1
 whitenoise==3.1
 django-custom-user==0.6.0                   # Custom user model to allow user auth via email
 wsgiref==0.1.2
-django-s3direct==0.4.2                      # Handles asset uploads to s3
+django-s3direct==1.0.3                      # Handles asset uploads to s3
 django-registration-redux==1.4              # Double opt-in user registration flow
 python-env-utils==0.2.0                     # Deals nicely with environment var typing
 django-widget-tweaks==1.4.1                 # Help render and tweak forms
@@ -16,3 +16,6 @@ django_webpack_loader==0.5.0
 future==0.16.0
 django-map-widgets==0.1.9
 geocoder==1.32.1							# Used for geolocating user
+django_storages==1.6.5						# Hosting all the site images
+django-dotenv==1.4.1						# Read env variables from a file for DEV
+boto==2.48.0								# Talking to AWS

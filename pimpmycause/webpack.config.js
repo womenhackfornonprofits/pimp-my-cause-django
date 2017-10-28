@@ -7,6 +7,7 @@ const extractSass = new ExtractTextPlugin({
     disable: process.env.NODE_ENV === "development"
 });
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context: __dirname,
@@ -56,6 +57,9 @@ module.exports = {
   plugins: [
     extractSass,
     new BundleTracker({filename: './webpack-stats.json'}),
-    new CleanWebpackPlugin(['./static-bundles/'])
+    new CleanWebpackPlugin(['./static-bundles/']),
+    new CopyWebpackPlugin([
+            { from: 'src/img', to: './images' },
+    ]),
   ]
 }

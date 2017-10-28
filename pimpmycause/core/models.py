@@ -12,7 +12,7 @@ class TeamMember(models.Model):
     name = models.CharField(max_length=100, blank=True)
     surname = models.CharField(max_length=100, blank=True)
     position = models.CharField(max_length=100, blank=True)
-    image = S3DirectField(dest='news-post-images', blank=True)
+    image = S3DirectField(dest='team-member-images', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     visual_priority = models.IntegerField(choices=[(x, x) for x in range(1, 20)])
 

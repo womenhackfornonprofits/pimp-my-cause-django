@@ -13,27 +13,25 @@
                 <div class="large-12 medium-12 small-12 columns">
                     <h1 class="pnl__title">Meet The Team</h1>
                         <div class="row">
-                            <div class="team">
-                                {{ team_member_list|json|safe}}
-                                <!-- {% for person in team_member_list %}
+                            <div class="team js-team-wrapper small-12">
+                                {% for person in team_member_list %}
                                     <div class="team__individual-wrapper medium-6 small-12">
                                         <div class="team__individual">
-                                            {% if not profile_update_form.image.value %}
-                                                <div class="team__individual-image" style="background-image: url('https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png')"></div>
+                                            {% if person.image %}
+                                                <img alt="{{ person.name}} {{person.surname}} Image" class="team__individual-image" src="{{ person.image }}"/>
                                             {% else %}
-                                                <div class="team__individual-image" style="background-image: url({{person.image.value}})"/></div>
+                                                <img alt="{{ person.name}} {{person.surname}} Image" class="team__individual-image" src="https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png"/>
                                             {% endif %}
 
-                                            <h2 class="team__individual-name padding-top-30">{{ person.name }} {{ person.surname }}</h2>
-                                            <h3 class="team__individual-role margin-top-0">{{ person.position }}</h3>
+                                            <h2 class="team__individual-name">{{ person.name }} {{ person.surname }}</h2>
+                                            <h3 class="team__individual-role">{{ person.position }}</h3>
                                         
-
                                             <div class="team__individual-bio">
-                                                {{ person.bio|safe }}
+                                                {{ person.bio|safe}}
                                             </div>
                                         </div>
                                     </div>
-                                {% endfor %} -->
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -42,7 +40,7 @@
         </div>
     </section>
     <script>
-        const team_members_list = {{ team_members_list|json }};
+        var team_member_list_json = {{ team_member_list_json|json|safe }};
     </script>
 {% endblock %}
      

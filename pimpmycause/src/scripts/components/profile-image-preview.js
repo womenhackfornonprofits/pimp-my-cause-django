@@ -10,7 +10,6 @@ if ($s3DirectWidget) {
 			const $uploadedImageLinkEl = $('.file-link')[0];
 			$imageEl.src = $uploadedImageLinkEl.href;
 		}, 500);
-
 	});
 }
 

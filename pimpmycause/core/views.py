@@ -39,13 +39,21 @@ def homepage(request):
 
 
 def team_member_list(request):
-    team_member_list = (
+    team_member_list_json = (
         TeamMember.objects
         .values_list('name', 'surname', 'bio', 'image', 'position', 'visual_priority')
         .order_by('visual_priority')
     )
 
-    context = {'team_member_list': list(team_member_list)}
+    team_member_list = (
+        TeamMember.objects
+        .order_by('visual_priority')
+    )
+
+    context = {
+        'team_member_list': team_member_list,
+        'team_member_list_json': list(team_member_list_json)
+    }
 
     return render(
         request,

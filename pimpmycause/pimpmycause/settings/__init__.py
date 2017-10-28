@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_filters',
     'tinymce',
+    'storages',
     'webpack_loader',
     # pimpmycause imports
     'core',
@@ -132,11 +133,13 @@ USE_TZ = True
 
 AUTH_USER_MODEL = 'profiles.PimpUser'
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 #
+# Django storages S3 Boto
+
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 STATIC_URL = '/staticfiles/'
 
@@ -173,22 +176,30 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 DEFAULT_FROM_EMAIL = get_env('DEFAULT_FROM_EMAIL', 'webmaster@localhost')
 
+# AWS Settings
+AWS_ACCESS_KEY_ID = get_env("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = get_env("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = get_env("AWS_STORAGE_BUCKET_NAME")
 
 # User image uploads to S3 bucket
-AWS_STORAGE_BUCKET_NAME = get_env("AWS_BUCKET_NAME", "pimpmycause-images")
-S3DIRECT_REGION = get_env("AWS_BUCKET_NAME", 'eu-west-1')
+S3DIRECT_REGION = get_env("AWS_STORAGE_REGION")
 
 S3DIRECT_DESTINATIONS = {
     'user-profile-images': {
-        'key': 'uploads/imgs',
+        'key': 'uploads/images/user-profile-images',
         'allowed': ['image/jpeg', 'image/png', 'image/jpg'],
         'cache_control': 'max-age=2592000',
     },
     'news-post-images': {
-        'key': 'uploads/imgs',
+        'key': 'uploads/images/news-post-images',
         'allowed': ['image/jpeg', 'image/png', 'image/jpg'],
         'cache_control': 'max-age=2592000',
-    }
+    },
+    'team-member-images': {
+        'key': 'uploads/images/team-member-images',
+        'allowed': ['image/jpeg', 'image/png', 'image/jpg'],
+        'cache_control': 'max-age=2592000',
+    },
 }
 
 TINYMCE_DEFAULT_CONFIG = {

@@ -2,7 +2,6 @@
 
 const $ = require('qwery');
 const $navigation = $('.js-header-nav')[0];
-// const $menuEl = $('.js-header-list')[0]
 
 $navigation.addEventListener('click', function (event) {
     const $srcElement = event.target;
