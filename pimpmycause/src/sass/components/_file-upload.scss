@@ -1,10 +1,12 @@
-.file-input {
+.file-input,
+.file-remove {
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
     overflow: hidden;
     position: absolute;
     z-index: -1;
+
 }
 .inputfile + label {
     display: none;
@@ -33,13 +35,6 @@
     text-align: center;
 }
 
-.file-remove {
-    display: none !important;
-}
-
 .file-link {
-    visibility: hidden;
-    height: 0;
-    padding: 0;
-    margin: 0;
+    color: $black;
 }

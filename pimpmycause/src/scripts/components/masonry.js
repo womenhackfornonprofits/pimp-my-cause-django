@@ -1,23 +1,26 @@
 const $ = require('qwery');
 const ssm = require('simplestatemanager');
-
 const $teamWrapper = $('.js-team-wrapper')[0];
+
 
 ssm.addState({
     id: 'minWidth',
     query: '(min-width: 641px)',
     onLeave: () => {
-        renderSingleColumn();
-        console.log('enter mobile');
+        if ($teamWrapper && team_member_list_json && team_member_list_json.length && team_member_list_json.length > 0) {
+            renderSingleColumn();
+        }
     },
     onEnter: () => {
-        renderTwoColumn();
-        console.log('enter Desktop');
+        if ($teamWrapper && team_member_list_json && team_member_list_json.length && team_member_list_json.length > 0) {
+            renderTwoColumn();
+        }
     },
 });
 
 function prepareTeamData() {
-    if (team_member_list_json && team_member_list_json.length && team_member_list_json.length > 0) {
+
+    if ($teamWrapper && team_member_list_json && team_member_list_json.length && team_member_list_json.length > 0) {
         const expandedTeamMemberList = team_member_list_json.map(teamMeber => expandTeamMemberData(teamMeber));
         const sortedTeamMemberList = expandedTeamMemberList.sort(compareWeight);
         return sortedTeamMemberList ? sortedTeamMemberList : [];

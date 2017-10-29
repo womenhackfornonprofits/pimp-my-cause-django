@@ -17,6 +17,10 @@ button {
     a {
         color: #fff;
     }
+
+    &:hover {
+        opacity: 0.9;
+    }
 }
 
 .button--primary {
