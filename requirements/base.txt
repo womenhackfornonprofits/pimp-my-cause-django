@@ -19,3 +19,4 @@ geocoder==1.32.1							# Used for geolocating user
 django_storages==1.6.5						# Hosting all the site images
 django-dotenv==1.4.1						# Read env variables from a file for DEV
 boto==2.48.0								# Talking to AWS
+
