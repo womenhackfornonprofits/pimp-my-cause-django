@@ -84,7 +84,6 @@ def profile_edit(request):
         else:
             log.info('Comething seriously wrong')
 
-
         if profile_update_form.is_valid() and additional_profile_form.is_valid():
 
             user_details = profile_update_form.save(commit=False)

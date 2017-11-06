@@ -34,12 +34,12 @@
                                 <div class="cube flip-to-top">
                                     <div class="default-state"> <!-- front facing div to start -->
                                         <div class="img-wrapper">
-                                            <img src=" {% static "images/homepage/cube1-marketer-pic.png" %}" alt="Image of Marketer">
+                                            <img src="{% static "images/homepage/cube1-marketer-pic.png" %}" alt="Image of Marketer">
                                         </div>
                                     </div> <!-- end default-state -->
                                     <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
                                         <a href="{% url 'search_marketer' %}">
-                                            <img src=" {% static "images/homepage/cube1-marketer-icon.png" %}" alt="Logo for Marketer">
+                                            <img src="{% static "images/homepage/cube1-marketer-icon.png" %}" alt="Logo for Marketer">
                                             <h3 class="h4 uppercase cube__title">Find a Marketer</h3>
                                         </a><!-- end link -->
                                     </div>
@@ -151,7 +151,7 @@
                                             <div class="slider__img hide-for-small-only" style="background-image: url({{ cause.image }})">
                                             </div>
                                         {% else %}
-                                         <div class="slider__img hide-for-small-only" style="background-image: url(https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png)">
+                                         <div class="slider__img hide-for-small-only" style="background-image: url({% static "images/placeholder/cause-default-image.png" %})">
                                         </div>
                                         {% endif %}
                                     </div>
@@ -181,7 +181,7 @@
                                                 <div class="slider__img hide-for-small-only" style="background-image: url({{ marketer.image }})">
                                                 </div>
                                             {% else %}
-                                             <div class="slider__img hide-for-small-only" style="background-image: url(https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png)">
+                                             <div class="slider__img hide-for-small-only" style="background-image: url({% static "images/placeholder/marketer-default-image.png" %})">
                                             </div>
                                             {% endif %}
                                             <div class="slider__text">
@@ -216,7 +216,7 @@
                         <ul class="small-block-grid-2 large-block-grid-4 summary-boxes">
                             <li class="summary-pink">
                                 <a href="{% url 'how_it_works' %}">
-                                    <img class="summary-img" src=" {% static "images/homepage/summary1-how-it-works.png" %}" alt="How it works">
+                                    <img class="summary-img" src={% static "images/homepage/summary1-how-it-works.png" %} alt="How it works">
                                 </a>
                                 <div class="summary-title">How it works</div>
                                  <div class="summary-info">
@@ -225,7 +225,7 @@
                             </li>
                             <li class="summary-purple">
                                 <a href="{% url 'team' %}">
-                                    <img class="summary-img" src=" {% static "images/homepage/summary2-meet-team.png" %}" alt="Meet the Team">
+                                    <img class="summary-img" src={% static "images/homepage/summary2-meet-team.png" %} alt="Meet the Team">
                                 </a>
                                 <div class="summary-title">Meet the team</div>
                                  <div class="summary-info">
@@ -234,7 +234,7 @@
                             </li>
                             <li class="summary-green">
                                 <a href="#TODO">
-                                    <img class="summary-img" src=" {% static "images/homepage/summary3-challenges.png" %}"alt="Challenges">
+                                    <img class="summary-img" src={% static "images/homepage/summary3-challenges.png" %} alt="Challenges">
                                 </a>
                                 <div class="summary-title">Challenges</div>
                                 <div class="summary-info">
@@ -243,7 +243,7 @@
                             </li>
                             <li class="summary-mustard">
                                 <a href="{% url 'become_a_partner' %}">
-                                    <img class="summary-img" src=" {% static "images/homepage/summary4-partners.png" %}" alt="Partners">
+                                    <img class="summary-img" src={% static "images/homepage/summary4-partners.png" %} alt="Partners">
                                 </a>
                                 <div class="summary-title">Our partners</div>
                                 <div class="summary-info">

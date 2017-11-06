@@ -44,15 +44,19 @@
                                 {% for advert in adverts_list.qs %}
                                     <article class="small-12 columns margin-top-30 clearfix">
                                         <div class="cause__wrapper">
-                                            <div class="small-12 medium-3 columns">
+                                            <div class="small-12 medium-4 columns">
                                                 {% if advert.deadline %}
                                                     <h4 class="h4 cause__title">
                                                         <i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>
                                                         {{ advert.deadline|date:"M d, Y"  }}
                                                     </h4> 
                                                 {% endif %}
+                                                {% if advert.cause_profile.profile_image.value %}
+                                                    <img src="{{advert.cause_profile.profile_image.value}}"/>
+                                                {% else %}
+                                                    <img src={% static "images/placeholder/cause-default-image.png" %}/>
                                             </div>
-                                            <div class="small-12 medium-9 columns">
+                                            <div class="small-12 medium-8 columns">
                                                 <a href=""><h2 class="cause__title">{{ advert.title | title }}</h2></a>
                                                 <h3 class="cause__title">Cause</h3>
                                                 <a href="{% url 'profile_detail' user_id=advert.cause_profile_id %}" class="cause__text">{{ advert.cause_profile | title }}</a>

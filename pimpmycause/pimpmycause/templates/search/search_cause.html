@@ -67,7 +67,7 @@
                                                 {% if cause.image %}
                                                     <img class="cause__image" src="{{ cause.image }}" alt="{{ cause.causeprofile.cause_name }} Profile Image"></img>
                                                 {% else %}
-                                                    <img class="profile-img" src="https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png" alt="{{ cause.causeprofile.cause_name }} Profile Image">
+                                                    <img class="profile-img" src={% static "images/placeholder/cause-default-image.png" %} alt="{{ cause.causeprofile.cause_name }} Profile Image">
                                                 {% endif %}
                                             </div>
                                         </div>

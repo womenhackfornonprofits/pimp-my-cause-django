@@ -20,7 +20,7 @@
                                             {% if person.image %}
                                                 <img alt="{{ person.name}} {{person.surname}} Image" class="team__individual-image" src="{{ person.image }}"/>
                                             {% else %}
-                                                <img alt="{{ person.name}} {{person.surname}} Image" class="team__individual-image" src="https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png"/>
+                                                <img alt="{{ person.name}} {{person.surname}} Image" class="team__individual-image" src={% static "images/placeholder/marketer-default-image.png" %}/>
                                             {% endif %}
 
                                             <h2 class="team__individual-name">{{ person.name }} {{ person.surname }}</h2>

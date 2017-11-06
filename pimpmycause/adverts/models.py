@@ -15,6 +15,7 @@ from profiles.models import (
 class Advert(models.Model):
     title = models.CharField(max_length=100, blank=True)
     description = models.TextField(max_length=1000, blank=True)
+    # TODO DELETE
     image = S3DirectField(dest='user-profile-images', blank=True)
     skills = models.ManyToManyField(
         Skill,
