@@ -7,10 +7,6 @@ SECRET_KEY = 'FAKEforDEV'
 
 ALLOWED_HOSTS = []
 
-# AWS keys
-DJANGO_SETTINGS_MODULE = get_env("DJANGO_SETTINGS_MODULE", "pimpmycause.settings.development")
-
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

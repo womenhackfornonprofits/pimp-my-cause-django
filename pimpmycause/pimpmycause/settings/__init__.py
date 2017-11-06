@@ -5,7 +5,6 @@ Django settings for pimpmycause project.
 import os
 from env_utils import (
     get_env,
-    get_list,
 )
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -17,6 +16,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+LOAD_ENV_FILE = False
 
 # Application definition
 
