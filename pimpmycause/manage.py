@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 import os
 import sys
-import dotenv
+#import dotenv
 
 
 if __name__ == "__main__":
 
     load_env_file = os.environ.get("LOAD_ENV_FILE", False)
 
-    if load_env_file:
-        dotenv.read_dotenv()
+    #if load_env_file:
+        #dotenv.read_dotenv()
 
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pimpmycause.settings.development")
 
