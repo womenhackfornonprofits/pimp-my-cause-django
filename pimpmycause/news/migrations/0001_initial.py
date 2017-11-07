@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import news.fields
+import tinymce.models
 import s3direct.fields
 
 
@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(blank=True, max_length=100)),
                 ('image', s3direct.fields.S3DirectField(blank=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('description', news.fields.HTMLField()),
+                ('description', tinymce.models.HTMLField()),
             ],
         ),
     ]

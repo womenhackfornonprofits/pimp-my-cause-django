@@ -3,7 +3,6 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import tinymce.models
 
 
 class Migration(migrations.Migration):
@@ -13,11 +12,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
-            model_name='newspost',
-            name='content',
-            field=tinymce.models.HTMLField(),
-        ),
         migrations.AlterField(
             model_name='newspost',
             name='slug',
