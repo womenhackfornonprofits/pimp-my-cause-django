@@ -1,0 +1,10 @@
+{
+    "extends": "airbnb-base",
+    "rules": {
+        "indent": ["error", 4]
+    },
+    "globals": {
+        "document": true,
+        "team_member_list_json": true
+    }
+}

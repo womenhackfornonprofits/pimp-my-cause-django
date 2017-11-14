@@ -1,11 +1,9 @@
-'use strict';
-
+require('./components/rotating-cubes');
+require('./components/hamburger-menu');
+require('./components/profile-image-preview');
+require('./components/masonry');
+require('./components/terms-conditions');
 const $ = require('qwery');
-const rotatingCubes = require('./components/rotating-cubes');
-const hamburgerMenu = require('./components/hamburger-menu');
-const profileImagePreview = require('./components/profile-image-preview');
-const masonry = require('./components/masonry')
-const termsConditions = require('./components/terms-conditions')
 
 const $html = $('html')[0];
 

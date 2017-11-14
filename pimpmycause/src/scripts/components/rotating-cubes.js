@@ -1,10 +1,10 @@
 /* ROTATING HOMEPAGE CUBES */
-'use strict';
 const $ = require('qwery');
+
 const cubesList = $('.cube');
 
-setInterval(function () {
+setInterval(() => {
     cubesList.forEach((cube) => {
-    	cube.classList.toggle("active");
-    })
+        cube.classList.toggle('active');
+    });
 }, 2500);

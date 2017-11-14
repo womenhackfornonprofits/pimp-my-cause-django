@@ -1,62 +1,51 @@
 const $ = require('qwery');
 const ssm = require('simplestatemanager');
+
 const $teamWrapper = $('.js-team-wrapper')[0];
 
-
-ssm.addState({
-    id: 'minWidth',
-    query: '(min-width: 641px)',
-    onLeave: () => {
-        if ($teamWrapper && team_member_list_json && team_member_list_json.length && team_member_list_json.length > 0) {
-            renderSingleColumn();
-        }
-    },
-    onEnter: () => {
-        if ($teamWrapper && team_member_list_json && team_member_list_json.length && team_member_list_json.length > 0) {
-            renderTwoColumn();
-        }
-    },
-});
-
-function prepareTeamData() {
-
-    if ($teamWrapper && team_member_list_json && team_member_list_json.length && team_member_list_json.length > 0) {
-        const expandedTeamMemberList = team_member_list_json.map(teamMeber => expandTeamMemberData(teamMeber));
-        const sortedTeamMemberList = expandedTeamMemberList.sort(compareWeight);
-        return sortedTeamMemberList ? sortedTeamMemberList : [];
+function expandTeamMemberData(teamMemberData) {
+    if (!teamMemberData) {
+        return {};
     }
+
+    const expandedTeamMemberData = {
+        name: teamMemberData[0],
+        surname: teamMemberData[1],
+        bio: teamMemberData[2],
+        imageUrl: teamMemberData[3].length ? teamMemberData[3] : 'https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png',
+        position: teamMemberData[4],
+        weight: teamMemberData[5],
+    };
+
+    return expandedTeamMemberData;
 }
 
 function compareWeight(itemA, itemB) {
     return parseInt(itemA.weight, 10) - parseInt(itemB.weight, 10);
 }
 
+function prepareTeamData() {
+    if (!($teamWrapper && team_member_list_json && team_member_list_json.length
+        && team_member_list_json.length > 0)) {
+        return team_member_list_json;
+    }
+    const expandedTeamMemberList = team_member_list_json.map((teamMember) => {
+        return expandTeamMemberData(teamMember);
+    });
+    const sortedTeamMemberList = expandedTeamMemberList.sort(compareWeight);
+
+    return sortedTeamMemberList;
+}
+
+
 function isItemIndexEven(index) {
     return index % 2 === 0;
 }
 
-function expandTeamMemberData(teamMemberData) {
-    if (!teamMemberData){
-        return;
-    }
-    const expandedTeamMemberData = {};
-
-    expandedTeamMemberData.name = teamMemberData[0];
-    expandedTeamMemberData.surname = teamMemberData[1];
-    expandedTeamMemberData.bio = teamMemberData[2];
-    expandedTeamMemberData.imageUrl = teamMemberData[3].length ? teamMemberData[3]: 'https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png';
-    expandedTeamMemberData.position = teamMemberData[4];
-    expandedTeamMemberData.weight = teamMemberData[5];
-
-    return expandedTeamMemberData;
-}
-
 function renderTeamMember(element, teamMemberData) {
-
     if (!teamMemberData) {
         return;
     }
-
     const teamMemberElement = document.createElement('div');
     const teamMemberTemplate = `
         <div class="team__individual-wrapper">
@@ -73,18 +62,17 @@ function renderTeamMember(element, teamMemberData) {
 
     teamMemberElement.innerHTML = teamMemberTemplate;
     element.appendChild(teamMemberElement);
-
 }
 
 function removeAllChildNodes(item) {
+    /* eslint-disable no-param-reassign */
     item.innerHTML = '';
 }
 
 function renderSingleColumn() {
-    console.log('onLeave renderSingleColumn')
     const sortedTeamMemberList = prepareTeamData();
 
-    removeAllChildNodes($teamWrapper)
+    removeAllChildNodes($teamWrapper);
     sortedTeamMemberList.forEach(teamMember => renderTeamMember($teamWrapper, teamMember));
 }
 
@@ -98,17 +86,12 @@ function createNewColumnElement(parentElement) {
 }
 
 function renderTwoColumn() {
-    console.log('onEnter renderTwoColumn')
-
     const sortedTeamMemberList = prepareTeamData();
 
-    removeAllChildNodes($teamWrapper)
+    removeAllChildNodes($teamWrapper);
 
-    const $teamWrapperColumnOne = createNewColumnElement($teamWrapper)
-    const $teamWrapperColumnTwo = createNewColumnElement($teamWrapper)
-
-    console.log($teamWrapperColumnOne)
-    console.log($teamWrapperColumnTwo)
+    const $teamWrapperColumnOne = createNewColumnElement($teamWrapper);
+    const $teamWrapperColumnTwo = createNewColumnElement($teamWrapper);
 
     const evenTeamMemberList = sortedTeamMemberList.reduce((acc, item, index) => {
         if (isItemIndexEven(index)) {
@@ -127,3 +110,21 @@ function renderTwoColumn() {
     evenTeamMemberList.forEach(teamMember => renderTeamMember($teamWrapperColumnOne, teamMember));
     oddTeamMemberList.forEach(teamMember => renderTeamMember($teamWrapperColumnTwo, teamMember));
 }
+
+ssm.addState({
+    id: 'minWidth',
+    query: '(min-width: 641px)',
+    onLeave: () => {
+        if ($teamWrapper && team_member_list_json && team_member_list_json.length
+            && team_member_list_json.length > 0) {
+            renderSingleColumn();
+        }
+    },
+    onEnter: () => {
+        if ($teamWrapper && team_member_list_json && team_member_list_json.length
+            && team_member_list_json.length > 0) {
+            renderTwoColumn();
+        }
+    },
+});
+
