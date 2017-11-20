@@ -1,5 +1,4 @@
-from pimpmycause.settings import *
-
+from pimpmycause.settings import * # noqa
 
 DEBUG = True
 

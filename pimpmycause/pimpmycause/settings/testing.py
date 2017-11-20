@@ -1,4 +1,4 @@
-from pimpmycause.settings import *
+from pimpmycause.settings import * # noqa
 
 # TODO - create a testing app then we can
 # comment this out

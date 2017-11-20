@@ -1,6 +1,8 @@
 from pimpmycause.settings import *
 import dj_database_url
-
+from env_utils import (
+    get_list,
+)
 DEBUG = False
 
 db_from_env = dj_database_url.config(conn_max_age=500)
