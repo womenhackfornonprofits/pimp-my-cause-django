@@ -1,0 +1,8 @@
+tap "homebrew/bundle"
+tap "homebrew/core"
+tap "homebrew/dupes"
+tap "homebrew/services"
+brew "geoip"
+brew "postgis"
+brew "libgeoip"
+brew "gdal"

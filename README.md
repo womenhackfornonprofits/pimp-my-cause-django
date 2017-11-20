@@ -46,7 +46,11 @@
 
 	 `pip install -r requirements.txt`
 
-	 This will get all the dependencies.
+	 This will get all the Python dependencies.
+10. Install all the Geo Django dependencies using [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle)
+	`brew bundle`
+
+	If you can't use Homebew, you can install the dependencies mentioned in the Brewfile manually. [Django GIS Intstructions](https://docs.djangoproject.com/en/1.11/ref/contrib/gis/install/#macos)
 
 9. Create a database locally for the project to run:
 
