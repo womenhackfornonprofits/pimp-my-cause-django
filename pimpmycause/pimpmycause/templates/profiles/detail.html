@@ -12,7 +12,7 @@
                         <div class="marketer large-4 medium-4 small-10 small-centered large-centered columns">
                             <div class="profile__img-wrapper text-align-center">
                                 {% if not profile_user.image %}
-                                    <img class="profile__img" src="images/placeholder/marketer-default-image.png" alt="Example Profile Image">
+                                    <img class="profile__img" src="/staticfiles/images/placeholder/marketer-default-image.png" alt="Example Profile Image">
 
                                 {% else %}
                                     <img class="profile__img" src="{{profile_user.image}}" alt="{{ profile_user.name }} {{ profile_user.surname }} Profile Image">
