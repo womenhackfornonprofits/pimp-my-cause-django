@@ -138,7 +138,7 @@ AUTH_USER_MODEL = 'profiles.PimpUser'
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 #
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.ManifestStaticFilesStorage'
 
 STATIC_URL = '/staticfiles/'
 
@@ -181,7 +181,7 @@ AWS_SECRET_ACCESS_KEY = get_env("AWS_SECRET_ACCESS_KEY", 'todo')
 AWS_STORAGE_BUCKET_NAME = get_env("AWS_STORAGE_BUCKET_NAME", 'todo')
 
 # User image uploads to S3 bucket
-S3DIRECT_REGION = get_env("AWS_STORAGE_REGION")
+S3DIRECT_REGION = get_env("AWS_STORAGE_REGION", 'todo')
 
 S3DIRECT_DESTINATIONS = {
     'user-profile-images': {

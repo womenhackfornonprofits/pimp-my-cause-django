@@ -1,10 +1,10 @@
 from pimpmycause.settings import * # noqa
 
-DEBUG = True
+DEBUG = False
 
 SECRET_KEY = 'FAKEforDEV'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 LOGGING = {
     'version': 1,
