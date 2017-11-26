@@ -65,7 +65,7 @@
                                                     <h4 class="marketer__text  margin-bottom-15">{{ marketer.position | title |truncatechars:50 }}</h4>
                                                 {% endif %}
                                                 {% if marketer.city %}
-                                                    <p class="marketer__text"><i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ marketer.city | title }}</p>
+                                                    <p class="marketer__text"><i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ marketer.city | title }} ({{ marketer.distance.km }} km)</p>
                                                 {% endif %}
                                                 {% if marketer.bio %}
                                                     <p class="marketer__text margin-bottom-30">{{ marketer.bio|truncatechars:200 }}</p>

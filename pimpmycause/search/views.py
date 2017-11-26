@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Count
+from django.contrib.gis.db.models.functions import Distance
 
 from profiles.models import PimpUser
 from adverts.models import Advert
@@ -19,7 +20,10 @@ def marketer_list(request):
             usertype=PimpUser.MARKETER,
             is_active=True
         )
-        .order_by('-date_joined')
+        .annotate(
+            distance=Distance('location', request.user.location)
+        )
+        .order_by('distance', '-date_joined')
     )
 
     context = {'marketer_list': marketer_list}
