@@ -44,7 +44,10 @@ def cause_list(request):
         .annotate(
             ads_count=Count('causeprofile__advert')
         )
-        .order_by('-date_joined')
+        .annotate(
+            distance=Distance('location', request.user.location)
+        )
+        .order_by('distance', '-date_joined')
     )
 
     context = {
