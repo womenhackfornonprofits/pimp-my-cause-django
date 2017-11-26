@@ -55,6 +55,7 @@
                                                     <img src="{{advert.cause_profile.profile_image.value}}"/>
                                                 {% else %}
                                                     <img src={% static "images/placeholder/cause-default-image.png" %}/>
+                                                {% endif %}
                                             </div>
                                             <div class="small-12 medium-8 columns">
                                                 <a href=""><h2 class="cause__title">{{ advert.title | title }}</h2></a>
