@@ -59,7 +59,7 @@
                                             {% endif %}
                                         </div>
                                         <div>
-                                            <h2 class="marketer__title"> {{ marketer.name | title }} {{ marketer.surname | title }}</h2>
+                                            <h2 class="marketer__title"> {{ marketer.name | title |truncatechars:16  }}</h2>
                                             <a href="{% url 'profile_detail' user_id=marketer.id %}" class="marketer__info">
                                                 {% if marketer.position %}
                                                     <h4 class="marketer__text  margin-bottom-15">{{ marketer.position | title |truncatechars:50 }}</h4>
