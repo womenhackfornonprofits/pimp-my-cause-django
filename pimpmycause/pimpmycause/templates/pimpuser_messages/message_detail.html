@@ -7,10 +7,22 @@
 {% block main %}
     <section class="pnl pnl--dark-txt row">
         <div class="content-wrap">
-            <div class="medium-12 large-12 small-10 large-centered small-centered columns margin-top-45">
+            <div class="medium-12 large-12 small-10 large-centered small-centered columns margin-top-45 margin-bottom-30">
                 <div class="row">
-                    <h1 class="">New Message</h1>
-                    <div class="small-12 columns small-centered">
+                    <div class="small-12 medium-8 large-6 small-centered medium-centered large-centered columns">
+                        <article class="message margin-bottom-30">
+                            <h1 class="h3 text-align-left margin-bottom-0">{{message.sender | title}}</h1>
+                            <h2 class="h4 text-align-left margin-top-0">{{message.subject}}</h2>
+
+                            <div class="row">
+                                <div class="message__img-wrapper small-2 columns">
+                                    <img class="message__img" src="{{message.sender.image}}" alt="Example Profile Image">
+                                </div>
+                                <div class="message__body small-10 columns margin-bottom-30">
+                                    {{message|safe}}
+                                </div>
+                            </div>
+                        </article>
                         <form role="form" method="POST" class="message">
                             {% csrf_token %}
                             {% if message_form.non_field_errors %}
@@ -22,12 +34,6 @@
                             {% endif %}
                             <div class="row">
                                 <div class="small-12 medium-6 large-6 small-centered medium-centered large-centered columns margin-bottom-30">
-                                    <div class="form-group {% if field.errors %} has-error {% endif %}">
-                                        <label for="recipient">To:</label>
-                                        <div class="message__recipient">
-                                            <input type="text" name="recipient" id="recipient" maxlength="100" disabled placeholder="{{recipient|title}}">
-                                        </div>
-                                    </div>
                                     {% for field in message_form %}
                                         <div class="form-group {% if field.errors %} has-error {% endif %}">
                                             {% if field.errors %}
@@ -41,7 +47,9 @@
                                             </div>
                                         </div>
                                     {% endfor %}
-                                    <button class="button button--primary" type="Submit">Send</button>
+                                </div>
+                                <div class="small-12 columns margin-bottom-30">
+                                    <button class="button button--primary" type="Submit">Reply</button>
                                 </div>
                             </div>
                         </form>

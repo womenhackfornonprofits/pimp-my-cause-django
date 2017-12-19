@@ -32,7 +32,7 @@
                                                 
                                                 <div class="cause__text margin-bottom-30 clearfix">{{ message.message | safe | title | truncatechars:150 }}</div>
                                                 
-                                                <a href="TODO" class="button button--primary margin-top-15">Read more</a>
+                                                <a href="{% url 'message_detail' message_id=message.id %}" class="button button--primary margin-top-15">Read more</a>
                                             </div> 
                                         </div>
                                     </article>

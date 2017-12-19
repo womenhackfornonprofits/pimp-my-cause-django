@@ -47,7 +47,10 @@ class PimpUserProfileForm(forms.ModelForm):
         model = PimpUser
         fields = ('bio', 'linkedin', 'website', 'twitter', 'name', 'surname',
                   'phone', 'image', 'city', 'country', 'position')
-        widgets = {'country': CountrySelectWidget()}
+        widgets = {
+            'country': CountrySelectWidget(),
+            'bio': forms.Textarea(attrs={'rows': 15, 'cols': 15}),
+        }
 
 
 class MarketerUserProfileForm(forms.ModelForm):

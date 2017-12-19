@@ -106,7 +106,7 @@
                         
                         {% if not user.id == profile_user.id %}
                             <div class="large-8 medium-8 small-12 columns small-centered large-centered margin-top-30">
-                                <a href="TODO" class="button button--primary">Message {{ profile_detail_form.name.value }}</a>
+                                <a href="{% url 'new_message' recipient_id=profile_user.id %}" class="button button--primary">Message {{ profile_detail_form.name.value }}</a>
                             </div>
                         {% endif %}
                     </div>

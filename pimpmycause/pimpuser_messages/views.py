@@ -52,7 +52,7 @@ def pimpuser_messages_sent(request):
 
 @login_required
 def pimpuser_message_form(request, recipient_id, message_id=None):
-    """Message send/view"""
+    """Message send"""
     if message_id:
         message = get_object_or_404(
             PimpUserMessage,
@@ -61,18 +61,17 @@ def pimpuser_message_form(request, recipient_id, message_id=None):
     else:
         message = None
 
+    recipient = get_object_or_404(
+        PimpUser,
+        id=recipient_id
+    )
+
     if request.method == 'POST':
         sender = get_object_or_404(
             PimpUser,
             id=request.user.id
         )
-        print("sender", sender)
 
-        recipient = get_object_or_404(
-            PimpUser,
-            id=recipient_id
-        )
-        print("recipient", recipient)
         message_form = PimpUserMessageForm(
             request.POST,
             instance=message
@@ -91,6 +90,18 @@ def pimpuser_message_form(request, recipient_id, message_id=None):
 
     return render(request, 'pimpuser_messages/message_form.html', {
         'message_form': message_form,
+        'recipient': recipient
     })
 
 
+@login_required
+def pimpuser_message_detail(request, message_id):
+    """Message view"""
+    message = get_object_or_404(
+        PimpUserMessage,
+        id=message_id,
+    )
+
+    return render(request, 'pimpuser_messages/message_detail.html', {
+        'message': message,
+    })
