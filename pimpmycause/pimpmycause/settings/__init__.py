@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'core',
     'profiles',
     'adverts',
-    'news'
+    'news',
+    'pimpuser_messages'
 
 ]
 

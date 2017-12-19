@@ -37,6 +37,9 @@
                     </nav>
                     <div class="navigation__login">
                         {% if user.is_authenticated %}
+                                <a class="navigation__username" href="{% url 'inbox' %}"">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </a>
                             {% if user.name %}
                                 <a class="navigation__username" href="{% url 'profile_detail' user_id=user.id %}""> {{ user.name }} {{ user.surname }}
                                     <i class="fa fa-cog" aria-hidden="true"></i>

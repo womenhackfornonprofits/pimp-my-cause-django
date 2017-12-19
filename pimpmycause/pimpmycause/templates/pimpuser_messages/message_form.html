@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% load static widget_tweaks %}
+
+{% block title %} New Message {% endblock %}
+
+{% block main %}
+    <section class="pnl pnl--dark-txt row">
+        <div class="content-wrap">
+            <div class="medium-12 large-12 small-10 large-centered small-centered columns margin-top-45">
+                <div class="row">
+                    <h1 class="pnl__title">New Message<h1>
+                    <div class="large-10 medium-9 small-12 columns small-centered">
+                        <form role="form" method="POST" class="message">
+                            {% csrf_token %}
+                            {% if message_form.non_field_errors %}
+                                <div class="row non-field-errors">
+                                {% for error in message_form.non_field_errors %}
+                                    <p class="form-error text-danger">{{ error }}</p>
+                                {% endfor %}
+                                </div>
+                            {% endif %}
+                            <div class="row">
+                                <div class="small-12 medium-8 large-8 small-centered medium-uncentered columns margin-bottom-30">
+                                    {% for field in message_form %}
+                                        <div class="form-group {% if field.errors %} has-error {% endif %}">
+                                            {% if field.errors %}
+                                                {% for error in field.errors %}
+                                                    <p class="form-error text-danger">{{ error }}</p>
+                                                {% endfor %}
+                                            {% endif %}
+                                            <label for="{{field.id_for_label}}">{{field.name|title}}</label>
+                                            <div class="message__{{field.name}}">
+                                                {% render_field field %}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    <button class="button button--primary" type="Submit">Save</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
