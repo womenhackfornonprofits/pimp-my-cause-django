@@ -89,7 +89,7 @@
                                                         <p class="cause__text"><i class="fa fa-tags margin-right-5" aria-hidden="true"></i>{{ cause.causeprofile.get_category_display | title }}
                                                     {% endif %}
                                                     {% if cause.city %}
-                                                        | <i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ cause.city | title }} ({{ cause.distance.km }} km)</p>
+                                                        | <i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ cause.city | title }} {% if cause.distance %} ({{ cause.distance.km }} km) {% endif %}</p>
                                                     {% endif %}
                                                 </footer>
                                             </div>

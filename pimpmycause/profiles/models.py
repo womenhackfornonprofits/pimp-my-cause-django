@@ -74,6 +74,14 @@ class PimpUser(AbstractEmailUser):
     def is_cause(self):
         return self.usertype in [PimpUser.CAUSE]
 
+    @property
+    def is_geolocated(self):
+        if (not self.location):
+            print("NO LOCATION")
+            return False
+        else:
+            return True
+
 
 @receiver(post_save, sender=PimpUser)
 def geolocate_user(sender, instance, *args, **kwargs):
