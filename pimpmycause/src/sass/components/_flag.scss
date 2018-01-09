@@ -1,0 +1,9 @@
+.flag {
+    vertical-align: top;
+
+    &--new {
+        background-color: $pink;
+        color: $white;
+        padding: 3px 7px;
+    }
+}

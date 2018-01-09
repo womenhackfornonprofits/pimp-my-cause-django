@@ -18,4 +18,4 @@ class AdvertForm(forms.ModelForm):
 
     class Meta:
         model = Advert
-        fields = ('title', 'description', 'image', 'skills', 'deadline')
+        fields = ('title', 'description', 'skills', 'deadline')

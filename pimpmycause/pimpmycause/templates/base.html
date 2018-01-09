@@ -33,6 +33,9 @@
    
         {% block layout %} {% endblock %}
         <!-- Latest compiled and minified JavaScript -->
+        <script>
+            var authenticated_user_country = {{ user.country.name }};
+        </script>
         {% render_bundle 'main' 'js' %}
 
         {% if not debug and not request.user.is_staff %}

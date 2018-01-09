@@ -66,8 +66,10 @@ def profile_edit(request):
     """Edit user profile."""
 
     if request.method == 'POST':
-        profile_update_form = PimpUserProfileForm(request.POST,
-                                                  instance=request.user)
+        profile_update_form = PimpUserProfileForm(
+            request.POST,
+            instance=request.user
+        )
 
         # MARKETER
         if (request.user.usertype == PimpUser.MARKETER):

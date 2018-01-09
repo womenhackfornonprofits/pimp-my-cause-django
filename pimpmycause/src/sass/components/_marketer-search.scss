@@ -55,15 +55,15 @@ $colr-marketer: pink;
 	}
 
 	&__image {
-		padding-top: 4em;
-		height: 240px;
-		width: 240px;
+		padding-top: 100%;
+		width: 100%;
 		background-color: $silver-grey;
 		background-size: cover;
 		background-position: 50% 50%;
 		border-radius: 50%;
 		margin: auto;
 	}
+
 	&__image-wrapper {
 		padding: 1em;
 	}
@@ -86,7 +86,10 @@ $colr-marketer: pink;
 
 	&__wrapper:hover &__info {
 		background: $green;
-		display: block;
+		display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: baseline;
 
 	}
 

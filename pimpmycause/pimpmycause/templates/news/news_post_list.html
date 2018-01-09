@@ -3,6 +3,18 @@
 {% block title %} Log in {% endblock %}
 
 {% block main %}
+    <section class="pnl pnl--primary">
+        <div class="content-wrap">
+             <div class="row">
+                <div class="large-12 medium-12 small-12 columns">
+                    <h1 class="pnl__title">Latest News</h1>
+                    <div class="row clearfix">
+                        <p class="small-12 medium-8 large-8 large-centered medium-centered column text-align-center pnl--light-txt">What we are talking about.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <div class="page-login pnl">
         <div class="content-wrap">
             <div class="row">
@@ -22,18 +34,13 @@
                                         </div>
                                         <div class="cause__info small-12 medium-6 columns">
                                             <div clas="col-xs-12 columns">
-                                                <a href="{% url 'news_post_detail' slug=post.slug %}"><h2 class="cause__title">{{ post.title | title }}</h2></a>
-                                                {% if post.content %}
-                                                    <p class="cause__text">{{ post.content | safe | title | truncatechars:350 }}</p>
-                                                {% else %}
-                                                    <p clas="helptext">
-                                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                                        Oops, there seems to be nothing here.
-                                                    </p>                                            
+                                                <a href="{% url 'news_post_detail' slug=post.slug %}"><h2 class="cause__title h4">{{ post.title | title }}</h2></a>
+                                                {% if post.intro %}
+                                                    <p class="cause__text">{{ post.intro }}</p>  
                                                 {% endif %}
                                             </div>
-                                            <footer class="cause__ads">
-                                                <p class="cause__title"><b><i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>{{ post.created_at|date:"M d, Y"  }}</b></p>
+                                            <footer>
+                                                <p class="cause__title small"><i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>{{ post.created_at|date:"M d, Y"  }}</p>
                                             </footer>
                                         </div>
                                         <div class="small-12 medium-3 columns">

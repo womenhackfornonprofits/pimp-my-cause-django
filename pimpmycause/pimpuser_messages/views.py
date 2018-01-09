@@ -1,13 +1,21 @@
 from django.shortcuts import (
     get_object_or_404,
     render,
-    redirect
+    redirect,
+    HttpResponseRedirect
 )
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 
 from profiles.models import PimpUser
-from pimpuser_messages.models import PimpUserMessage
-from pimpuser_messages.forms import PimpUserMessageForm
+from pimpuser_messages.models import (
+    PimpUserMessage,
+    PimpUserMessageReply
+)
+from pimpuser_messages.forms import (
+    PimpUserMessageForm,
+    PimpUserMessageReplyForm,
+)
 
 
 @login_required
@@ -83,7 +91,7 @@ def pimpuser_message_form(request, recipient_id, message_id=None):
             message.recipient = recipient
             message.save()
 
-            return redirect('inbox')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
     else:
         message_form = PimpUserMessageForm(instance=message)
@@ -97,11 +105,58 @@ def pimpuser_message_form(request, recipient_id, message_id=None):
 @login_required
 def pimpuser_message_detail(request, message_id):
     """Message view"""
+    if request.method == 'GET':
+        message = get_object_or_404(
+            PimpUserMessage,
+            id=message_id,
+        )
+
+        message.read_at = timezone.now()
+        message.save()
+
+        replies_list = PimpUserMessageReply.objects.filter(
+            message=message
+        )
+
+        for reply in replies_list:
+            reply.read_at = timezone.now()
+            reply.save()
+
+        return render(request, 'pimpuser_messages/message_detail.html', {
+            'message': message,
+            'replies_list': replies_list
+        })
+
+
+@login_required
+def pimpuser_message_reply(request, message_id):
+    """Reply to a messag"""
     message = get_object_or_404(
         PimpUserMessage,
         id=message_id,
     )
 
-    return render(request, 'pimpuser_messages/message_detail.html', {
-        'message': message,
-    })
+    conversation = None
+
+    if request.method == 'POST':
+        message_form = PimpUserMessageReplyForm(
+            request.POST,
+            instance=conversation
+        )
+
+        if message_form.is_valid():
+
+            conversation = message_form.save(commit=False)
+            conversation.message = message
+            conversation.reply_sender = request.user
+            conversation.save()
+
+            return redirect(
+                'message_detail',
+                message_id=message_id
+            )
+
+    if request.method == 'GET':
+        return render(request, 'pimpuser_messages/message_detail.html', {
+            'message': message
+        })

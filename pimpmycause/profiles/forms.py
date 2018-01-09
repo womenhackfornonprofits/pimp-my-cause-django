@@ -31,7 +31,7 @@ class PimpUserRegistrationForm(RegistrationForm):
         model = PimpUser
         fields = ('name', 'surname', 'email', 'position', 'password1', 'password2',
                   'phone', 'twitter', 'city', 'postcode',
-                  'country', 'usertype')
+                  'country', 'usertype', 'cause_name')
 
 
 class PimpUserProfileForm(forms.ModelForm):
@@ -46,7 +46,7 @@ class PimpUserProfileForm(forms.ModelForm):
     class Meta:
         model = PimpUser
         fields = ('bio', 'linkedin', 'website', 'twitter', 'name', 'surname',
-                  'phone', 'image', 'city', 'country', 'position')
+                  'cause_name', 'phone', 'image', 'city', 'country', 'position')
         widgets = {
             'country': CountrySelectWidget(),
             'bio': forms.Textarea(attrs={'rows': 15, 'cols': 15}),
@@ -69,4 +69,4 @@ class CauseUserProfileForm(forms.ModelForm):
 
     class Meta:
         model = CauseProfile
-        fields = ('mission', 'category', 'cause_name')
+        fields = ('mission', 'category')

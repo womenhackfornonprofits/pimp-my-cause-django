@@ -8,37 +8,38 @@
 
     <section class="page-about pnl">
         <div class="content-wrap">
-             <div class="row">
-                <div class="large-12 medium-12 small-12">
-                    <div class="row">
-                        <h1 class="pnl__title">Search Help Wanted Ads</h1>
-                        <h3 class="margin-top-0 small-10 small-centered medium-8 medium-centered columns">Your help is needed! Browse or search our listings of help wanted ads to find an inspiring project that you can donate your talent to.</h3>
-                    </div>
-                    <div class="row">
-                        <div class="large-3 medium-4 small-12 columns margin-top-30">
-                            <form action="" method="get" class="margin-bottom-30 margin-top-30">
-                                    <div class="small-10">
-                                        <h4 class="text-align-left small-12 margin-top-0">Filters:</h4>
+            <div class="large-12 medium-12 small-12 row">
+                <div class="pnl__border--bottom margin-bottom-30 padding-bottom-30 clearfix">
+                    <h1 class="pnl__title">Help Wanted Ads</h1>
+                    <h2 class="margin-top-0 small-10 small-centered medium-8 medium-centered columns body-text text-align-center">Your help is needed! Browse or search our listings of help wanted ads to find an inspiring project that you can donate your talent to.</h2>
+                </div>
+                <div class="row">
+                    <aside class="large-3 medium-4 small-12 columns margin-top-30">
+                       <form action="" method="get" class="margin-bottom-30 margin-top-30">
+                            <div class="large-12 medium-12 small-12">
+                                <h4 class="text-align-left small-12 margin-top-0">Filters:</h4>
+                                <div class="filters__item small-12">
+                                    <label for="description__contains">Description</label>
+                                    {{ adverts_list.form.description__icontains }}
+                                </div>
+                                <div class="filters__item small-12">
+                                    <label for="title__contains">Title</label>
+                                    {{ adverts_list.form.title__icontains }}
+                                </div>
+                                <div class="filters__item small-12">
+                                    <label for="skill__contains">Skills</label>
+                                    {{ adverts_list.form.skills__contains }}
+                                </div>
+                                <div class="filters__item text-align-left">
+                                    <input class="button button--primary" type="submit" value="Apply Filters">
+                                </div>
+                            </div>
+                        </form>
+                    </aside>
 
-                                        <div class="filters__item small-12">
-                                            <label for="description__contains">Description</label>
-                                            {{ adverts_list.form.description__icontains }}
-                                        </div>
-                                        <div class="filters__item small-12">
-                                            <label for="title__contains">Title</label>
-                                            {{ adverts_list.form.title__icontains }}
-                                        </div>
-                                        <div class="filters__item small-12">
-                                            <label for="skill__contains">Skills</label>
-                                            {{ adverts_list.form.skills__contains }}
-                                        </div>
-                                        <div class="filters__item text-align-left">
-                                            <input class="button button--primary" type="submit" value="Apply Filters">
-                                        </div>
-                                    </div>
-                            </form>
-                        </div>
-                        <div class="large-9 medium-8 small-12 columns">
+                    <main class="large-9 medium-8 small-12 columns">
+                        <div class="row">
+    
 
                             {% if adverts_list.qs|length > 0 %}
                                 {% for advert in adverts_list.qs %}
@@ -46,10 +47,10 @@
                                         <div class="cause__wrapper">
                                             <div class="small-12 medium-4 columns">
                                                 {% if advert.deadline %}
-                                                    <h4 class="h4 cause__title">
+                                                    <p class="h5 cause__title">
                                                         <i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>
                                                         {{ advert.deadline|date:"M d, Y"  }}
-                                                    </h4> 
+                                                    </p> 
                                                 {% endif %}
                                                 {% if advert.cause_profile.profile_image.value %}
                                                     <img src="{{advert.cause_profile.profile_image.value}}"/>
@@ -58,20 +59,22 @@
                                                 {% endif %}
                                             </div>
                                             <div class="small-12 medium-8 columns">
-                                                <a href=""><h2 class="cause__title">{{ advert.title | title }}</h2></a>
-                                                <h3 class="cause__title">Cause</h3>
-                                                <a href="{% url 'profile_detail' user_id=advert.cause_profile_id %}" class="cause__text">{{ advert.cause_profile | title }}</a>
+                                                <a href="">
+                                                    <h1 class="h3 cause__title">{{ advert.title | title }}</h1>
+                                                </a>
+                                                <h2 class="h5 cause__title">Cause</h2>
+                                                <a href="{% url 'profile_detail' user_id=advert.cause_profile_id %}">{{ advert.cause_profile | title }}</a>
 
-                                                <h3 class="cause__title">Description</h3>
+                                                <h2 class="h5 cause__title">Description</h3>
                                                 {% if advert.description %}
-                                                    <p class="cause__text">{{ advert.description | title }}</p>
+                                                    <p>{{ advert.description | title }}</p>
                                                 {% else %}
                                                     <p class="helptext margin-top-0">
                                                         <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                                        {{ profile_user.causeprofile.cause_name | title }} is yet to share this information.
+                                                        {{ profile_user.cause_name | title }} is yet to share this information.
                                                     </p>                                            
                                                 {% endif %}
-                                                <h3 class="cause__title">Skills Required</h3>
+                                                <h2 class="h5 cause__title">Skills Required</h3>
 
                                                 {% if advert.skills.all|length %}
                                                     <ul class="unstyled-list text-align-left">
@@ -98,7 +101,7 @@
                                                         </div>
                                                     </div>                                                
                                                 {% else %}
-                                                    <a href="{% url 'new_message' recipient_id=advert.cause_profile_id %}" class="button button--primary margin-top-15">Message {{ profile_detail_form.name.value }}</a>
+                                                    <a href="{% url 'new_message' recipient_id=advert.cause_profile_id %}" class="button button--primary margin-top-15">Message {{ advert.name.value }}</a>
 
                                                 {% endif %}
                                             </div> 

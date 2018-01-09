@@ -13,17 +13,75 @@
                         <article class="message margin-bottom-30">
                             <h1 class="h3 text-align-left margin-bottom-0">{{message.sender | title}}</h1>
                             <h2 class="h4 text-align-left margin-top-0">{{message.subject}}</h2>
-
                             <div class="row">
-                                <div class="message__img-wrapper small-2 columns">
-                                    <img class="message__img" src="{{message.sender.image}}" alt="Example Profile Image">
+                                <div class="message__img-wrapper small-2 columns margin-bottom-30">
+                                    <img class="message__img" src="{{message.sender.image}}" alt="{{message.sender.name}} {{message.sender.surname}} Profile Image">
                                 </div>
                                 <div class="message__body small-10 columns margin-bottom-30">
-                                    {{message|safe}}
+                                    <header class="margin-bottom-15">
+                                        <span class="helptext display-block">
+                                            <i class="fa fa-clock-o margin-right-5" aria-hidden="true"></i>
+                                            {{message.sent_at}}
+                                        </span>
+                                    </header>
+                                    <main>{{message|safe}}</main>
                                 </div>
                             </div>
+                            {% for reply in replies_list %}
+                                {% if reply.reply_sender == message.sender %}
+                                    <div class="row">
+                                        <div class="message__img-wrapper small-2 columns">
+                                            <img class="message__img" src="{{message.sender.image.value}}" alt="Example Profile Image">
+                                        </div>
+                                        <div class="message__body small-10 columns margin-bottom-30 margin-top-30">
+                                            <header class="margin-bottom-15">
+                                                {% if reply.unread %}
+                                                <p class="helptext margin-bottom-0">
+                                                    new!
+                                                </p>
+
+                                                {% endif %}
+                                                <span class="helptext display-block">
+                                                    <i class="fa fa-clock-o margin-right-5" aria-hidden="true"></i>
+                                                    {{reply.sent_at}}
+                                                </span>
+                                            </header>
+                                            <main>{{reply.reply_body|safe}}</main>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="row">
+                                        <div class="message__body small-10 columns margin-bottom-30 margin-top-30">
+                                            <header class="margin-bottom-15">
+                                                {% if reply.unread %}
+                                                <p class="helptext margin-bottom-0">
+                                                    new!
+                                                </p>
+
+                                                {% endif %}
+                                                <span class="helptext display-block">
+                                                    <i class="fa fa-clock-o margin-right-5" aria-hidden="true"></i>
+                                                    {{reply.sent_at}}
+                                                </span>
+                                            </header>
+                                            <main>{{reply.reply_body|safe}}</main>
+                                        </div>
+                                        {% if not reply.reply_sender.image.value %}
+                                            <div class="message__img-wrapper small-2 columns">
+                                                <img class="message__img" src="{{reply.reply_sender.image.value}}" alt="{{reply.reply_sender.name}} {{reply.reply_sender.surname}} Profile Image">
+                                            </div>
+                                        {% else %}
+                                            <div class="message__img-wrapper small-2 columns">
+                                                <img class="profile__img" src="{% static "images/placeholder/marketer-default-image.png" %}" alt="{{reply.reply_sender.name}} {{reply.reply_sender.surname}} Profile Image">
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+
+                            {% endfor %}
                         </article>
-                        <form role="form" method="POST" class="message">
+
+                        <form action="{% url 'message_reply' message_id=message.id %}" method="POST">
                             {% csrf_token %}
                             {% if message_form.non_field_errors %}
                                 <div class="row non-field-errors">
@@ -33,7 +91,7 @@
                                 </div>
                             {% endif %}
                             <div class="row">
-                                <div class="small-12 medium-6 large-6 small-centered medium-centered large-centered columns margin-bottom-30">
+                                <div class="small-12 columns margin-bottom-30">
                                     {% for field in message_form %}
                                         <div class="form-group {% if field.errors %} has-error {% endif %}">
                                             {% if field.errors %}
@@ -47,6 +105,7 @@
                                             </div>
                                         </div>
                                     {% endfor %}
+                                    <textarea name="reply_body" id="reply_body" rows="15" cols="15" required=""></textarea>
                                 </div>
                                 <div class="small-12 columns margin-bottom-30">
                                     <button class="button button--primary" type="Submit">Reply</button>

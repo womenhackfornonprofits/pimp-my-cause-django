@@ -25,14 +25,19 @@
                                                         {{ message.sent_at|date:"M d, Y"  }}
                                                     </h1> 
                                                 {% endif %}
-                                                    <a class="h4 cause__title" href="{% url 'profile_detail' user_id=message.sender.id %}">{{ message.sender }} {% if message.sender.causeprofile.cause_name %} from {{message.sender.causeprofile.cause_name }} {% endif %}</a>
+                                                <a class="h4 cause__title" href="{% url 'profile_detail' user_id=message.sender.id %}">{{ message.sender }} {% if message.sender.causeprofile.cause_name %} from {{message.sender.causeprofile.cause_name }} {% endif %}</a>
                                             </div>
                                             <div class="small-12 medium-8 columns">
-                                                <h2 class="cause__title">{{ message.subject | title }} {% if message.unread %}(new!){% endif %}</h2>
+                                                <h2 class="cause__title clearfix">
+                                                    {{ message.subject | title }}
+                                                    {% if message.unread %}
+                                                        <span class="helptext margin-bottom-0 flag flag--new">new</span>
+                                                    {% endif %}
+                                                </h2>
                                                 
-                                                <div class="cause__text margin-bottom-30 clearfix">{{ message.message | safe | title | truncatechars:150 }}</div>
+                                                <div class="cause__text margin-bottom-30">{{ message.message | truncatechars:150  }}</div>
                                                 
-                                                <a href="{% url 'message_detail' message_id=message.id %}" class="button button--primary margin-top-15">Read more</a>
+                                                <a href="{% url 'message_detail' message_id=message.id %}" class="button button--primary margin-top-30">Read more</a>
                                             </div> 
                                         </div>
                                     </article>
@@ -40,7 +45,7 @@
                             {% else %}
                                 <div class="row">
                                     <div class="small-12">
-                                        <h3><i class="fa fa-frown-o margin-right-5" aria-hidden="true"></i> No sent messages.</h3>
+                                        <h3><i class="fa fa-frown-o margin-right-5" aria-hidden="true"></i> No new messages.</h3>
                                     </div>
                                 </div>
                             {% endif %}

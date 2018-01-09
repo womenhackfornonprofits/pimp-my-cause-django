@@ -37,19 +37,22 @@
                     </nav>
                     <div class="navigation__login">
                         {% if user.is_authenticated %}
-                                <a class="navigation__username" href="{% url 'inbox' %}"">
+                            <div>
+                                {% if user.name %}
+                                    <a class="navigation__username" href="{% url 'profile_detail' user_id=user.id %}"> {{ user.name }}
+                                        <i class="fa fa-cog" aria-hidden="true"></i>
+                                    </a>
+                                {% else %}
+                                    <p class="navigation__username"> {{ user.email }}</p>
+                                {% endif %}
+                                <a class="navigation__email" href="{% url 'inbox' %}">
+                                    <span class="navigation__email--unread">10</span>
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                 </a>
-                            {% if user.name %}
-                                <a class="navigation__username" href="{% url 'profile_detail' user_id=user.id %}""> {{ user.name }} {{ user.surname }}
-                                    <i class="fa fa-cog" aria-hidden="true"></i>
-                                </a>
-                            {% else %}
-                                <p class="navigation__username"> {{ user.email }}</p>
-                            {% endif %}
+                            </div>
                             <a href="{% url 'logout' %}?next=/" class="navigation__logout">                                                     <i class="fa fa-sign-out margin-right-5" aria-hidden="true"></i>Logout</a>
                         {% else %}
-                            <ul class="social">
+                            <!-- <ul class="social">
                                 <li class="social__item">
                                     <a href="#" class="social__link">
                                         <i class="fa fa-linkedin social__icon" aria-hidden="true"></i>
@@ -65,7 +68,7 @@
                                         <i class="fa fa-twitter social__icon" aria-hidden="true"></i>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> -->
                             <a href="{% url 'login' %}" class="button button--primary">Sign in</a>
                             <a href="{% url 'registration_register' %}" class="navigation__register">Not registered?</a>
                         {% endif %}

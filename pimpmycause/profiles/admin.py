@@ -34,17 +34,23 @@ class PimpUserAdmin(EmailUserAdmin):
     inlines = [MarketerProfileAdmin, CauseProfileAdmin]
 
     fieldsets = (
-        (None, {'fields': ('email', 'password', 'linkedin', 'twitter', 'name',
-                'surname', 'phone', 'country', 'city', 'postcode', 'position',
-                'usertype', 'bio', 'website', 'image', 'featured', 'location')}),
+        (None, {
+            'fields': (
+                'email', 'password', 'linkedin', 'twitter', 'name',
+                'surname', 'cause_name', 'phone', 'country', 'city', 'postcode', 'position',
+                'usertype', 'bio', 'website', 'image', 'featured', 'location'
+            )
+        }),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
-    list_display = ['name', 'email', 'usertype', 'date_joined', 'is_active']
-    search_fields = ['name', 'email', 'position']
+    list_display = ['name', 'surname', 'email', 'cause_name', 'usertype', 'date_joined',
+                    'is_active']
+    search_fields = ['name', 'email', 'position', 'cause_name']
 
 
 # Register your models here.
 admin.site.register(PimpUser, PimpUserAdmin)
+
 admin.site.register(Qualification)
 admin.site.register(Skill)
