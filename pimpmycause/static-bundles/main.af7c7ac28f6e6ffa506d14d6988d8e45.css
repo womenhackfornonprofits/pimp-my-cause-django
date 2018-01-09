@@ -2490,6 +2490,26 @@ button {
 .fa-facebook-square {
   color: #3b5998; }
 
+.news {
+  border-bottom: 1px solid #F2F2F2;
+  padding: 1em 0; }
+  .news__wrapper {
+    position: relative;
+    display: block; }
+  .news__title {
+    text-align: left;
+    color: #441144; }
+  .news__text {
+    color: #441144;
+    text-align: left;
+    margin-top: 0; }
+  .news__info {
+    background: #FEFEFE; }
+  .news__image-wrapper {
+    padding: 15px;
+    align-content: center;
+    background-color: #E1E0E7; }
+
 .pnl, .pnl-causes, .pnl-marketing, .pnl-hero, .pnl-signup, .pnl-contact-us, .pnl-summary {
   position: relative;
   padding-bottom: 6em; }
@@ -2878,4 +2898,4 @@ a {
   width: 100%;
   height: auto; }
 
-/*# sourceMappingURL=main.2a49f4d8c408f564ba511bb6c5a3fbe5.css.map*/
+/*# sourceMappingURL=main.af7c7ac28f6e6ffa506d14d6988d8e45.css.map*/

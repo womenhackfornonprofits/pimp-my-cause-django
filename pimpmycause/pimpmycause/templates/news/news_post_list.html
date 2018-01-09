@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
-{% block title %} Log in {% endblock %}
+{% block title %} News {% endblock %}
+{% load static %}
 
 {% block main %}
     <section class="pnl pnl--primary">
@@ -21,26 +22,26 @@
                 <div class="large-12 medium-12 small-12 columns">
                     {% if news_post_list|length > 0 %}
                         {% for post in news_post_list %}
-                            <div class="cause small-12 columns margin-top-30">
-                                    <div class="cause__wrapper">
-                                        <div class="small-12 medium-3 columns show-for-medium-up">
-                                            <div class="cause__image-wrapper margin-top-15">
+                            <div class="news small-12 columns margin-top-30">
+                                    <div class="news_wrapper">
+                                        <div class="small-12 medium-2 columns show-for-medium-up">
+                                            <div class="news__image-wrapper margin-top-0">
                                                 {% if post.image %}
-                                                    <img class="cause__image" src="{{ post.image }}" alt="{{ post.title }} Hero Image"></img>
+                                                    <img src="{{ post.image }}" alt="{{ post.title }} Hero Image"></img>
                                                 {% else %}
-                                                    <img class="profile-img" src="images/placeholder/marketer-default-image.png" alt="{{ post.title }} Hero Image">
+                                                    <img src="{% static 'images/homepage/cube3-news-icon.png' %}" alt="{{ post.title }} Hero Image">
                                                 {% endif %}
                                             </div>
                                         </div>
-                                        <div class="cause__info small-12 medium-6 columns">
+                                        <div class="news__info small-12 medium-7 columns">
                                             <div clas="col-xs-12 columns">
-                                                <a href="{% url 'news_post_detail' slug=post.slug %}"><h2 class="cause__title h4">{{ post.title | title }}</h2></a>
+                                                <a href="{% url 'news_post_detail' slug=post.slug %}"><h2 class="news__title h4 margin-top-0">{{ post.title | title }}</h2></a>
                                                 {% if post.intro %}
-                                                    <p class="cause__text">{{ post.intro }}</p>  
+                                                    <p class="news__text">{{ post.intro }}</p>  
                                                 {% endif %}
                                             </div>
                                             <footer>
-                                                <p class="cause__title small"><i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>{{ post.created_at|date:"M d, Y"  }}</p>
+                                                <p class="news__title small"><i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>{{ post.created_at|date:"M d, Y"  }}</p>
                                             </footer>
                                         </div>
                                         <div class="small-12 medium-3 columns">
