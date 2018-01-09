@@ -1,0 +1,32 @@
+$colr-marketer: pink;
+
+.news {
+    border-bottom: 1px solid $silver-grey;
+    padding: 1em 0;
+
+    &__wrapper {
+        position: relative;
+        display: block;
+    }
+
+    &__title {
+        text-align: left;
+        color: $purple;
+    }
+
+    &__text {
+        color: $purple;
+        text-align: left;
+        margin-top: 0;
+    }
+
+    &__info {
+        background: $white;
+    }
+
+    &__image-wrapper {
+        padding: 15px;
+        align-content: center;
+        background-color: $grey;
+    }
+}
