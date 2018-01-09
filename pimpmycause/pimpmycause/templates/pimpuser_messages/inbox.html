@@ -32,6 +32,10 @@
                                                     {{ message.subject | title }}
                                                     {% if message.unread %}
                                                         <span class="helptext margin-bottom-0 flag flag--new">new</span>
+                                                    {% else %}
+                                                        {% if message.number_of_unread_replies > 0 %}
+                                                            <span class="helptext margin-bottom-0 flag flag--new">({{message.number_of_unread_replies}})</span>
+                                                        {% endif %}
                                                     {% endif %}
                                                 </h2>
                                                 

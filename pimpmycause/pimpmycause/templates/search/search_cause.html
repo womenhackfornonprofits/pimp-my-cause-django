@@ -16,7 +16,6 @@
                         <a href="{% url 'search_ads' %}" class="button button--primary">Search Help Wanted Ads</a>
                     </span>
                 </div>
-                <div class="row">
                     <aside class="large-3 medium-4 small-12 columns margin-top-30">
                         <form action="" method="get" class="margin-bottom-30 margin-top-30 column">
                             <h4 class="text-align-left small-12 margin-top-0">Filters:</h4>
@@ -52,13 +51,12 @@
                     </aside>
 
                     <main class="large-9 medium-8 small-12 columns">
-                        <div class="row">
-                            {% if cause_list.qs|length > 0 %}
-                            <div class="row">
+                        {% if cause_list.qs|length > 0 %}
+                            
                                {% for cause in cause_list.qs %}
-                                <div class="cause small-12 columns margin-top-30">
-                                    <div class="cause__wrapper">
-                                        <div class="small-12 medium-3 columns show-for-medium-up">
+                                <section class="cause margin-top-30 row">
+                                    <div class="cause__wrapper small-12 columns">
+                                        <div class="small-12 medium-3 columns show-for-large-up">
                                             <div class="cause__image-wrapper margin-top-15">
                                                 {% if cause.image %}
                                                     <img class="cause__image" src="{{ cause.image }}" alt="{{ cause.causeprofile.cause_name }} Profile Image"></img>
@@ -67,10 +65,12 @@
                                                 {% endif %}
                                             </div>
                                         </div>
-                                        <div class="cause__info small-12 medium-6 columns">
+                                        <div class="cause__info small-12 medium-7 large-6 columns">
                                             <div clas="col-xs-12 columns">
-                                                <a href="{% url 'profile_detail' user_id=cause.id %}"><h2 class="cause__title">{{ cause.causeprofile.cause_name | title }}</h2></a>
-                                                <h3 class="cause__title">Our Mission</h3>
+                                                <a href="{% url 'profile_detail' user_id=cause.id %}">
+                                                    <h1 class="cause__title h3 margin-bottom-0 margin-top-0">{{ cause.cause_name | title }}</h1>
+                                                    </a>
+                                                <h2 class="cause__title h5 margin-top-15 margin-bottom-15">Our Mission</h2>
                                                 {% if cause.causeprofile.mission %}
                                                     <p>{{ cause.causeprofile.mission | title }}</p>
                                                 {% else %}
@@ -90,7 +90,7 @@
                                                 </footer>
                                             </div>
                                         </div>
-                                        <div class="small-12 medium-3 columns">
+                                        <div class="small-12 medium-5 large-3 columns">
                                             <div class="cause__ads">
                                                 <p class="cause__title"><b><i class="fa fa-wpforms margin-right-5" aria-hidden="true"></i>{{ cause.ads_count }} Help Wanted {% if cause.ads_count is 1 %}Ad{% else %}Ads{% endif %}</b></p>
                                             </div>
@@ -100,10 +100,8 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </section>
                                 {% endfor %}
-                            </div>
-
                             {% else %}
                                 <div class="row">
                                     <div class="small-12">
@@ -113,7 +111,6 @@
                             {% endif %}
                         </main>
                     </div>
-                </div> 
             </div> 
         </div>
     </section> 

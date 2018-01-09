@@ -34,7 +34,7 @@
                             </li>
                             <li class="navigation__item"><a href="{% url 'contact' %}" class="navigation__link">Contact Us</a></li>
                         </ul>
-                        <ul class="navigation__menu navigation__list hide-medium hide-large">
+                        <ul class="navigation__list navigation__menu--hide-large">
                             {% if user.is_authenticated %}
                                 <li class="navigation__item">
                                     <a class="navigation__link" href="{% url 'profile_detail' user_id=user.id %}"> {{ user.name }}
@@ -62,7 +62,9 @@
                                 </a>
                                 <a class="navigation__email" href="{% url 'inbox' %}">
                                     <span class="visuallyhidden">Inbox</span>
-                                    <span class="navigation__email--unread">10</span>
+                                    {% if unread_message_count > 0 %}
+                                        <span class="navigation__email--unread">{{unread_message_count}}</span>
+                                    {% endif %}
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                 </a>
                             </div>

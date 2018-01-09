@@ -6,6 +6,11 @@ from django.shortcuts import (
 )
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
+from django.db.models import (
+    Count,
+    Case,
+    When,
+)
 
 from profiles.models import PimpUser
 from pimpuser_messages.models import (
@@ -29,6 +34,13 @@ def pimpuser_messages_inbox(request):
         PimpUserMessage.objects
         .filter(
             recipient=user
+        )
+        .annotate(
+            number_of_unread_replies=Count(
+                Case(
+                    When(pimpusermessagereply__read_at__isnull=True, then=1),
+                )
+            )
         )
         .order_by('sent_at')
     )
