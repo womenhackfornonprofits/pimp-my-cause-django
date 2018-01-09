@@ -9,8 +9,8 @@ button {
     border-radius: 2em;
     width: auto;
     margin: .5em 0;
-    padding: .5em 2.3em;
-    font-size: 1em;
+    padding: .5em .7em;
+    font-size: .8em;
     font-weight: 100;
     color: #fff;
 
@@ -26,6 +26,12 @@ button {
         opacity: 0.5;
         background: #ccc;
         border-color: #ccc;
+    }
+
+
+    @media only screen and (min-width: 550px) {
+        padding: .5em 1.3em;
+        font-size: 1em;
     }
 }
 

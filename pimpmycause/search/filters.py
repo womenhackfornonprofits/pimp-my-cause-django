@@ -31,7 +31,7 @@ class CauseFilter(django_filters.FilterSet):
             'city': ['icontains'],
             'country': ['exact'],
             'bio': ['icontains'],
-            'causeprofile__cause_name': ['icontains'],
+            'cause_name': ['icontains'],
             'causeprofile__category': ['icontains'],
             'causeprofile__mission': ['icontains'],
         }
@@ -45,5 +45,4 @@ class HelpWantedAdsFilter(django_filters.FilterSet):
             'skills': ['contains'],
             'description': ['icontains'],
             'title': ['icontains'],
-            'skills': ['contains'],
         }

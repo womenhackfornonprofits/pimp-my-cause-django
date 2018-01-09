@@ -15,7 +15,7 @@
                         
                         {% csrf_token %}
                         <div class="row">
-                            <div class="large-6 medium-6 small-10 small-centered columns margin-bottom-30">  
+                            <div class="large-6 medium-8 small-10 small-centered columns margin-bottom-30">  
                                 {% if profile_update_form.errors %}
                                     <h5 class="text-danger"><i class="fa fa-exclamation-triangle margin-right-5" aria-hidden="true"></i>Please correct the following errors:</h4>
                                         <ul class="unstyled-list text-align-left">
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="large-4 medium-4 small-10 small-centered medium-uncentered columns {% if profile_update_form.image.errors %} has-error {% endif %}">  
+                            <div class="large-4 medium-4 small-6 small-centered medium-uncentered columns {% if profile_update_form.image.errors %} has-error {% endif %}">  
 
                                 {% if not profile_update_form.image.value %}
                                     <img class="profile-img " src={% static "images/placeholder/marketer-default-image.png" %} alt="Example Profile Image">

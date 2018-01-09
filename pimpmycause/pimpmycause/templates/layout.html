@@ -25,7 +25,7 @@
                             </li>
                             <li class="navigation__item"><a href="{% url 'search_cause' %}" class="navigation__link">Find a Cause</a></li>
                             <li class="navigation__item"><a href="{% url 'search_marketer' %}" class="navigation__link">Find a Marketer</a></li>
-                            <li class="navigation__item navigation__menu--has-dropdown"><p>Partnerships</p>
+                            <li class="navigation__menu--has-dropdown"><p>Partnerships</p>
                                 <ul class="navigation__dropdown">
                                     <li class="navigation__item"><a href="#TODO" class="navigation__link">Team Challenges</a></li>
                                     <li class="navigation__item"><a href="{% url 'become_a_partner' %}" class="navigation__link">Become a Partner</a></li>
@@ -34,19 +34,43 @@
                             </li>
                             <li class="navigation__item"><a href="{% url 'contact' %}" class="navigation__link">Contact Us</a></li>
                         </ul>
+                        <ul class="navigation__list navigation__menu--hide-large">
+                            {% if user.is_authenticated %}
+                                <li class="navigation__item">
+                                    <a class="navigation__link" href="{% url 'profile_detail' user_id=user.id %}"> {{ user.name }}
+                                        <i class="fa fa-cog" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a class="navigation__link" href="{% url 'inbox' %}">Inbox</a>
+                                </li>
+                                <li class="navigation__item">
+                                    <a class="navigation__link" href="{% url 'logout' %}?next=/">Logout</a>
+                                </li>
+                            {% else %}
+                                <li class="navigation__item">
+                                    <a href="{% url 'login' %}" class="navigation__link">Sign in</a>
+                                </li>
+                            {% endif %}
+                        </ul>
                     </nav>
                     <div class="navigation__login">
                         {% if user.is_authenticated %}
-                            {% if user.name %}
-                                <a class="navigation__username" href="{% url 'profile_detail' user_id=user.id %}""> {{ user.name }} {{ user.surname }}
+                            <div>
+                                <a class="navigation__username" href="{% url 'profile_detail' user_id=user.id %}"> {{ user.name }}
                                     <i class="fa fa-cog" aria-hidden="true"></i>
                                 </a>
-                            {% else %}
-                                <p class="navigation__username"> {{ user.email }}</p>
-                            {% endif %}
+                                <a class="navigation__email" href="{% url 'inbox' %}">
+                                    <span class="visuallyhidden">Inbox</span>
+                                    {% if unread_message_count > 0 %}
+                                        <span class="navigation__email--unread">{{unread_message_count}}</span>
+                                    {% endif %}
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </a>
+                            </div>
                             <a href="{% url 'logout' %}?next=/" class="navigation__logout">                                                     <i class="fa fa-sign-out margin-right-5" aria-hidden="true"></i>Logout</a>
                         {% else %}
-                            <ul class="social">
+                            <!-- <ul class="social">
                                 <li class="social__item">
                                     <a href="#" class="social__link">
                                         <i class="fa fa-linkedin social__icon" aria-hidden="true"></i>
@@ -62,7 +86,7 @@
                                         <i class="fa fa-twitter social__icon" aria-hidden="true"></i>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> -->
                             <a href="{% url 'login' %}" class="button button--primary">Sign in</a>
                             <a href="{% url 'registration_register' %}" class="navigation__register">Not registered?</a>
                         {% endif %}
