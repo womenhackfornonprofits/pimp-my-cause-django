@@ -35,8 +35,16 @@
 
 
 body {
+    margin: 0;
+    overflow: auto;
     font-family: $open-sans;
     font-weight: $font-weight;
+
+    &.nav--active {
+        position: relative;
+        height: 100vh;
+        overflow-y: hidden;
+    }
 }
 
 a {

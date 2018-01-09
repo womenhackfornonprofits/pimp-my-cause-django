@@ -85,3 +85,21 @@
         list-style: none;
     }
 }
+
+.hide-medium {
+    @media (min-width: 40.0625em) and (max-width: 64.0625em){
+        display: none !important;
+    }
+}
+
+.hide-small {
+    @media (min-width: 0) and (max-width: 40.0624em) {
+        display: none !important;
+    }
+}
+
+.hide-large {
+    @media (min-width: 64.0625em) {
+        display: none !important;
+    }
+}
