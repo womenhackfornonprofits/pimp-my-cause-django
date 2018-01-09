@@ -19,7 +19,6 @@ log = logging.getLogger("pimpmycause")
 
 class RegistrationView(registration_views.RegistrationView):
     """The Registration view."""
-
     template_name = 'registration/registration_form.html'
     form_class = PimpUserRegistrationForm
     success_url = '/accounts/registration/complete/'
