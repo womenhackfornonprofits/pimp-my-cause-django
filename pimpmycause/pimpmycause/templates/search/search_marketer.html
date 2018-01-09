@@ -64,7 +64,7 @@
                                                 <a href="{% url 'profile_detail' user_id=marketer.id %}" class="marketer__info">
                                                     <div>
                                                         {% if marketer.position %}
-                                                            <h4 class="marketer__text margin-bottom-15">{{ marketer.position | title |truncatechars:50 }}</h4>
+                                                            <b><h4 class="marketer__text margin-bottom-15 body-text">{{ marketer.position | title |truncatechars:35 }}</h4></b>
                                                         {% endif %}
                                                         {% if marketer.city %}
                                                             <p class="marketer__text small"><i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ marketer.city | title }} {% if marketer.distance %} ({{ marketer.distance.km }} km){% endif %}</p>

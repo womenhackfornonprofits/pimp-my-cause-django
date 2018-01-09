@@ -9,26 +9,23 @@
         <div class="content-wrap">
                 <div class="medium-12 large-12 small-10 large-centered small-centered columns margin-top-45">
                     <div class="row">
-                        <div class="marketer large-4 medium-4 small-6 small-centered large-centered columns">
-                            <div class="profile__img-wrapper text-align-center">
-                                {% if not profile_user.image %}
-                                    <img class="profile__img" src="/staticfiles/images/placeholder/marketer-default-image.png" alt="Example Profile Image">
-
-                                {% else %}
-                                    <img class="profile__img" src="{{profile_user.image}}" alt="{{ profile_user.name }} {{ profile_user.surname }} Profile Image">
-                                {% endif %}
-                            </div>
-                        </div>
                         <div class="large-4 medium-4 small-10 small-centered large-centered columns text-align-center">
-                            {% if profile_user.is_marketer %}
                                 <h1 class="text-align-center">{{ profile_user.name | title }} {{ profile_user.surname | title }}</h1>
-                                <h2 class="h2 margin-top-0">{{ profile_user.position | title }}</h2>
+                                <div class="profile__img-wrapper text-align-center">
+                                    {% if not profile_user.image %}
+                                        <img class="profile__img" src="/staticfiles/images/placeholder/marketer-default-image.png" alt="Example Profile Image">
+
+                                    {% else %}
+                                        <img class="profile__img" src="{{profile_user.image}}" alt="{{ profile_user.name }} {{ profile_user.surname }} Profile Image">
+                                    {% endif %}
+                                </div>
+                                <h2 class="h2">{{ profile_user.position | title }}</h2>
                                 {% if profile_user.marketerprofile.availability %}
                                     <p class="helptext text-align-center"><i class="fa fa-check-square-o margin-right-5" aria-hidden="true"></i>I am available to help, please get in touch.</p>
                                 {% else %}
                                     <p class="helptext text-align-center text-danger margin-top-0"><i class="fa fa-ban margin-right-5" aria-hidden="true"></i>I am not available at the moment, please check back in the future.</p>
                                 {% endif %}
-                            {% else %}
+                            {% if profile_user.is_cause  %}
                                 <h1 class="text-align-center">{{ profile_user.causeprofile.cause_name | title }}</h1>
                             {% endif %}
                         </div>
@@ -260,6 +257,11 @@
                                             <a href="{% url 'advert_edit' advert_id=advert.id  %}" class="button button--secondary "><i class="fa fa-pencil margin-right-5" aria-hidden="true"></i>Edit</a>
                                             <a href="{% url 'advert_delete' advert_id=advert.id  %}" class="button button--danger"><i class="fa fa-trash margin-right-5" aria-hidden="true"></i>Delete</a>
                                         </div>
+                                    </div>
+                                {% endif %}
+                                {% if not user.id == profile_user.id %}
+                                    <div class="large-8 medium-8 small-12 columns margin-top-30">
+                                        <a href="{% url 'new_message' recipient_id=profile_user.id %}" class="button button--primary">Message {{ profile_detail_form.name.value }}</a>
                                     </div>
                                 {% endif %}
                             </div>
