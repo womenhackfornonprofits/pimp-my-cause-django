@@ -32,4 +32,7 @@
             color: $white;
         }
     }
+    &__border--bottom {
+        border-bottom: 1px solid $grey;
+    }
 }

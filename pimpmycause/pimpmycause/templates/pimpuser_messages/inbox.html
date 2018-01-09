@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %} Inbox{% endblock %} 
+
+{% load static %}
+
+{% block main %} 
+    <section class="page-about pnl">
+        <div class="content-wrap">
+             <div class="row">
+                <div class="large-12 medium-12 small-12">
+                    <div class="row">
+                        <h1 class="pnl__title">Inbox messages</h1>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 columns">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <article class="small-12 columns margin-top-30 clearfix">
+                                        <div class="cause__wrapper">
+                                            <div class="small-12 medium-4 columns">
+                                                {% if message.sent_at %}
+                                                    <h1 class="h4 cause__title">
+                                                        <i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>
+                                                        {{ message.sent_at|date:"M d, Y"  }}
+                                                    </h1> 
+                                                {% endif %}
+                                                <a class="h4 cause__title" href="{% url 'profile_detail' user_id=message.sender.id %}">{{ message.sender }} {% if message.sender.causeprofile.cause_name %} from {{message.sender.causeprofile.cause_name }} {% endif %}</a>
+                                            </div>
+                                            <div class="small-12 medium-8 columns">
+                                                <h2 class="cause__title clearfix">
+                                                    {{ message.subject | title }}
+                                                    {% if message.unread %}
+                                                        <span class="helptext margin-bottom-0 flag flag--new">new</span>
+                                                    {% else %}
+                                                        {% if message.number_of_unread_replies > 0 %}
+                                                            <span class="helptext margin-bottom-0 flag flag--new">({{message.number_of_unread_replies}})</span>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                </h2>
+                                                
+                                                <div class="cause__text margin-bottom-30">{{ message.message | truncatechars:150  }}</div>
+                                                
+                                                <a href="{% url 'message_detail' message_id=message.id %}" class="button button--primary margin-top-30">Read more</a>
+                                            </div> 
+                                        </div>
+                                    </article>
+                                {% endfor %}
+                            {% else %}
+                                <div class="row">
+                                    <div class="small-12">
+                                        <h3><i class="fa fa-frown-o margin-right-5" aria-hidden="true"></i> No new messages.</h3>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+{% endblock %}

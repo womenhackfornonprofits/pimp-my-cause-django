@@ -8,80 +8,85 @@
 
     <section class="page-about pnl">
         <div class="content-wrap">
-             <div class="row">
-                <div class="large-12 medium-12 small-12">
-                    <div class="row">
-                        <h1 class="pnl__title">Meet the Marketers</h1>
-                        <h3 class="margin-top-0 small-10 small-centered medium-8 medium-centered columns">Browse or search our listings of professionals. Build your network and find new potential collaborators.</h3>
-                    </div>
-                    <form action="" method="get" class="margin-bottom-30">
-                        <div class="columns">
+            <div class="large-12 medium-12 small-12 row">
+                <div class="pnl__border--bottom margin-bottom-30 padding-bottom-30 clearfix">
+                    <h1 class="pnl__title">Meet the Marketers</h1>
+                    <h2 class="margin-top-0 small-10 small-centered medium-8 medium-centered columns body-text text-align-center">Browse or search our listings of professionals. Build your network and find new potential collaborators.</h2>
+                </div>
+                <div class="">
+                    <aside class="large-3 medium-4 small-12 columns margin-top-30">
+                       <form action="" method="get" class="margin-bottom-30">
                             <div class="large-12 medium-12 small-12">
-                                <div class="filters__item medium-4 small-12 column">
+                                <h4 class="text-align-left small-12 margin-top-0">Filters:</h4>
+                                <div class="filters__item small-12">
                                     <label for="city__contains">City</label>
                                     {{ marketer_list.form.city__icontains }}
                                 </div>
-                                <div class="filters__item medium-4 small-12 column">
+                                <div class="filters__item small-12">
                                     <label for="city__contains">Country</label>
                                     {{ marketer_list.form.country }}
                                 </div>
-                                <div class="filters__item medium-4 small-12 column">
+                                <div class="filters__item small-12">
                                     <label for="position__contains">Current Position</label>
                                     {{ marketer_list.form.position__icontains }}
                                 </div>
-                                <div class="filters__item medium-6 small-12 column">
+                                <div class="filters__item small-12">
                                     <label for="position__contains">Profile contains</label>
                                     {{ marketer_list.form.position__icontains }}
                                 </div>
-                                <div class="filters__item medium-6 small-12 column">
+                                <div class="filters__item small-12">
                                     <label for="marketerprofile__skill__contains">Skills</label>
                                     {{ marketer_list.form.marketerprofile__skill__contains }}
                                 </div>
-                                <div class="filters__item text-align-center">
+                                <div class="filters__item text-align-left small-12">
                                     <input class="button button--primary" type="submit" value="Apply Filters">
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </aside>
 
-                    {% if marketer_list.qs|length > 0 %}
-                        <div class="columns">
+                    <main class="large-9 medium-8 small-12 columns">
+                        <div class="row">
+                            {% if marketer_list.qs|length > 0 %}
+                                {% for marketer in marketer_list.qs %}
 
-                           {% for marketer in marketer_list.qs %}
-
-                                <div class="marketer {% if marketer_list.qs|length > 2 %}large-4 {% endif %}medium-6 small-12 column margin-bottom-30 margin-top-30">
-                                    <div class="marketer__wrapper">
-                                        <div class="marketer__image-wrapper">
-                                            {% if marketer__profile.image %}
-                                                <div class="marketer__image" style="background-image:url('{{ marketer.image }}')" alt="{{ marketer.name | title }} {{ marketer.surname | title }} Profile Image"></div>
-                                            {% else %}
-                                                <div class="marketer__image" style="background-image:url('https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png')" alt="{{ marketer.name | title }} {{ marketer.surname | title }} Profile Image"></div>
-                                            {% endif %}
-                                        </div>
-                                        <div>
-                                            <h2 class="marketer__title"> {{ marketer.name | title |truncatechars:16  }}</h2>
-                                            <a href="{% url 'profile_detail' user_id=marketer.id %}" class="marketer__info">
-                                                {% if marketer.position %}
-                                                    <h4 class="marketer__text  margin-bottom-15">{{ marketer.position | title |truncatechars:50 }}</h4>
+                                    <div class="marketer {% if marketer_list.qs|length > 2 %}large-4 {% endif %}medium-6 small-12 column margin-bottom-30 margin-top-30">
+                                        <div class="marketer__wrapper">
+                                            <div class="marketer__image-wrapper">
+                                                {% if marketer__profile.image %}
+                                                    <div class="marketer__image" style="background-image:url('{{ marketer.image }}')" alt="{{ marketer.name | title }} {{ marketer.surname | title }} Profile Image"></div>
+                                                {% else %}
+                                                    <div class="marketer__image" style="background-image:url('https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png')" alt="{{ marketer.name | title }} {{ marketer.surname | title }} Profile Image"></div>
                                                 {% endif %}
-                                                {% if marketer.city %}
-                                                    <p class="marketer__text"><i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ marketer.city | title }} {% if marketer.distance %} ({{ marketer.distance.km }} km){% endif %}</p>
-                                                {% endif %}
-                                                {% if marketer.bio %}
-                                                    <p class="marketer__text margin-bottom-30">{{ marketer.bio|truncatechars:200 }}</p>
-                                                {% endif %}
-                                                <p class="marketer__link">See {{ marketer.name | title }}'s profile</p>
-                                            </a>
+                                            </div>
+                                            <div>
+                                                <h2 class="marketer__title h4"> {{ marketer.name | title |truncatechars:16  }}</h2>
+                                                <a href="{% url 'profile_detail' user_id=marketer.id %}" class="marketer__info">
+                                                    <div>
+                                                        {% if marketer.position %}
+                                                            <h4 class="marketer__text margin-bottom-15">{{ marketer.position | title |truncatechars:50 }}</h4>
+                                                        {% endif %}
+                                                        {% if marketer.city %}
+                                                            <p class="marketer__text small"><i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ marketer.city | title }} {% if marketer.distance %} ({{ marketer.distance.km }} km){% endif %}</p>
+                                                        {% endif %}
+                                                    </div>
+                                                    {% if marketer.bio %}
+                                                        <p class="marketer__text margin-bottom-30">{{ marketer.bio|truncatechars:80 }}</p>
+                                                    {% endif %}
+                                                    <p class="marketer__link margin-top-0">See profile</p>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
+                                {% endfor %}
                                 </div>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        <h3><i class="fa fa-frown-o margin-right-5" aria-hidden="true"></i> Sorry, we couldn't find any Marketers to display.</h3>
-                    {% endif %}
-                </div> 
-            </div> 
+                            {% else %}
+                                <h3 class="small-8 small-centered columns h5"><i class="fa fa-frown-o margin-right-5" aria-hidden="true"></i> Sorry, we couldn't find any Marketers mathing that criteria to display.</h3>
+                            {% endif %}
+                        </main>
+                    </main>
+                </div>
+            </div>
         </div>
     </section> 
 {% endblock %}

@@ -246,7 +246,7 @@ $last-child-float: $opposite-direction !default;
     .column,
     .columns {
       & + &:last-child {
-        float: $last-child-float;
+        float: left;
       }
       & + &.end {
         float: $default-float;

@@ -5,88 +5,84 @@
 {% load static %}
 
 {% block main %} 
-
     <section class="page-about pnl">
         <div class="content-wrap">
-             <div class="row">
-                <div class="large-12 medium-12 small-12">
-                    <div class="row">
-                        <h1 class="pnl__title">Find a Cause</h1>
-                        <h3 class="margin-top-0 small-10 small-centered medium-8 medium-centered columns">Find a cause that you would like to donate your talent and skills to.</h3>
-                        <h5 class="margin-top-0 small-10 small-centered medium-8 medium-centered columns">Prefer to search just the Help Wanted Ads?</h3>
-                        <span class="small-12 columns text-align-center margin-bottom-30">
-                            <a href="{% url 'search_ads' %}" class="button button--primary">Search Help Wanted Ads</a>
-                        </span>
-                    </div>
-                    <div class="row">
-                        <div class="large-3 medium-4 small-12 columns margin-top-30">
-                            <form action="" method="get" class="margin-bottom-30 margin-top-30">
-                                    <div class="small-10">
-                                        <h4 class="text-align-left small-12 margin-top-0">Filters:</h4>
+            <div class="large-12 medium-12 small-12 row">
+                <div class="pnl__border--bottom margin-bottom-30 padding-bottom-30 clearfix">
+                    <h1 class="pnl__title">Find a Cause</h1>
+                    <h2 class="margin-top-0 small-10 small-centered medium-8 medium-centered columns body-text text-align-center">Find a cause that you would like to donate your talent and skills to.</h2>
+                    <h3 class="margin-top-0 small-8 small-centered medium-8 medium-centered columns h5 text-align-center">Prefer to search just the Help Wanted Ads?</h3>
+                    <span class="small-12 columns text-align-center margin-bottom-30 margin-top-0">
+                        <a href="{% url 'search_ads' %}" class="button button--primary">Search Help Wanted Ads</a>
+                    </span>
+                </div>
+                    <aside class="large-3 medium-4 small-12 columns margin-top-30">
+                        <form action="" method="get" class="margin-bottom-30 margin-top-30 column">
+                            <h4 class="text-align-left small-12 margin-top-0">Filters:</h4>
 
-                                        <div class="filters__item small-12">
-                                            <label for="city__contains">City</label>
-                                            {{ cause_list.form.city__icontains }}
-                                        </div>
-                                        <div class="filters__item small-12">
-                                            <label for="city__contains">Country</label>
-                                            {{ cause_list.form.country }}
-                                        </div>
-                                        <div class="filters__item small-12">
-                                            <label for="position__contains">Category</label>
-                                            {{ cause_list.form.causeprofile__category__icontains }}
-                                        </div>
-                                        <div class="filters__item small-12">
-                                            <label for="position__contains">Description</label>
-                                            {{ cause_list.form.bio__icontains  }}
-                                        </div>
-                                        <div class="filters__item small-12">
-                                            <label for="causeprofile__cause_name__icontains">Cause Name</label>
-                                            {{ cause_list.form.causeprofile__cause_name__icontains }}
-                                        </div>
-                                        <div class="filters__item small-12">
-                                            <label for="marketerprofile__skill__contains">Mission</label>
-                                            {{ cause_list.form.causeprofile__mission__icontains }}
-                                        </div>
-                                        <div class="filters__item text-align-left">
-                                            <input class="button button--primary" type="submit" value="Apply Filters">
-                                        </div>
-                                    </div>
-                            </form>
-                        </div>
+                            <div class="filters__item small-12">
+                                <label for="city__contains">City</label>
+                                {{ cause_list.form.city__icontains }}
+                            </div>
+                            <div class="filters__item small-12">
+                                <label for="city__contains">Country</label>
+                                {{ cause_list.form.country }}
+                            </div>
+                            <div class="filters__item small-12">
+                                <label for="position__contains">Category</label>
+                                {{ cause_list.form.causeprofile__category__icontains }}
+                            </div>
+                            <div class="filters__item small-12">
+                                <label for="position__contains">Description</label>
+                                {{ cause_list.form.bio__icontains  }}
+                            </div>
+                            <div class="filters__item small-12">
+                                <label for="cause_name__icontains">Cause Name</label>
+                                {{ cause_list.form.cause_name__icontains }}
+                            </div>
+                            <div class="filters__item small-12">
+                                <label for="marketerprofile__skill__contains">Mission</label>
+                                {{ cause_list.form.causeprofile__mission__icontains }}
+                            </div>
+                            <div class="filters__item text-align-left">
+                                <input class="button button--primary" type="submit" value="Apply Filters">
+                            </div>
+                        </form>
+                    </aside>
 
-                        <div class="large-9 medium-8 small-12 columns">
-
-                            {% if cause_list.qs|length > 0 %}
-                            <div class="row">
+                    <main class="large-9 medium-8 small-12 columns">
+                        {% if cause_list.qs|length > 0 %}
+                            
                                {% for cause in cause_list.qs %}
-                                <div class="cause small-12 columns margin-top-30">
-                                    <div class="cause__wrapper">
-                                        <div class="small-12 medium-3 columns show-for-medium-up">
+                                <section class="cause margin-top-30 row">
+                                    <div class="cause__wrapper small-12 columns">
+                                        <div class="small-12 medium-3 columns show-for-large-up">
                                             <div class="cause__image-wrapper margin-top-15">
                                                 {% if cause.image %}
                                                     <img class="cause__image" src="{{ cause.image }}" alt="{{ cause.causeprofile.cause_name }} Profile Image"></img>
                                                 {% else %}
-                                                    <img class="profile-img" src={% static "images/placeholder/cause-default-image.png" %} alt="{{ cause.causeprofile.cause_name }} Profile Image">
+                                                    <img class="profile-img" src={% static "images/placeholder/cause-default-image.png" %} alt="{{ cause.cause_name }} Profile Image">
                                                 {% endif %}
                                             </div>
                                         </div>
-                                        <div class="cause__info small-12 medium-6 columns">
+                                        <div class="cause__info small-12 medium-7 large-6 columns">
                                             <div clas="col-xs-12 columns">
-                                                <a href="{% url 'profile_detail' user_id=cause.id %}"><h2 class="cause__title">{{ cause.causeprofile.cause_name | title }}</h2></a>
-                                                <h3 class="cause__title">Our Mission</h3>
+                                                <a href="{% url 'profile_detail' user_id=cause.id %}">
+                                                    <h1 class="cause__title h3 margin-bottom-0 margin-top-0">{{ cause.cause_name | title }}</h1>
+                                                    </a>
+                                                <h2 class="cause__title h5 margin-top-15 margin-bottom-15">Our Mission</h2>
                                                 {% if cause.causeprofile.mission %}
-                                                    <p class="cause__text">{{ cause.causeprofile.mission | title }}</p>
+                                                    <p>{{ cause.causeprofile.mission | title }}</p>
                                                 {% else %}
                                                     <p clas="helptext">
                                                         <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                                        {{ cause.causeprofile.cause_name | title }} is yet to share this information.
+                                                        {{ cause.cause_name | title }} is yet to share this information.
                                                     </p>                                            
                                                 {% endif %}
 
                                                 <footer class="margin-top-30">
                                                     {% if cause.causeprofile.category %}
-                                                        <p class="cause__text"><i class="fa fa-tags margin-right-5" aria-hidden="true"></i>{{ cause.causeprofile.get_category_display | title }}
+                                                        <p><i class="fa fa-tags margin-right-5" aria-hidden="true"></i>{{ cause.causeprofile.get_category_display | title }}
                                                     {% endif %}
                                                     {% if cause.city %}
                                                         | <i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ cause.city | title }} {% if cause.distance %} ({{ cause.distance.km }} km) {% endif %}</p>
@@ -94,7 +90,7 @@
                                                 </footer>
                                             </div>
                                         </div>
-                                        <div class="small-12 medium-3 columns">
+                                        <div class="small-12 medium-5 large-3 columns">
                                             <div class="cause__ads">
                                                 <p class="cause__title"><b><i class="fa fa-wpforms margin-right-5" aria-hidden="true"></i>{{ cause.ads_count }} Help Wanted {% if cause.ads_count is 1 %}Ad{% else %}Ads{% endif %}</b></p>
                                             </div>
@@ -104,10 +100,8 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </section>
                                 {% endfor %}
-                            </div>
-
                             {% else %}
                                 <div class="row">
                                     <div class="small-12">
@@ -115,9 +109,8 @@
                                     </div>
                                 </div>
                             {% endif %}
-                        </div>
+                        </main>
                     </div>
-                </div> 
             </div> 
         </div>
     </section> 

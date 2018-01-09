@@ -141,7 +141,7 @@ $primary-color: $colr-txt;
 // We use these to control text direction settings
 // $text-direction: ltr;
 // $opposite-direction: right;
-// $default-float: left;
+$default-float: left;
 // $last-child-float: $opposite-direction;
 
 // We use these to make sure border radius matches unless we want it different.
@@ -648,7 +648,7 @@ $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-fac
 // $form-label-font-size: rem-calc(14);
 // $form-label-font-weight: $font-weight-normal;
 // $form-label-line-height: 1.5;
-// $form-label-line-height: rem-calc(52); 
+// $form-label-line-height: rem-calc(52);
 // $form-label-font-color: scale-color($black, $lightness: 30%);
 // $form-label-small-transform: capitalize;
 // $form-label-bottom-margin: 0;
@@ -853,7 +853,7 @@ $input-focus-bg-color: $purple;
 // $tabbar-middle-padding: 0 rem-calc(10);
 
 // Off Canvas Divider Styles
-// $tabbar-left-section-border: green; 
+// $tabbar-left-section-border: green;
 // $tabbar-left-section-border: solid 1px scale-color($tabbar-bg, $lightness: -50%);
 // $tabbar-right-section-border: $tabbar-left-section-border;
 

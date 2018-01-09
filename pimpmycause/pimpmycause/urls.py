@@ -76,6 +76,10 @@ urlpatterns = [
         include('news.urls')
     ),
     url(
+        r'^messages/',
+        include('pimpuser_messages.urls')
+    ),
+    url(
         r'^tinymce/',
         include('tinymce.urls')
     ),

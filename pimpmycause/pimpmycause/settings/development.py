@@ -1,6 +1,6 @@
 from pimpmycause.settings import * # noqa
 
-DEBUG = False
+DEBUG = True
 
 SECRET_KEY = 'FAKEforDEV'
 

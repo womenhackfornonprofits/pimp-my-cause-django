@@ -172,7 +172,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
-module.exports = __webpack_require__(9);
+module.exports = __webpack_require__(10);
 
 
 /***/ }),
@@ -184,6 +184,8 @@ __webpack_require__(4);
 __webpack_require__(5);
 __webpack_require__(6);
 __webpack_require__(8);
+__webpack_require__(9);
+
 const $ = __webpack_require__(0);
 
 const $html = $('html')[0];
@@ -219,8 +221,10 @@ $navigation.addEventListener('click', event => {
 
     if ($srcElement.classList.contains('js-nav-toggle')) {
         $navigation.classList.add('navigation__menu--mobile');
+        document.body.classList.add('nav--active');
     } else {
         $navigation.classList.remove('navigation__menu--mobile');
+        document.body.classList.remove('nav--active');
     }
 });
 
@@ -809,10 +813,32 @@ if ($tickBox && $targetButton) {
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* Registration validation: hides the Cause Name if usertype is Marketer */
+const $ = __webpack_require__(0);
+
+const $userTypeEl = $('#id_usertype')[0];
+const $causeNameEl = $('#id_cause_name')[0];
+
+function hideShowCauseName() {
+    if ($userTypeEl.value === '0') {
+        $causeNameEl.classList.add('visuallyhidden');
+    } else {
+        $causeNameEl.classList.remove('visuallyhidden');
+    }
+}
+
+if ($userTypeEl && $causeNameEl) {
+    $userTypeEl.onchange = hideShowCauseName();
+}
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main-87f89c6c72e6258c4267.js.map
+//# sourceMappingURL=main-7f4e7705c8ea1bb59174.js.map
