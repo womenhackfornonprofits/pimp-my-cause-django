@@ -19,7 +19,6 @@ log = logging.getLogger("pimpmycause")
 
 class RegistrationView(registration_views.RegistrationView):
     """The Registration view."""
-
     template_name = 'registration/registration_form.html'
     form_class = PimpUserRegistrationForm
     success_url = '/accounts/registration/complete/'
@@ -66,8 +65,10 @@ def profile_edit(request):
     """Edit user profile."""
 
     if request.method == 'POST':
-        profile_update_form = PimpUserProfileForm(request.POST,
-                                                  instance=request.user)
+        profile_update_form = PimpUserProfileForm(
+            request.POST,
+            instance=request.user
+        )
 
         # MARKETER
         if (request.user.usertype == PimpUser.MARKETER):

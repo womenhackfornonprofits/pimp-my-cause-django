@@ -102,20 +102,6 @@ p {
     }
 }
 
-
-
-// // Links
-// .a,
-// a {
-//     text-decoration: underline;
-//     font-weight: 600;
-//     color: $link-colour;
-
-//     &:hover, &:focus {
-//         color: $link-active-colour
-//     }
-// }
-
 .text-link {
     color: $pink;
 }
@@ -125,21 +111,6 @@ p {
     font-size: .8rem;
     font-color: $lighter-black-colour;
 }
-
-// // Lists
-// ul, ol {
-//     margin: 30px 0 0 20px;
-
-//     li {
-//         margin-top: 10px;
-//         color: $body-text-colour;
-//         list-style: none;
-//     }
-
-//     ul, ol {
-//         margin-top: 0;
-//     }
-// }
 
 strong,
 b,

@@ -7,6 +7,7 @@ from django.db.models.signals import (
 from django.dispatch import receiver
 from django.utils.encoding import python_2_unicode_compatible
 from django.contrib.gis.geos import Point
+from django.core.exceptions import ValidationError
 
 from custom_user.models import AbstractEmailUser
 from django_countries.fields import CountryField
@@ -51,6 +52,7 @@ class PimpUser(AbstractEmailUser):
         default=MARKETER,
     )
     bio = models.TextField(max_length=1000, blank=True)
+    cause_name = models.CharField(max_length=1000, blank=True)
 
     # social accounts
     twitter = models.URLField(max_length=100, blank=True)
@@ -60,7 +62,16 @@ class PimpUser(AbstractEmailUser):
     featured = models.BooleanField(default=False)
 
     def __str__(self):
-        return '%s %s' % (self.surname, self.name)
+        if (self.usertype == self.CAUSE):
+            return '%s' % (self.cause_name)
+        else:
+            return '%s %s' % (self.surname, self.name)
+
+    def save(self, **kwargs):
+        if (self.usertype == self.CAUSE and self.cause_name.is_empty()):
+            raise ValidationError("Cause name is required")
+
+        super(PimpUser, self).save(**kwargs)
 
     @property
     def is_admin(self):
@@ -77,7 +88,6 @@ class PimpUser(AbstractEmailUser):
     @property
     def is_geolocated(self):
         if (not self.location):
-            print("NO LOCATION")
             return False
         else:
             return True
@@ -187,9 +197,8 @@ class CauseProfile(models.Model):
         primary_key=True,
         limit_choices_to={'usertype': PimpUser.CAUSE}
     )
-    cause_name = models.CharField(max_length=1000)
     mission = models.CharField(max_length=1000, blank=True)
     category = models.IntegerField(choices=CAUSE_CATEGORY_CHOICES, null=True)
 
     def __str__(self):
-        return '%s' % self.cause_name
+        return '%s' % self.profile.cause_name

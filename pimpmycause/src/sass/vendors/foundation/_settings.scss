@@ -137,7 +137,7 @@ $include-html-global-classes: $include-html-classes;
 // $text-direction: ltr;
 // $opposite-direction: right;
 // $default-float: left;
-// $last-child-float: $opposite-direction;
+$last-child-float: left;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
