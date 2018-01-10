@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 
-{% block title %} Registration Complete {% endblock %} 
+{% block title %} Find a Cause {% endblock %} 
 
-{% load static %}
+{% load static widget_tweaks %}
 
 {% block main %} 
     <section class="page-about pnl">
@@ -17,35 +17,33 @@
                     </span>
                 </div>
                     <aside class="large-3 medium-4 small-12 columns margin-top-30">
-                        <form action="" method="get" class="margin-bottom-30 margin-top-30 column">
-                            <h4 class="text-align-left small-12 margin-top-0">Filters:</h4>
-
-                            <div class="filters__item small-12">
-                                <label for="city__contains">City</label>
-                                {{ cause_list.form.city__icontains }}
-                            </div>
-                            <div class="filters__item small-12">
-                                <label for="city__contains">Country</label>
-                                {{ cause_list.form.country }}
-                            </div>
-                            <div class="filters__item small-12">
-                                <label for="position__contains">Category</label>
-                                {{ cause_list.form.causeprofile__category__icontains }}
-                            </div>
-                            <div class="filters__item small-12">
-                                <label for="position__contains">Description</label>
-                                {{ cause_list.form.bio__icontains  }}
-                            </div>
-                            <div class="filters__item small-12">
-                                <label for="cause_name__icontains">Cause Name</label>
-                                {{ cause_list.form.cause_name__icontains }}
-                            </div>
-                            <div class="filters__item small-12">
-                                <label for="marketerprofile__skill__contains">Mission</label>
-                                {{ cause_list.form.causeprofile__mission__icontains }}
-                            </div>
-                            <div class="filters__item text-align-left">
-                                <input class="button button--primary" type="submit" value="Apply Filters">
+                         <form action="{% url 'search_cause' %}" method="get" class="margin-bottom-30 margin-top-30">
+                            <div class="large-12 medium-12 small-12">
+                                <h4 class="text-align-left small-12 margin-top-0">Filters:</h4>
+                                    {% csrf_token %}
+                                    {% if cause_list.form.non_field_errors %}
+                                        <div class="row non-field-errors small-12">
+                                        {% for error in cause_list.form.non_field_errors %}
+                                            <p class="form-error text-danger">{{ error }}</p>
+                                        {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                    {% for field in cause_list.form %}
+                                        <div class="form-group {% if field.errors %} has-error {% endif %}">
+                                            {% if field.errors %}
+                                                {% for error in field.errors %}
+                                                    <p class="form-error pull-left text-danger">{{ error }}</p>
+                                                {% endfor %}
+                                            {% endif %}
+                                            <label for="{{field.id}}">{{field.label}}</label>
+                                            {% render_field field %}
+                                        </div>
+                                    {% endfor %}
+                                    
+                                    <div class="filters__item text-align-left">
+                                        <input class="button button--primary" type="submit" value="Apply Filters">
+                                    </div>
+                                </form>
                             </div>
                         </form>
                     </aside>

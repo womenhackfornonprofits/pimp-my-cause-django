@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 
-{% block title %} Registration Complete {% endblock %} 
+{% block title %} Search Marketers {% endblock %} 
 
-{% load static %}
+{% load static widget_tweaks %}
 
 {% block main %} 
 
@@ -15,7 +15,7 @@
                 </div>
                 <div class="">
                     <aside class="large-3 medium-4 small-12 columns margin-top-30">
-                       <form action="" method="get" class="margin-bottom-30">
+                       <!-- <form action="" method="get" class="margin-bottom-30">
                             <div class="large-12 medium-12 small-12">
                                 <h4 class="text-align-left small-12 margin-top-0">Filters:</h4>
                                 <div class="filters__item small-12">
@@ -41,6 +41,35 @@
                                 <div class="filters__item text-align-left small-12">
                                     <input class="button button--primary" type="submit" value="Apply Filters">
                                 </div>
+                            </div>
+                        </form> -->
+                        <form action="{% url 'search_cause' %}" method="get" class="margin-bottom-30 margin-top-30">
+                            <div class="large-12 medium-12 small-12">
+                                <h4 class="text-align-left small-12 margin-top-0">Filters:</h4>
+                                    {% csrf_token %}
+                                    {% if marketer_list.form.non_field_errors %}
+                                        <div class="row non-field-errors small-12">
+                                        {% for error in marketer_list.form.non_field_errors %}
+                                            <p class="form-error text-danger">{{ error }}</p>
+                                        {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                    {% for field in marketer_list.form %}
+                                        <div class="form-group {% if field.errors %} has-error {% endif %}">
+                                            {% if field.errors %}
+                                                {% for error in field.errors %}
+                                                    <p class="form-error pull-left text-danger">{{ error }}</p>
+                                                {% endfor %}
+                                            {% endif %}
+                                            <label for="{{field.id}}">{{field.label}}</label>
+                                            {% render_field field %}
+                                        </div>
+                                    {% endfor %}
+                                    
+                                    <div class="filters__item text-align-left">
+                                        <input class="button button--primary" type="submit" value="Apply Filters">
+                                    </div>
+                                </form>
                             </div>
                         </form>
                     </aside>
