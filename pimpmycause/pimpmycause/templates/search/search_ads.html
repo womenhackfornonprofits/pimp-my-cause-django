@@ -61,9 +61,8 @@
                                                         {{ advert.deadline|date:"M d, Y"  }}
                                                     </p> 
                                                 {% endif %}
-                                                {{ advert.cause_profile.profile.image}}
-                                                {% if advert.cause_profile.image.value %}
-                                                    <img src="{{advert.cause_profile.image.value}}"/>
+                                                {% if advert.cause_profile.profile.image.value %}
+                                                    <img src="{{advert.cause_profile.profile.image.value}}"/>
                                                 {% else %}
                                                     <img src={% static "images/placeholder/cause-default-image.png" %}/>
                                                 {% endif %}
