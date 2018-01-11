@@ -19,7 +19,7 @@
                     <aside class="large-3 medium-4 small-12 columns margin-top-30">
                          <form action="{% url 'search_cause' %}" method="get" class="margin-bottom-30 margin-top-30">
                             <div class="large-12 medium-12 small-12">
-                                <h4 class="text-align-left small-12 margin-top-0">Filters:</h4>
+                                <h4 class="text-align-left small-12 margin-top-0">Filter by:</h4>
                                     {% csrf_token %}
                                     {% if cause_list.form.non_field_errors %}
                                         <div class="row non-field-errors small-12">
