@@ -49,9 +49,8 @@ def marketer_list(request):
 
 def cause_list(request):
     """Cause search view."""
-    cause_list = CauseFilter(
-        request.GET,
-        queryset=PimpUser.objects.filter(
+    query_set = (
+        PimpUser.objects.filter(
             usertype=PimpUser.CAUSE,
             is_active=True
         )
@@ -61,27 +60,19 @@ def cause_list(request):
         )
     )
 
-    if request.user.is_authenticated:
-        if request.user.is_geolocated:
-            cause_list_with_distance = CauseFilter(
-                request.GET,
-                queryset=PimpUser.objects.filter(
-                    usertype=PimpUser.CAUSE,
-                    is_active=True
-                )
-                .select_related()
-                .annotate(
-                    ads_count=Count('causeprofile__advert')
-                ).annotate(
-                    distance=Distance('location', request.user.location)
-                ).order_by('distance', '-date_joined')
-            )
-            context = {'cause_list': cause_list_with_distance}
-        else:
-            context = {'cause_list': cause_list}
+    if request.user.is_authenticated and request.user.is_geolocated:
+        query_set = (
+            query_set
+            .annotate(
+                distance=Distance('location', request.user.location)
+            ).order_by('distance', '-date_joined')
+        )
 
-    else:
-        context = {'cause_list': cause_list}
+    cause_list = CauseFilter(
+        request.GET,
+        queryset=query_set
+    )
+    context = {'cause_list': cause_list}
 
     return render(request, 'search/search_cause.html', context)
 
