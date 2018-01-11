@@ -15,34 +15,6 @@
                 </div>
                 <div class="">
                     <aside class="large-3 medium-4 small-12 columns margin-top-30">
-                       <!-- <form action="" method="get" class="margin-bottom-30">
-                            <div class="large-12 medium-12 small-12">
-                                <h4 class="text-align-left small-12 margin-top-0">Filters:</h4>
-                                <div class="filters__item small-12">
-                                    <label for="city__contains">City</label>
-                                    {{ marketer_list.form.city__icontains }}
-                                </div>
-                                <div class="filters__item small-12">
-                                    <label for="city__contains">Country</label>
-                                    {{ marketer_list.form.country }}
-                                </div>
-                                <div class="filters__item small-12">
-                                    <label for="position__contains">Current Position</label>
-                                    {{ marketer_list.form.position__icontains }}
-                                </div>
-                                <div class="filters__item small-12">
-                                    <label for="position__contains">Profile contains</label>
-                                    {{ marketer_list.form.position__icontains }}
-                                </div>
-                                <div class="filters__item small-12">
-                                    <label for="marketerprofile__skill__contains">Skills</label>
-                                    {{ marketer_list.form.marketerprofile__skill__contains }}
-                                </div>
-                                <div class="filters__item text-align-left small-12">
-                                    <input class="button button--primary" type="submit" value="Apply Filters">
-                                </div>
-                            </div>
-                        </form> -->
                         <form action="{% url 'search_cause' %}" method="get" class="margin-bottom-30 margin-top-30">
                             <div class="large-12 medium-12 small-12">
                                 <h4 class="text-align-left small-12 margin-top-0">Filters:</h4>
@@ -96,7 +68,7 @@
                                                             <b><h4 class="marketer__text margin-bottom-15 body-text">{{ marketer.position | title |truncatechars:35 }}</h4></b>
                                                         {% endif %}
                                                         {% if marketer.city %}
-                                                            <p class="marketer__text small"><i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ marketer.city | title }} {% if marketer.distance %} ({{ marketer.distance.km }} km){% endif %}</p>
+                                                            <p class="marketer__text small"><i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ marketer.city | title }} {% if marketer.distance %} ({{ marketer.distance.km | floatformat:0 }} km){% endif %}</p>
                                                         {% endif %}
                                                     </div>
                                                     {% if marketer.bio %}
