@@ -81,7 +81,7 @@
                                                 <h2 class="cause__title h5 margin-top-15 margin-bottom-10">Description</h3>
                                                 {% if advert.description %}
                                                     <p>{{ advert.description |truncatechars:300 }}                                         
-                                                        <a href="{% url 'advert_detail' advert_id=advert.id  %}" class="display-inline">Read more</a>
+                                                        <a href="{% url 'advert_detail' advert_id=advert.id  %}" class="text-link">Read more</a>
                                                     </p> 
 
                                                 {% else %}
@@ -90,7 +90,7 @@
                                                         {{ profile_user.cause_name | title }} is yet to share this information.
                                                     </p>                                            
                                                 {% endif %}
-                                                <h2 class="cause__title h5 margin-top-15 margin-bottom-10">Skills Required</h3>
+                                                <!-- <h2 class="cause__title h5 margin-top-15 margin-bottom-10">Skills Required</h3>
 
                                                 {% if advert.skills.all|length %}
                                                     <ul class="unstyled-list text-align-left">
@@ -104,7 +104,7 @@
                                                         <i class="fa fa-comments-o" aria-hidden="true"></i>
                                                         {{ advert.cause_profile | title }} is yet to share this information.
                                                     </p>                                            
-                                                {% endif %}
+                                                {% endif %} -->
                                                 <h2 class="cause__title h5 margin-top-15 margin-bottom-10">Deadline</h3>
                                                 {% if advert.deadline %}
                                                     <p class="margin-top-0">
@@ -118,8 +118,12 @@
                                                     {% if advert.cause_profile.category %}
                                                         <p><i class="fa fa-tags margin-right-5" aria-hidden="true"></i>{{ advert.cause_profile.get_category_display | title }}
                                                     {% endif %}
+                                                    {% if advert.cause_profile.category and advert.cause_profile.profile.city %}
+                                                    |
+                                                    {% endif %}
+
                                                     {% if advert.cause_profile.profile.city %}
-                                                        | <i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ advert.cause_profile.profile.city | title }} {% if cause.distance %} ({{ cause.distance.km | floatformat:0 }} km) {% endif %}</p>
+                                                        <i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ advert.cause_profile.profile.city | title }} {% if cause.distance %} ({{ cause.distance.km | floatformat:0 }} km) {% endif %}</p>
                                                     {% endif %}
                                                     <p class="helptext margin-top-30 padding-bottom-30">
                                                         <i class="fa fa-clock-o margin-right-5" aria-hidden="true"></i>
