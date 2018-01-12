@@ -16,10 +16,6 @@ from adverts.models import Advert
 
 
 class MarketerFilter(django_filters.FilterSet):
-    # marketerprofile__availability = filters.BooleanFilter(
-    #     name='marketerprofile__availability',
-    #     widget=forms.CheckboxInput)
-
     def __init__(self, *args, **kwargs):
         super(MarketerFilter, self).__init__(*args, **kwargs)
         self.filters['city__icontains'].label = 'City'
@@ -51,7 +47,7 @@ class CauseFilter(django_filters.FilterSet):
         self.filters['city__icontains'].label = 'City'
         self.filters['country'].label = 'Country'
         self.filters['bio__icontains'].label = 'Description'
-        self.filters['causeprofile__category__icontains'].label = 'Category'
+        self.filters['causeprofile__category'].label = 'Category'
         self.filters['cause_name__icontains'].label = 'Cause Name'
 
     class Meta:
@@ -59,7 +55,7 @@ class CauseFilter(django_filters.FilterSet):
         fields = {
             'city': ['icontains'],
             'country': ['exact'],
-            'causeprofile__category': ['icontains'],
+            'causeprofile__category': ['exact'],
             'bio': ['icontains'],
             'cause_name': ['icontains'],
         }
@@ -71,6 +67,8 @@ class HelpWantedAdsFilter(django_filters.FilterSet):
         self.filters['description__icontains'].label = 'Keyword(s)'
         self.filters['title__icontains'].label = 'Title'
         self.filters['skills__contains'].label = 'Skills required'
+        self.filters['cause_profile__category'].label = 'Category'
+        self.filters['cause_profile__profile__country'].label = 'Country'
 
     class Meta:
         model = Advert
@@ -78,4 +76,6 @@ class HelpWantedAdsFilter(django_filters.FilterSet):
             'skills': ['contains'],
             'description': ['icontains'],
             'title': ['icontains'],
+            'cause_profile__category': ['exact'],
+            'cause_profile__profile__country': ['exact'],
         }
