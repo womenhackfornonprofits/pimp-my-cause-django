@@ -815,11 +815,20 @@ if ($tickBox && $targetButton) {
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* Registration validation: hides the Cause Name if usertype is Marketer */
+/* Registration validation:
+ * - hides the Cause Name if usertype is Marketer
+ * - pre-populates user choice form homepage if available
+ */
 const $ = __webpack_require__(0);
 
 const $userTypeEl = $('#id_usertype')[0];
 const $causeNameEl = $('#id_cause_name')[0];
+const parsedUrl = new URL(window.location.href);
+const userType = parsedUrl.searchParams.get('usertype') || null;
+
+function setUserType(userTypeValue = 0) {
+    $userTypeEl.value = userTypeValue;
+}
 
 function hideShowCauseName() {
     if ($userTypeEl.value === '0') {
@@ -829,8 +838,13 @@ function hideShowCauseName() {
     }
 }
 
+if (userType) {
+    setUserType(userType);
+}
+
 if ($userTypeEl && $causeNameEl) {
-    $userTypeEl.onchange = hideShowCauseName();
+    hideShowCauseName();
+    $userTypeEl.onchange = hideShowCauseName;
 }
 
 /***/ }),
@@ -841,4 +855,4 @@ if ($userTypeEl && $causeNameEl) {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main-ce55d4acaaa5dad9a3d1.js.map
+//# sourceMappingURL=main-dbc9891f6a8f7cced46d.js.map

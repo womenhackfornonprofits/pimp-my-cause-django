@@ -19,90 +19,94 @@
                         <p class="h4 text-align-left margin-top-0">Start your pro bono marketing project today</p>
     
                         <div clas="row">
-                            <div class="large-6 medium-6 small-8">
-                                <select class="type-option">
-                                    <option value="marketer"><p>I'm a Marketer</p></option>
-                                    <option value="cause">I'm a Cause</option>
-                                </select>
-                                <a href="accounts/register" class="button button--secondary">Continue</a>
-                            </div>
+                            <form method="GET" action="{% url 'registration_register' %}" class="large-6 medium-6 small-8">
+                                <select name="usertype" placeholder="Usertype" id="id_usertype">
+                                      <option value="0">Marketer</option>
+                                      <option value="1">Cause</option>
+                                    </select>
+                                <button class="button button--secondary" type="Submit">Continue</button>
+                            </form>
                         </div>
                     </div>
 
-                    <div class="pnl-hero__cubes large-6 medium-12 small-12 columns">
-                        <div class="cube-row">
-                            <div class="cube-wrapper">
-                                <div class="cube flip-to-top">
-                                    <div class="default-state"> <!-- front facing div to start -->
-                                        <div class="img-wrapper">
-                                            <img src="{% static "images/homepage/cube1-marketer-pic.png" %}" alt="Image of Marketer">
+                    <nav class="pnl-hero__cubes large-6 medium-12 small-12 columns">
+                        <ul class="unstyled-list">
+                            <li class="cube-row">
+                                <ul class="unstyled-list">
+                                    <div class="cube-wrapper">
+                                        <div class="cube flip-to-top">
+                                            <div class="default-state"> <!-- front facing div to start -->
+                                                <div class="img-wrapper">
+                                                    <img src="{% static "images/homepage/cube1-marketer-pic.png" %}" alt="Image of Marketer" role="presentation">
+                                                </div>
+                                            </div> <!-- end default-state -->
+                                            <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
+                                                <a href="{% url 'search_marketer' %}">
+                                                    <img src="{% static "images/homepage/cube1-marketer-icon.png" %}" alt="Logo for Marketer" role="presentation">
+                                                    <h3 class="h4 uppercase cube__title">Find a Marketer</h3>
+                                                </a><!-- end link -->
+                                            </div>
+                                        </div> <!-- end cube flip-to-top-->
+                                    </div> <!-- end cube-wrapper -->
+
+
+                                    <!-- CUBE top right - Story -->
+                                    <div class="cube-wrapper">
+                                        <div class="cube flip-to-top">
+                                            <div class="default-state cube-icon-txt"> <!-- front facing div to start -->
+                                                <a href="/who-we-are">
+                                                    <img src=" {% static "images/homepage/cube2-story-icon.png" %}" alt="Logo for Story" role="presentation">
+                                                    <h3 class="h4 uppercase cube__title">Our Story</h3>
+                                                </a><!-- end link -->
+                                            </div>
+                                            <div class="active-state"> <!-- Step 1: move div to top side of cube -->
+                                                <div class="img-wrapper">
+                                                    <img src=" {% static "images/homepage/cube2-story-pic.png" %}" alt="Image of Story" role="presentation">
+                                                </div>
+                                            </div>
+                                        </div> <!-- end cube flip-to-top -->
+                                    </div> <!-- end cube-wrapper -->
+                            </li> <!-- end cube-row - top row -->
+
+                            <!-- BOTTOM ROW -->
+                            <li class="cube-row">
+                                <ul class="unstyled-list">
+                                    <li class="cube-wrapper">
+                                        <div class="cube flip-to-top">
+                                            <div class="default-state cube-icon-txt"> <!-- front facing div to start -->
+                                                <a href="{% url 'news_post_list' %}">
+                                                    <img src=" {% static "images/homepage/cube3-news-icon.png" %}" alt="Logo for News" role="presentation">
+                                                    <h3 class="h4 uppercase cube__title">News</h3>
+                                                </a><!-- end link -->
+                                            </div> <!-- end default-state -->
+                                            <div class="active-state"> <!-- Step 1: move div to top side of cube -->
+                                                <div class="img-wrapper">
+                                                    <img src=" {% static "images/homepage/cube3-news-pic.png"  %}" alt="Image of News" role="presentation">
+                                                </div>
+                                            </div> <!-- end active-state -->
+                                        </div> <!-- end cube flip-to-top-->
+                                    </li> <!-- end cube-wrapper -->
+
+
+                                    <li class="cube-wrapper">
+                                        <div class="cube flip-to-top">
+                                            <div class="default-state"> <!-- front facing div to start -->
+                                                <div class="img-wrapper">
+                                                    <img src=" {% static "images/homepage/cube4-cause-pic.png" %}" alt="Image of Cause" role="presentation">
+                                                </div>
+                                            </div>
+                                            <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
+                                                <a href="{% url 'search_cause' %}">
+                                                    <img src=" {% static "images/homepage/cube4-cause-icon.png" %}" alt="Logo for Cause" role="presentation">
+                                                    <h3 class="h4 uppercase cube__title">Find a Cause</h3>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div> <!-- end default-state -->
-                                    <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
-                                        <a href="{% url 'search_marketer' %}">
-                                            <img src="{% static "images/homepage/cube1-marketer-icon.png" %}" alt="Logo for Marketer">
-                                            <h3 class="h4 uppercase cube__title">Find a Marketer</h3>
-                                        </a><!-- end link -->
-                                    </div>
-                                </div> <!-- end cube flip-to-top-->
-                            </div> <!-- end cube-wrapper -->
-
-
-                            <!-- CUBE top right - Story -->
-                            <div class="cube-wrapper">
-                                <div class="cube flip-to-top">
-                                    <div class="default-state cube-icon-txt"> <!-- front facing div to start -->
-                                        <a href="/who-we-are">
-                                            <img src=" {% static "images/homepage/cube2-story-icon.png" %}" alt="Logo for Story">
-                                            <h3 class="h4 uppercase cube__title">Our Story</h3>
-                                        </a><!-- end link -->
-                                    </div>
-                                    <div class="active-state"> <!-- Step 1: move div to top side of cube -->
-                                        <div class="img-wrapper">
-                                            <img src=" {% static "images/homepage/cube2-story-pic.png" %}" alt="Image of Story">
-                                        </div>
-                                    </div>
-                                </div> <!-- end cube flip-to-top -->
-                            </div> <!-- end cube-wrapper -->
-                        </div> <!-- end cube-row - top row -->
-
-                        <!-- BOTTOM ROW -->
-                        <div class="cube-row">
-
-                            <div class="cube-wrapper">
-                                <div class="cube flip-to-top">
-                                    <div class="default-state cube-icon-txt"> <!-- front facing div to start -->
-                                        <a href="{% url 'news_post_list' %}">
-                                            <img src=" {% static "images/homepage/cube3-news-icon.png" %}" alt="Logo for News">
-                                            <h3 class="h4 uppercase cube__title">News</h3>
-                                        </a><!-- end link -->
-                                    </div> <!-- end default-state -->
-                                    <div class="active-state"> <!-- Step 1: move div to top side of cube -->
-                                        <div class="img-wrapper">
-                                            <img src=" {% static "images/homepage/cube3-news-pic.png"  %}" alt="Image of News">
-                                        </div>
-                                    </div> <!-- end active-state -->
-                                </div> <!-- end cube flip-to-top-->
-                            </div> <!-- end cube-wrapper -->
-
-
-                            <div class="cube-wrapper">
-                                <div class="cube flip-to-top">
-                                    <div class="default-state"> <!-- front facing div to start -->
-                                        <div class="img-wrapper">
-                                            <img src=" {% static "images/homepage/cube4-cause-pic.png" %}" alt="Image of Cause">
-                                        </div>
-                                    </div>
-                                    <div class="active-state cube-icon-txt"> <!-- Step 1: move div to top side of cube -->
-                                        <a href="#">
-                                            <img src=" {% static "images/homepage/cube4-cause-icon.png" %}" alt="Logo for Cause">
-                                            <h3 class="h4 uppercase cube__title">Find a Cause</h3>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </section>

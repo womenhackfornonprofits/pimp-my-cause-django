@@ -180,6 +180,7 @@
 
 	&__menu {
 		display: none;
+        max-width: 600px;
 
         &--hide-large {
             display: none;
@@ -188,7 +189,6 @@
 	   	@media (min-width: 900px) {
 			flex: auto;
 		    display: inline-block;
-		    max-width: 600px;
 		    text-align: right;
 		}
 	}
@@ -304,6 +304,5 @@
 
     @media (min-width: 641px) {
         max-width: 7em;
-        padding: 2em 0;
     }
 }
