@@ -21,7 +21,7 @@ class Advert(models.Model):
         related_name='advert_skill'
     )
     created_at = models.DateTimeField(auto_now_add=True)
-    deadline = models.DateTimeField()
+    deadline = models.DateTimeField(blank=True, null=True)
     cause_profile = models.ForeignKey(
         CauseProfile,
         limit_choices_to={'profile__usertype': PimpUser.CAUSE},
