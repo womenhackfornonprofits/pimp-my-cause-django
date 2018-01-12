@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Count
+from django.http import QueryDict
 from django.contrib.gis.db.models.functions import Distance
 
 from profiles.models import PimpUser
@@ -13,6 +14,8 @@ from search.filters import (
 
 def marketer_list(request):
     """Marketer search view."""
+    filters = QueryDict('country=%s' % request.user.country, mutable=True)
+    filters.update(request.GET)
 
     marketer_list = MarketerFilter(
         request.GET,
@@ -25,7 +28,7 @@ def marketer_list(request):
     if request.user.is_authenticated:
         if request.user.is_geolocated:
             marketer_list_with_distance = MarketerFilter(
-                request.GET,
+                filters,
                 queryset=PimpUser.objects.filter(
                     usertype=PimpUser.MARKETER,
                     is_active=True
@@ -49,6 +52,10 @@ def marketer_list(request):
 
 def cause_list(request):
     """Cause search view."""
+    filters = QueryDict('country=%s' % request.user.country, mutable=True)
+
+    filters.update(request.GET)
+
     query_set = (
         PimpUser.objects.filter(
             usertype=PimpUser.CAUSE,
@@ -69,7 +76,7 @@ def cause_list(request):
         )
 
     cause_list = CauseFilter(
-        request.GET,
+        filters,
         queryset=query_set
     )
     context = {'cause_list': cause_list}
