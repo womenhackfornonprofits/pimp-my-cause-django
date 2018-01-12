@@ -5,14 +5,26 @@
 {% block title %} {{advert.title}} {% endblock %}
 
 {% block main %}
-    <section class="pnl pnl--dark-txt row">
+    <section class="pnl pnl--primary">
         <div class="content-wrap">
-            <div class="medium-12 large-12 small-10 large-centered small-centered columns margin-top-45">
+             <div class="row">
+                <div class="large-12 medium-12 small-12 columns">
+                    <h1 class="pnl__title h2">{{ advert.cause_profile }}</h1>
+                    <div class="row clearfix">
+                        <p class="small-12 medium-8 large-8 large-centered medium-centered column text-align-center pnl--light-txt">{{ advert.cause_profile.mission }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="page-login pnl">
+        <div class="content-wrap">
+            <div class="medium-8 large-8 small-12 small-centered medium-centered large-centered columns margin-top-45">
                 <div class="row">
-                    <h1 class="pnl__title">{{ advert.title }}</h1>
-                    <article class="large-10 medium-9 small-12 columns small-centered margin-top-30 margin-bottom-30 clearfix">
+                    <article class="margin-top-30 margin-bottom-30 clearfix">
                         <div class="cause__wrapper">
-                            <div class="small-12 medium-3 columns">
+                            <div class="small-12 columns">
+                                <h1 class="h2 text-align-left">{{ advert.title }}</h1>
                                 {% if advert.deadline %}
                                     <h4 class="h4 cause__title">
                                         <i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>
@@ -20,9 +32,7 @@
                                     </h4> 
                                 {% endif %}
                             </div>
-                            <div class="small-12 medium-9 columns">
-                                <h2 class="cause__title">{{ advert.title | title }}</h2>
-                                <h3 class="cause__title">Description</h3>
+                            <div class="small-12 columns">
                                 {% if advert.description %}
                                     <p class="cause__text">{{ advert.description | title }}</p>
                                 {% else %}
@@ -31,7 +41,11 @@
                                         {{ profile_user.causeprofile.cause_name | title }} is yet to share this information.
                                     </p>                                            
                                 {% endif %}
-                                <h3 class="cause__title">Skills Required</h3>
+                                <h3 class="cause__title h5 margin-bottom-10">Cause</h3>
+                                <a href="{% url 'profile_detail' user_id=advert.cause_profile.profile.id %}">
+                                {{ advert.cause_profile.profile.cause_name | title }}</h1>
+                                </a>
+                                <h3 class="cause__title h5 margin-bottom-10">Skills Required</h3>
 
                                 {% if advert.skills.all|length %}
                                     <ul class="unstyled-list text-align-left">
@@ -51,14 +65,14 @@
                                     Posted on {{ advert.created_at|date:"M d, Y"  }}
                                 </p> 
                                 {% if user.causeprofile == advert.cause_profile %}
-                                    <div class="small-12 medium-9 columns text-align-left margin-bottom-30">
+                                    <div class="small-12 columns text-align-left margin-bottom-30">
                                         <div class="row">
                                             <a href="{% url 'advert_edit' advert_id=advert.id  %}" class="button button--secondary "><i class="fa fa-pencil margin-right-5" aria-hidden="true"></i>Edit</a>
                                             <a href="{% url 'advert_delete' advert_id=advert.id  %}" class="button button--danger"><i class="fa fa-trash margin-right-5" aria-hidden="true"></i>Delete</a>
                                         </div>
                                     </div>                                                
                                 {% else %}
-                                    <a href="TODO" class="button button--primary margin-top-15">Message {{ profile_detail_form.name.value }}</a>
+                                    <a href="{% url 'new_message' recipient_id=advert.cause_profile.profile.id %}" class="button button--primary margin-top-15">Message {{ profile_detail_form.name.value }}</a>
                                 {% endif %}
                             </div> 
                         </div>
