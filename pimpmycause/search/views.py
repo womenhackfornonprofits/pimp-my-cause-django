@@ -14,8 +14,11 @@ from search.filters import (
 
 def marketer_list(request):
     """Marketer search view."""
-    filters = QueryDict('country=%s' % request.user.country, mutable=True)
-    filters.update(request.GET)
+    if request.user.is_authenticated and request.user.country:
+        filters = QueryDict('country=%s' % request.user.country, mutable=True)
+        filters.update(request.GET)
+    else:
+        filters = request.GET
 
     marketer_list = MarketerFilter(
         request.GET,
@@ -52,8 +55,12 @@ def marketer_list(request):
 
 def cause_list(request):
     """Cause search view."""
-    filters = QueryDict('country=%s' % request.user.country, mutable=True)
-    filters.update(request.GET)
+
+    if request.user.is_authenticated and request.user.country:
+        filters = QueryDict('country=%s' % request.user.country, mutable=True)
+        filters.update(request.GET)
+    else:
+        filters = request.GET
 
     query_set = (
         PimpUser.objects.filter(
@@ -85,8 +92,11 @@ def cause_list(request):
 
 def ads_list(request):
     """Help Wanted Ads search view."""
-    filters = QueryDict('country=%s' % request.user.country, mutable=True)
-    filters.update(request.GET)
+    if request.user.is_authenticated and request.user.country:
+        filters = QueryDict('country=%s' % request.user.country, mutable=True)
+        filters.update(request.GET)
+    else:
+        filters = request.GET
 
     adverts_list = HelpWantedAdsFilter(
         filters,
