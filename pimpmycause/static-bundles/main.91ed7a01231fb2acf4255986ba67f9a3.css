@@ -1966,14 +1966,14 @@ form label {
       display: block;
       border-top: 1px solid #FEFEFE; }
   .navigation__menu {
-    display: none; }
+    display: none;
+    max-width: 600px; }
     .navigation__menu--hide-large {
       display: none; }
     @media (min-width: 900px) {
       .navigation__menu {
         flex: auto;
         display: inline-block;
-        max-width: 600px;
         text-align: right; } }
   .navigation__button {
     position: relative;
@@ -2052,8 +2052,7 @@ form label {
     padding: 1em 0; }
   @media (min-width: 641px) {
     .logo-container {
-      max-width: 7em;
-      padding: 2em 0; } }
+      max-width: 7em; } }
 
 /* =================================
    UTILS / MIXINS
@@ -2898,4 +2897,4 @@ a {
   width: 100%;
   height: auto; }
 
-/*# sourceMappingURL=main.af7c7ac28f6e6ffa506d14d6988d8e45.css.map*/
+/*# sourceMappingURL=main.91ed7a01231fb2acf4255986ba67f9a3.css.map*/
