@@ -10,7 +10,7 @@
                 <div class="medium-12 large-12 small-10 large-centered small-centered columns margin-top-45">
                     <div class="row">
                         <div class="large-4 medium-4 small-10 small-centered large-centered columns text-align-center">
-                                <h1 class="text-align-center">{{ profile_user.name | title }} {{ profile_user.surname | title }}</h1>
+                                <h1 class="text-align-center h2">{{ profile_user.name | title }} {{ profile_user.surname | title }}</h1>
                                 <div class="profile__img-wrapper text-align-center">
                                     {% if not profile_user.image %}
                                         <img class="profile__img" src="/staticfiles/images/placeholder/marketer-default-image.png" alt="Example Profile Image">
@@ -19,15 +19,18 @@
                                         <img class="profile__img" src="{{profile_user.image}}" alt="{{ profile_user.name }} {{ profile_user.surname }} Profile Image">
                                     {% endif %}
                                 </div>
-                                <h2 class="h2">{{ profile_user.position | title }}</h2>
-                                {% if profile_user.marketerprofile.availability %}
-                                    <p class="helptext text-align-center"><i class="fa fa-check-square-o margin-right-5" aria-hidden="true"></i>I am available to help, please get in touch.</p>
-                                {% else %}
-                                    <p class="helptext text-align-center text-danger margin-top-0"><i class="fa fa-ban margin-right-5" aria-hidden="true"></i>I am not available at the moment, please check back in the future.</p>
+                                <h2 class="h3">{{ profile_user.position | title }}</h2>
+
+                                {% if profile_user.is_marketer %}
+                                    {% if profile_user.marketerprofile.availability %}
+                                        <p class="helptext text-align-center"><i class="fa fa-check-square-o margin-right-5" aria-hidden="true"></i>I am available to help, please get in touch.</p>
+                                    {% else %}
+                                        <p class="helptext text-align-center text-danger margin-top-0"><i class="fa fa-ban margin-right-5" aria-hidden="true"></i>I am not available at the moment, please check back in the future.</p>
+                                    {% endif %}
                                 {% endif %}
-                            {% if profile_user.is_cause  %}
-                                <h1 class="text-align-center">{{ profile_user.causeprofile.cause_name | title }}</h1>
-                            {% endif %}
+                                {% if profile_user.is_cause  %}
+                                    <h1 class="text-align-center">{{ profile_user.causeprofile.profile.cause_name | title }}</h1>
+                                {% endif %}
                         </div>
                         <div class="large-4 medium-8 small-10 small-centered large-centered columns text-align-center">
                             {% if profile_user.city %}
@@ -47,7 +50,7 @@
                     {% if profile_user.is_marketer %}
 
                         <div class="large-8 medium-8 small-12 columns small-centered large-centered ">
-                            <h2 class="text-align-left">
+                            <h2 class="text-align-left h4">
                                 Skills Offered
                             </h2>
                                 {% if profile_user.marketerprofile.skill.all|length %}
@@ -62,7 +65,7 @@
                                         {{ profile_user.name | title }} is yet to share this information.
                                     </p>
                                 {% endif %}
-                                <h2 class="text-align-left">
+                                <h2 class="text-align-left h4">
                                     Personal Introduction
                                 </h2>
                                     {% if profile_user.bio %}
@@ -73,7 +76,7 @@
                                             {{ profile_user.name  | title }} is yet to share this information.
                                         </p>
                                     {% endif %}
-                                <h2 class="text-align-left">
+                                <h2 class="text-align-left h4">
                                     Qualifications
                                 </h2>
                                 {% if profile_user.marketerprofile.qualification.all|length %}
@@ -88,7 +91,7 @@
                                         {{ profile_user.name | title }} is yet to share this information.
                                     </p>
                                 {% endif %}
-                            <h2 class="text-align-left">
+                            <h2 class="text-align-left h4">
                                 Experience
                             </h2>
                                 {% if profile_user.marketerprofile.experience %}
@@ -112,7 +115,7 @@
 
                 {% if profile_user.is_cause %}
                     <div class="large-8 medium-8 small-12 columns small-centered large-centered ">
-                        <h2 class="text-align-left">
+                        <h2 class="text-align-left h4">
                             Mission
                         </h2>
                         {% if profile_user.causeprofile.mission %}
@@ -123,13 +126,13 @@
                             </p>
                         {% endif %}
 
-                        <h2 class="text-align-left">
+                        <h2 class="text-align-left h4">
                             Category
                         </h2>
                         {% if profile_user.causeprofile.category %}
                             <p>{{ profile_user.causeprofile.get_category_display }}</p>
                         {% endif %}
-                        <h2 class="text-align-left">
+                        <h2 class="text-align-left h4">
                             Introduction
                         </h2>
                         {% if profile_user.bio %}
