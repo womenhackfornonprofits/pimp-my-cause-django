@@ -138,7 +138,7 @@
                                                         </div>
                                                     </div>                                                
                                                 {% else %}
-                                                    <a href="{% url 'new_message' recipient_id=advert.cause_profile_id %}" class="button button--primary margin-top-15">View Advert</a>
+                                                    <a href="{% url 'advert_detail' advert_id=advert.id  %}" class="button button--primary margin-top-15">View Advert</a>
                                                 {% endif %}
                                             </div> 
                                         </div>
