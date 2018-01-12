@@ -53,7 +53,6 @@ def marketer_list(request):
 def cause_list(request):
     """Cause search view."""
     filters = QueryDict('country=%s' % request.user.country, mutable=True)
-
     filters.update(request.GET)
 
     query_set = (
@@ -86,8 +85,11 @@ def cause_list(request):
 
 def ads_list(request):
     """Help Wanted Ads search view."""
+    filters = QueryDict('country=%s' % request.user.country, mutable=True)
+    filters.update(request.GET)
+
     adverts_list = HelpWantedAdsFilter(
-        request.GET,
+        filters,
         queryset=Advert.objects.all()
         .order_by('-created_at')
     )
