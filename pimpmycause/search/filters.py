@@ -5,7 +5,6 @@ from django import forms
 import django_filters
 from django_filters import (
     MultipleChoiceFilter,
-    filters
 )
 
 from profiles.models import (
