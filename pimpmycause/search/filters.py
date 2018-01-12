@@ -1,6 +1,11 @@
+from django.db import (
+    models,
+)
+from django import forms
 import django_filters
 from django_filters import (
     MultipleChoiceFilter,
+    filters
 )
 
 from profiles.models import (
@@ -11,6 +16,10 @@ from adverts.models import Advert
 
 
 class MarketerFilter(django_filters.FilterSet):
+    # marketerprofile__availability = filters.BooleanFilter(
+    #     name='marketerprofile__availability',
+    #     widget=forms.CheckboxInput)
+
     def __init__(self, *args, **kwargs):
         super(MarketerFilter, self).__init__(*args, **kwargs)
         self.filters['city__icontains'].label = 'City'
@@ -33,7 +42,9 @@ class MarketerFilter(django_filters.FilterSet):
 
 
 class CauseFilter(django_filters.FilterSet):
-    causeprofile__category__icontains = MultipleChoiceFilter(choices=CauseProfile.CAUSE_CATEGORY_CHOICES)
+    causeprofile__category__icontains = MultipleChoiceFilter(
+        choices=CauseProfile.CAUSE_CATEGORY_CHOICES,
+    )
 
     def __init__(self, *args, **kwargs):
         super(CauseFilter, self).__init__(*args, **kwargs)
