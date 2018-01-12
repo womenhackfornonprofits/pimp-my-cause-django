@@ -27,6 +27,14 @@ class PimpUserRegistrationForm(RegistrationForm):
         choices=USER_TYPE_CHOICES,
     )
 
+    def clean_cause_name(self):
+        usertype = self.cleaned_data['usertype']
+        data = self.cleaned_data['cause_name']
+
+        if usertype == PimpUser.CAUSE and not data:
+            raise forms.ValidationError("Cause name is required!")
+        return data
+
     class Meta:
         model = PimpUser
         fields = ('name', 'surname', 'email', 'position', 'password1', 'password2',

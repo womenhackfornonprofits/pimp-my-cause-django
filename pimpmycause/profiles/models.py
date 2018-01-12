@@ -52,7 +52,7 @@ class PimpUser(AbstractEmailUser):
         default=MARKETER,
     )
     bio = models.TextField(max_length=1000, blank=True)
-    cause_name = models.CharField(max_length=1000, blank=True)
+    cause_name = models.CharField(max_length=1000, blank=True, null=True)
 
     # social accounts
     twitter = models.URLField(max_length=100, blank=True)
@@ -67,11 +67,11 @@ class PimpUser(AbstractEmailUser):
         else:
             return '%s %s' % (self.surname, self.name)
 
-    def save(self, **kwargs):
-        if (self.usertype == self.CAUSE and self.cause_name.is_empty()):
-            raise ValidationError("Cause name is required")
+    # def save(self, **kwargs):
+    #     if (self.usertype == self.CAUSE and not self.cause_name):
+    #         raise ValidationError("Invalid value: Cause name is required", code='invalid')
 
-        super(PimpUser, self).save(**kwargs)
+    #     super(PimpUser, self).save(**kwargs)
 
     @property
     def is_admin(self):
