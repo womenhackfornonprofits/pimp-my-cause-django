@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block title %} Sent Messages {% endblock %} 
+{% block title %} Inbox{% endblock %} 
 
 {% load static %}
 
@@ -10,42 +10,71 @@
              <div class="row">
                 <div class="large-12 medium-12 small-12">
                     <div class="row">
-                        <h1 class="pnl__title">Sent messages</h1>
+                        <h1 class="pnl__title">Sent</h1>
                     </div>
-                    <div class="row">
-                        <div class="small-12 columns">
-                            {% if messages %}
-                                {% for message in messages %}
-                                    <article class="small-12 columns margin-top-30 clearfix">
-                                        <div class="cause__wrapper">
-                                            <div class="small-12 medium-4 columns">
+                <div class="row">
+                    <aside class="message-list large-3 medium-4 small-12 columns margin-top-30">
+                        <nav>
+                            <ul class="unstyled-list">
+                                <li>
+                                    <a href="{% url 'inbox' %}">Inbox</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'sent_messages' %}">Sent</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </aside>
+                    <main class="large-9 medium-8 small-12 columns">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <article class="message-list__message small-12 columns margin-top-30 clearfix padding-bottom-30">  
+                                        <header class="message-list__message-header">
+                                            <div>
+                                                <span class="margin-right-15">
+                                                    {{ message.sender }}
+                                                    {% if message.sender.causeprofile.cause_name %}
+                                                        ({{message.sender.causeprofile.cause_name }})
+                                                    {% endif %}
+                                                </span>
+                                                <span>
+                                                    {{ message.subject | title }}
+                                                </span>
+                                            </div>
+                                            <div>
                                                 {% if message.sent_at %}
-                                                    <h4 class="h4 cause__title">
+                                                    <p class="small cause__title margin-top-20">
                                                         <i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>
                                                         {{ message.sent_at|date:"M d, Y"  }}
-                                                    </h4> 
+                                                    </p> 
                                                 {% endif %}
-                                                    <a class="h4 cause__title" href="{% url 'profile_detail' user_id=message.recipient.id %}">To: {{ message.recipient }} {% if message.recipient.causeprofile.cause_name %} from {{message.recipient.causeprofile.cause_name }} {% endif %}</a>
                                             </div>
-                                            <div class="small-12 medium-8 columns">
-                                                <h2 class="cause__title">{{ message.subject | title }}</h2>
-                                                
-                                                <div class="cause__text margin-bottom-30">{{ message.message | safe | title | truncatechars:150 }}</div>
-                                                
-                                                <a href="TODO" class="button button--primary margin-top-15">Read more</a>
-                                            </div> 
+                                        </header>
+                                        <div class="small-12 medium-3 large-2 columns margin-top-15">
+                                            <a class="h5 cause__title" href="{% url 'profile_detail' user_id=message.sender.id %}">
+                                                <div class="small-6 medium-12 columns small-centered margin-top-15">
+                                                    {% if not message.sender.image %}
+                                                        <div class="marketer__image" style="background-image: url({% static "images/placeholder/marketer-default-image.png" %})" alt="{{ marketer.name | title }} {{ marketer.surname | title }} Profile Image"></div>
+                                                    {% else %}
+                                                        <div class="marketer__image" style="background-image:url('{{ message.sender.image }}')" alt="{{ message.sender.name | title }} {{ message.sender.surname | title }} Profile Image"></div>
+                                                    {% endif %}
+                                                </div>
+                                            </a>
                                         </div>
-                                    </article>
-                                {% endfor %}
-                            {% else %}
-                                <div class="row">
-                                    <div class="small-12">
-                                        <h3><i class="fa fa-frown-o margin-right-5" aria-hidden="true"></i> No sent messages.</h3>
-                                    </div>
+                                        <div class="small-12 medium-8 columns margin-top-15">
+                                            <div class="cause__text margin-bottom-30">{{ message.message | truncatechars:150  }}</div>
+                                            <a href="{% url 'message_detail' message_id=message.id %}" class="button button--primary margin-top-30">Read more</a>
+                                        </div> 
+                                </article>
+                            {% endfor %}
+                        {% else %}
+                            <div class="row">
+                                <div class="small-12">
+                                    <h3><i class="fa fa-frown-o margin-right-5" aria-hidden="true"></i> No new messages.</h3>
                                 </div>
-                            {% endif %}
-                        </div>
-                    </div>
+                            </div>
+                        {% endif %}
+                    </main>
                 </div>
             </div>
         </div>
