@@ -1644,10 +1644,13 @@ b,
   margin-bottom: 15px !important; }
 
 .margin-bottom-10 {
-  margin-bottom: 15px !important; }
+  margin-bottom: 10px !important; }
 
 .margin-top-15 {
   margin-top: 15px !important; }
+
+.margin-top-20 {
+  margin-top: 20px !important; }
 
 .margin-top-30 {
   margin-top: 30px !important; }
@@ -1663,6 +1666,9 @@ b,
 
 .margin-right-5 {
   margin-right: 5px !important; }
+
+.margin-right-15 {
+  margin-right: 15px !important; }
 
 .margin-bottom-30 {
   margin-bottom: 30px !important; }
@@ -2512,6 +2518,15 @@ button {
     align-content: center;
     background-color: #E1E0E7; }
 
+.message-list__message-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #E1E0E7;
+  border-top: 1px solid #E1E0E7;
+  padding: 1px; }
+
 .pnl, .pnl-causes, .pnl-marketing, .pnl-hero, .pnl-signup, .pnl-contact-us, .pnl-summary {
   position: relative;
   padding-bottom: 6em; }
@@ -2900,4 +2915,4 @@ a {
   width: 100%;
   height: auto; }
 
-/*# sourceMappingURL=main.b881fae61a0c0569cf9a0a3e626c68db.css.map*/
+/*# sourceMappingURL=main.cfcf47d65aa6309e046eee05779ad0ef.css.map*/
