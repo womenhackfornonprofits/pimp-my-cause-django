@@ -13,7 +13,7 @@ class NewsPost(models.Model):
     title = models.CharField(max_length=100, blank=True)
     image = S3DirectField(dest='news-post-images', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    slug = models.SlugField('slug', max_length=60, blank=True, unique=True)
+    slug = models.SlugField('slug', max_length=100, blank=True, unique=True)
     intro = models.CharField(max_length=300, blank=True)
 
     # WYSIWYG Fields
