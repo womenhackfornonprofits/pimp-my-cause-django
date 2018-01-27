@@ -53,6 +53,23 @@
                                     </div>
                                 </div>
                         {% endfor %}
+                        <div class="pagination clearfix padding-top-30 text-align-center">
+                            <span class="step-links">
+                                {% if news_post_list.has_previous %}
+                                    <a class="text-link margin-right-5" href="?page=1">First</a>
+                                    <a class="text-link margin-right-5" href="?page={{ news_post_list.previous_page_number }}">&larr; Previous</a>
+                                {% endif %}
+
+                                <span class="current margin-right-5">
+                                    Page {{ news_post_list.number }} of {{ news_post_list.paginator.num_pages }}
+                                </span>
+
+                                {% if news_post_list.has_next %}
+                                    <a class="text-link margin-right-5" href="?page={{ news_post_list.next_page_number }}">Next &rarr;</a>
+                                    <a class="text-link" href="?page={{ news_post_list.paginator.num_pages }}">Last</a>
+                                {% endif %}
+                            </span>
+                        </div>
                     {% else %}
                         <div class="row">
                             <div class="small-12">
