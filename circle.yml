@@ -9,12 +9,19 @@ machine:
     DEBUG: 0
     DJANGO_SETTINGS_MODULE: pimpmycause.settings.testing
     SECRET_KEY: test-secret-key
+  python:
+    version: 3.5.2
+  services:
+    - postgresql
 deployment:
   staging:
     branch: master
     heroku:
       appname: staging-pimp-my-cause
-      
+test:
+  override:
+    - tox
+
 experimental:
   notify:
     branches:
