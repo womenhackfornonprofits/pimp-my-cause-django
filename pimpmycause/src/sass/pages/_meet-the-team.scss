@@ -20,7 +20,7 @@ $team-individual-img-height: 150px;
     &__individual-wrapper {
         margin: 70px 0 0;
         border-top: $team-individual-img-height/2 solid $white;
-        background-color: #F2F2F2;
+        background-color: $silver-grey;
     }
 
     &__individual {
@@ -42,7 +42,7 @@ $team-individual-img-height: 150px;
         height: auto;
         margin: 0 auto;
         margin-top: -$team-individual-img-height/2;
-        border: 1px solid #eee;
+        border: 1px solid $darker-silver;
     }
 }
 

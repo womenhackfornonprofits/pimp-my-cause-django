@@ -103,7 +103,9 @@ p {
 }
 
 .text-link {
+    font-family: $base-font-family;
     color: $pink;
+    font-weight: bold;
 }
 
 .helptext {

@@ -12,20 +12,21 @@
                     <div class="row">
                         <h1 class="pnl__title">Sent</h1>
                     </div>
-                <div class="row">
-                    <aside class="message-list large-3 medium-4 small-12 columns margin-top-30">
+                <div class="row message-wrapper">
+                    <aside class="message-list large-2 medium-4 small-12 columns">
                         <nav>
-                            <ul class="unstyled-list">
-                                <li>
-                                    <a href="{% url 'inbox' %}">Inbox</a>
+                            <h4 class="margin-top-15">Mailboxes</h4>
+                            <ul class="unstyled-list text-align-center">
+                                <li class="message-list__link">
+                                    <a class="h5 text-link" href="{% url 'inbox' %}">Inbox</a>
                                 </li>
-                                <li>
-                                    <a href="{% url 'sent_messages' %}">Sent</a>
+                                <li class="message-list__link">
+                                    <a class="h5 text-link" href="{% url 'sent_messages' %}">Sent</a>
                                 </li>
                             </ul>
                         </nav>
                     </aside>
-                    <main class="large-9 medium-8 small-12 columns">
+                    <main class="large-9 medium-8 small-12 columns message-list__main">
                         {% if messages %}
                             {% for message in messages %}
                                 <article class="message-list__message small-12 columns margin-top-30 clearfix padding-bottom-30">  
@@ -39,6 +40,13 @@
                                                 </span>
                                                 <span>
                                                     {{ message.subject | title }}
+                                                    {% if message.unread %}
+                                                        <span class="helptext margin-bottom-0 flag flag--new">new</span>
+                                                    {% else %}
+                                                        {% if message.number_of_unread_replies > 0 %}
+                                                            <span class="helptext margin-bottom-0 flag flag--new">({{message.number_of_unread_replies}})</span>
+                                                        {% endif %}
+                                                    {% endif %}
                                                 </span>
                                             </div>
                                             <div>
@@ -70,7 +78,7 @@
                         {% else %}
                             <div class="row">
                                 <div class="small-12">
-                                    <h3><i class="fa fa-frown-o margin-right-5" aria-hidden="true"></i> No new messages.</h3>
+                                    <h3>No new messages.</h3>
                                 </div>
                             </div>
                         {% endif %}

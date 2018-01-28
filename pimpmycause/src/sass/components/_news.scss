@@ -29,4 +29,23 @@ $colr-marketer: pink;
         align-content: center;
         background-color: $grey;
     }
+
+    &__post {
+
+        * {
+            text-align: left;
+        }
+
+        img {
+            margin: 0 auto;
+            display: block;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        a {
+            color: $pink;
+            font-weight: bold;
+        }
+    }
 }

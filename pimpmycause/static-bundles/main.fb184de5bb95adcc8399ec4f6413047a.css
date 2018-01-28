@@ -1609,7 +1609,9 @@ p {
     margin-top: 0; }
 
 .text-link {
-  color: #DC0E54; }
+  font-family: "Open Sans", sans-serif;
+  color: #DC0E54;
+  font-weight: bold; }
 
 .helptext {
   font-style: italic;
@@ -2266,12 +2268,6 @@ button {
   background: #d7be01; }
 
 /* =================================
-   COMPONENTS / TWITTER
-   ================================= */
-.timeline-Tweet-text {
-  font-size: 1.125rem !important; }
-
-/* =================================
    COMPONENTS / SOCIAL TILE
    ================================= */
 .social-tile {
@@ -2517,15 +2513,36 @@ button {
     padding: 15px;
     align-content: center;
     background-color: #E1E0E7; }
+  .news__post * {
+    text-align: left; }
+  .news__post img {
+    margin: 0 auto;
+    display: block;
+    max-width: 100%;
+    width: 100%; }
+  .news__post a {
+    color: #DC0E54;
+    font-weight: bold; }
 
-.message-list__message-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #E1E0E7;
-  border-top: 1px solid #E1E0E7;
-  padding: 1px; }
+.message-list {
+  background-color: #F2F2F2;
+  margin-top: 0;
+  padding: 1em; }
+  .message-list__link {
+    padding: 8px 6px; }
+  .message-list__message-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #E1E0E7;
+    border-top: 1px solid #E1E0E7;
+    padding: 1px; }
+  .message-list__main {
+    background-color: #FEFEFE; }
+
+.message-wrapper {
+  border: 1px solid #eee; }
 
 .pnl, .pnl-causes, .pnl-marketing, .pnl-hero, .pnl-signup, .pnl-contact-us, .pnl-summary {
   position: relative;
@@ -2915,4 +2932,4 @@ a {
   width: 100%;
   height: auto; }
 
-/*# sourceMappingURL=main.cfcf47d65aa6309e046eee05779ad0ef.css.map*/
+/*# sourceMappingURL=main.fb184de5bb95adcc8399ec4f6413047a.css.map*/

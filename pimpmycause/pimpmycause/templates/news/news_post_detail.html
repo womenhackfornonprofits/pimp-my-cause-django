@@ -14,9 +14,9 @@
                         <i class="fa fa-clock-o margin-right-5" aria-hidden="true"></i>
                         Posted on {{ news_post.created_at|date:"M d, Y"  }}
                     </p> 
-                    <div class="medium-8 large-8 small-12 large-centered small-centered columns">
+                    <div class="news__post medium-8 large-8 small-12 large-centered small-centered columns">
                         {% if news_post.image %}
-                            <img class="" src="{{news_post.image}}" alt="{{ news_post.title }} News Post Image">
+                            <img class="news__post-image" src="{{news_post.image}}" alt="{{ news_post.title }} News Post Image">
                         {% endif %}
                         
                         {{news_post.content | safe}}

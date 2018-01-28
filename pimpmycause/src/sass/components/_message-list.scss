@@ -1,4 +1,12 @@
 .message-list {
+    background-color: $silver-grey;
+    margin-top: 0;
+    padding: 1em;
+
+    &__link {
+        padding: 8px 6px;
+    }
+
     &__message {
         &-header {
             display: flex;
@@ -10,4 +18,12 @@
             padding: 1px;
         }
     }
+    &__main {
+        background-color: $white;
+
+    }
+}
+
+.message-wrapper {
+    border: 1px solid $darker-silver;
 }
