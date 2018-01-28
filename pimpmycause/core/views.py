@@ -7,7 +7,7 @@ from core.models import TeamMember
 
 def homepage(request):
     """The home page view."""
-    limit = 3
+    limit = 7
     featured_marketer_list = (
         PimpUser.objects
         .filter(featured=True)
