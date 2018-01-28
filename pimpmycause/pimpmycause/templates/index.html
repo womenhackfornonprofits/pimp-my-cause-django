@@ -276,10 +276,10 @@
                         <div class="social-tile">
                             <div class="social-tile__body">
                                 {% for post in news_post_list %}
-                                    <article class="margin-top-30">
+                                    <article class="margin-bottom-30">
                                         <h1 class="text-align-left h4 margin-top-0">{{ post.title | title }}</h1>
-                                        <p class="social-tile__paragraph">{{ post.content | safe | truncatechars:250 }}</p>
-                                        <a href="{% url 'news_post_detail' slug=post.slug %}" class="read-more">Read More</a>
+                                        <p class="social-tile__paragraph">{{ post.intro | safe | truncatechars:250 }}</p>
+                                        <a href="{% url 'news_post_detail' slug=post.slug %}" class="text-link">Read More</a>
                                     </article>
                                 {% endfor %}
                             </div>

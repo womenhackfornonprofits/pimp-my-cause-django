@@ -37,7 +37,7 @@ class MarketerFilter(django_filters.FilterSet):
 
 
 class CauseFilter(django_filters.FilterSet):
-    causeprofile__category__icontains = MultipleChoiceFilter(
+    causeprofile__category = MultipleChoiceFilter(
         choices=CauseProfile.CAUSE_CATEGORY_CHOICES,
     )
 

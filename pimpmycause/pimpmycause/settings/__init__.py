@@ -146,8 +146,6 @@ STATIC_URL = '/staticfiles/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'pimpmycause/staticfiles')
 
-LOGIN_REDIRECT_URL = '/profile/edit'
-
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static-bundles'),
 )
@@ -192,7 +190,7 @@ S3DIRECT_DESTINATIONS = {
         'cache_control': 'max-age=2592000',
     },
     'news-post-images': {
-        'key': 'uploads/images/news-post-images',
+        'key': 'uploads/images/news',
         'allowed': ['image/jpeg', 'image/png', 'image/jpg'],
         'cache_control': 'max-age=2592000',
     },
