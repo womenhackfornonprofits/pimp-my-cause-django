@@ -36,7 +36,6 @@ $total_time: $time_per_slide * $num_of_slides; //total time needed for all image
 
     &__link {
         color: $pink;
-        font-weight: bold;
 
         &::after {
             content: '→';

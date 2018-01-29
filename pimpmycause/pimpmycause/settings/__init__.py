@@ -201,6 +201,8 @@ S3DIRECT_DESTINATIONS = {
     },
 }
 
+LOGIN_REDIRECT_URL = '/profile/edit'
+
 TINYMCE_DEFAULT_CONFIG = {
     'plugins': "table,spellchecker,paste,searchreplace",
     'theme': "advanced",

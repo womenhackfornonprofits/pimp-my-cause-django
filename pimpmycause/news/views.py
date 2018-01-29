@@ -28,19 +28,15 @@ def news_post_list(request):
         .order_by('-created_at')
     )
     page = request.GET.get('page')
-
     paginator = Paginator(news_post_list, 25)
+
     try:
         news_post_list_paginated = paginator.page(page)
     except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
         news_post_list_paginated = paginator.page(1)
     except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
         news_post_list_paginated = paginator.page(paginator.num_pages)
 
-    # page = request.GET.get('page')
-    # news_post_list_paginated = paginator.get_page(page)
     context = {'news_post_list': news_post_list_paginated}
 
     return render(request, 'news/news_post_list.html', context)
