@@ -20,14 +20,14 @@
                          <form action="{% url 'search_cause' %}" method="get" class="margin-bottom-30 margin-top-30">
                             <div class="large-12 medium-12 small-12">
                                 <h4 class="text-align-left small-12 margin-top-0">Filter by:</h4>
-                                    {% if cause_list.form.non_field_errors %}
+                                    {% if cause_filters.form.non_field_errors %}
                                         <div class="row non-field-errors small-12">
-                                        {% for error in cause_list.form.non_field_errors %}
+                                        {% for error in cause_filters.form.non_field_errors %}
                                             <p class="form-error text-danger">{{ error }}</p>
                                         {% endfor %}
                                         </div>
                                     {% endif %}
-                                    {% for field in cause_list.form %}
+                                    {% for field in cause_filters.form %}
                                         <div class="form-group {% if field.errors %} has-error {% endif %}">
                                             {% if field.errors %}
                                                 {% for error in field.errors %}
@@ -48,9 +48,9 @@
                     </aside>
 
                     <main class="large-9 medium-8 small-12 columns">
-                        {% if cause_list.qs|length > 0 %}
+                        {% if cause_list %}
                             
-                               {% for cause in cause_list.qs %}
+                               {% for cause in cause_list %}
                                 <section class="cause margin-top-30 row">
                                     <div class="cause__wrapper small-12 columns">
                                         <div class="small-12 medium-3 columns show-for-large-up">
@@ -95,10 +95,27 @@
                                             See Profile
                                             </a>
                                         </div>
-
                                     </div>
                                 </section>
                                 {% endfor %}
+                                <div class="pagination clearfix padding-top-30 text-align-center">
+                                        <span class="step-links">
+                                            {% if cause_list.has_previous %}
+                                                <a class="text-link margin-right-5" href="?page=1">First</a>
+                                                <a class="text-link margin-right-5" href="?page={{ cause_list.previous_page_number }}">&larr; Previous</a>
+                                            {% endif %}
+
+                                            <span class="current margin-right-5">
+                                                Page {{ cause_list.number }} of {{ cause_list.paginator.num_pages }}
+                                            </span>
+
+                                            {% if cause_list.has_next %}
+                                                <a class="text-link margin-right-5" href="?page={{ cause_list.next_page_number }}">Next &rarr;</a>
+                                                <a class="text-link" href="?page={{ cause_list.paginator.num_pages }}">Last</a>
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                </div>
                             {% else %}
                                 <div class="row">
                                     <div class="small-12">

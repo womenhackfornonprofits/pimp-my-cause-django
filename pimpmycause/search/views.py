@@ -1,3 +1,8 @@
+from django.core.paginator import (
+    Paginator,
+    EmptyPage,
+    PageNotAnInteger
+)
 from django.shortcuts import render
 from django.db.models import Count
 from django.http import QueryDict
@@ -14,55 +19,63 @@ from search.filters import (
 
 def marketer_list(request):
     """Marketer search view."""
+    # Pre-set user country is user has country
     if request.user.is_authenticated and request.user.country:
         filters = QueryDict('country=%s' % request.user.country, mutable=True)
         filters.update(request.GET)
     else:
         filters = request.GET
 
-    marketer_list = MarketerFilter(
-        request.GET,
-        queryset=PimpUser.objects.filter(
-            usertype=PimpUser.MARKETER,
-            is_active=True
-        )
+    marketer_query = PimpUser.objects.filter(
+        usertype=PimpUser.MARKETER,
+        is_active=True
     )
 
-    if request.user.is_authenticated:
-        if request.user.is_geolocated:
-            marketer_list_with_distance = MarketerFilter(
-                filters,
-                queryset=PimpUser.objects.filter(
-                    usertype=PimpUser.MARKETER,
-                    is_active=True
-                )
-                .annotate(
-                    distance=Distance('location', request.user.location)
-                )
-                .order_by('distance', '-date_joined')
-            )
-            context = {
-                'marketer_list': marketer_list_with_distance,
-            }
-        else:
-            context = {'marketer_list': marketer_list}
+    marketer_list = MarketerFilter(
+        filters,
+        queryset=marketer_query
+    )
 
-    else:
-        context = {'marketer_list': marketer_list}
+    if request.user.is_authenticated and request.user.is_geolocated:
+        marketer_list_with_distance = MarketerFilter(
+            filters,
+            queryset=marketer_query
+            .annotate(
+                distance=Distance('location', request.user.location)
+            )
+            .order_by('distance', '-date_joined')
+        )
+        marketer_list = marketer_list_with_distance
+
+    # Pagination
+    page = request.GET.get('page')
+    paginator = Paginator(marketer_list.qs, 12)
+
+    try:
+        marketer_list_paginated = paginator.page(page)
+    except PageNotAnInteger:
+        marketer_list_paginated = paginator.page(1)
+    except EmptyPage:
+        marketer_list_paginated = paginator.page(paginator.num_pages)
+
+    context = {
+        'marketer_list': marketer_list_paginated,
+        'marketer_filters': marketer_list
+    }
 
     return render(request, 'search/search_marketer.html', context)
 
 
 def cause_list(request):
-    """Cause search view."""
-
+    """Marketer search view."""
+    # Pre-set user country is user has country
     if request.user.is_authenticated and request.user.country:
         filters = QueryDict('country=%s' % request.user.country, mutable=True)
         filters.update(request.GET)
     else:
         filters = request.GET
 
-    query_set = (
+    cause_query = (
         PimpUser.objects.filter(
             usertype=PimpUser.CAUSE,
             is_active=True
@@ -73,19 +86,37 @@ def cause_list(request):
         )
     )
 
-    if request.user.is_authenticated and request.user.is_geolocated:
-        query_set = (
-            query_set
-            .annotate(
-                distance=Distance('location', request.user.location)
-            ).order_by('distance', '-date_joined')
-        )
-
     cause_list = CauseFilter(
         filters,
-        queryset=query_set
+        queryset=cause_query
     )
-    context = {'cause_list': cause_list}
+
+    if request.user.is_authenticated and request.user.is_geolocated:
+        cause_list_with_distance = CauseFilter(
+            filters,
+            queryset=cause_query
+            .annotate(
+                distance=Distance('location', request.user.location)
+            )
+            .order_by('distance', '-date_joined')
+        )
+        cause_list = cause_list_with_distance
+
+    # Pagination
+    page = request.GET.get('page')
+    paginator = Paginator(cause_list.qs, 12)
+
+    try:
+        cause_list_paginated = paginator.page(page)
+    except PageNotAnInteger:
+        cause_list_paginated = paginator.page(1)
+    except EmptyPage:
+        cause_list_paginated = paginator.page(paginator.num_pages)
+
+    context = {
+        'cause_list': cause_list_paginated,
+        'cause_filters': cause_list
+    }
 
     return render(request, 'search/search_cause.html', context)
 
