@@ -5,6 +5,11 @@ frontend/node_modules
 node_modules
 frontend/css/
 .DS_Store
+pimpmycause/profiles/fixtures/*
+pimpmycause/causes_no_html.json
+pimpmycause/customer_biographies_no_html.json
+pimpmycause/pimpmycause/templates/core/team-challenges.html
+pimpmycause/users-no-html.json
 pimpmycause/db.sqlite3
 **.pyc
 # Testing
