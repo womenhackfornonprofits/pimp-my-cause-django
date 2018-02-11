@@ -9,17 +9,27 @@
         <div class="content-wrap">
                 <div class="medium-12 large-12 small-10 large-centered small-centered columns margin-top-45">
                     <div class="row">
-                        <div class="large-4 medium-4 small-10 small-centered large-centered columns text-align-center">
+                        <div class="large-4 medium-6 small-10 small-centered large-centered columns text-align-center">
                                 <h1 class="text-align-center h2">{{ profile_user.name | title }} {{ profile_user.surname | title }}</h1>
                                 <div class="profile__img-wrapper text-align-center">
                                     {% if not profile_user.image %}
                                         <img class="profile__img" src="/staticfiles/images/placeholder/marketer-default-image.png" alt="Example Profile Image">
 
                                     {% else %}
-                                        <img class="profile__img" src="{{profile_user.image}}" alt="{{ profile_user.name }} {{ profile_user.surname }} Profile Image">
+                                        <img 
+                                            class="profile-img"
+                                            src="{{profile_update_form.image.value}}"
+                                            {% if profile_user.is_cause %}
+                                                alt="{{ profile_user.cause_name }} Profile Image"
+                                            {% else %]
+                                                alt="{{ profile_user.name }} {{ profile_user.surname }} Profile Image"
+                                            {% endif %}
+                                        >
                                     {% endif %}
                                 </div>
-                                <h2 class="h3">{{ profile_user.position | title }}</h2>
+                                {% if profile_user.position %}
+                                    <h2 class="h5">{{ profile_user.position | title }}</h2>
+                                {% endif %}
 
                                 {% if profile_user.is_marketer %}
                                     {% if profile_user.marketerprofile.availability %}
@@ -34,7 +44,7 @@
                         </div>
                         <div class="large-4 medium-8 small-10 small-centered large-centered columns text-align-center">
                             {% if profile_user.city %}
-                                <p class="text-align-center h4 display-inline-block">
+                                <p class="text-align-center display-inline-block">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     {{ profile_user.city | title }}
                                 </p>
@@ -80,9 +90,14 @@
                                     Qualifications
                                 </h2>
                                 {% if profile_user.marketerprofile.qualification.all|length %}
-                                    <ul>
-                                        {% for qualification in profile_user.qualification.all %}
-                                            <li>{{ qualification | title }}</li>
+                                    <ul class="unstyled-list">
+                                        {% for qualification in profile_user.marketerprofile.qualification.all %}
+                                            <li>
+                                                {% if qualification.name %}
+                                                    <h5 class="text-align-left">{{ qualification.name | title }} Title</h5>
+                                                {% endif %}
+                                                <p>{{ qualification.description }}</p>
+                                            </li>
                                         {% endfor %}
                                     </ul>
                                 {% else %}
@@ -119,7 +134,7 @@
                             Mission
                         </h2>
                         {% if profile_user.causeprofile.mission %}
-                            <p>{{ profile_user.causeprofile.mission | title }}</p>
+                            <p>{{ profile_user.causeprofile.mission }}</p>
                         {% else %}
                             <p class="helptext">
                                 {{ profile_user.name | title }} is yet to share this information.
@@ -136,7 +151,7 @@
                             Introduction
                         </h2>
                         {% if profile_user.bio %}
-                            <p>{{ profile_user.bio | title }}</p>
+                            <p>{{ profile_user.bio }}</p>
                         {% else %}
                             <p class="helptext">
                                 {{ profile_user.name  | title }} is yet to share this information.
@@ -149,8 +164,11 @@
     
     {% if profile_user.linkedin or profile_user.twitter or profile_user.website %}
         <section class="pnl pnl--dark-txt row text-align-center">
-
-            <h4>Follow {{profile_user.name}} on social media</h4>
+            {% if profile_user.is_cause %}
+                <h4>Follow {{profile_user.cause_name}} on social media</h4>
+            {% else %}
+                <h4>Follow {{profile_user.name}} on social media</h4>
+            {% endif %}
             <ul class="profile__social">
                 {% if profile_user.linkedin %}
                     <li class="profile__social-item h4">
