@@ -12,6 +12,7 @@ pimpmycause/customer_biographies_no_html.json
 pimpmycause/pimpmycause/templates/core/team-challenges.html
 pimpmycause/users-no-html.json
 pimpmycause/db.sqlite3
+*/fixtures/*
 **.pyc
 # Testing
 .cache

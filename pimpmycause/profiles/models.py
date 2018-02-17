@@ -100,14 +100,14 @@ class PimpUser(AbstractEmailUser):
 def geolocate_user(sender, instance, *args, **kwargs):
     pass
 
-    # if (not instance.location):
-    #     address = '{}, {}, {}'.format(instance.city, instance.postcode, instance.country)
-    #     g = geocoder.google(address)
+    if (not instance.location):
+        address = '{}, {}, {}'.format(instance.city, instance.postcode, instance.country)
+        g = geocoder.google(address)
 
-    #     if g.latlng:
-    #         instance.location = Point(g.latlng[0], g.latlng[1])
-    # else:
-    #     log.info('User already has a location set %s' % instance.location)
+        if g.latlng:
+            instance.location = Point(g.latlng[0], g.latlng[1])
+    else:
+        log.info('User already has a location set %s' % instance.location)
 
 
 @receiver(post_save, sender=PimpUser)
