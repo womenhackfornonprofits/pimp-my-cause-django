@@ -34,32 +34,35 @@ class PimpUser(AbstractEmailUser):
     REQUIRED_FIELDS = ['usertype']
 
     # basic info
-    name = models.CharField(max_length=24, blank=True)
-    surname = models.CharField(max_length=24, blank=True)
-    phone = models.CharField(max_length=15, blank=True)
-    image = S3DirectField(dest='user-profile-images', blank=True)
+    name = models.CharField(max_length=240, blank=True, null=True)
+    surname = models.CharField(max_length=240, blank=True, null=True)
+    phone = models.CharField(max_length=250, blank=True, null=True)
+    image = S3DirectField(dest='user-profile-images', blank=True, null=True)
 
     # location info
-    country = CountryField(blank=True, blank_label='Select country')
-    city = models.CharField(max_length=85, blank=True)
-    postcode = models.CharField(max_length=12, blank=True)
+    country = CountryField(blank=True, null=True, blank_label='Select country')
+    city = models.CharField(max_length=1000, blank=True, null=True)
+    postcode = models.CharField(max_length=120, blank=True, null=True)
     location = models.PointField(blank=True, null=True)
 
     # professional info
-    position = models.CharField(max_length=100, blank=True)
+    position = models.CharField(max_length=1000, blank=True, null=True)
     usertype = models.IntegerField(
         choices=USER_TYPE_CHOICES,
         default=MARKETER,
     )
-    bio = models.TextField(max_length=1000, blank=True)
+    bio = models.TextField(max_length=10000, blank=True, null=True)
     cause_name = models.CharField(max_length=1000, blank=True, null=True)
 
     # social accounts
-    twitter = models.URLField(max_length=100, blank=True)
-    linkedin = models.URLField(max_length=100, blank=True)
-    website = models.URLField(max_length=100, blank=True)
+    twitter = models.URLField(max_length=1000, blank=True, null=True)
+    linkedin = models.URLField(max_length=1000, blank=True, null=True)
+    website = models.URLField(max_length=1000, blank=True, null=True)
 
     featured = models.BooleanField(default=False)
+    # storing old geo data
+    geo_data = models.TextField(max_length=300, blank=True, null=True)
+    has_reactivated = models.BooleanField(default=False)
 
     def __str__(self):
         if (self.usertype == self.CAUSE):
@@ -67,11 +70,11 @@ class PimpUser(AbstractEmailUser):
         else:
             return '%s %s' % (self.surname, self.name)
 
-    # def save(self, **kwargs):
-    #     if (self.usertype == self.CAUSE and not self.cause_name):
-    #         raise ValidationError("Invalid value: Cause name is required", code='invalid')
+    def save(self, **kwargs):
+        if (self.usertype == self.CAUSE and not self.cause_name):
+            raise ValidationError("Invalid value: Cause name is required", code='invalid')
 
-    #     super(PimpUser, self).save(**kwargs)
+        super(PimpUser, self).save(**kwargs)
 
     @property
     def is_admin(self):
@@ -95,6 +98,7 @@ class PimpUser(AbstractEmailUser):
 
 @receiver(post_save, sender=PimpUser)
 def geolocate_user(sender, instance, *args, **kwargs):
+    pass
 
     if (not instance.location):
         address = '{}, {}, {}'.format(instance.city, instance.postcode, instance.country)
@@ -155,7 +159,7 @@ class MarketerProfile(models.Model):
         "profiles.Qualification",
         blank=True
     )
-    experience = models.CharField(max_length=1000, blank=True)
+    experience = models.CharField(max_length=10000, blank=True, null=True)
     availability = models.BooleanField(default=True)
 
     def __str__(self):
@@ -197,7 +201,7 @@ class CauseProfile(models.Model):
         primary_key=True,
         limit_choices_to={'usertype': PimpUser.CAUSE}
     )
-    mission = models.CharField(max_length=1000, blank=True)
+    mission = models.CharField(max_length=10000, blank=True)
     category = models.IntegerField(choices=CAUSE_CATEGORY_CHOICES, null=True)
 
     def __str__(self):

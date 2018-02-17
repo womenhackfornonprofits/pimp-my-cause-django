@@ -51,7 +51,15 @@
                                 {% if not profile_update_form.image.value %}
                                     <img class="profile-img " src={% static "images/placeholder/marketer-default-image.png" %} alt="Example Profile Image">
                                 {% else %}
-                                    <img class="profile-img" src="{{profile_update_form.image.value}}" alt="{{ user.name }} {{ user.surname }} Profile Image">
+                                    <img 
+                                        class="profile-img"
+                                        src={% static "profile_update_form.image.value" %}
+                                        {% if user.is_cause %}
+                                            alt="{{ user.cause_name }} Profile Image"
+                                        {% else %]
+                                            alt="{{ user.name }} {{ user.surname }} Profile Image"
+                                        {% endif %}
+                                    >
                                     
                                     {% if profile_update_form.image.errors %}
                                         {% for error in profile_update_form.image.errors %}
@@ -152,12 +160,12 @@
                                 {{ additional_profile_form.mission.errors }}
                                 <label for="mission">Mission</label>
 
-                                <textarea name="mission" rows="10" placeholder="What is your Cause Mission?" required>{{ additional_profile_form.mission.value|title }}</textarea>
+                                <textarea name="mission" rows="10" placeholder="What is your Cause Mission?" required>{{ additional_profile_form.mission.value }}</textarea>
                             </div>
                         {% endif %}
                         <div class="large-12 medium-12 small-12 {% if profile_update_form.bio.errors %}has-error{% endif %} margin-top-30">
                             <label for="bio">Additional information</label>
-                            <textarea name="bio" rows="10" placeholder="{% if user.is_marketer  %}Hi! My name is Sam, I am a London based Marketer.{% else %}Example Cause has been founded in 2007 and our aim is...{%endif%}">{{ profile_update_form.bio.value|title}}</textarea>
+                            <textarea name="bio" rows="10" placeholder="{% if user.is_marketer  %}Hi! My name is Sam, I am a London based Marketer.{% else %}Example Cause has been founded in 2007 and our aim is...{%endif%}">{{ profile_update_form.bio.value}}</textarea>
                         </div>
                         <div class="large-6 medium-6 small-12">
                             <input class="button button--primary margin-top-30" type="submit" value="Update">

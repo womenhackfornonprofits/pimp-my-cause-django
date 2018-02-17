@@ -69,7 +69,7 @@
                                                 </a>
                                                 <h2 class="cause__title h5 margin-top-15 margin-bottom-15">Our Mission</h2>
                                                 {% if cause.causeprofile.mission %}
-                                                    <p>{{ cause.causeprofile.mission | title }}</p>
+                                                    <p>{{ cause.causeprofile.mission | truncatechars:300 }}</p>
                                                 {% else %}
                                                     <p clas="helptext">
                                                         <i class="fa fa-comments-o" aria-hidden="true"></i>
