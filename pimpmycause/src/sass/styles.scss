@@ -27,6 +27,10 @@
 @import "components/social";
 @import "components/news";
 @import "components/message-list";
+@import "components/challenge";
+@import "components/curly-brace";
+@import "components/arrow";
+
 
 @import "pages/home";
 @import "pages/generic";
@@ -38,8 +42,6 @@
 body {
     margin: 0;
     overflow: auto;
-    font-family: $open-sans;
-    font-weight: $font-weight;
 
     &.nav--active {
         position: relative;

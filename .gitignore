@@ -5,6 +5,7 @@ frontend/node_modules
 node_modules
 frontend/css/
 .DS_Store
+pimpmycause/import_user_data.py
 pimpmycause/profiles/fixtures/*
 pimpmycause/causes_no_html.json
 pimpmycause/customer_biographies_no_html.json

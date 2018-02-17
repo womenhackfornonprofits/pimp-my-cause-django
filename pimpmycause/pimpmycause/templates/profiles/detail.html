@@ -13,12 +13,18 @@
                                 <h1 class="text-align-center h2">{{ profile_user.name | title }} {{ profile_user.surname | title }}</h1>
                                 <div class="profile__img-wrapper text-align-center">
                                     {% if not profile_user.image %}
-                                        <img class="profile__img" src="/staticfiles/images/placeholder/marketer-default-image.png" alt="Example Profile Image">
+                                        <img class="profile__img" src={% static "images/placeholder/marketer-default-image.png" %} 
+                                            {% if profile_user.is_cause %}
+                                                alt="{{ profile_user.cause_name }} Profile Image"
+                                            {% else %]
+                                                alt="{{ profile_user.name }} {{ profile_user.surname }} Profile Image"
+                                            {% endif %}
+                                        >
 
                                     {% else %}
                                         <img 
                                             class="profile-img"
-                                            src="{{profile_update_form.image.value}}"
+                                            src={% static "{{profile_user.image}}" %}
                                             {% if profile_user.is_cause %}
                                                 alt="{{ profile_user.cause_name }} Profile Image"
                                             {% else %]

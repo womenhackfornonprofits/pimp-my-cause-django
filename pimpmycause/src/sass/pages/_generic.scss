@@ -11,6 +11,11 @@
     .pnl__title {
     	color: $purple;
     }
+
+    .pnl__subtitle {
+        color: $purple;
+        font-size: 2em;
+    }
 }
 
 .icon--super {
@@ -24,6 +29,14 @@
 
     &--secondary {
         background: $purple;
+    }
+
+    &--tertiary {
+        background: none;
+        h1,
+        .h1 {
+            color: $purple;
+        }
     }
 
     &--primary,
