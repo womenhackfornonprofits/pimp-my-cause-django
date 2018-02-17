@@ -47,7 +47,12 @@ urlpatterns = [
     ),
     url(
         r'^terms-and-conditions/$',
-        TemplateView.as_view(template_name='core/terms_and_conditions.html'),
+        TemplateView.as_view(template_name='core/terms-and-conditions.html'),
         name="terms_and_conditions"
+    ),
+    url(
+        r'^team-challenges/$',
+        TemplateView.as_view(template_name='core/team-challenges.html'),
+        name="team_challenges"
     ),
 ]

@@ -1,0 +1,33 @@
+// .arrow {
+//     width: 40px;
+//     height: 40px;
+//     position: relative;
+//     display: inline-block;
+//     margin: 10px 10px;
+
+//     &::before,
+//     &::after {
+//         content: '';
+//         border-color: transparent;
+//         border-style: solid;
+//         position: absolute;
+//     }
+// }
+
+// .arrow--right {
+//     &::before {
+//         border: none;
+//         background-color: $purple;
+//         height: 30%;
+//         width: 50%;
+//         top: 35%;
+//         left: 0;
+//     }
+
+//     &::after {
+//         left: 50%;
+//         top: 0;
+//         border-width: 20px 20px;
+//         border-left-color: $purple;
+//     }
+// }

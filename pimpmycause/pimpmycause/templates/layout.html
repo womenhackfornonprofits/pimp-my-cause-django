@@ -27,7 +27,7 @@
                             <li class="navigation__item"><a href="{% url 'search_marketer' %}" class="navigation__link">Find a Marketer</a></li>
                             <li class="navigation__menu--has-dropdown"><p>Partnerships</p>
                                 <ul class="navigation__dropdown">
-                                    <li class="navigation__item"><a href="#TODO" class="navigation__link">Team Challenges</a></li>
+                                    <li class="navigation__item"><a href="{% url 'team_challenges' %}" class="navigation__link">Team Challenges</a></li>
                                     <li class="navigation__item"><a href="{% url 'become_a_partner' %}" class="navigation__link">Become a Partner</a></li>
                                     <li class="navigation__item"><a href="{% url 'become_a_partner' %}#our-partners" class="navigation__link">Our Partners</a></li>
                                 </ul>
@@ -137,19 +137,19 @@
                 <a href="/" class="margin-right-5">
                     <img class="footer__logo" src="{% static 'images/homepage/logo.png' %}"/>
                 </a>
-                <p class="small">Copyright @ {% now "Y" %} PIMP MY CAUSE | Created and built by <a href="" Women Hack for Non-Profits</p>
+                <p class="small">Copyright @ {% now "Y" %} PIMP MY CAUSE</p>
             </div>
             <div class="footer__info">
                 <ul>
                     <li>
                         <a href="/terms-and-conditions/" class="small footer__link">Terms of usage</a>
                     </li>
-                    <li>
+<!--                     <li>
                         <a href="#" class="small footer__link">Support/Help</a>
                     </li>
                     <li>
                         <a href="#" class="small footer__link">Privacy</a>
-                    </li>
+                    </li> -->
                 </ul>
                 <ul class="social">
                     <li class="social__item">

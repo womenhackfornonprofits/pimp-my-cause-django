@@ -1,0 +1,22 @@
+.challenge {
+    &__step {
+        border: 3px solid $purple;
+        padding: 1em;
+        margin: 1em 0;
+        height: 170px;
+        background: $grey;
+
+        &-title {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &-wrapper {
+            position: relative;
+        }
+    }
+
+}

@@ -13,6 +13,7 @@ $open-sans: 'Open Sans', sans-serif;
 h2 {
 	font-weight: 100;
 }
+
 @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,900|Open+Sans:600,700,300');
 
 $title-font-name: "Lato", sans-serif;
@@ -34,12 +35,17 @@ $header-margin: 1.25em;
 
 // Make type normal across browsers
 *, html, body {
-    font-size: $base-font-size;
+    // font-size: $base-font-size;
     font-family: $base-font-family;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+}
+
+:root {
+    font-size: $base-font-size;
+    font-weight: $font-weight;
 }
 
 
@@ -84,7 +90,6 @@ h5 {
     font-weight: 400;
 }
 
-
 // Paragraphs
 .body-text,
 p {
@@ -122,4 +127,8 @@ b,
 .small {
     font-weight: 300;
     font-size: .8em;
+}
+
+blockquote {
+    margin: 0;
 }

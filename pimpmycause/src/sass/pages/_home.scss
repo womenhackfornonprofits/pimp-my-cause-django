@@ -5,16 +5,42 @@
     &__title {
         padding: 3rem 1rem 1rem;
         font-weight: 100;
-        font-size: 3em;
+        font-size: 1.5em;
         text-align: center;
         color: $white;
         line-height: 1.3em;
         margin: 0;
 
         @media only screen and (min-width: 550px) {
+            font-size: 3em;
             padding: 4rem 2rem 2rem;
         }
     }
+
+    &__subtitle,
+    &__subtitle--accent {
+        padding: 3rem 1rem 1rem;
+        font-weight: 100;
+        font-size: 20px;
+        text-align: center;
+        line-height: 1.3em;
+        margin: 0;
+
+        @media only screen and (min-width: 550px) {
+            font-size: 30px;
+
+        }
+    }
+
+    &__subtitle--accent {
+        padding: 0;
+        color: $pink;
+    }
+
+    &__subtitle {
+        color: $purple;
+    }
+
 }
 
 .pnl--light-txt {
