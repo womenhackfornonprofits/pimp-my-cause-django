@@ -65,11 +65,21 @@
                                                         {{ advert.created_at|date:"M d, Y"  }} - ... 
                                                     </p> 
                                                 {% endif %}
-                                                {% if advert.cause_profile.profile.image.value %}
-                                                    <img src="{{advert.cause_profile.profile.image.value}}"/>
+<!--                                                 <div class="cause__image-wrapper margin-top-15">
+                                                {% if cause.image %}
+                                                    <img class="cause__image" src="{{ cause.image }}" alt="{{ cause.causeprofile.cause_name }} Profile Image"></img>
                                                 {% else %}
-                                                    <img src={% static "images/placeholder/cause-default-image.png" %}/>
+                                                    <img class="profile-img" src={% static "images/placeholder/cause-default-image.png" %} alt="{{ cause.cause_name }} Profile Image">
                                                 {% endif %}
+                                            </div> -->
+                                                <div class="text-align-center margin-bottom-15 margin-top-15">
+
+                                                    {% if advert.cause_profile.profile.image %}
+                                                        <img src="{{advert.cause_profile.profile.image}}"/>
+                                                    {% else %}
+                                                        <img src={% static "images/placeholder/cause-default-image.png" %}/>
+                                                    {% endif %}
+                                                </div>
                                             </div>
                                             <div class="small-12 medium-8 columns">
                                                 <a href="{% url 'advert_detail' advert_id=advert.id  %}">
