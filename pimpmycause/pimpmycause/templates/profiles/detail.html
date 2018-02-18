@@ -22,23 +22,13 @@
                                         >
 
                                     {% else %}
-                                        <div class="profile__img-background" style="background-image:url('{{ profile_user.image }}')"
+                                        <div class="profile__img-background margin-bottom-15" style="background-image:url('{{ profile_user.image }}')"
                                             {% if profile_user.is_cause %}
                                                 alt="{{ profile_user.cause_name }} Profile Image"
                                             {% else %]
                                                 alt="{{ profile_user.name }} {{ profile_user.surname }} Profile Image"
                                             {% endif %}
                                         ></div>
-
-                                        <!-- <img 
-                                            class="profile-img"
-                                            src="{{profile_user.image}}"
-                                            {% if profile_user.is_cause %}
-                                                alt="{{ profile_user.cause_name }} Profile Image"
-                                            {% else %]
-                                                alt="{{ profile_user.name }} {{ profile_user.surname }} Profile Image"
-                                            {% endif %}
-                                        > -->
                                     {% endif %}
                                 </div>
                                 {% if profile_user.position %}
