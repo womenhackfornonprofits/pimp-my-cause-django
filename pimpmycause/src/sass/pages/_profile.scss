@@ -8,6 +8,16 @@
         max-height: 100%;
     }
 
+    &__img-background {
+        width: 100%;
+        height: auto;
+        padding-top: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: 50% 50%;
+        margin: auto;
+    }
+
     &__img-wrapper {
         max-width: 300px;
         max-height: 300px;

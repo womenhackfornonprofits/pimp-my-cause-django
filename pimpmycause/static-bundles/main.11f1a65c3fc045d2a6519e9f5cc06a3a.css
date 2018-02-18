@@ -2956,6 +2956,15 @@ button {
   max-width: 100%;
   max-height: 100%; }
 
+.profile__img-background {
+  width: 100%;
+  height: auto;
+  padding-top: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  margin: auto; }
+
 .profile__img-wrapper {
   max-width: 300px;
   max-height: 300px; }
@@ -3028,4 +3037,4 @@ a {
   width: 100%;
   height: auto; }
 
-/*# sourceMappingURL=main.1bc56e6d1d6129bedbec40d0fbb3a980.css.map*/
+/*# sourceMappingURL=main.11f1a65c3fc045d2a6519e9f5cc06a3a.css.map*/

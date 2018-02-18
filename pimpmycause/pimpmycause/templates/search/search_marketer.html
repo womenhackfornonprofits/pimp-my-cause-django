@@ -53,7 +53,7 @@
                                     <div class="marketer {% if marketer_list.qs|length > 2 %}large-4 {% endif %}medium-6 small-12 large-4 column margin-bottom-30 margin-top-30">
                                         <div class="marketer__wrapper">
                                             <div class="marketer__image-wrapper">
-                                                {% if marketer__profile.image %}
+                                                {% if marketer.image %}
                                                     <div class="marketer__image" style="background-image:url('{{ marketer.image }}')" alt="{{ marketer.name | title }} {{ marketer.surname | title }} Profile Image"></div>
                                                 {% else %}
                                                     <div class="marketer__image" style="background-image:url('https://s3-eu-west-1.amazonaws.com/pimpmycause-images/uploads/imgs/marketer-default-image.png')" alt="{{ marketer.name | title }} {{ marketer.surname | title }} Profile Image"></div>
