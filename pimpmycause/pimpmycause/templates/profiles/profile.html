@@ -129,7 +129,11 @@
                                 {{ additional_profile_form.experience.errors }}
                                 <label for="experience">Experience</label>
 
-                                <textarea name="experience" rows="10" placeholder="Work Experience" required >{{ additional_profile_form.experience.value | title}}</textarea>
+                                <textarea name="experience" rows="10" placeholder="Work Experience" required>
+                                    {% if additional_profile_form.experience.value|length %}
+                                        {{ additional_profile_form.experience.value}}
+                                    {% endif %}
+                                </textarea>
                             </div>
                             <div class="large-12 medium-12 small-12">                            
 
@@ -141,6 +145,11 @@
                                         <li>{{ skill }}</li>
                                     {% endfor %}
                                 </ul>
+                            </div>
+
+                             <div class="large-12 medium-12 small-12">   
+                                <label for="id_skill">Qualifications</label>
+
                             </div>
                             <div class="large-12 medium-12 small-12"> 
                                 <div class="margin-top-30">  
@@ -160,12 +169,20 @@
                                 {{ additional_profile_form.mission.errors }}
                                 <label for="mission">Mission</label>
 
-                                <textarea name="mission" rows="10" placeholder="What is your Cause Mission?" required>{{ additional_profile_form.mission.value }}</textarea>
+                                <textarea name="mission" rows="10" placeholder="What is your Cause Mission?" required>
+                                    {% if additional_profile_form.mission.value|length %}
+                                        {{ additional_profile_form.mission.value }}
+                                    {% endif %}
+                                </textarea>
                             </div>
                         {% endif %}
                         <div class="large-12 medium-12 small-12 {% if profile_update_form.bio.errors %}has-error{% endif %} margin-top-30">
                             <label for="bio">Additional information</label>
-                            <textarea name="bio" rows="10" placeholder="{% if user.is_marketer  %}Hi! My name is Sam, I am a London based Marketer.{% else %}Example Cause has been founded in 2007 and our aim is...{%endif%}">{{ profile_update_form.bio.value}}</textarea>
+                            <textarea name="bio" rows="10" placeholder="{% if user.is_marketer  %}Hi! My name is Sam, I am a London based Marketer.{% else %}Example Cause has been founded in 2007 and our aim is...{%endif%}">
+                                {% if profile_update_form.bio.value|length %}
+                                    {{ profile_update_form.bio.value}}
+                                {% endif %}
+                            </textarea>
                         </div>
                         <div class="large-6 medium-6 small-12">
                             <input class="button button--primary margin-top-30" type="submit" value="Update">

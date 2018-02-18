@@ -3,12 +3,12 @@ from django import forms
 from s3direct.widgets import S3DirectWidget
 from django_countries.widgets import CountrySelectWidget
 
-
 from profiles.models import (
     PimpUser,
     MarketerProfile,
     CauseProfile,
     Skill,
+    Qualification,
 )
 from registration.forms import RegistrationForm
 
@@ -61,6 +61,13 @@ class PimpUserProfileForm(forms.ModelForm):
         }
 
 
+class QualificationForm(forms.ModelForm):
+
+    class Meta:
+        model = Qualification
+        fields = ('name', 'description', 'start_date', 'end_date')
+
+
 class MarketerUserProfileForm(forms.ModelForm):
 
     skill = forms.ModelMultipleChoiceField(
@@ -70,7 +77,7 @@ class MarketerUserProfileForm(forms.ModelForm):
 
     class Meta:
         model = MarketerProfile
-        fields = ('experience', 'availability', 'skill')
+        fields = ('experience', 'availability', 'skill',)
 
 
 class CauseUserProfileForm(forms.ModelForm):

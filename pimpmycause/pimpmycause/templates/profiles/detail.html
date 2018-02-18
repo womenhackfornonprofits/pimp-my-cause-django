@@ -70,7 +70,7 @@
                                 {% if profile_user.marketerprofile.skill.all|length %}
                                     <ul class="unstyled-list text-align-left">
                                         {% for skill in profile_user.marketerprofile.skill.all %}
-                                            <li><i class="fa fa-graduation-cap margin-right-5" aria-hidden="true"></i>{{ skill | title }}</li>
+                                            <li>- {{ skill | title }}</li>
                                         {% endfor %}
                                     </ul>
                                 {% else %}
@@ -98,7 +98,7 @@
                                         {% for qualification in profile_user.marketerprofile.qualification.all %}
                                             <li>
                                                 {% if qualification.name %}
-                                                    <h5 class="text-align-left">{{ qualification.name | title }} Title</h5>
+                                                    <h5 class="text-align-left"> <i class="fa fa-graduation-cap margin-right-5" aria-hidden="true">{{ qualification.name | title }}</h5>
                                                 {% endif %}
                                                 <p>{{ qualification.description }}</p>
                                             </li>

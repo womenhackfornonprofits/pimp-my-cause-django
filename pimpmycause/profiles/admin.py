@@ -49,8 +49,12 @@ class PimpUserAdmin(EmailUserAdmin):
     search_fields = ['name', 'email', 'position', 'cause_name']
 
 
+class QualificationAdmin(admin.ModelAdmin):
+    list_display = ['name', 'description', 'start_date', 'end_date']
+    search_fields = ['name', 'description']
+
+
 # Register your models here.
 admin.site.register(PimpUser, PimpUserAdmin)
-
-admin.site.register(Qualification)
+admin.site.register(Qualification, QualificationAdmin)
 admin.site.register(Skill)

@@ -37,7 +37,12 @@
                         <ul class="navigation__list navigation__menu--hide-large">
                             {% if user.is_authenticated %}
                                 <li class="navigation__item">
-                                    <a class="navigation__link" href="{% url 'profile_detail' user_id=user.id %}"> {{ user.name }}
+                                    <a class="navigation__link" href="{% url 'profile_detail' user_id=user.id %}">
+                                        {% if user.us_admin %}
+                                            Admin
+                                        {% else %}
+                                            {{ user.name }}
+                                        {% endif %}
                                         <i class="fa fa-cog" aria-hidden="true"></i>
                                     </a>
                                 </li>

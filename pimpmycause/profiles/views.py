@@ -8,7 +8,8 @@ from profiles.forms import (
     PimpUserRegistrationForm,
     PimpUserProfileForm,
     MarketerUserProfileForm,
-    CauseUserProfileForm
+    CauseUserProfileForm,
+    QualificationForm
 )
 from profiles.models import PimpUser
 from adverts.models import Advert
@@ -28,12 +29,6 @@ class ActivationComplete(TemplateView):
     """The Activation Complete view."""
 
     template_name = 'registration/activate_complete.html'
-
-
-class TermsAndConditions(TemplateView):
-    """The Activation Complete view."""
-
-    template_name = 'core/terms_and_conditions.html'
 
 
 def profile_detail(request, user_id):
@@ -61,6 +56,20 @@ def profile_detail(request, user_id):
 
 
 @login_required
+def qualification_edit(request, user_id):
+    if request.method == 'POST':
+        qualification_edit_form = QualificationForm(
+            request.POST,
+            instance=user_id
+        )
+    else:
+        qualification_edit_form = QualificationForm(instance=user_id)
+
+    context = {'qualification_edit_form': qualification_edit_form}
+    return render(request, 'profiles/profile.html', context)
+
+
+@login_required
 def profile_edit(request):
     """Edit user profile."""
 
@@ -83,7 +92,8 @@ def profile_edit(request):
                 instance=request.user.causeprofile
             )
         else:
-            log.info('Comething seriously wrong')
+            log.info('Admin User')
+            return redirect('home')
 
         if profile_update_form.is_valid() and additional_profile_form.is_valid():
 

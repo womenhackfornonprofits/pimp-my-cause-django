@@ -13,7 +13,7 @@ from profiles.models import (
 
 @python_2_unicode_compatible
 class Advert(models.Model):
-    title = models.CharField(max_length=100, blank=True)
+    title = models.CharField(max_length=150, blank=True)
     description = models.TextField(max_length=1000, blank=True)
     skills = models.ManyToManyField(
         Skill,

@@ -133,7 +133,7 @@ class Skill(models.Model):
 
 @python_2_unicode_compatible
 class Qualification(models.Model):
-    name = models.CharField(max_length=32)
+    name = models.CharField(max_length=100)
     description = models.CharField(max_length=500, null=True)
     start_date = models.DateField(null=True)
     end_date = models.DateField(null=True)
