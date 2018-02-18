@@ -53,7 +53,7 @@
                                 {% else %}
                                     <img 
                                         class="profile-img"
-                                        src={% static "profile_update_form.image.value" %}
+                                        src="{{profile_update_form.image}}"
                                         {% if user.is_cause %}
                                             alt="{{ user.cause_name }} Profile Image"
                                         {% else %]
