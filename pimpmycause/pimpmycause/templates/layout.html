@@ -15,12 +15,12 @@
 
                     <nav class="navigation__menu">
                         <ul class="navigation__list">
+                            <li class="navigation__item"><a href="{% url 'news_post_list' %}" class="navigation__link">News</a></li>
                             <li class="navigation__item navigation__list navigation__menu--has-dropdown"><p>About Us</p>
                                 <ul class="navigation__dropdown">
                                     <li class="navigation__item"><a href="{% url 'team' %}" class="navigation__link">Meet The Team</a></li>
                                     <li class="navigation__item"><a href="{% url 'how_it_works' %}" class="navigation__link">How It Works</a></li>
                                     <li class="navigation__item"><a href="{% url 'who_we_are' %}" class="navigation__link">Who We Are</a></li>
-                                    <li class="navigation__item"><a href="{% url 'news_post_list' %}" class="navigation__link">News</a></li>
                                 </ul>
                             </li>
                             <li class="navigation__item"><a href="{% url 'search_cause' %}" class="navigation__link">Find a Cause</a></li>
