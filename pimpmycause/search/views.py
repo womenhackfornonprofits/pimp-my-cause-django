@@ -43,7 +43,7 @@ def marketer_list(request):
             .annotate(
                 distance=Distance('location', request.user.location)
             )
-            .order_by('distance', '-date_joined')
+            .order_by('distance', 'date_joined')
         )
         marketer_list = marketer_list_with_distance
 
@@ -98,7 +98,7 @@ def cause_list(request):
             .annotate(
                 distance=Distance('location', request.user.location)
             )
-            .order_by('distance', '-date_joined')
+            .order_by('distance', 'date_joined', 'ads_count')
         )
         cause_list = cause_list_with_distance
 
