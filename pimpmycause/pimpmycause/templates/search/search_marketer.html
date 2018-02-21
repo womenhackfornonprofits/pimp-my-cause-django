@@ -61,7 +61,6 @@
                                             </div>
                                             <div>
                                                 <h2 class="marketer__title h4"> {{ marketer.name | title |truncatechars:16  }}</h2>
-                                                <p>{{ marketer.date_joined}}</p>
                                                 <a href="{% url 'profile_detail' user_id=marketer.id %}" class="marketer__info">
                                                     <div>
                                                         {% if marketer.position %}
