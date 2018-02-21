@@ -46,6 +46,7 @@ class PimpUserAdmin(EmailUserAdmin):
     )
     list_display = ['name', 'surname', 'email', 'cause_name', 'usertype', 'date_joined',
                     'is_active']
+    list_filter = ('usertype',)
     search_fields = ['name', 'email', 'position', 'cause_name']
 
 

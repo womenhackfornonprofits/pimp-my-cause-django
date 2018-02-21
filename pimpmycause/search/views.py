@@ -34,6 +34,7 @@ def marketer_list(request):
     marketer_list = MarketerFilter(
         filters,
         queryset=marketer_query
+        .order_by('-date_joined')
     )
 
     if request.user.is_authenticated and request.user.is_geolocated:
@@ -43,7 +44,8 @@ def marketer_list(request):
             .annotate(
                 distance=Distance('location', request.user.location)
             )
-            .order_by('distance', 'date_joined')
+            .latest()
+            .order_by('distance')
         )
         marketer_list = marketer_list_with_distance
 
@@ -89,6 +91,7 @@ def cause_list(request):
     cause_list = CauseFilter(
         filters,
         queryset=cause_query
+        .order_by('-date_joined')
     )
 
     if request.user.is_authenticated and request.user.is_geolocated:
@@ -98,7 +101,7 @@ def cause_list(request):
             .annotate(
                 distance=Distance('location', request.user.location)
             )
-            .order_by('distance', 'date_joined', 'ads_count')
+            .order_by('distance')
         )
         cause_list = cause_list_with_distance
 
