@@ -41,7 +41,7 @@ def homepage(request):
 def team_member_list(request):
     team_member_list_json = (
         TeamMember.objects
-        .values_list('name', 'surname', 'bio', 'image', 'position', 'visual_priority')
+        .values_list('name', 'surname', 'bio', 'image', 'position', 'visual_priority', 'group')
         .order_by('visual_priority')
     )
 
