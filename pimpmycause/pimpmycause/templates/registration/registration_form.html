@@ -31,7 +31,9 @@
                                     {% endfor %}
                                     {% for field in form %}
                                         <div class="medium-6 large-6 small-12 form-group columns {% if field.errors %} has-error {% endif %}">
-                                            {% render_field field placeholder=field.label %}
+                                            {{ field.label }}{% if field.field.required %} *
+                                            {% endif %}
+                                            {% render_field field %}
                                         </div>
                                     {% endfor %}
                                 </div>

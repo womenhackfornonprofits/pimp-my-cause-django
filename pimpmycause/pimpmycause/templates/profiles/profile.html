@@ -79,16 +79,16 @@
                                     </span>
                                 {% endif %}
 
-                                <label for="name">{% if user.is_cause %} Contact {% endif %}Name</label>
+                                <label for="name">{% if user.is_cause %} Contact {% endif %}Name *</label>
                                 <input class="{% if profile_update_form.name.errors %}has-error{% endif %}" type="text" name="name" placeholder="Sam" value='{{ profile_update_form.name.value|default_if_none:"" }}' required>
 
-                                <label for="surname">{% if user.is_cause %} Contact {% endif %}Surname</label>
+                                <label for="surname">{% if user.is_cause %} Contact {% endif %}Surname *</label>
                                 <input class="{% if profile_update_form.surname.errors %}has-error{% endif %}" type="text" name="surname" placeholder="Jones" value='{{ profile_update_form.surname.value|default_if_none:"" }}' required>
 
-                                <label for="position">{% if user.is_cause %} Contact {% endif %}Position</label>
+                                <label for="position">{% if user.is_cause %} Contact {% endif %}Position *</label>
                                 <input class="{% if profile_update_form.position.errors %}has-error{% endif %}" type="text" name="position" placeholder="Marketer" value='{{ profile_update_form.position.value|default_if_none:"" }}' required>
 
-                                <label for="city">City</label>
+                                <label for="city">City *</label>
                                 <input class="{% if profile_update_form.city.errors %}has-error{% endif %}" type="text" name="city" placeholder="London" value='{{ profile_update_form.city.value|default_if_none:"" }}' required>
 
                                 <label for="country">Country</label>
@@ -114,7 +114,7 @@
                                     <label for="website">Website</label>
                                     <input class="{% if profile_update_form.website.errors %}has-error{% endif %}" type="url" name="website" placeholder="https://www.example.com" value='{{profile_update_form.website.value|default_if_none:""}}'>
                                     
-                                    <label for="phone">Phone <span class="helptext">(this wont be shared)</span></label>
+                                    <label for="phone">Phone *<span class="helptext">(this wont be shared with anyone)</span></label>
                                     <input class="{% if profile_update_form.phone.errors %}has-error{% endif %}" type="text" name="phone" placeholder="07654123456" value='{{ profile_update_form.phone.value|default_if_none:"" }}' required>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@
                                 {{ additional_profile_form.experience.errors }}
                                 <label for="experience">Experience</label>
 
-                                <textarea name="experience" rows="10" placeholder="Work Experience" required>
+                                <textarea name="experience" rows="10" placeholder="Work Experience *" required>
                                     {% if additional_profile_form.experience.value|length %}
                                         {{ additional_profile_form.experience.value}}
                                     {% endif %}
@@ -169,7 +169,7 @@
                                 {{ additional_profile_form.mission.errors }}
                                 <label for="mission">Mission</label>
 
-                                <textarea name="mission" rows="10" placeholder="What is your Cause Mission?" required>
+                                <textarea name="mission" rows="10" placeholder="What is your Cause Mission? *" required>
                                     {% if additional_profile_form.mission.value|length %}
                                         {{ additional_profile_form.mission.value }}
                                     {% endif %}

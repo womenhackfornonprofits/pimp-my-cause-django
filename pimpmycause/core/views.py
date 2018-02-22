@@ -22,7 +22,7 @@ def homepage(request):
     )
     news_post_list = (
         NewsPost.objects
-        .order_by('created_at')[:limit]
+        .order_by('-created_at')[:3]
     )
 
     context = {
