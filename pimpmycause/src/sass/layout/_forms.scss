@@ -78,6 +78,11 @@ form {
     color: $red;
 }
 
+.required {
+    &:after {
+        content: '*';
+    }
+}
 .errorlist  {
     padding: 0;
     margin: 0;
