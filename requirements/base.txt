@@ -4,7 +4,7 @@ dj-database-url==0.4.1
 gunicorn==19.5.0                            # Python WSGI HTTP Server
 psycopg2==2.6.1
 whitenoise==3.1
-django-custom-user==0.6.0                   # Custom user model to allow user auth via email
+django-custom-user==0.7.0                   # Custom user model to allow user auth via email
 wsgiref==0.1.2
 django-s3direct==1.0.3                      # Handles asset uploads to s3
 django-registration-redux==2.1              # Double opt-in user registration flow
