@@ -44,7 +44,6 @@ def marketer_list(request):
             .annotate(
                 distance=Distance('location', request.user.location)
             )
-            .latest()
             .order_by('distance')
         )
         marketer_list = marketer_list_with_distance
