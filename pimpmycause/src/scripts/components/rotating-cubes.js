@@ -7,4 +7,4 @@ setInterval(() => {
     cubesList.forEach((cube) => {
         cube.classList.toggle('active');
     });
-}, 2500);
+}, 3000);
