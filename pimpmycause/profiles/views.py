@@ -73,6 +73,9 @@ def qualification_edit(request, user_id):
 def profile_edit(request):
     """Edit user profile."""
 
+    if (request.user.usertype == PimpUser.ADMIN):
+        return redirect('homepage')
+
     if request.method == 'POST':
         profile_update_form = PimpUserProfileForm(
             request.POST,
@@ -91,9 +94,6 @@ def profile_edit(request):
                 request.POST,
                 instance=request.user.causeprofile
             )
-        else:
-            log.info('Admin User')
-            return redirect('home')
 
         if profile_update_form.is_valid() and additional_profile_form.is_valid():
 

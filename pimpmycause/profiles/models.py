@@ -97,17 +97,33 @@ class PimpUser(AbstractEmailUser):
 
 
 @receiver(post_save, sender=PimpUser)
-def geolocate_user(sender, instance, *args, **kwargs):
-    pass
+def geolocate_user(sender, instance, created, *args, **kwargs):
+    post_save.disconnect(geolocate_user, sender=PimpUser)
 
-    if (not instance.location):
-        address = '{}, {}, {}'.format(instance.city, instance.postcode, instance.country)
-        g = geocoder.google(address)
+    if not created:
+        if not instance.country or instance.location:
+            log.info('User is missing a country or location')
 
-        if g.latlng:
-            instance.location = Point(g.latlng[0], g.latlng[1])
-    else:
-        log.info('User already has a location set %s' % instance.location)
+            if (instance.city or instance.postcode):
+                city = instance.city
+                postcode = instance.postcode
+                address = city if city else '' + postcode if postcode else ' '
+                g = geocoder.google(address)
+
+                if g.latlng and (not instance.location):
+                    instance.location = Point(g.latlng[0], g.latlng[1])
+
+                if g.country:
+                    instance.country = g.country
+
+                if g.city:
+                    instance.city = g.city
+
+                instance.save(update_fields=['country'])
+                post_save.connect(geolocate_user, sender=PimpUser)
+
+        else:
+            log.info('User already has a location = {}, country = {}'.format(instance.location, instance.country))
 
 
 @receiver(post_save, sender=PimpUser)
