@@ -38,14 +38,15 @@ class PimpUserAdmin(EmailUserAdmin):
             'fields': (
                 'email', 'password', 'linkedin', 'twitter', 'name',
                 'surname', 'cause_name', 'phone', 'country', 'city', 'postcode', 'position',
-                'usertype', 'bio', 'website', 'image', 'featured', 'location'
+                'usertype', 'bio', 'website', 'image', 'featured', 'location', 'geo_data',
+                'has_reactivated'
             )
         }),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
     list_display = ['name', 'surname', 'email', 'cause_name', 'usertype', 'date_joined',
-                    'is_active']
+                    'is_active', 'country', 'geo_data', 'postcode']
     list_filter = ('usertype',)
     search_fields = ['name', 'email', 'position', 'cause_name']
 
