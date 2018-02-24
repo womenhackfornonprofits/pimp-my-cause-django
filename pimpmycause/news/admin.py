@@ -5,7 +5,7 @@ from models import NewsPost
 
 class NewsPostAdmin(admin.ModelAdmin):
 
-    list_display = ['title', 'created_at']
+    list_display = ['title', 'created_at', 'intro']
 
 
 admin.site.register(NewsPost, NewsPostAdmin)
