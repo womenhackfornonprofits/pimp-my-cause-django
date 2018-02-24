@@ -59,7 +59,6 @@ def profile_detail(request, user_id):
 @login_required
 def profile_edit(request):
     """Edit user profile."""
-    # import pdb
 
     if (request.user.usertype == PimpUser.ADMIN):
         return redirect('homepage')
@@ -67,10 +66,11 @@ def profile_edit(request):
     QualificationFormSet = modelformset_factory(
         Qualification,
         QualificationForm,
-        extra=3,
-        min_num=2,
+        extra=0,
+        min_num=3,
+        can_delete=True,
         validate_min=True,
-        fields=('name', 'description', 'start_date', 'end_date', 'marketer')
+        fields=('name', 'description', 'start_date', 'end_date'),
     )
 
     if request.method == 'POST':
@@ -93,7 +93,6 @@ def profile_edit(request):
             additional_profile_form = CauseUserProfileForm(
                 request.POST,
             )
-        # pdb.set_trace()
 
         if profile_update_form.is_valid() and additional_profile_form.is_valid():
             user_details = profile_update_form.save(commit=False)
@@ -105,8 +104,11 @@ def profile_edit(request):
             additional_profile_form.save_m2m()
 
             if request.user.usertype == PimpUser.MARKETER and qualification_form_set.is_valid():
-                for qualification in qualification_form_set:
-                    print(qualification.cleaned_data)
+                for i in range(0, qualification_form_set.total_form_count()):
+                    form = qualification_form_set.forms[i]
+                    qualification = form.save(commit=False)
+                    qualification.marketer = request.user.marketerprofile
+                    print(qualification)
                     qualification.save()
 
             return redirect(
