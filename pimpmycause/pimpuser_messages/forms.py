@@ -10,9 +10,9 @@ class PimpUserMessageForm(forms.ModelForm):
 
     class Meta:
         model = PimpUserMessage
-        fields = ('subject', 'message')
+        fields = ('subject', 'message_body')
         widgets = {
-            'message': forms.Textarea(attrs={'rows': 15, 'cols': 15}),
+            'message_body': forms.Textarea(attrs={'rows': 15, 'cols': 15}),
         }
 
 

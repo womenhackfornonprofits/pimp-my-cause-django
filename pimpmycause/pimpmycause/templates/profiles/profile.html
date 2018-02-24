@@ -49,17 +49,14 @@
                             <div class="large-4 medium-4 small-6 small-centered medium-uncentered columns {% if profile_update_form.image.errors %} has-error {% endif %}">  
 
                                 {% if not profile_update_form.image.value %}
-                                    <img class="profile-img " src={% static "images/placeholder/marketer-default-image.png" %} alt="Example Profile Image">
+                                    <img class="profile-img" src={% static "images/placeholder/marketer-default-image.png" %} alt="Example Profile Image">
                                 {% else %}
-                                    <img 
-                                        class="profile-img"
-                                        src="{{profile_update_form.image}}"
+                                    <img class="profile-img" src="{{profile_update_form.image.value}}"
                                         {% if user.is_cause %}
                                             alt="{{ user.cause_name }} Profile Image"
                                         {% else %]
                                             alt="{{ user.name }} {{ user.surname }} Profile Image"
-                                        {% endif %}
-                                    >
+                                        {% endif %}/>
                                     
                                     {% if profile_update_form.image.errors %}
                                         {% for error in profile_update_form.image.errors %}

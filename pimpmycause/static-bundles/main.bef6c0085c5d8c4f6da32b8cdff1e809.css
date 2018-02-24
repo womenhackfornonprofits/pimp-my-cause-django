@@ -1843,9 +1843,8 @@ form label {
 .text-danger {
   color: #ec2e38; }
 
-.required input::input-placeholder {
-  /* Chrome/Opera/Safari */
-  background: pink; }
+.required:after {
+  content: '*'; }
 
 .errorlist {
   padding: 0;
@@ -2343,7 +2342,9 @@ button {
   text-align: center; }
 
 .file-link {
-  color: #3c3c3c; }
+  color: #3c3c3c;
+  word-break: break-all;
+  display: none !important; }
 
 .marketer__wrapper {
   position: relative;
@@ -3037,4 +3038,4 @@ a {
   width: 100%;
   height: auto; }
 
-/*# sourceMappingURL=main.19e49941a778cd8fc0054f0a2fde13c0.css.map*/
+/*# sourceMappingURL=main.bef6c0085c5d8c4f6da32b8cdff1e809.css.map*/

@@ -70,7 +70,7 @@
                                             </a>
                                         </div>
                                         <div class="small-12 medium-8 columns margin-top-15">
-                                            <div class="cause__text margin-bottom-30">{{ message.message | truncatechars:150  }}</div>
+                                            <div class="cause__text margin-bottom-30">{{ message.message_body | truncatechars:150  }}</div>
                                             <a href="{% url 'message_detail' message_id=message.id %}" class="button button--primary margin-top-30">Read more</a>
                                         </div> 
                                 </article>

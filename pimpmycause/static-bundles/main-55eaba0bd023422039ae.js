@@ -205,7 +205,7 @@ setInterval(() => {
     cubesList.forEach(cube => {
         cube.classList.toggle('active');
     });
-}, 2500);
+}, 3000);
 
 /***/ }),
 /* 4 */
@@ -855,4 +855,4 @@ if ($userTypeEl && $causeNameEl) {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main-5ee71a3b452660743b9b.js.map
+//# sourceMappingURL=main-55eaba0bd023422039ae.js.map

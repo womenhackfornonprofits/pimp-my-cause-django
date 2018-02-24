@@ -17,8 +17,8 @@ class PimpUserMessage(models.Model):
     sent_at = models.DateTimeField("sent at", null=True, blank=True)
     read_at = models.DateTimeField("read at", null=True, blank=True)
 
-    subject = models.CharField(max_length=100, blank=True)
-    message = models.TextField()
+    subject = models.CharField(max_length=300, blank=True)
+    message_body = models.TextField()
 
     def __str__(self):
         return "{}".format(self.subject)

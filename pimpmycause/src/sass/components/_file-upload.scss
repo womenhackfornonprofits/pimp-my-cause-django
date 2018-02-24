@@ -37,4 +37,6 @@
 
 .file-link {
     color: $black;
+    word-break: break-all;
+    display: none !important;
 }
