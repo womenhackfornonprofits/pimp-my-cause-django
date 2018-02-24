@@ -59,20 +59,19 @@ def profile_detail(request, user_id):
 @login_required
 def profile_edit(request):
     """Edit user profile."""
+    # import pdb
 
     if (request.user.usertype == PimpUser.ADMIN):
         return redirect('homepage')
-    print("HERE")
+
     QualificationFormSet = modelformset_factory(
         Qualification,
         QualificationForm,
         extra=3,
         min_num=2,
         validate_min=True,
-        fields=('name', 'description', 'start_date', 'end_date')
+        fields=('name', 'description', 'start_date', 'end_date', 'marketer')
     )
-
-    print("before Post")
 
     if request.method == 'POST':
         profile_update_form = PimpUserProfileForm(
@@ -88,7 +87,6 @@ def profile_edit(request):
             )
             qualification_form_set = QualificationFormSet(
                 request.POST,
-                instance=request.user.marketerprofile,
             )
         # CAUSE
         elif (request.user.usertype == PimpUser.CAUSE):
@@ -107,11 +105,9 @@ def profile_edit(request):
             additional_profile_form.save_m2m()
 
             if request.user.usertype == PimpUser.MARKETER and qualification_form_set.is_valid():
-                qualification_details = qualification_form_set.save(commit=False)
                 for qualification in qualification_form_set:
-                    qualification.marketer = request.user
-
-                qualification_details.save_m2m()
+                    print(qualification.cleaned_data)
+                    qualification.save()
 
             return redirect(
                 'profile_detail',
@@ -126,8 +122,11 @@ def profile_edit(request):
             additional_profile_form = MarketerUserProfileForm(
                 instance=request.user.marketerprofile,
             )
-            qualification_form = QualificationFormSet()
-            print("qualification_form")
+            qualification_form = QualificationFormSet(
+                queryset=Qualification.objects.filter(
+                    marketer=request.user.marketerprofile
+                )
+            )
 
         # CAUSE
         else:
