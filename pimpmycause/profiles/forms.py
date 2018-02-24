@@ -1,7 +1,9 @@
 from django import forms
 
+# from django.forms.models import inlineformset_factory
 from s3direct.widgets import S3DirectWidget
 from django_countries.widgets import CountrySelectWidget
+from django.contrib.admin.widgets import AdminDateWidget
 
 from profiles.models import (
     PimpUser,
@@ -48,7 +50,7 @@ class PimpUserProfileForm(forms.ModelForm):
     surname = forms.CharField(required=True)
     phone = forms.CharField(required=True)
     position = forms.CharField(required=True)
-    bio = forms.CharField(widget=forms.Textarea, required=True)
+    bio = forms.CharField(widget=forms.Textarea, required=False)
     image = forms.URLField(widget=S3DirectWidget(dest='user-profile-images'), required=False)
 
     class Meta:
@@ -62,6 +64,14 @@ class PimpUserProfileForm(forms.ModelForm):
 
 
 class QualificationForm(forms.ModelForm):
+    YEAR_CHOICES = [(x) for x in range(1980, 2090)]
+
+    start_date = forms.DateField(
+        widget=forms.SelectDateWidget(years=YEAR_CHOICES),
+    )
+    end_date = forms.DateField(
+        widget=forms.SelectDateWidget(years=YEAR_CHOICES),
+    )
 
     class Meta:
         model = Qualification
@@ -85,3 +95,11 @@ class CauseUserProfileForm(forms.ModelForm):
     class Meta:
         model = CauseProfile
         fields = ('mission', 'category')
+
+
+# MarketerUserFormSet = inlineformset_factory(
+#     MarketerProfile,
+#     Qualification,
+#     fields=('name', 'description', 'start_date', 'end_date',),
+#     extra=5
+# )

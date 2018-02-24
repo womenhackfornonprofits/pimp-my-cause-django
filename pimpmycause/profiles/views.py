@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
+from django.forms import modelformset_factory
 
 from registration.backends.default import views as registration_views
 from profiles.forms import (
@@ -11,7 +12,7 @@ from profiles.forms import (
     CauseUserProfileForm,
     QualificationForm
 )
-from profiles.models import PimpUser
+from profiles.models import PimpUser, Qualification
 from adverts.models import Advert
 import logging
 
@@ -56,25 +57,22 @@ def profile_detail(request, user_id):
 
 
 @login_required
-def qualification_edit(request, user_id):
-    if request.method == 'POST':
-        qualification_edit_form = QualificationForm(
-            request.POST,
-            instance=user_id
-        )
-    else:
-        qualification_edit_form = QualificationForm(instance=user_id)
-
-    context = {'qualification_edit_form': qualification_edit_form}
-    return render(request, 'profiles/profile.html', context)
-
-
-@login_required
 def profile_edit(request):
     """Edit user profile."""
 
     if (request.user.usertype == PimpUser.ADMIN):
         return redirect('homepage')
+    print("HERE")
+    QualificationFormSet = modelformset_factory(
+        Qualification,
+        QualificationForm,
+        extra=3,
+        min_num=2,
+        validate_min=True,
+        fields=('name', 'description', 'start_date', 'end_date')
+    )
+
+    print("before Post")
 
     if request.method == 'POST':
         profile_update_form = PimpUserProfileForm(
@@ -88,15 +86,18 @@ def profile_edit(request):
                 request.POST,
                 instance=request.user.marketerprofile,
             )
+            qualification_form_set = QualificationFormSet(
+                request.POST,
+                instance=request.user.marketerprofile,
+            )
         # CAUSE
         elif (request.user.usertype == PimpUser.CAUSE):
             additional_profile_form = CauseUserProfileForm(
                 request.POST,
-                instance=request.user.causeprofile
             )
+        # pdb.set_trace()
 
         if profile_update_form.is_valid() and additional_profile_form.is_valid():
-
             user_details = profile_update_form.save(commit=False)
             user_details.user = request.user
             user_details.save()
@@ -104,6 +105,13 @@ def profile_edit(request):
             profile_details = additional_profile_form.save(commit=False)
             profile_details.save()
             additional_profile_form.save_m2m()
+
+            if request.user.usertype == PimpUser.MARKETER and qualification_form_set.is_valid():
+                qualification_details = qualification_form_set.save(commit=False)
+                for qualification in qualification_form_set:
+                    qualification.marketer = request.user
+
+                qualification_details.save_m2m()
 
             return redirect(
                 'profile_detail',
@@ -118,6 +126,8 @@ def profile_edit(request):
             additional_profile_form = MarketerUserProfileForm(
                 instance=request.user.marketerprofile,
             )
+            qualification_form = QualificationFormSet()
+            print("qualification_form")
 
         # CAUSE
         else:
@@ -125,7 +135,10 @@ def profile_edit(request):
                 instance=request.user.causeprofile,
             )
 
-    context = {'profile_update_form': profile_update_form,
-               'additional_profile_form': additional_profile_form}
+    context = {
+        'profile_update_form': profile_update_form,
+        'additional_profile_form': additional_profile_form,
+        'qualification_form': qualification_form
+    }
 
     return render(request, 'profiles/profile.html', context)

@@ -123,7 +123,12 @@ def geolocate_user(sender, instance, created, *args, **kwargs):
                 post_save.connect(geolocate_user, sender=PimpUser)
 
         else:
-            log.info('User already has a location = {}, country = {}'.format(instance.location, instance.country))
+            log.info(
+                'User already has a location = {}, country = {}'.format(
+                    instance.location,
+                    instance.country
+                )
+            )
 
 
 @receiver(post_save, sender=PimpUser)
@@ -144,18 +149,24 @@ class Skill(models.Model):
     name = models.CharField(max_length=32)
 
     def __str__(self):
-            return self.name
+        return self.name
 
 
 @python_2_unicode_compatible
 class Qualification(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.CharField(max_length=500, null=True)
-    start_date = models.DateField(null=True)
-    end_date = models.DateField(null=True)
+    name = models.CharField(max_length=100, blank=True)
+    description = models.TextField(max_length=500, blank=True)
+    start_date = models.DateField(blank=True)
+    end_date = models.DateField(blank=True)
+    marketer = models.ForeignKey(
+        "profiles.MarketerProfile",
+    )
 
     def __str__(self):
-            return self.name
+        return '%s: %s' % (self.name, self.description)
+
+    def __unicode__(self):
+        return unicode(self.name)
 
 
 @python_2_unicode_compatible
@@ -171,15 +182,15 @@ class MarketerProfile(models.Model):
         "profiles.Skill",
         blank=True
     )
-    qualification = models.ManyToManyField(
-        "profiles.Qualification",
-        blank=True
-    )
+
     experience = models.CharField(max_length=10000, blank=True, null=True)
     availability = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.profile.name
+        return self.profile.name or ''
+
+    def __unicode__(self):
+        return unicode(self.profile.name)
 
 
 @python_2_unicode_compatible
