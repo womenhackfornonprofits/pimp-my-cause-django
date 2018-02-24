@@ -7,7 +7,7 @@
 	<input class="file-dest" type="hidden" value="{{ dest }}">
 	<input class="file-input inputfile js-image-update" type="file" id="file" name="file" style="{{ style }}"//>
 
-	<label for="file" class="button button--primary">Change</label>
+	<label for="file" class="button button--primary text-align-center">Change</label>
 
 	<div class="progress progress-striped active">
 		<div class="bar"></div>
