@@ -9,12 +9,16 @@
         <div class="content-wrap">
                 <div class="medium-12 large-12 small-10 large-centered small-centered columns margin-top-45">
                     <div class="row">
-                        <div class="large-4 medium-6 small-10 small-centered large-centered columns text-align-center">
-                                <h1 class="text-align-center h2">{{ profile_user.name | title }} {{ profile_user.surname | title }}</h1>
+                        <div class="large-5 medium-6 small-10 small-centered large-centered columns text-align-center">
+                                {% if profile_user.is_marketer %}
+                                    <h1 class="text-align-center h2">{{ profile_user.name | title }} {{ profile_user.surname | title }}</h1>
+                                {% else %}
+                                    <h1 class="text-align-center h2">{{ profile_user.causeprofile.profile.cause_name | title }}</h1>
+                                {% endif %}
                                 <div class="profile__img-wrapper text-align-center">
                                     {% if not profile_user.image %}                                        
                                         <img 
-                                        class="profile__img"
+                                        class="profile__img text-align-center"
                                         src={% static "images/placeholder/marketer-default-image.png" %} 
                                         {% if profile_user.is_cause %}
                                             alt="{{ profile_user.cause_name }} Profile Image"
@@ -32,8 +36,11 @@
                                         ></div>
                                     {% endif %}
                                 </div>
+                                {% if profile_user.is_cause  %}
+                                    <h1 class="text-align-center h3 margin-bottom-0">{{ profile_user.name | title }} {{ profile_user.surname | title }}</h1>
+                                {% endif %}
                                 {% if profile_user.position %}
-                                    <h2 class="h5">{{ profile_user.position | title }}</h2>
+                                    <h2 class="h5 margin-top-15">{{ profile_user.position | title }}</h2>
                                 {% endif %}
 
                                 {% if profile_user.is_marketer %}
@@ -42,9 +49,6 @@
                                     {% else %}
                                         <p class="helptext text-align-center text-danger margin-top-0"><i class="fa fa-ban margin-right-5" aria-hidden="true"></i>I am not available at the moment, please check back in the future.</p>
                                     {% endif %}
-                                {% endif %}
-                                {% if profile_user.is_cause  %}
-                                    <h1 class="text-align-center">{{ profile_user.causeprofile.profile.cause_name | title }}</h1>
                                 {% endif %}
                         </div>
                         <div class="large-4 medium-8 small-10 small-centered large-centered columns text-align-center">
