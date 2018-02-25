@@ -52,8 +52,9 @@ class PimpUserAdmin(EmailUserAdmin):
 
 
 class QualificationAdmin(admin.ModelAdmin):
-    list_display = ['name', 'description', 'start_date', 'end_date']
-    search_fields = ['name', 'description']
+    list_display = ['marketer', 'description', 'name', 'start_date', 'end_date']
+    search_fields = ['description', 'name']
+    raw_id_fields = ('marketer', )
 
 
 # Register your models here.

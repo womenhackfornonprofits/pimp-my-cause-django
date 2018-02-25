@@ -119,12 +119,11 @@
                         <div class="large-12 medium-12 small-12">
                             <h2 class="text-align-left"><i class="fa fa-user-circle-o margin-right-5" aria-hidden="true"></i>About</h2>
                         </div>
-
+                    
                         {% if user.is_marketer  %}
-
                             <div class="large-12 medium-12 small-12">                            
                                 {{ additional_profile_form.experience.errors }}
-                                <label for="experience">Experience</label>
+                                <label for="experience">Experience *</label>
 
                                 <textarea name="experience" rows="10" placeholder="Work Experience *" required>
                                     {% if additional_profile_form.experience.value|length %}
@@ -134,7 +133,7 @@
                             </div>
                             <div class="large-12 medium-12 small-12">                            
 
-                                <label for="id_skill">Skills</label>
+                                <label for="id_skill">Skills *</label>
                                 <p class="helptext">Please choose all that apply</p>
 
                                 <ul id="id_skill" class="unstyled-list text-align-left">
@@ -143,10 +142,34 @@
                                     {% endfor %}
                                 </ul>
                             </div>
-
-                             <div class="large-12 medium-12 small-12">   
-                                <label for="id_skill">Qualifications</label>
-
+                             <div class="large-12 medium-12 small-12 padding-top-30">   
+                                <label for="id_qualifications">Qualifications</label>
+                                <ul class="unstyled-list ">
+                                    {{ qualification_form.management_form }}
+                                    {% for form in qualification_form %}
+                                        {{ form.id }} 
+                                        <li class="pnl__border--bottom padding-top-30 padding-bottom-30">
+                                            Qualification {{forloop.counter}} Title
+                                            {{form.name}}
+                                            <div class="row">
+                                                <div class="small-12 medium-5 columns">  
+                                                    {{form.start_date.label}}
+                                                    <div class="display-flex">
+                                                        {{form.start_date}}
+                                                    </div>
+                                                </div>
+                                                <div class="small-12 medium-5 columns">  
+                                                    {{form.end_date.label}}
+                                                    <div class="display-flex">
+                                                        {{form.end_date}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{form.description.label}}
+                                            {{form.description}}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
                             </div>
                             <div class="large-12 medium-12 small-12"> 
                                 <div class="margin-top-30">  

@@ -22,6 +22,7 @@ class PimpUserMessageAdmin(admin.ModelAdmin):
     list_display = ['subject', 'sender', 'recipient', 'sent_at', 'read_at']
     search_fields = ['subject', 'message_body']
     inlines = (PimpUserMessageReplyInline,)
+    raw_id_fields = ('sender', 'recipient')
 
 
 admin.site.register(PimpUserMessage, PimpUserMessageAdmin)

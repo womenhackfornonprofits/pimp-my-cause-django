@@ -1,4 +1,5 @@
 from django import forms
+import datetime
 
 from s3direct.widgets import S3DirectWidget
 from django_countries.widgets import CountrySelectWidget
@@ -48,7 +49,7 @@ class PimpUserProfileForm(forms.ModelForm):
     surname = forms.CharField(required=True)
     phone = forms.CharField(required=True)
     position = forms.CharField(required=True)
-    bio = forms.CharField(widget=forms.Textarea, required=True)
+    bio = forms.CharField(widget=forms.Textarea, required=False)
     image = forms.URLField(widget=S3DirectWidget(dest='user-profile-images'), required=False)
 
     class Meta:
@@ -62,6 +63,16 @@ class PimpUserProfileForm(forms.ModelForm):
 
 
 class QualificationForm(forms.ModelForm):
+    start_date = forms.DateField(
+        widget=forms.SelectDateWidget(years=range(1980, datetime.datetime.today().year)),
+        required=False
+    )
+    end_date = forms.DateField(
+        widget=forms.SelectDateWidget(
+            years=range(1980, datetime.datetime.today().year),
+        ),
+        required=False,
+    )
 
     class Meta:
         model = Qualification

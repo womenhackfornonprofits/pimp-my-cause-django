@@ -20,11 +20,11 @@ from search.filters import (
 def marketer_list(request):
     """Marketer search view."""
     # Pre-set user country is user has country
-    # if request.user.is_authenticated and request.user.country:
-    #     filters = QueryDict('country=%s' % request.user.country, mutable=True)
-    #     filters.update(request.GET)
-    # else:
-    filters = request.GET
+    if request.user.is_authenticated and request.user.country:
+        filters = QueryDict('country=%s' % request.user.country, mutable=True)
+        filters.update(request.GET)
+    else:
+        filters = request.GET
 
     marketer_query = PimpUser.objects.filter(
         usertype=PimpUser.MARKETER,
@@ -44,7 +44,7 @@ def marketer_list(request):
             .annotate(
                 distance=Distance('location', request.user.location)
             )
-            .order_by('distance')
+            .order_by('-date_joined', 'distance')
         )
         marketer_list = marketer_list_with_distance
 
@@ -70,11 +70,11 @@ def marketer_list(request):
 def cause_list(request):
     """Marketer search view."""
     # Pre-set user country is user has country
-    # if request.user.is_authenticated and request.user.country:
-    #     filters = QueryDict('country=%s' % request.user.country, mutable=True)
-    #     filters.update(request.GET)
-    # else:
-    filters = request.GET
+    if request.user.is_authenticated and request.user.country:
+        filters = QueryDict('country=%s' % request.user.country, mutable=True)
+        filters.update(request.GET)
+    else:
+        filters = request.GET
 
     cause_query = (
         PimpUser.objects.filter(
@@ -100,7 +100,7 @@ def cause_list(request):
             .annotate(
                 distance=Distance('location', request.user.location)
             )
-            .order_by('distance')
+            .order_by('-date_joined', 'distance')
         )
         cause_list = cause_list_with_distance
 

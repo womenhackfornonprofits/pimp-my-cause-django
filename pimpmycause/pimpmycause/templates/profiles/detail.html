@@ -94,14 +94,25 @@
                                 <h2 class="text-align-left h4">
                                     Qualifications
                                 </h2>
-                                {% if profile_user.marketerprofile.qualification.all|length %}
+                                {% if profile_user.marketerprofile.qualification_set.all|length %}
                                     <ul class="unstyled-list">
-                                        {% for qualification in profile_user.marketerprofile.qualification.all %}
+                                        {% for qualification in profile_user.marketerprofile.qualification_set.all %}
                                             <li>
                                                 {% if qualification.name %}
-                                                    <h5 class="text-align-left"> <i class="fa fa-graduation-cap margin-right-5" aria-hidden="true">{{ qualification.name | title }}</h5>
+                                                    <h5 class="text-align-left"> <i class="fa fa-graduation-cap margin-right-5" aria-hidden="true"></i>{{ qualification.name | title }}</h5>
                                                 {% endif %}
-                                                <p>{{ qualification.description }}</p>
+                                                {% if qualification.name or qualification.description %}
+                                                    {% if qualification.start_date %}
+                                                        {{qualification.start_date}}
+                                                    {% endif %}
+                                                    {% if qualification.end_date %}
+                                                        {{qualification.end_date}}
+                                                    {% endif %}
+                                                {% endif %}
+
+                                                {% if qualification.description %}
+                                                    <p>{{ qualification.description }}</p>
+                                                {% endif %}
                                             </li>
                                         {% endfor %}
                                     </ul>

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
+from django.forms import modelformset_factory
 
 from registration.backends.default import views as registration_views
 from profiles.forms import (
@@ -11,7 +12,7 @@ from profiles.forms import (
     CauseUserProfileForm,
     QualificationForm
 )
-from profiles.models import PimpUser
+from profiles.models import PimpUser, Qualification
 from adverts.models import Advert
 import logging
 
@@ -76,6 +77,16 @@ def profile_edit(request):
     if (request.user.usertype == PimpUser.ADMIN):
         return redirect('homepage')
 
+    QualificationFormSet = modelformset_factory(
+        Qualification,
+        QualificationForm,
+        extra=0,
+        min_num=3,
+        can_delete=True,
+        validate_min=True,
+        fields=('name', 'description', 'start_date', 'end_date'),
+    )
+
     if request.method == 'POST':
         profile_update_form = PimpUserProfileForm(
             request.POST,
@@ -88,15 +99,16 @@ def profile_edit(request):
                 request.POST,
                 instance=request.user.marketerprofile,
             )
+            qualification_form_set = QualificationFormSet(
+                request.POST,
+            )
         # CAUSE
         elif (request.user.usertype == PimpUser.CAUSE):
             additional_profile_form = CauseUserProfileForm(
                 request.POST,
-                instance=request.user.causeprofile
             )
 
         if profile_update_form.is_valid() and additional_profile_form.is_valid():
-
             user_details = profile_update_form.save(commit=False)
             user_details.user = request.user
             user_details.save()
@@ -104,6 +116,14 @@ def profile_edit(request):
             profile_details = additional_profile_form.save(commit=False)
             profile_details.save()
             additional_profile_form.save_m2m()
+
+            if request.user.usertype == PimpUser.MARKETER and qualification_form_set.is_valid():
+                for i in range(0, qualification_form_set.total_form_count()):
+                    form = qualification_form_set.forms[i]
+                    qualification = form.save(commit=False)
+                    qualification.marketer = request.user.marketerprofile
+                    print(qualification)
+                    qualification.save()
 
             return redirect(
                 'profile_detail',
@@ -118,6 +138,11 @@ def profile_edit(request):
             additional_profile_form = MarketerUserProfileForm(
                 instance=request.user.marketerprofile,
             )
+            qualification_form = QualificationFormSet(
+                queryset=Qualification.objects.filter(
+                    marketer=request.user.marketerprofile
+                )
+            )
 
         # CAUSE
         else:
@@ -125,7 +150,10 @@ def profile_edit(request):
                 instance=request.user.causeprofile,
             )
 
-    context = {'profile_update_form': profile_update_form,
-               'additional_profile_form': additional_profile_form}
+    context = {
+        'profile_update_form': profile_update_form,
+        'additional_profile_form': additional_profile_form,
+        'qualification_form': qualification_form
+    }
 
     return render(request, 'profiles/profile.html', context)
