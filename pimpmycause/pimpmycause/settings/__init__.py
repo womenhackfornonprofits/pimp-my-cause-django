@@ -173,7 +173,7 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
-DEFAULT_FROM_EMAIL = get_env('DEFAULT_FROM_EMAIL', 'webmaster@localhost')
+DEFAULT_FROM_EMAIL = get_env('DEFAULT_FROM_EMAIL', 'webmaster@pimpmycause.org"')
 
 # AWS Settings
 AWS_ACCESS_KEY_ID = get_env("AWS_ACCESS_KEY_ID", 'todo')
