@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.gis',
@@ -84,7 +85,7 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'pimpmycause.wsgi.application'
-
+SITE_ID = 1
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

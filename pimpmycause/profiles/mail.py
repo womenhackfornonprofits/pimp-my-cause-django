@@ -6,7 +6,7 @@ from django.conf import settings
 from profiles.models import PimpUser
 
 
-url_live = 'http://www.pimpmycause.org/accounts/password/reset/'
+url_live = 'https://www.pimpmycause.org/accounts/password/reset/'
 url_live_heroku = 'https://live-pimpmycause.herokuapp.com/accounts/password/reset/'
 url_local = 'http://127.0.0.1:8000/accounts/password/reset/'
 
