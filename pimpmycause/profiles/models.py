@@ -123,16 +123,12 @@ def geolocate_user(sender, instance, created, *args, **kwargs):
                 post_save.connect(geolocate_user, sender=PimpUser)
 
         else:
-<<<<<<< HEAD
             log.info(
                 'User already has a location = {}, country = {}'.format(
                     instance.location,
                     instance.country
                 )
             )
-=======
-            log.info('User already has a location = {}, country = {}'.format(instance.location, instance.country))
->>>>>>> 7a6dba3b8571d5ab1aa46a1ee093b59a9da64b9e
 
 
 @receiver(post_save, sender=PimpUser)
