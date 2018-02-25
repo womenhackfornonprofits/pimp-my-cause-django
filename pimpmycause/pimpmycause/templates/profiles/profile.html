@@ -125,7 +125,7 @@
                                 {{ additional_profile_form.experience.errors }}
                                 <label for="experience">Experience *</label>
 
-                                <textarea name="experience" rows="10" placeholder="Work Experience" required>
+                                <textarea name="experience" rows="10" placeholder="Work Experience *" required>
                                     {% if additional_profile_form.experience.value|length %}
                                         {{ additional_profile_form.experience.value}}
                                     {% endif %}
@@ -142,7 +142,6 @@
                                     {% endfor %}
                                 </ul>
                             </div>
-
                              <div class="large-12 medium-12 small-12 padding-top-30">   
                                 <label for="id_qualifications">Qualifications</label>
                                 <ul class="unstyled-list ">
@@ -171,7 +170,6 @@
                                         </li>
                                     {% endfor %}
                                 </ul>
-
                             </div>
                             <div class="large-12 medium-12 small-12"> 
                                 <div class="margin-top-30">  

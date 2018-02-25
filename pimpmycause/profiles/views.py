@@ -57,6 +57,20 @@ def profile_detail(request, user_id):
 
 
 @login_required
+def qualification_edit(request, user_id):
+    if request.method == 'POST':
+        qualification_edit_form = QualificationForm(
+            request.POST,
+            instance=user_id
+        )
+    else:
+        qualification_edit_form = QualificationForm(instance=user_id)
+
+    context = {'qualification_edit_form': qualification_edit_form}
+    return render(request, 'profiles/profile.html', context)
+
+
+@login_required
 def profile_edit(request):
     """Edit user profile."""
 
