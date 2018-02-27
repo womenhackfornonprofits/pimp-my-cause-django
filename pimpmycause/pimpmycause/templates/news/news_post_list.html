@@ -23,7 +23,7 @@
                         {% for post in news_post_list %}
                             <div class="news small-12 columns margin-top-30">
                                     <div class="news_wrapper">
-                                        <div class="small-12 medium-2 columns show-for-medium-up">
+                                        <div class="small-12 medium-3 columns show-for-medium-up">
                                             <div class="news__image-wrapper margin-top-0">
                                                 {% if post.image %}
                                                     <img src="{{ post.image }}" alt="{{ post.title }} Hero Image"></img>
@@ -32,7 +32,7 @@
                                                 {% endif %}
                                             </div>
                                         </div>
-                                        <div class="news__info small-12 medium-7 columns">
+                                        <div class="news__info small-12 medium-6 columns">
                                             <div clas="col-xs-12 columns">
                                                 <a href="{% url 'news_post_detail' slug=post.slug %}"><h2 class="news__title h4 margin-top-0">{{ post.title | title }}</h2></a>
                                                 {% if post.intro %}
