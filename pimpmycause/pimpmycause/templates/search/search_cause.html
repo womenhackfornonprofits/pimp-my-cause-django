@@ -78,10 +78,16 @@
                                                 {% endif %}
 
                                                 <footer class="margin-top-30">
-                                                    <p><i class="fa fa-tags margin-right-5" aria-hidden="true"></i>{{ cause.causeprofile.get_category_display | title }}
+                                                    {% if cause.causeprofile.category is not None %}
+                                                        <p><i class="fa fa-tags margin-right-5" aria-hidden="true"></i>{{ cause.causeprofile.get_category_display | title }}
+                                                    {% endif %}
+
+                                                    {% if cause.causeprofile.category is not None  and cause.city %}
+                                                        |
+                                                    {% endif %}
 
                                                     {% if cause.city %}
-                                                        | <i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ cause.city | title }} {% if cause.distance %} ({{ cause.distance.km | floatformat:0 }} km) {% endif %}</p>
+                                                        <i class="fa fa-map-marker margin-right-5" aria-hidden="true"></i>{{ cause.city | title }} {% if cause.distance %} ({{ cause.distance.km | floatformat:0 }} km) {% endif %}</p>
                                                     {% endif %}
                                                 </footer>
                                             </div>
