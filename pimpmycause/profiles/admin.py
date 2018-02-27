@@ -49,6 +49,7 @@ class PimpUserAdmin(EmailUserAdmin):
                     'is_active', 'country', 'geo_data', 'postcode']
     list_filter = ('usertype', 'country')
     search_fields = ['name', 'email', 'position', 'cause_name']
+    ordering = ('-date_joined',)
 
 
 class QualificationAdmin(admin.ModelAdmin):

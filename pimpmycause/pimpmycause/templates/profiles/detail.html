@@ -11,7 +11,14 @@
                     <div class="row">
                         <div class="large-5 medium-6 small-10 small-centered large-centered columns text-align-center">
                                 {% if profile_user.is_marketer %}
-                                    <h1 class="text-align-center h2">{{ profile_user.name | title }} {{ profile_user.surname | title }}</h1>
+                                    <h1 class="text-align-center h2">
+                                        {% if profile_user.name %}
+                                            {{ profile_user.name | title }}
+                                        {% endif %}
+                                        {% if profile_user.surname %}
+                                            {{ profile_user.surname | title }}
+                                        {% endif %}
+                                    </h1>
                                 {% else %}
                                     <h1 class="text-align-center h2">{{ profile_user.causeprofile.profile.cause_name | title }}</h1>
                                 {% endif %}
@@ -37,7 +44,14 @@
                                     {% endif %}
                                 </div>
                                 {% if profile_user.is_cause  %}
-                                    <h1 class="text-align-center h3 margin-bottom-0">{{ profile_user.name | title }} {{ profile_user.surname | title }}</h1>
+                                    <h1 class="text-align-center h2">
+                                        {% if profile_user.name %}
+                                            {{ profile_user.name | title }}
+                                        {% endif %}
+                                        {% if profile_user.surname %}
+                                            {{ profile_user.surname | title }}
+                                        {% endif %}
+                                    </h1>
                                 {% endif %}
                                 {% if profile_user.position %}
                                     <h2 class="h5 margin-top-15">{{ profile_user.position | title }}</h2>
@@ -155,7 +169,7 @@
                         <h2 class="text-align-left h4">
                             Category
                         </h2>
-                        {% if profile_user.causeprofile.category %}
+                        {% if profile_user.causeprofile.category is not None %}
                             <p>{{ profile_user.causeprofile.get_category_display }}</p>
                         {% endif %}
                         <h2 class="text-align-left h4">
