@@ -25,8 +25,13 @@ $colr-marketer: pink;
     }
 
     &__image-wrapper {
-        align-content: center;
+        text-align: center;
         background-color: $grey;
+
+        img {
+            max-width: 100%;
+            width: 100%;
+        }
     }
 
     &__post {
