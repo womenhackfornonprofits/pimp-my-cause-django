@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.contrib.auth.decorators import login_required
 from django.utils.http import is_safe_url
+from django.http import Http404
 
 from django.shortcuts import (
     get_object_or_404,
@@ -9,13 +10,20 @@ from django.shortcuts import (
     render,
 )
 
-from profiles.models import CauseProfile
+from profiles.models import (
+    CauseProfile,
+    PimpUser
+)
 from adverts.forms import AdvertForm
 from adverts.models import Advert
 
 
 @login_required
 def advert_form(request, advert_id=None):
+
+    if request.user.usertype != PimpUser.CAUSE:
+        raise Http404
+
     """Help wanted advert add/edit"""
     if advert_id:
         advert = get_object_or_404(

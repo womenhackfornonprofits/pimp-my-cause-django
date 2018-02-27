@@ -114,7 +114,6 @@ def profile_edit(request):
                     form = qualification_form_set.forms[i]
                     qualification = form.save(commit=False)
                     qualification.marketer = request.user.marketerprofile
-                    print(qualification)
                     qualification.save()
 
             return redirect(
