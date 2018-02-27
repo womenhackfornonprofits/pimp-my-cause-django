@@ -180,11 +180,6 @@
                                 </div>
                             </div>
                         {% else %}
-                            <div class="small-6 {% if additional_profile_form.category.errors %}has-error{% endif %}">
-                                <label for="category">Category</label>
-                                <p class="helptext">Please select the categoy that describes your Cause</p>
-                                {{ additional_profile_form.category }}
-                            </div>
                             <div class="large-12 medium-12 small-12">                            
                                 {{ additional_profile_form.mission.errors }}
                                 <label for="mission">Mission</label>
@@ -194,6 +189,11 @@
                                         {{ additional_profile_form.mission.value }}
                                     {% endif %}
                                 </textarea>
+                            </div>
+                            <div class="small-6 {% if additional_profile_form.category.errors %}has-error{% endif %}">
+                                <label for="category">Category</label>
+                                <p class="helptext">Please select the categoy that describes your Cause</p>
+                                {{ additional_profile_form.category }}
                             </div>
                         {% endif %}
                         <div class="large-12 medium-12 small-12 {% if profile_update_form.bio.errors %}has-error{% endif %} margin-top-30">
