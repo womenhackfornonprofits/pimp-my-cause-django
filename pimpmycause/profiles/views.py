@@ -57,20 +57,6 @@ def profile_detail(request, user_id):
 
 
 @login_required
-def qualification_edit(request, user_id):
-    if request.method == 'POST':
-        qualification_edit_form = QualificationForm(
-            request.POST,
-            instance=user_id
-        )
-    else:
-        qualification_edit_form = QualificationForm(instance=user_id)
-
-    context = {'qualification_edit_form': qualification_edit_form}
-    return render(request, 'profiles/profile.html', context)
-
-
-@login_required
 def profile_edit(request):
     """Edit user profile."""
 
@@ -84,7 +70,7 @@ def profile_edit(request):
         min_num=3,
         can_delete=True,
         validate_min=True,
-        fields=('name', 'description', 'start_date', 'end_date'),
+        fields=('name', 'description'),
     )
 
     if request.method == 'POST':
@@ -138,11 +124,18 @@ def profile_edit(request):
             additional_profile_form = MarketerUserProfileForm(
                 instance=request.user.marketerprofile,
             )
+
             qualification_form = QualificationFormSet(
                 queryset=Qualification.objects.filter(
                     marketer=request.user.marketerprofile
                 )
             )
+
+            context = {
+                'profile_update_form': profile_update_form,
+                'additional_profile_form': additional_profile_form,
+                'qualification_form': qualification_form
+            }
 
         # CAUSE
         else:
@@ -150,10 +143,9 @@ def profile_edit(request):
                 instance=request.user.causeprofile,
             )
 
-    context = {
-        'profile_update_form': profile_update_form,
-        'additional_profile_form': additional_profile_form,
-        'qualification_form': qualification_form
-    }
+            context = {
+                'profile_update_form': profile_update_form,
+                'additional_profile_form': additional_profile_form,
+            }
 
     return render(request, 'profiles/profile.html', context)

@@ -63,20 +63,9 @@ class PimpUserProfileForm(forms.ModelForm):
 
 
 class QualificationForm(forms.ModelForm):
-    start_date = forms.DateField(
-        widget=forms.SelectDateWidget(years=range(1980, datetime.datetime.today().year)),
-        required=False
-    )
-    end_date = forms.DateField(
-        widget=forms.SelectDateWidget(
-            years=range(1980, datetime.datetime.today().year),
-        ),
-        required=False,
-    )
-
     class Meta:
         model = Qualification
-        fields = ('name', 'description', 'start_date', 'end_date')
+        fields = ('name', 'description')
 
 
 class MarketerUserProfileForm(forms.ModelForm):

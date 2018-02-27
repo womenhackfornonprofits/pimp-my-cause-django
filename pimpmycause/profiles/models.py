@@ -156,8 +156,6 @@ class Skill(models.Model):
 class Qualification(models.Model):
     name = models.CharField(max_length=100, blank=True)
     description = models.TextField(max_length=500, blank=True, null=True)
-    start_date = models.DateField(blank=True, null=True)
-    end_date = models.DateField(blank=True, null=True)
     marketer = models.ForeignKey(
         "profiles.MarketerProfile",
     )

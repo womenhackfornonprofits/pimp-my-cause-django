@@ -105,15 +105,6 @@
                                                 {% if qualification.name %}
                                                     <h5 class="text-align-left"> <i class="fa fa-graduation-cap margin-right-5" aria-hidden="true"></i>{{ qualification.name | title }}</h5>
                                                 {% endif %}
-                                                {% if qualification.name or qualification.description %}
-                                                    {% if qualification.start_date %}
-                                                        {{qualification.start_date}}
-                                                    {% endif %}
-                                                    {% if qualification.end_date %}
-                                                        {{qualification.end_date}}
-                                                    {% endif %}
-                                                {% endif %}
-
                                                 {% if qualification.description %}
                                                     <p>{{ qualification.description }}</p>
                                                 {% endif %}

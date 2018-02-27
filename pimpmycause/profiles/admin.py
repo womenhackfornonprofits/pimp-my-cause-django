@@ -52,7 +52,7 @@ class PimpUserAdmin(EmailUserAdmin):
 
 
 class QualificationAdmin(admin.ModelAdmin):
-    list_display = ['marketer', 'description', 'name', 'start_date', 'end_date']
+    list_display = ['marketer', 'description', 'name']
     search_fields = ['description', 'name']
     raw_id_fields = ('marketer', )
 
