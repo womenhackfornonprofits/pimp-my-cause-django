@@ -94,12 +94,18 @@ def profile_edit(request):
                 request.POST,
             )
 
+        context = {
+            'profile_update_form': profile_update_form,
+            'additional_profile_form': additional_profile_form,
+        }
+
         if profile_update_form.is_valid() and additional_profile_form.is_valid():
             user_details = profile_update_form.save(commit=False)
             user_details.user = request.user
             user_details.save()
 
             profile_details = additional_profile_form.save(commit=False)
+            profile_details.profile = request.user
             profile_details.save()
             additional_profile_form.save_m2m()
 
@@ -142,7 +148,6 @@ def profile_edit(request):
             additional_profile_form = CauseUserProfileForm(
                 instance=request.user.causeprofile,
             )
-
             context = {
                 'profile_update_form': profile_update_form,
                 'additional_profile_form': additional_profile_form,

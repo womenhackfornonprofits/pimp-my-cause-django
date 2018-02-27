@@ -1,7 +1,16 @@
-from django.conf.urls import url, include
+from django.conf.urls import (
+    url,
+    include,
+    handler400,
+    handler403,
+    handler404,
+    handler500
+)
+
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import reverse_lazy
+
 
 from django.views.generic.base import (
     TemplateView,
@@ -89,5 +98,6 @@ urlpatterns = [
         r'^tinymce/',
         include('tinymce.urls')
     ),
+
 
 ]

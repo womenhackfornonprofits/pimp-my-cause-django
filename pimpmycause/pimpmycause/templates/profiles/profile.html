@@ -68,11 +68,11 @@
                                 {{ profile_update_form.media }}
                                 {{ profile_update_form.image }}
                             </div>
-                            <div class="large-offset-3 medium-offset-2 large-4 medium-6 small-12 small-centered medium-uncentered columns">
+                            <div class="medium-offset-2 medium-6 small-12 small-centered medium-uncentered columns">
                                 {% if user.is_cause %}
-                                    <label for="cause_name">Cause Name</label>
-                                    <span class="{% if additional_profile_form.cause_name.errors %} has-error {% endif %}">
-                                        {{ additional_profile_form.cause_name }}
+                                    <label for="cause_name">Cause Name *</label>
+                                    <span class="{% if profile_update_form.cause_name.errors %} has-error {% endif %}">
+                                        {{ profile_update_form.cause_name }}
                                     </span>
                                 {% endif %}
 

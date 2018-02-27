@@ -12,7 +12,6 @@ from django.core.exceptions import ValidationError
 from custom_user.models import AbstractEmailUser
 from django_countries.fields import CountryField
 from s3direct.fields import S3DirectField
-
 import logging
 import geocoder
 
@@ -52,7 +51,11 @@ class PimpUser(AbstractEmailUser):
         default=MARKETER,
     )
     bio = models.TextField(max_length=10000, blank=True, null=True)
-    cause_name = models.CharField(max_length=1000, blank=True, null=True)
+    cause_name = models.CharField(
+        max_length=1000,
+        blank=True,
+        null=True
+    )
 
     # social accounts
     twitter = models.URLField(max_length=1000, blank=True, null=True)

@@ -1,5 +1,4 @@
 from django import forms
-import datetime
 
 from s3direct.widgets import S3DirectWidget
 from django_countries.widgets import CountrySelectWidget
@@ -13,19 +12,11 @@ from profiles.models import (
 )
 from registration.forms import RegistrationForm
 
-MARKETER = 0
-CAUSE = 1
-
-USER_TYPE_CHOICES = (
-    (MARKETER, "Marketer"),
-    (CAUSE, "Cause"),
-)
-
 
 class PimpUserRegistrationForm(RegistrationForm):
     usertype = forms.ChoiceField(
         required=True,
-        choices=USER_TYPE_CHOICES,
+        choices=PimpUser.USER_TYPE_CHOICES,
     )
 
     def clean_cause_name(self):
@@ -81,6 +72,10 @@ class MarketerUserProfileForm(forms.ModelForm):
 
 
 class CauseUserProfileForm(forms.ModelForm):
+    category = forms.ChoiceField(
+        required=True,
+        choices=CauseProfile.CAUSE_CATEGORY_CHOICES,
+    )
 
     class Meta:
         model = CauseProfile
