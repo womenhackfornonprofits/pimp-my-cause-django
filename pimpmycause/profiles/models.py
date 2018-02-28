@@ -65,6 +65,7 @@ class PimpUser(AbstractEmailUser):
     featured = models.BooleanField(default=False)
     # storing old geo data
     geo_data = models.TextField(max_length=300, blank=True, null=True)
+    has_reactivated = models.BooleanField(default=False)
 
     def __str__(self):
         if (self.usertype == self.CAUSE):
