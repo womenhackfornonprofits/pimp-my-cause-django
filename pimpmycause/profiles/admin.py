@@ -45,7 +45,7 @@ class PimpUserAdmin(EmailUserAdmin):
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
     list_display = ['name', 'surname', 'email', 'cause_name', 'usertype', 'date_joined',
-                    'is_active', 'country', 'geo_data', 'postcode']
+                    'is_active', 'country', 'geo_data', 'postcode', 'last_login']
     list_filter = ('usertype', 'is_active', 'last_login')
     search_fields = ['name', 'email', 'position', 'cause_name']
     ordering = ('-date_joined',)
