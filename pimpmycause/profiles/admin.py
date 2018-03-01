@@ -47,6 +47,7 @@ class PimpUserAdmin(EmailUserAdmin):
     list_display = ['name', 'surname', 'email', 'cause_name', 'usertype', 'date_joined',
                     'is_active', 'country', 'geo_data', 'postcode', 'last_login']
     list_filter = ('usertype', 'is_active', 'last_login')
+    readonly_fields=('has_reactivated',)
     search_fields = ['name', 'email', 'position', 'cause_name']
     ordering = ('-date_joined',)
 
