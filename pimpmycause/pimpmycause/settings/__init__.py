@@ -7,6 +7,8 @@ from env_utils import (
     get_env,
 )
 
+from core.utils import generate_upload_destination_path
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -186,19 +188,28 @@ S3DIRECT_REGION = get_env("AWS_STORAGE_REGION", 'todo')
 
 S3DIRECT_DESTINATIONS = {
     'user-profile-images': {
-        'key': 'uploads/images/user-profile-images',
+        'key': generate_upload_destination_path(
+            'uploads/images/user-profile-images'
+        ),
         'allowed': ['image/jpeg', 'image/png', 'image/jpg'],
         'cache_control': 'max-age=2592000',
+        'content_length_range': (0, 20000000),
     },
     'news-post-images': {
-        'key': 'uploads/images/news',
+        'key': generate_upload_destination_path(
+            'uploads/images/news'
+        ),
         'allowed': ['image/jpeg', 'image/png', 'image/jpg'],
         'cache_control': 'max-age=2592000',
+        'content_length_range': (0, 20000000),
     },
     'team-member-images': {
-        'key': 'uploads/images/team-member-images',
+        'key': generate_upload_destination_path(
+            'uploads/images/team-member-images'
+        ),
         'allowed': ['image/jpeg', 'image/png', 'image/jpg'],
         'cache_control': 'max-age=2592000',
+        'content_length_range': (0, 20000000),
     },
 }
 
