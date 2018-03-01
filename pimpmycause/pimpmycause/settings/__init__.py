@@ -181,7 +181,7 @@ DEFAULT_FROM_EMAIL = get_env('DEFAULT_FROM_EMAIL', 'webmaster@pimpmycause.org"')
 # AWS Settings
 AWS_ACCESS_KEY_ID = get_env("AWS_ACCESS_KEY_ID", 'todo')
 AWS_SECRET_ACCESS_KEY = get_env("AWS_SECRET_ACCESS_KEY", 'todo')
-AWS_STORAGE_BUCKET_NAME = get_env("AWS_STORAGE_BUCKET_NAME", 'eu-west-2')
+AWS_STORAGE_BUCKET_NAME = get_env("AWS_STORAGE_BUCKET_NAME", 'todo')
 
 # User image uploads to S3 bucket
 S3DIRECT_REGION = get_env("AWS_STORAGE_REGION", 'todo')
