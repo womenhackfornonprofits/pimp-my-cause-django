@@ -18,6 +18,11 @@ deployment:
     branch: master
     heroku:
       appname: staging-pimp-my-cause
+
+dependencies:
+  pre:
+    - pip install -r requirements/testing.txt
+
 test:
   override:
     - pytest
