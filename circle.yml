@@ -20,7 +20,7 @@ deployment:
       appname: staging-pimp-my-cause
 test:
   override:
-    - tox
+    - pytest
 
 experimental:
   notify:
