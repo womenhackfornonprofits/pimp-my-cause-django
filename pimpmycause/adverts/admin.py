@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from models import Advert
+from adverts.models import Advert
 
 
 class AdvertAdmin(admin.ModelAdmin):

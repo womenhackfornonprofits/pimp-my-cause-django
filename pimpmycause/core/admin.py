@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from models import TeamMember
+from core.models import TeamMember
 
 
 class TeamMemberAdmin(admin.ModelAdmin):

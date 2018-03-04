@@ -9,6 +9,7 @@ machine:
     DEBUG: 0
     DJANGO_SETTINGS_MODULE: pimpmycause.settings.testing
     SECRET_KEY: test-secret-key
+    PYTHONPATH: ${HOME}/pimp-my-cause-django/pimpmycause
   python:
     version: 3.5.2
   services:
@@ -18,9 +19,14 @@ deployment:
     branch: master
     heroku:
       appname: staging-pimp-my-cause
+
+dependencies:
+  pre:
+    - pip install -r requirements/testing.txt
+
 test:
   override:
-    - tox
+    - pytest
 
 experimental:
   notify:
