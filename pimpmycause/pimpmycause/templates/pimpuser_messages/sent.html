@@ -33,9 +33,9 @@
                                         <header class="message-list__message-header">
                                             <div>
                                                 <span class="margin-right-15">
-                                                    {{ message.sender }}
-                                                    {% if message.sender.causeprofile.cause_name %}
-                                                        ({{message.sender.causeprofile.cause_name }})
+                                                    {{ message.recipient }}
+                                                    {% if message.recipient.causeprofile.cause_name %}
+                                                        ({{message.recipient.causeprofile.cause_name }})
                                                     {% endif %}
                                                 </span>
                                                 <span>
@@ -64,7 +64,7 @@
                                                     {% if not message.recipient.image %}
                                                         <div class="marketer__image" style="background-image: url({% static "images/placeholder/marketer-default-image.png" %})" alt="{{ message.recipient.name  | title }} {{ message.recipient.surname | title }} Profile Image"></div>
                                                     {% else %}
-                                                        <div class="marketer__image" style="background-image:url('{{ message.sender.image }}')" alt="{{ message.recipient.name | title }} {{ message.recipient.surname | title }} Profile Image"></div>
+                                                        <div class="marketer__image" style="background-image:url('{{ message.recipient.image }}')" alt="{{ message.recipient.name | title }} {{ message.recipient.surname | title }} Profile Image"></div>
                                                     {% endif %}
                                                 </div>
                                             </a>
