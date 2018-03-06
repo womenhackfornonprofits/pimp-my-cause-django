@@ -20,7 +20,7 @@ class PimpUserMessageAdmin(admin.ModelAdmin):
 
     list_select_related = ['sender', 'recipient']
     list_display = ['subject', 'sender', 'recipient', 'sent_at', 'read_at']
-    search_fields = ['subject', 'message_body']
+    search_fields = ['subject', 'message_body', 'sender', 'recipient']
     inlines = (PimpUserMessageReplyInline,)
     raw_id_fields = ('sender', 'recipient')
 
