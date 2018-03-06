@@ -59,12 +59,12 @@
                                             </div>
                                         </header>
                                         <div class="small-12 medium-3 large-2 columns margin-top-15">
-                                            <a class="h5 cause__title" href="{% url 'profile_detail' user_id=message.sender.id %}">
+                                            <a class="h5 cause__title" href="{% url 'profile_detail' user_id=message.recipient.id %}">
                                                 <div class="small-6 medium-12 columns small-centered margin-top-15">
-                                                    {% if not message.sender.image %}
-                                                        <div class="marketer__image" style="background-image: url({% static "images/placeholder/marketer-default-image.png" %})" alt="{{ marketer.name | title }} {{ marketer.surname | title }} Profile Image"></div>
+                                                    {% if not message.recipient.image %}
+                                                        <div class="marketer__image" style="background-image: url({% static "images/placeholder/marketer-default-image.png" %})" alt="{{ message.recipient.name  | title }} {{ {{ message.recipient.surname | title }} Profile Image"></div>
                                                     {% else %}
-                                                        <div class="marketer__image" style="background-image:url('{{ message.sender.image }}')" alt="{{ message.sender.name | title }} {{ message.sender.surname | title }} Profile Image"></div>
+                                                        <div class="marketer__image" style="background-image:url('{{ message.sender.image }}')" alt="{{ message.recipient.name | title }} {{ message.recipient.surname | title }} Profile Image"></div>
                                                     {% endif %}
                                                 </div>
                                             </a>
