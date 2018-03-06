@@ -62,7 +62,7 @@
                                             <a class="h5 cause__title" href="{% url 'profile_detail' user_id=message.recipient.id %}">
                                                 <div class="small-6 medium-12 columns small-centered margin-top-15">
                                                     {% if not message.recipient.image %}
-                                                        <div class="marketer__image" style="background-image: url({% static "images/placeholder/marketer-default-image.png" %})" alt="{{ message.recipient.name  | title }} {{ {{ message.recipient.surname | title }} Profile Image"></div>
+                                                        <div class="marketer__image" style="background-image: url({% static "images/placeholder/marketer-default-image.png" %})" alt="{{ message.recipient.name  | title }} {{ message.recipient.surname | title }} Profile Image"></div>
                                                     {% else %}
                                                         <div class="marketer__image" style="background-image:url('{{ message.sender.image }}')" alt="{{ message.recipient.name | title }} {{ message.recipient.surname | title }} Profile Image"></div>
                                                     {% endif %}
