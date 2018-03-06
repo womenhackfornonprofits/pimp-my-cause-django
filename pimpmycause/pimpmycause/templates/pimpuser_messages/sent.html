@@ -15,8 +15,8 @@
                 <div class="row message-wrapper">
                     <aside class="message-list large-2 medium-4 small-12 columns">
                         <nav>
-                            <h4 class="margin-top-15">Mailboxes</h4>
-                            <ul class="unstyled-list text-align-center">
+                            <h4 class="margin-top-15 text-align-left">Mailboxes</h4>
+                            <ul class="unstyled-list text-align-left">
                                 <li class="message-list__link">
                                     <a class="h5 text-link" href="{% url 'inbox' %}">Inbox</a>
                                 </li>
@@ -26,7 +26,7 @@
                             </ul>
                         </nav>
                     </aside>
-                    <main class="large-9 medium-8 small-12 columns message-list__main">
+                    <main class="large-10 medium-8 small-12 columns message-list__main">
                         {% if messages %}
                             {% for message in messages %}
                                 <article class="message-list__message small-12 columns margin-top-30 clearfix padding-bottom-30">  

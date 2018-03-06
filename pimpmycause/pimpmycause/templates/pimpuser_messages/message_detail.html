@@ -15,7 +15,11 @@
                             <h2 class="h4 text-align-left margin-top-0">{{message.subject}}</h2>
                             <div class="row">
                                 <div class="message__img-wrapper small-2 columns margin-bottom-30">
-                                    <img class="message__img" src="{{message.sender.image}}" alt="{{message.sender.name}} {{message.sender.surname}} Profile Image">
+                                    {% if reply.reply_sender.image %}
+                                        <img class="message__img" src="{{message.sender.image}}" alt="{{message.sender.name}} {{message.sender.surname}} Profile Image">
+                                    {% else %}
+                                        <img class="message__img" src="{% static "images/placeholder/marketer-default-image.png" %}" alt="{{message.sender.name}} {{message.sender.surname}} Profile Image">
+                                    {% endif %}
                                 </div>
                                 <div class="message__body small-10 columns margin-bottom-30">
                                     <header class="margin-bottom-15">
@@ -31,7 +35,12 @@
                                 {% if reply.reply_sender == message.sender %}
                                     <div class="row">
                                         <div class="message__img-wrapper small-2 columns">
-                                            <img class="message__img" src="{{message.sender.image.value}}" alt="Example Profile Image">
+                                        {% if reply.reply_sender.image %}
+                                            <img class="message__img" src="{{message.sender.image}}" alt="{{message.reply_sender.name}} {{message.reply_sender.surname}} Profile Image">
+                                        {% else %}
+                                            <img class="message__img" src="{% static "images/placeholder/marketer-default-image.png" %}" alt="{{message.reply_sender.name}} {{message.reply_sender.surname}} Profile Image">
+
+                                        {% endif %}
                                         </div>
                                         <div class="message__body small-10 columns margin-bottom-30 margin-top-30">
                                             <header class="margin-bottom-15">
@@ -66,9 +75,9 @@
                                             </header>
                                             <main>{{reply.reply_body|safe}}</main>
                                         </div>
-                                        {% if not reply.reply_sender.image.value %}
+                                        {% if reply.reply_sender.image %}
                                             <div class="message__img-wrapper small-2 columns">
-                                                <img class="message__img" src="{{reply.reply_sender.image.value}}" alt="{{reply.reply_sender.name}} {{reply.reply_sender.surname}} Profile Image">
+                                                <img class="message__img" src="{{reply.reply_sender.image}}" alt="{{reply.reply_sender.name}} {{reply.reply_sender.surname}} Profile Image">
                                             </div>
                                         {% else %}
                                             <div class="message__img-wrapper small-2 columns">
