@@ -11,7 +11,8 @@ class PimpUserMessageReplyInline(admin.StackedInline):
     model = PimpUserMessageReply
 
     list_display = ['message', 'sent_at', 'read_at']
-    verbose_name_plural = "replies"
+    verbose_name_plural = 'replies'
+    raw_id_fields = ('reply_sender',)
     extra = 1
     max_num = 1
 

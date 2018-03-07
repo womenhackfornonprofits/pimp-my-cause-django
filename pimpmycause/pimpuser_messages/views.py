@@ -42,7 +42,7 @@ def pimpuser_messages_inbox(request):
                 )
             )
         )
-        .order_by('sent_at')
+        .order_by('-sent_at')
     )
 
     context = {'messages': messages}
@@ -62,7 +62,7 @@ def pimpuser_messages_sent(request):
         .filter(
             sender=user
         )
-        .order_by('sent_at')
+        .order_by('-sent_at')
     )
 
     context = {'messages': messages}
