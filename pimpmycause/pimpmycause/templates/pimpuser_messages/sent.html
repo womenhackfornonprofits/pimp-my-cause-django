@@ -33,9 +33,9 @@
                                         <header class="message-list__message-header">
                                             <div>
                                                 <span class="margin-right-15">
-                                                    {{ message.recipient }}
+                                                    {{ message.recipient | title }}
                                                     {% if message.recipient.causeprofile.cause_name %}
-                                                        ({{message.recipient.causeprofile.cause_name }})
+                                                        ({{message.recipient.causeprofile.cause_name | title}})
                                                     {% endif %}
                                                 </span>
                                                 <span>
