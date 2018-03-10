@@ -18,14 +18,14 @@
                          <form action="" method="get" class="margin-bottom-30 margin-top-30">
                             <div class="large-12 medium-12 small-12">
                                 <h4 class="text-align-left small-12 margin-top-0">Filter by:</h4>
-                                {% if adverts_list.form.non_field_errors %}
+                                {% if adverts_filters.form.non_field_errors %}
                                     <div class="row non-field-errors small-12">
                                     {% for error in adverts_list.form.non_field_errors %}
                                         <p class="form-error text-danger">{{ error }}</p>
                                     {% endfor %}
                                     </div>
                                 {% endif %}
-                                {% for field in adverts_list.form %}
+                                {% for field in adverts_filters.form %}
                                     <div class="form-group {% if field.errors %} has-error {% endif %}">
                                         {% if field.errors %}
                                             {% for error in field.errors %}
@@ -48,8 +48,8 @@
                         <div class="row">
     
 
-                            {% if adverts_list.qs|length > 0 %}
-                                {% for advert in adverts_list.qs %}
+                            {% if adverts_list%}
+                                {% for advert in adverts_list %}
                                     <article class="small-12 columns margin-top-30 pnl__border--bottom padding-bottom-30">
                                         <div class="cause__wrapper">
                                             <div class="small-12 medium-4 columns">
@@ -150,6 +150,24 @@
                                         </div>
                                     </article>
                                 {% endfor %}
+                                <div class="pagination clearfix padding-top-30 text-align-center">
+                                        <span class="step-links">
+                                            {% if adverts_list.has_previous %}
+                                                <a class="text-link margin-right-5" href="?page=1">First</a>
+                                                <a class="text-link margin-right-5" href="?page={{ adverts_list.previous_page_number }}">&larr; Previous</a>
+                                            {% endif %}
+
+                                            <span class="current margin-right-5">
+                                                Page {{ adverts_list.number }} of {{ adverts_list.paginator.num_pages }}
+                                            </span>
+
+                                            {% if adverts_list.has_next %}
+                                                <a class="text-link margin-right-5" href="?page={{ adverts_list.next_page_number }}">Next &rarr;</a>
+                                                <a class="text-link" href="?page={{ adverts_list.paginator.num_pages }}">Last</a>
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                </div>
                             {% else %}
                                 <div class="row">
                                     <div class="small-12">

@@ -122,8 +122,20 @@ def ads_list(request):
         .order_by('-created_at')
     )
 
+    # Pagination
+    page = request.GET.get('page')
+    paginator = Paginator(adverts_list.qs, 12)
+
+    try:
+        adverts_list_paginated = paginator.page(page)
+    except PageNotAnInteger:
+        adverts_list_paginated = paginator.page(1)
+    except EmptyPage:
+        adverts_list_paginated = paginator.page(paginator.num_pages)
+
     context = {
-        'adverts_list': adverts_list
+        'adverts_list': adverts_list_paginated,
+        'adverts_filters': adverts_list
     }
 
     return render(request, 'search/search_ads.html', context)
