@@ -65,13 +65,6 @@
                                                         {{ advert.created_at|date:"M d, Y"  }} - ... 
                                                     </p> 
                                                 {% endif %}
-<!--                                                 <div class="cause__image-wrapper margin-top-15">
-                                                {% if cause.image %}
-                                                    <img class="cause__image" src="{{ cause.image }}" alt="{{ cause.causeprofile.cause_name }} Profile Image"></img>
-                                                {% else %}
-                                                    <img class="profile-img" src={% static "images/placeholder/cause-default-image.png" %} alt="{{ cause.cause_name }} Profile Image">
-                                                {% endif %}
-                                            </div> -->
                                                 <div class="text-align-center margin-bottom-15 margin-top-15">
 
                                                     {% if advert.cause_profile.profile.image %}
@@ -99,7 +92,7 @@
                                                         {{ profile_user.cause_name | title }} is yet to share this information.
                                                     </p>                                            
                                                 {% endif %}
-                                                <!-- <h2 class="cause__title h5 margin-top-15 margin-bottom-10">Skills Required</h3>
+                                                <h2 class="cause__title h5 margin-top-15 margin-bottom-10">Skills Required</h3>
 
                                                 {% if advert.skills.all|length %}
                                                     <ul class="unstyled-list text-align-left">
@@ -113,7 +106,7 @@
                                                         <i class="fa fa-comments-o" aria-hidden="true"></i>
                                                         {{ advert.cause_profile | title }} is yet to share this information.
                                                     </p>                                            
-                                                {% endif %} -->
+                                                {% endif %}
                                                 <h2 class="cause__title h5 margin-top-15 margin-bottom-10">Deadline</h3>
                                                 {% if advert.deadline %}
                                                     <p class="margin-top-0">
