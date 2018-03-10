@@ -1,7 +1,6 @@
 from django import forms
 
 from s3direct.widgets import S3DirectWidget
-from django_countries.widgets import CountrySelectWidget
 
 from profiles.models import (
     PimpUser,
@@ -48,7 +47,6 @@ class PimpUserProfileForm(forms.ModelForm):
         fields = ('bio', 'linkedin', 'website', 'twitter', 'name', 'surname',
                   'cause_name', 'phone', 'image', 'city', 'country', 'position')
         widgets = {
-            'country': CountrySelectWidget(),
             'bio': forms.Textarea(attrs={'rows': 15, 'cols': 15}),
         }
 

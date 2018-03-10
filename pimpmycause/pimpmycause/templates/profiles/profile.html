@@ -76,22 +76,31 @@
                                     </span>
                                 {% endif %}
 
-                                <label for="name">{% if user.is_cause %} Contact {% endif %}Name *</label>
-                                <input class="{% if profile_update_form.name.errors %}has-error{% endif %}" type="text" name="name" placeholder="Sam" value='{{ profile_update_form.name.value|default_if_none:"" }}' required>
+                                <div class="{% if profile_update_form.name.errors %}has-error{% endif %}">
+                                    <label for="name">{% if user.is_cause %} Contact {% endif %}Name *</label>
+                                    <input type="text" name="name" placeholder="Sam" value='{{ profile_update_form.name.value|default_if_none:"" }}' required>
+                                </div>
 
-                                <label for="surname">{% if user.is_cause %} Contact {% endif %}Surname *</label>
-                                <input class="{% if profile_update_form.surname.errors %}has-error{% endif %}" type="text" name="surname" placeholder="Jones" value='{{ profile_update_form.surname.value|default_if_none:"" }}' required>
+                                <div class="{% if profile_update_form.surname.errors %}has-error{% endif %}">
+                                    <label for="surname">{% if user.is_cause %} Contact {% endif %}Surname *</label>
+                                    <input type="text" name="surname" placeholder="Jones" value='{{ profile_update_form.surname.value|default_if_none:"" }}' required>
+                                </div>
 
-                                <label for="position">{% if user.is_cause %} Contact {% endif %}Position *</label>
-                                <input class="{% if profile_update_form.position.errors %}has-error{% endif %}" type="text" name="position" placeholder="Marketer" value='{{ profile_update_form.position.value|default_if_none:"" }}' required>
+                                <div class="{% if profile_update_form.position.errors %}has-error{% endif %}">
+                                    <label for="position">{% if user.is_cause %} Contact {% endif %}Position *</label>
+                                    <input type="text" name="position" placeholder="Marketer" value='{{ profile_update_form.position.value|default_if_none:"" }}' required>
+                                </div>
 
-                                <label for="city">City *</label>
-                                <input class="{% if profile_update_form.city.errors %}has-error{% endif %}" type="text" name="city" placeholder="London" value='{{ profile_update_form.city.value|default_if_none:"" }}' required>
+                                <div class="{% if profile_update_form.city.errors %}has-error{% endif %}">
+                                    <label for="city">City *</label>
+                                    <input type="text" name="city" placeholder="London" value='{{ profile_update_form.city.value|default_if_none:"" }}' required>
+                                </div>
 
-                                <label for="country">Country</label>
-
-                                {{ profile_update_form.country.errors }}
-                                {{ profile_update_form.country }}
+                                <div class="{% if profile_update_form.country.errors %}has-error{% endif %}">
+                                    <label for="country">Country</label>
+                                    {{ profile_update_form.country.errors }}
+                                    {{ profile_update_form.country }}
+                                </div>
                             </div>
                         </div>
                         <div class="small-12">
@@ -101,18 +110,25 @@
                                 <div class="row">
                                     <div class="columns small-12 medium-6">
 
-                                    <label for="linkedin">LinkedIn</label>
-                                    <input class="{% if profile_update_form.linkedin.errors %}has-error{% endif %}" type="url" name="linkedin" placeholder="https://linkedin.com/username" value='{{ profile_update_form.linkedin.value|default_if_none:"" }}'>
+                                    <div class="{% if profile_update_form.linkedin.errors %}has-error{% endif %}">
+                                        <label for="linkedin">LinkedIn</label>
+                                        <input type="url" name="linkedin" placeholder="https://linkedin.com/username" value='{{ profile_update_form.linkedin.value|default_if_none:"" }}'>
+                                    </div>
 
-                                    <label for="twitter">Twitter</label>
-                                    <input class="{% if profile_update_form.twitter.errors %}has-error{% endif %}" type="url" name="twitter" placeholder="https://twitter.com/username" value='{{ profile_update_form.twitter.value|default_if_none:"" }}'>
+                                    <div class="{% if profile_update_form.twitter.errors %}has-error{% endif %}">
+                                        <label for="twitter">Twitter</label>
+                                        <input type="url" name="twitter" placeholder="https://twitter.com/username" value='{{ profile_update_form.twitter.value|default_if_none:"" }}'>
+                                    </div>
                                 </div>
                                 <div class="columns small-12 medium-6">
-                                    <label for="website">Website</label>
-                                    <input class="{% if profile_update_form.website.errors %}has-error{% endif %}" type="url" name="website" placeholder="https://www.example.com" value='{{profile_update_form.website.value|default_if_none:""}}'>
-                                    
-                                    <label for="phone">Phone *<span class="helptext">(this wont be shared with anyone)</span></label>
-                                    <input class="{% if profile_update_form.phone.errors %}has-error{% endif %}" type="text" name="phone" placeholder="07654123456" value='{{ profile_update_form.phone.value|default_if_none:"" }}' required>
+                                    <div class="{% if profile_update_form.website.errors %}has-error{% endif %}">
+                                        <label for="website">Website</label>
+                                        <input type="url" name="website" placeholder="https://www.example.com" value='{{profile_update_form.website.value|default_if_none:""}}'>
+                                    </div>
+                                    <div  class="{% if profile_update_form.phone.errors %}has-error{% endif %}">
+                                        <label for="phone">Phone *<span class="helptext">(this wont be shared with anyone)</span></label>
+                                        <input type="text" name="phone" placeholder="07654123456" value='{{ profile_update_form.phone.value|default_if_none:"" }}' required>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -121,15 +137,15 @@
                         </div>
                     
                         {% if user.is_marketer  %}
-                            <div class="large-12 medium-12 small-12">                            
-                                {{ additional_profile_form.experience.errors }}
-                                <label for="experience">Experience *</label>
-
-                                <textarea name="experience" rows="10" placeholder="Work Experience *" required>
-                                    {% if additional_profile_form.experience.value|length %}
-                                        {{ additional_profile_form.experience.value}}
-                                    {% endif %}
-                                </textarea>
+                            <div class="large-12 medium-12 small-12">    
+                                <div class="{% if additional_profile_form.experience.errors %} has-error {% endif %}">            
+                                    <label for="experience">Experience *</label>
+                                    <textarea name="experience" rows="10" placeholder="Work Experience *" required>
+                                        {% if additional_profile_form.experience.value|length %}
+                                            {{ additional_profile_form.experience.value}}
+                                        {% endif %}
+                                    </textarea>
+                                </div>
                             </div>
                             <div class="large-12 medium-12 small-12">                            
 
