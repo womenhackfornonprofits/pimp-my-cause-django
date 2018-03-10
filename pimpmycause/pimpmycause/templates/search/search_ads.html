@@ -68,9 +68,13 @@
                                                 <div class="text-align-center margin-bottom-15 margin-top-15">
 
                                                     {% if advert.cause_profile.profile.image %}
-                                                        <img src="{{advert.cause_profile.profile.image}}"/>
+                                                        <img src="{{advert.cause_profile.profile.image}}"
+                                                        alt="{{ advert.cause_profile.cause_name }} Profile Image"
+                                                        />
                                                     {% else %}
-                                                        <img src={% static "images/placeholder/cause-default-image.png" %}/>
+                                                        <img
+                                                        src={% static "images/placeholder/cause-default-image.png" %}
+                                                        alt="{{ advert.cause_profile.cause_name }} Profile Image"/>
                                                     {% endif %}
                                                 </div>
                                             </div>

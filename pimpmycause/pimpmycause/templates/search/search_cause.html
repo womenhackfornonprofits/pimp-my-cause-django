@@ -56,9 +56,11 @@
                                         <div class="small-12 medium-3 columns show-for-large-up">
                                             <div class="cause__image-wrapper margin-top-15">
                                                 {% if cause.image %}
-                                                    <img class="cause__image" src="{{ cause.image }}" alt="{{ cause.causeprofile.cause_name }} Profile Image"></img>
+                                                    <img class="cause__image" src="{{ cause.image }}" alt="{{ cause.causeprofile.cause_name }} Profile Image">
                                                 {% else %}
-                                                    <img class="profile-img" src={% static "images/placeholder/cause-default-image.png" %} alt="{{ cause.cause_name }} Profile Image">
+                                                    <img class="profile-img"
+                                                    src={% static "images/placeholder/cause-default-image.png" %}
+                                                    alt="{{ cause.cause_name }} Profile Image">
                                                 {% endif %}
                                             </div>
                                         </div>
