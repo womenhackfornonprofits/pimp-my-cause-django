@@ -103,15 +103,18 @@ def pimpuser_message_form(request, recipient_id, message_id=None):
             message.recipient = recipient
             message.save()
 
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+            return render(request, 'pimpuser_messages/message_sent.html', {
+                'message_form': message_form,
+                'recipient': recipient
+            })
 
     else:
         message_form = PimpUserMessageForm(instance=message)
 
-    return render(request, 'pimpuser_messages/message_form.html', {
-        'message_form': message_form,
-        'recipient': recipient
-    })
+        return render(request, 'pimpuser_messages/message_form.html', {
+            'message_form': message_form,
+            'recipient': recipient
+        })
 
 
 @login_required

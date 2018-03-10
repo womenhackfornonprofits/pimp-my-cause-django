@@ -7,6 +7,7 @@ from pimpuser_messages.models import (
 
 
 class PimpUserMessageForm(forms.ModelForm):
+    message_body = forms.CharField(widget=forms.Textarea, label="Message")
 
     class Meta:
         model = PimpUserMessage
@@ -17,6 +18,7 @@ class PimpUserMessageForm(forms.ModelForm):
 
 
 class PimpUserMessageReplyForm(forms.ModelForm):
+    message_body = forms.CharField(widget=forms.Textarea, label="Message")
 
     class Meta:
         model = PimpUserMessageReply

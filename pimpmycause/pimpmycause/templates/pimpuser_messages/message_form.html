@@ -35,7 +35,7 @@
                                                     <p class="form-error text-danger">{{ error }}</p>
                                                 {% endfor %}
                                             {% endif %}
-                                            <label for="{{field.id_for_label}}">{{field.name|title}}:</label>
+                                            <label for="{{field.id_for_label}}">{{field.label}}:</label>
                                             <div class="message__{{field.name}}">
                                                 {% render_field field %}
                                             </div>

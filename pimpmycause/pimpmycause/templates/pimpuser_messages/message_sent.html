@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% load static widget_tweaks %}
+
+{% block title %} New Message {% endblock %}
+
+{% block main %}
+    <section class="pnl pnl--dark-txt row ">
+        <div class="content-wrap">
+            <div class="medium-12 large-12 small-10 large-centered small-centered columns margin-top-45">
+                <div class="row">
+                    <h1 class="">Message Sent</h1>
+                    <div class="small-12 columns small-centered text-align-center padding-bottom-30">
+                        <h4>Your message was sent to <a class="text-link" href="{% url 'profile_detail' user_id=recipient.id %}">{{recipient}}</a>.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
