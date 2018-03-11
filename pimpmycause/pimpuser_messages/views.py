@@ -4,6 +4,8 @@ from django.shortcuts import (
     redirect,
     HttpResponseRedirect
 )
+from django.http import Http404
+
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.db.models import (
@@ -104,7 +106,6 @@ def pimpuser_message_form(request, recipient_id, message_id=None):
             message.save()
 
             return render(request, 'pimpuser_messages/message_sent.html', {
-                'message_form': message_form,
                 'recipient': recipient
             })
 
@@ -120,58 +121,46 @@ def pimpuser_message_form(request, recipient_id, message_id=None):
 @login_required
 def pimpuser_message_detail(request, message_id):
     """Message view"""
-    if request.method == 'GET':
-        message = get_object_or_404(
-            PimpUserMessage,
-            id=message_id,
-        )
 
-        message.read_at = timezone.now()
-        message.save()
-
-        replies_list = PimpUserMessageReply.objects.filter(
-            message=message
-        )
-
-        for reply in replies_list:
-            reply.read_at = timezone.now()
-            reply.save()
-
-        return render(request, 'pimpuser_messages/message_detail.html', {
-            'message': message,
-            'replies_list': replies_list
-        })
-
-
-@login_required
-def pimpuser_message_reply(request, message_id):
-    """Reply to a messag"""
     message = get_object_or_404(
         PimpUserMessage,
         id=message_id,
     )
 
-    conversation = None
-
-    if request.method == 'POST':
-        message_form = PimpUserMessageReplyForm(
-            request.POST,
-            instance=conversation
+    if request.user.id == message.recipient.id or request.user.id == message.sender.id:
+        replies_list = PimpUserMessageReply.objects.filter(
+            message=message
         )
 
-        if message_form.is_valid():
+        if request.method == 'GET':
+            reply_form = PimpUserMessageReplyForm()
+            message.read_at = timezone.now()
+            message.save()
 
-            conversation = message_form.save(commit=False)
-            conversation.message = message
-            conversation.reply_sender = request.user
-            conversation.save()
+            for reply in replies_list:
+                reply.read_at = timezone.now()
+                reply.save()
+
+            return render(request, 'pimpuser_messages/message_detail.html', {
+                'message': message,
+                'replies_list': replies_list,
+                'reply_form': reply_form
+            })
+
+        else:
+            reply_form = PimpUserMessageReplyForm(
+                request.POST,
+                instance=message
+            )
+            if reply_form.is_valid():
+                conversation = PimpUserMessageReply.objects.create(message=message, reply_sender=request.user)
+                conversation.sent_at = timezone.now()
+                conversation.reply_body = reply_form.cleaned_data['reply_body']
+                conversation.save()
 
             return redirect(
                 'message_detail',
                 message_id=message_id
             )
-
-    if request.method == 'GET':
-        return render(request, 'pimpuser_messages/message_detail.html', {
-            'message': message
-        })
+    else:
+        raise Http404("Message not found")

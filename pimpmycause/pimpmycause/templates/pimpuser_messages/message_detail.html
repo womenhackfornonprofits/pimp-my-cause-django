@@ -90,9 +90,10 @@
                             {% endfor %}
                         </article>
 
-                        <form action="{% url 'message_reply' message_id=message.id %}" method="POST">
-                            {% csrf_token %}
-                            {% if message_form.non_field_errors %}
+                        <form method="POST">
+<!--                             <input type="hidden" name="next" value="{% url 'message_detail' message_id=message.id %}">
+ -->                            {% csrf_token %}
+                            {% if reply_form.non_field_errors %}
                                 <div class="row non-field-errors">
                                 {% for error in message_form.non_field_errors %}
                                     <p class="form-error text-danger">{{ error }}</p>
@@ -101,20 +102,19 @@
                             {% endif %}
                             <div class="row">
                                 <div class="small-12 columns margin-bottom-30">
-                                    {% for field in message_form %}
+                                    {% for field in reply_form %}
                                         <div class="form-group {% if field.errors %} has-error {% endif %}">
                                             {% if field.errors %}
                                                 {% for error in field.errors %}
                                                     <p class="form-error text-danger">{{ error }}</p>
                                                 {% endfor %}
                                             {% endif %}
-                                            <label for="{{field.id_for_label}}">{{field.name|title}}</label>
+                                            <label for="{{field.id_for_label}}">{{field.label}}</label>
                                             <div class="message__{{field.name}}">
                                                 {% render_field field %}
                                             </div>
                                         </div>
                                     {% endfor %}
-                                    <textarea name="reply_body" id="reply_body" rows="15" cols="15" required=""></textarea>
                                 </div>
                                 <div class="small-12 columns margin-bottom-30">
                                     <button class="button button--primary" type="Submit">Reply</button>

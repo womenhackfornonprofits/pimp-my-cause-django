@@ -18,11 +18,8 @@ class PimpUserMessageForm(forms.ModelForm):
 
 
 class PimpUserMessageReplyForm(forms.ModelForm):
-    message_body = forms.CharField(widget=forms.Textarea, label="Message")
+    reply_body = forms.CharField(widget=forms.Textarea, label="Reply")
 
     class Meta:
         model = PimpUserMessageReply
         fields = ('reply_body',)
-        widgets = {
-            'reply_body': forms.Textarea(attrs={'rows': 15, 'cols': 15}),
-        }
