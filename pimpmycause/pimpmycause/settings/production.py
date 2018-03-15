@@ -9,11 +9,15 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'] = dj_database_url.config()
 DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
+# SECURITY
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 SECRET_KEY = get_env("SECRET_KEY")
-
 ALLOWED_HOSTS = get_list('ALLOWED_HOSTS', separator=',')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
