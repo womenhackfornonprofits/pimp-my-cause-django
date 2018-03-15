@@ -13,9 +13,17 @@ from registration.forms import RegistrationForm
 
 
 class PimpUserRegistrationForm(RegistrationForm):
+
+    MARKETER = 0
+    CAUSE = 1
+    USER_TYPE_CHOICES = (
+        (MARKETER, "Marketer"),
+        (CAUSE, "Cause"),
+    )
+
     usertype = forms.ChoiceField(
         required=True,
-        choices=PimpUser.USER_TYPE_CHOICES,
+        choices=USER_TYPE_CHOICES,
     )
 
     def clean_cause_name(self):
