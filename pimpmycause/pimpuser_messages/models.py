@@ -19,6 +19,7 @@ class PimpUserMessage(models.Model):
 
     subject = models.CharField(max_length=300, blank=True)
     message_body = models.TextField()
+    updated_at = models.DateTimeField("updated at", null=True, blank=True)
 
     def __str__(self):
         return "{}".format(self.subject)

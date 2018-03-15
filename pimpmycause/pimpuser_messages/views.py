@@ -12,6 +12,7 @@ from django.db.models import (
     Count,
     Case,
     When,
+    Q
 )
 
 from profiles.models import PimpUser
@@ -40,11 +41,14 @@ def pimpuser_messages_inbox(request):
         .annotate(
             number_of_unread_replies=Count(
                 Case(
-                    When(pimpusermessagereply__read_at__isnull=True, then=1),
+                    When(
+                        Q(pimpusermessagereply__sent_at__isnull=False) & Q(pimpusermessagereply__read_at__isnull=True),
+                        then=1,
+                    )
                 )
             )
         )
-        .order_by('-sent_at')
+        .order_by('read_at', '-sent_at', '-updated_at')
     )
 
     context = {'messages': messages}
@@ -64,7 +68,7 @@ def pimpuser_messages_sent(request):
         .filter(
             sender=user
         )
-        .order_by('-sent_at')
+        .order_by('-sent_at', '-updated_at')
     )
 
     context = {'messages': messages}
@@ -153,6 +157,9 @@ def pimpuser_message_detail(request, message_id):
                 instance=message
             )
             if reply_form.is_valid():
+                message.updated_at = timezone.now()
+                message.save()
+
                 conversation = PimpUserMessageReply.objects.create(message=message, reply_sender=request.user)
                 conversation.sent_at = timezone.now()
                 conversation.reply_body = reply_form.cleaned_data['reply_body']

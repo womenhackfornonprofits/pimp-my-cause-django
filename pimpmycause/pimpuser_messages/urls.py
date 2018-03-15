@@ -5,7 +5,6 @@ from pimpuser_messages.views import (
     pimpuser_messages_sent,
     pimpuser_message_form,
     pimpuser_message_detail,
-    # pimpuser_message_reply
 )
 
 
@@ -29,10 +28,5 @@ urlpatterns = [
         r'^view/(?P<message_id>\d+)/$',
         pimpuser_message_detail,
         name='message_detail'
-    ),
-    # url(
-    #     r'^reply/(?P<message_id>\d+)/$',
-    #     pimpuser_message_reply,
-    #     name='message_reply'
-    # )
+    )
 ]
