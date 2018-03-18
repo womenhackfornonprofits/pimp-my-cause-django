@@ -67,15 +67,20 @@
                         </div>
                         <div class="large-4 medium-8 small-10 small-centered large-centered columns text-align-center">
                             {% if profile_user.city %}
-                                <p class="text-align-center display-inline-block">
+                                <p class="text-align-center">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    {{ profile_user.city | title }}
+                                    {{ profile_user.city|title }}
                                 </p>
                             {% endif %}
+                            {% if profile_user.website %}
+                                <a href="{{ profile_user.website }}" class="text-link">
+                                   {{ profile_user.website }}
+                                </a>
+                        {% endif %}
                         </div>
                     </div>
                     {% if user.id == profile_user.id %}
-                        <div class="text-align-center">
+                        <div class="text-align-center margin-top-30">
                             <a href="{% url 'profile_update' %}" title="Edit your profile" class="h2 button button--primary"><i class="fa fa-pencil margin-right-5" aria-hidden="true"></i>Edit your profile</a>
                         </div>
                     {% endif %}
@@ -187,7 +192,7 @@
         </div>
     </section>
     
-    {% if profile_user.linkedin or profile_user.twitter or profile_user.website %}
+    {% if profile_user.linkedin or profile_user.twitter %}
         <section class="pnl pnl--dark-txt row text-align-center">
             {% if profile_user.is_cause %}
                 <h4>Follow {{profile_user.cause_name}} on social media</h4>
@@ -206,13 +211,6 @@
                     <li class="profile__social-item">
                         <a href="{{ profile_user.twitter }}" class="profile__social-icon">
                             <i class="fa fa-twitter" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                {% endif %}
-                {% if profile_user.website %}
-                    <li class="profile__social-item">
-                        <a href="{{ profile_user.website }}" class="profile__social-icon">
-                            <i class="fa fa-globe" aria-hidden="true"></i>
                         </a>
                     </li>
                 {% endif %}
