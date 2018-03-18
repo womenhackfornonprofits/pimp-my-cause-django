@@ -2,7 +2,11 @@ from django.shortcuts import (
     get_object_or_404,
     render,
     redirect,
-    HttpResponseRedirect
+)
+from django.core.paginator import (
+    Paginator,
+    EmptyPage,
+    PageNotAnInteger
 )
 from django.http import Http404
 
@@ -25,20 +29,21 @@ from pimpuser_messages.forms import (
     PimpUserMessageReplyForm,
 )
 
-
 @login_required
 def pimpuser_messages_inbox(request):
+
     user = get_object_or_404(
         PimpUser,
         id=request.user.id,
     )
 
+    message_query = PimpUserMessage.objects.filter(
+        recipient=user
+    )
+
     messages = (
-        PimpUserMessage.objects
-        .filter(
-            recipient=user
-        )
-        .annotate(
+        message_query.
+        annotate(
             number_of_unread_replies=Count(
                 Case(
                     When(
@@ -48,10 +53,24 @@ def pimpuser_messages_inbox(request):
                 )
             )
         )
-        .order_by('read_at', '-sent_at', '-updated_at')
+        .order_by('-sent_at', '-updated_at', '-number_of_unread_replies')
     )
 
-    context = {'messages': messages}
+    # Pagination
+    page = request.GET.get('page')
+    paginator = Paginator(messages, 12)
+
+    try:
+        messages_list_paginated = paginator.page(page)
+    except PageNotAnInteger:
+        messages_list_paginated = paginator.page(1)
+    except EmptyPage:
+        messages_list_paginated = paginator.page(paginator.num_pages)
+
+
+    context = {
+        'messages': messages_list_paginated,
+    }
 
     return render(request, 'pimpuser_messages/inbox.html', context)
 
@@ -71,7 +90,18 @@ def pimpuser_messages_sent(request):
         .order_by('-sent_at', '-updated_at')
     )
 
-    context = {'messages': messages}
+    # Pagination
+    page = request.GET.get('page')
+    paginator = Paginator(messages, 12)
+
+    try:
+        messages_list_paginated = paginator.page(page)
+    except PageNotAnInteger:
+        messages_list_paginated = paginator.page(1)
+    except EmptyPage:
+        messages_list_paginated = paginator.page(paginator.num_pages)
+
+    context = {'messages': messages_list_paginated}
 
     return render(request, 'pimpuser_messages/sent.html', context)
 
