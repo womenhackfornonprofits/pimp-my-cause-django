@@ -103,35 +103,38 @@ class PimpUser(AbstractEmailUser):
 def geolocate_user(sender, instance, created, *args, **kwargs):
     post_save.disconnect(geolocate_user, sender=PimpUser)
 
-    if not created:
-        if not instance.country or instance.location:
-            log.info('User is missing a country or location')
+    if not instance.country or not instance.location:
+        logging.info('User is missing a country or location')
 
-            if (instance.city or instance.postcode):
-                city = instance.city
-                postcode = instance.postcode
-                address = city if city else '' + postcode if postcode else ' '
-                g = geocoder.google(address)
+        if (instance.city or instance.postcode):
+            logging.info('We have city or postcode info')
 
-                if g.latlng and (not instance.location):
-                    instance.location = Point(g.latlng[0], g.latlng[1])
+            city = instance.city
+            postcode = instance.postcode
+            address = city if city else '' + postcode if postcode else ' '
+            logging.info(address)
+            g = geocoder.google(address)
+            logging.info(g.latlng)
 
-                if g.country:
-                    instance.country = g.country
+            if g.latlng and (not instance.location):
+                instance.location = Point(g.latlng[0], g.latlng[1])
 
-                if g.city:
-                    instance.city = g.city
+            if g.country:
+                instance.country = g.country
 
-                instance.save(update_fields=['country'])
-                post_save.connect(geolocate_user, sender=PimpUser)
+            if g.city:
+                instance.city = g.city
 
-        else:
-            log.info(
-                'User already has a location = {}, country = {}'.format(
-                    instance.location,
-                    instance.country
-                )
+            instance.save(update_fields=['country'])
+            post_save.connect(geolocate_user, sender=PimpUser)
+
+    else:
+        logging.info(
+            'User already has a country = {}, location = {}'.format(
+                instance.country,
+                instance.location,
             )
+        )
 
 
 @receiver(post_save, sender=PimpUser)
@@ -144,7 +147,7 @@ def create_user_profile(sender, instance, *args, **kwargs):
         CauseProfile.objects.get_or_create(profile=instance)
 
     else:
-        log.info('Created an Admin user without a profile')
+        logging.info('Created an Admin user without a profile')
 
 
 @python_2_unicode_compatible
