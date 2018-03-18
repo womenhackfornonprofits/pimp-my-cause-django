@@ -143,10 +143,10 @@
 		border-rop: 1px solid $white;
 
         .navigation__menu {
+            display: block;
             border-top: 1px solid $white;
         }
 
-		nav,
 		li,
 		ul {
 			display: block;

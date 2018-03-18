@@ -217,14 +217,20 @@ const $ = __webpack_require__(0);
 const $navigation = $('.js-header-nav')[0];
 
 $navigation.addEventListener('click', event => {
-    const $srcElement = event.target;
 
-    if ($srcElement.classList.contains('js-nav-toggle')) {
-        $navigation.classList.add('navigation__menu--mobile');
-        document.body.classList.add('nav--active');
-    } else {
+    const $srcElement = event.target;
+    let $currentToggle = $srcElement;
+
+    while (!$currentToggle.classList.contains('js-nav-toggle')) {
+        $currentToggle = $currentToggle.parentElement;
+    }
+
+    if (document.body.className.match('nav--active')) {
         $navigation.classList.remove('navigation__menu--mobile');
         document.body.classList.remove('nav--active');
+    } else {
+        $navigation.classList.add('navigation__menu--mobile');
+        document.body.classList.add('nav--active');
     }
 });
 
@@ -855,4 +861,4 @@ if ($userTypeEl && $causeNameEl) {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main-e2f5fa0732c9cb690b70.js.map
+//# sourceMappingURL=main-0926a50ffef9dafc3797.js.map
