@@ -24,10 +24,14 @@ from pimpuser_messages.models import (
     PimpUserMessage,
     PimpUserMessageReply
 )
+from pimpuser_messages.mail import (
+    send_new_message_alert,
+)
 from pimpuser_messages.forms import (
     PimpUserMessageForm,
     PimpUserMessageReplyForm,
 )
+
 
 @login_required
 def pimpuser_messages_inbox(request):
@@ -38,7 +42,9 @@ def pimpuser_messages_inbox(request):
     )
 
     message_query = PimpUserMessage.objects.filter(
-        recipient=user
+        Q(recipient=user) | Q(
+            Q(pimpusermessagereply__isnull=False) & Q(sender=user)
+        )
     )
 
     messages = (
@@ -53,7 +59,7 @@ def pimpuser_messages_inbox(request):
                 )
             )
         )
-        .order_by('-sent_at', '-updated_at', '-number_of_unread_replies')
+        .order_by('updated_at', '-sent_at')
     )
 
     # Pagination
@@ -66,7 +72,6 @@ def pimpuser_messages_inbox(request):
         messages_list_paginated = paginator.page(1)
     except EmptyPage:
         messages_list_paginated = paginator.page(paginator.num_pages)
-
 
     context = {
         'messages': messages_list_paginated,
@@ -137,7 +142,10 @@ def pimpuser_message_form(request, recipient_id, message_id=None):
             message = message_form.save(commit=False)
             message.sender = sender
             message.recipient = recipient
+            message.updated_at = timezone.now()
             message.save()
+
+            send_new_message_alert(request, message)
 
             return render(request, 'pimpuser_messages/message_sent.html', {
                 'recipient': recipient
@@ -194,6 +202,8 @@ def pimpuser_message_detail(request, message_id):
                 conversation.sent_at = timezone.now()
                 conversation.reply_body = reply_form.cleaned_data['reply_body']
                 conversation.save()
+
+                send_new_message_alert(request, message)
 
             return redirect(
                 'message_detail',

@@ -38,10 +38,6 @@ def send_activation_email(user, url):
     )
 
 
-def send_new_message_alert(user, url):
-    pass
-
-
 def send_activation_email_to_all(url):
     for user in PimpUser.objects.all():
         send_activation_email(user, url)

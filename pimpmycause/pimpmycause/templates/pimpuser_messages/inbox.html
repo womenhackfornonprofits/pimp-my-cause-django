@@ -33,10 +33,18 @@
                                         <header class="message-list__message-header">
                                             <div>
                                                 <span class="margin-right-15">
-                                                    {{ message.sender }}
-                                                    {% if message.sender.causeprofile.cause_name %}
+                                                    {% if message.sender == user %}
+                                                        {{ message.recipient}}
+                                                        {% if message.recipient.causeprofile.cause_name %}
+                                                            ({{message.recipient.causeprofile.cause_name }})
+                                                        {% endif %}
+                                                    {% else %}
+                                                        {{ message.sender }}
+                                                        {% if message.sender.causeprofile.cause_name %}
                                                         ({{message.sender.causeprofile.cause_name }})
                                                     {% endif %}
+                                                    {% endif %}
+                                                    
                                                 </span>
                                                 <span>
                                                     {{ message.subject | title }}
@@ -50,26 +58,43 @@
                                                 </span>
                                             </div>
                                             <div>
-                                                {% if message.sent_at %}
+                                                {% if message.sent_at or message.updated_at %}
                                                     <p class="small cause__title margin-top-20">
                                                         <i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>
-                                                        {{ message.sent_at|date:"M d, Y"  }}
+                                                        {{ message.updated_at|default:message.sent_at |date:"M d, Y"  }}
                                                     </p> 
                                                 {% endif %}
                                             </div>
                                         </header>
                                         <div class="small-12 medium-3 large-2 columns margin-top-15">
-                                            <a class="h5 cause__title" href="{% url 'profile_detail' user_id=message.sender.id %}">
-                                                {% if not message.sender.image %}
-                                                    <div class="marketer__image" style="background-image: url({% static "images/placeholder/marketer-default-image.png" %})" alt="{{ marketer.name | title }} {{ marketer.surname | title }} Profile Image"></div>
-                                                {% else %}
-                                                    <div class="marketer__image" style="background-image:url('{{ message.sender.image }}')" alt="{{ message.sender.name | title }} {{ message.sender.surname | title }} Profile Image"></div>
-                                                {% endif %}
-                                            </a>
+                                            {% if message.sender == user %}
+                                                <a class="h5 cause__title" href="{% url 'profile_detail' user_id=message.recipient.id %}">
+                                                    {% if not message.recipient.image %}
+                                                        <div class="marketer__image" style="background-image: url({% static "images/placeholder/marketer-default-image.png" %})" alt="{{ marketer.name | title }} {{ marketer.surname | title }} Profile Image"></div>
+                                                    {% else %}
+                                                        <div class="marketer__image" style="background-image:url('{{ message.recipient.image }}')" alt="{{ message.recipient.name | title }} {{ message.recipient.surname | title }} Profile Image"></div>
+                                                    {% endif %}
+                                                </a>
+                                            {% else %}
+                                                <a class="h5 cause__title" href="{% url 'profile_detail' user_id=message.sender.id %}">
+                                                    {% if not message.sender.image %}
+                                                        <div class="marketer__image" style="background-image: url({% static "images/placeholder/marketer-default-image.png" %})" alt="{{ marketer.name | title }} {{ marketer.surname | title }} Profile Image"></div>
+                                                    {% else %}
+                                                        <div class="marketer__image" style="background-image:url('{{ message.sender.image }}')" alt="{{ message.sender.name | title }} {{ message.sender.surname | title }} Profile Image"></div>
+                                                    {% endif %}
+                                                </a>
+
+                                            {% endif %}
                                         </div>
                                         <div class="small-12 medium-8 columns margin-top-15">
-                                            <div class="cause__text margin-bottom-30">{{ message.message_body | truncatechars:150  }}</div>
-                                            <a href="{% url 'message_detail' message_id=message.id %}" class="button button--primary margin-top-30">Read more</a>
+                                            {% if message.pimpusermessagereply_set.last.reply_body %}
+                                                <div class="cause__text margin-bottom-30">{{message.pimpusermessagereply_set.last.reply_body | truncatechars:150  }}
+                                                </div>                                          
+                                            {% else %}
+                                                <div class="cause__text margin-bottom-30">{{ message.message_body | truncatechars:150  }}</div>
+                                            {% endif %}
+                                                <a href="{% url 'message_detail' message_id=message.id %}" class="button button--primary margin-top-30">Read more</a>
+
                                         </div> 
                                 </article>
                             {% endfor %}

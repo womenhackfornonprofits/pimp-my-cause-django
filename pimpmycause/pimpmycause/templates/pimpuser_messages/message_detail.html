@@ -15,7 +15,7 @@
                             <h2 class="h4 text-align-left margin-top-0">{{message.subject}}</h2>
                             <div class="row">
                                 <div class="message__img-wrapper small-2 columns margin-bottom-30">
-                                    {% if reply.reply_sender.image %}
+                                    {% if message.sender.image %}
                                         <img class="message__img" src="{{message.sender.image}}" alt="{{message.sender.name}} {{message.sender.surname}} Profile Image">
                                     {% else %}
                                         <img class="message__img" src="{% static "images/placeholder/marketer-default-image.png" %}" alt="{{message.sender.name}} {{message.sender.surname}} Profile Image">
@@ -34,7 +34,7 @@
                             {% for reply in replies_list %}
                                 {% if reply.reply_sender == message.sender %}
                                     <div class="row">
-                                        <div class="message__img-wrapper small-2 columns">
+                                        <div class="message__img-wrapper small-2 columns margin-top-30">
                                         {% if reply.reply_sender.image %}
                                             <img class="message__img" src="{{message.sender.image}}" alt="{{message.reply_sender.name}} {{message.reply_sender.surname}} Profile Image">
                                         {% else %}
@@ -76,7 +76,7 @@
                                             <main>{{reply.reply_body|safe}}</main>
                                         </div>
                                         {% if reply.reply_sender.image %}
-                                            <div class="message__img-wrapper small-2 columns">
+                                            <div class="message__img-wrapper small-2 columns margin-top-30">
                                                 <img class="message__img" src="{{reply.reply_sender.image}}" alt="{{reply.reply_sender.name}} {{reply.reply_sender.surname}} Profile Image">
                                             </div>
                                         {% else %}
