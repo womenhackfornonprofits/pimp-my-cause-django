@@ -172,7 +172,7 @@ def pimpuser_message_detail(request, message_id):
     if request.user.id == message.recipient.id or request.user.id == message.sender.id:
         replies_list = PimpUserMessageReply.objects.filter(
             message=message
-        )
+        ).order_by('sent_at')
 
         if request.method == 'GET':
             reply_form = PimpUserMessageReplyForm()
