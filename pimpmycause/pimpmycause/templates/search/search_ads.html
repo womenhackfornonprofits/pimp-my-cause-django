@@ -82,7 +82,7 @@
                                                 <a href="{% url 'advert_detail' advert_id=advert.id  %}">
                                                     <h1 class="h4 cause__title margin-top-0 margin-bottom-10">{{ advert.title | title }}</h1>
                                                 </a>
-                                                <a href="{% url 'profile_detail' user_id=advert.cause_profile_id %}">{{ advert.cause_profile | title }}</a>
+                                                <a href="{% url 'profile_detail' user_id=advert.cause_profile_id %}" class="text-link bold">{{ advert.cause_profile }}</a>
 
                                                 <h2 class="cause__title h5 margin-top-15 margin-bottom-10">Description</h3>
                                                 {% if advert.description %}
