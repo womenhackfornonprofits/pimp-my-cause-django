@@ -50,6 +50,6 @@ def send_new_message_alert(request, message):
         "You have a new message!",
         plain_message,
         settings.DEFAULT_FROM_EMAIL,
-        [recipient],
+        [recipient.email],
         html_message=html_message,
     )
