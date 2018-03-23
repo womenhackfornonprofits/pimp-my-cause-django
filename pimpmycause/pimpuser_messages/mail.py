@@ -30,7 +30,7 @@ def send_new_message_alert(request, message):
         'email/new_message_template.html',
         {
             'sender': sender,
-            'recipient': message.recipient.name,
+            'recipient': recipient.name,
             'message_body': message_body,
             'message_url': message_url,
         }
@@ -39,7 +39,7 @@ def send_new_message_alert(request, message):
     plain_message = render_to_string(
         'email/new_message_template.txt',
         {
-            'recipient': message.recipient.name,
+            'recipient': recipient.name,
             'sender': sender,
             'message_body': message_body,
             'message_url': message_url,
