@@ -13,7 +13,7 @@
                     <h1 class="pnl__title">Meet the Marketers</h1>
                     <h2 class="margin-top-0 small-10 small-centered medium-8 medium-centered columns body-text text-align-center">Browse or search our listings of professionals. Build your network and find new potential collaborators.</h2>
                 </div>
-                <div class="">
+                <div>
                     <aside class="large-3 medium-4 small-12 columns margin-top-30">
                          <form action="" method="get" class="margin-bottom-30 margin-top-30">
                             <div class="large-12 medium-12 small-12">
@@ -51,7 +51,7 @@
                                 {% for marketer in marketer_list %}
 
                                     <div class="marketer {% if marketer_list.qs|length > 2 %}large-4 {% endif %}medium-6 small-12 large-4 column margin-bottom-30 margin-top-30">
-                                        <div class="marketer__wrapper">
+                                    <a href="{% url 'profile_detail' user_id=marketer.id %}" class="marketer__wrapper">
                                             <div class="marketer__image-wrapper">
                                                 {% if marketer.image %}
                                                     <div class="marketer__image" style="background-image:url('{{ marketer.image }}')" alt="{{ marketer.name | title }} {{ marketer.surname | title }} Profile Image"></div>
@@ -77,7 +77,7 @@
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 {% endfor %}
                                 <div class="pagination clearfix padding-top-30 text-align-center">
                                         <span class="step-links">
