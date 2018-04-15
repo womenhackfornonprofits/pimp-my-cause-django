@@ -21,7 +21,7 @@ function hideShowCauseName() {
     }
 }
 
-if (userType) {
+if (userType && $userTypeEl && $causeNameEl) {
     setUserType(userType);
 }
 

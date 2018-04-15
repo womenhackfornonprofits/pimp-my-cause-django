@@ -108,8 +108,8 @@
                                 <div class="pagination clearfix padding-top-30 text-align-center">
                                         <span class="step-links">
                                             {% if cause_list.has_previous %}
-                                                <a class="text-link margin-right-5" href="?page=1">First</a>
-                                                <a class="text-link margin-right-5" href="?page={{ cause_list.previous_page_number }}">&larr; Previous</a>
+                                                <a class="text-link margin-right-5" href="?page=1{% if parameters %}&{{ parameters }}{% endif%}">First</a>
+                                                <a class="text-link margin-right-5" href="?page={{ cause_list.previous_page_number }}{% if parameters %}&{{ parameters }}{% endif%}">&larr; Previous</a>
                                             {% endif %}
 
                                             <span class="current margin-right-5">
@@ -117,8 +117,8 @@
                                             </span>
 
                                             {% if cause_list.has_next %}
-                                                <a class="text-link margin-right-5" href="?page={{ cause_list.next_page_number }}">Next &rarr;</a>
-                                                <a class="text-link" href="?page={{ cause_list.paginator.num_pages }}">Last</a>
+                                                <a class="text-link margin-right-5" href="?page={{ cause_list.next_page_number }}{% if parameters %}&{{ parameters }}{% endif%}">Next &rarr;</a>
+                                                <a class="text-link" href="?page={{ cause_list.paginator.num_pages }}{% if parameters %}&{{ parameters }}{% endif%}">Last</a>
                                             {% endif %}
                                         </span>
                                     </div>

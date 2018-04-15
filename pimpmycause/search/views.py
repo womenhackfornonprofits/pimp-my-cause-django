@@ -18,6 +18,9 @@ from search.filters import (
 
 
 def marketer_list(request):
+    get_copy = request.GET.copy()
+    parameters = get_copy.pop('page', True) and get_copy.urlencode()
+
     filters = request.GET
 
     marketer_query = PimpUser.objects.filter(
@@ -55,7 +58,8 @@ def marketer_list(request):
 
     context = {
         'marketer_list': marketer_list_paginated,
-        'marketer_filters': marketer_list
+        'marketer_filters': marketer_list,
+        'parameters': parameters
     }
 
     return render(request, 'search/search_marketer.html', context)
@@ -63,6 +67,9 @@ def marketer_list(request):
 
 def cause_list(request):
     """Marketer search view."""
+    get_copy = request.GET.copy()
+    parameters = get_copy.pop('page', True) and get_copy.urlencode()
+
     filters = request.GET
 
     cause_query = (
@@ -106,7 +113,8 @@ def cause_list(request):
 
     context = {
         'cause_list': cause_list_paginated,
-        'cause_filters': cause_list
+        'cause_filters': cause_list,
+        'parameters': parameters
     }
 
     return render(request, 'search/search_cause.html', context)
@@ -114,6 +122,9 @@ def cause_list(request):
 
 def ads_list(request):
     """Help Wanted Ads search view."""
+    get_copy = request.GET.copy()
+    parameters = get_copy.pop('page', True) and get_copy.urlencode()
+
     filters = request.GET
 
     adverts_list = HelpWantedAdsFilter(
@@ -135,7 +146,8 @@ def ads_list(request):
 
     context = {
         'adverts_list': adverts_list_paginated,
-        'adverts_filters': adverts_list
+        'adverts_filters': adverts_list,
+        'parameters': parameters
     }
 
     return render(request, 'search/search_ads.html', context)
