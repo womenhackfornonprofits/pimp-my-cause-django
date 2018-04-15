@@ -20,6 +20,7 @@ $colr-marketer: pink;
 		margin: 0;
 		color: $white;
 		padding: 10px 0;
+        display: block;
 	}
 
 	&__text {
@@ -79,14 +80,14 @@ $colr-marketer: pink;
 		background: $green;
 	}
 
-	&__wrapper:hover &__info {
-		background: $green;
-		display: flex;
+    @media only screen and (min-width: 1024px) {
+        &__wrapper:hover &__info {
+        background: $green;
+        display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: baseline;
 
-	}
-
-
+        }
+    }
 }
