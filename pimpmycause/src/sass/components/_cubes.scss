@@ -27,6 +27,7 @@
     padding-top: 50%;
     position: relative;
     float: left;
+    z-index: -1;
 }
 
 .cube {
@@ -96,7 +97,6 @@
 .cube.flip-to-top.active {
     // as you flip the cube back you need to move it forward fifty percent of height as rotation point is in the middle of the cube
     transform: perspective(500px) rotateX(-90deg) translateY(50%);
-    z-index: 10;
 }
 
 .default-state {
