@@ -34,16 +34,16 @@
                             </div>
                             <div class="small-12 columns">
                                 {% if advert.description %}
-                                    <p class="cause__text">{{ advert.description | title }}</p>
+                                    <p class="cause__text">{{ advert.description }}</p>
                                 {% else %}
                                     <p class="helptext margin-top-0">
                                         <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                        {{ profile_user.causeprofile.cause_name | title }} is yet to share this information.
+                                        {{ profile_user.causeprofile.cause_name }} is yet to share this information.
                                     </p>                                            
                                 {% endif %}
                                 <h3 class="cause__title h5 margin-bottom-10">Cause</h3>
                                 <a href="{% url 'profile_detail' user_id=advert.cause_profile.profile.id %}">
-                                {{ advert.cause_profile.profile.cause_name | title }}</h1>
+                                {{ advert.cause_profile.profile.cause_name }}</h1>
                                 </a>
                                 <h3 class="cause__title h5 margin-bottom-10">Skills Required</h3>
 
@@ -57,7 +57,7 @@
                                 {% else %}
                                     <p class="helptext margin-top-0">
                                         <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                        {{ advert.cause_profile | title }} is yet to share this information.
+                                        {{ advert.cause_profile }} is yet to share this information.
                                     </p>                                            
                                 {% endif %}
                                 <p class="helptext margin-top-30 margin-bottom-30 padding-bottom-30">

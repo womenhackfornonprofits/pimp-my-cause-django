@@ -8,6 +8,6 @@ class AdvertAdmin(admin.ModelAdmin):
 
     list_select_related = ['cause_profile']
     list_display = ['title', 'cause_profile', 'created_at', 'deadline']
-    search_fields = ['description', 'title', 'cause_profile__cause_name']
+    search_fields = ['description', 'title']
 
 admin.site.register(Advert, AdvertAdmin)
