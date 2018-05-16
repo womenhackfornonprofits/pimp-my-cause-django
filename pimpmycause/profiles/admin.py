@@ -14,6 +14,12 @@ from .models import (
 )
 
 
+class CauseProfileModelAdmin(admin.ModelAdmin):
+
+    model = CauseProfile
+    list_display = ['profile', 'mission', 'category']
+
+
 class CauseProfileAdmin(admin.StackedInline):
 
     list_select_related = ['profile']
@@ -62,3 +68,4 @@ class QualificationAdmin(admin.ModelAdmin):
 admin.site.register(PimpUser, PimpUserAdmin)
 admin.site.register(Qualification, QualificationAdmin)
 admin.site.register(Skill)
+admin.site.register(CauseProfile, CauseProfileModelAdmin)
