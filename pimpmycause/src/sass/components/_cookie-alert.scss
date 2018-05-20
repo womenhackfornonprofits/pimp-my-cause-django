@@ -4,6 +4,7 @@
     bottom: 0;
     left: 0;
     z-index: 1003;
+    border: 1px $white solid;
 
     &__overlay {
         background-color: rgba(68, 17, 68, 0.97);
