@@ -1,0 +1,38 @@
+.cookie-alert {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1003;
+
+    &__overlay {
+        background-color: rgba(68, 17, 68, 0.97);
+        padding: .5em;
+    }
+
+    &__header {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    &__main {
+        padding: .5em;
+    }
+
+    &__link {
+        font-weight: bold;
+        color: $white;
+    }
+
+    &__title,
+    &__info {
+        color: $white;
+    }
+
+    &__info {
+        font-size: .8em;
+    }
+}

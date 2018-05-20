@@ -153,7 +153,7 @@
             <div class="footer__info">
                 <ul>
                     <li>
-                        <a href="/terms-and-conditions/" class="small footer__link">Terms of usage</a>
+                        <a href="{% url 'terms_and_conditions' %}" class="small footer__link">Terms of usage</a>
                     </li>
 <!--                     <li>
                         <a href="#" class="small footer__link">Support/Help</a>
@@ -182,4 +182,19 @@
             </div>
         </nav>
     </footer>
+    <div class="cookie-alert js-cookie-alert hidden" role="alert" data-ui="cookieAlert" data-storage="cookieAlert">
+        <div class="cookie-alert__overlay"> 
+            <div class="grid-container">
+                <div class="cookie-alert__wrapper">
+                    <div class="cookie-alert__main">
+                        <header class="cookie-alert__header">
+                            <h5 class="cookie-alert__title margin-top-0 margin-bottom-0">Cookies on pimpmycause.org</h5>
+                            <button class="button button--transparent js-cookie-alert-button">Dismiss</button>
+                        </header>
+                        <p class="cookie-alert__info footnote">This site uses cookies to better understand your use of our products and services. To learn how we use cookies please read our <a class="cookie-alert__link" href="{% url 'cookies' %}">Cookies Policy</a>. By continuing to use this website, you agree to our <a class="cookie-alert__link" href="{% url 'terms_and_conditions' %}">Terms &amp; Conditions</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

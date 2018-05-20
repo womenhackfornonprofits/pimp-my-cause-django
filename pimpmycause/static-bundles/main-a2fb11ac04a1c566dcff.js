@@ -172,7 +172,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
-module.exports = __webpack_require__(10);
+module.exports = __webpack_require__(11);
 
 
 /***/ }),
@@ -185,6 +185,7 @@ __webpack_require__(5);
 __webpack_require__(6);
 __webpack_require__(8);
 __webpack_require__(9);
+__webpack_require__(10);
 
 const $ = __webpack_require__(0);
 
@@ -844,7 +845,7 @@ function hideShowCauseName() {
     }
 }
 
-if (userType) {
+if (userType && $userTypeEl && $causeNameEl) {
     setUserType(userType);
 }
 
@@ -855,10 +856,40 @@ if ($userTypeEl && $causeNameEl) {
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const $ = __webpack_require__(0);
+
+const $cookieAlertButton = $('.js-cookie-alert-button')[0];
+const $cookieAlertElement = $('.js-cookie-alert')[0];
+
+const localStorageLocation = $('.js-cookie-alert')[0].getAttribute('data-storage') || 'cookieAlert';
+
+if ($cookieAlertButton && $cookieAlertElement) {
+    // hide cookieAlert on click
+    $cookieAlertButton.addEventListener('click', clickEvent => {
+        const $srcElement = clickEvent.target;
+
+        if ($srcElement.classList.contains('js-cookie-alert-button')) {
+            localStorage.setItem(localStorageLocation, 'Y');
+            $cookieAlertElement.classList.add('hidden');
+        }
+
+        return false;
+    });
+
+    // Check if alert was previously shown to user, and pop up if not
+    if (localStorage.getItem(localStorageLocation) !== 'Y') {
+        $cookieAlertElement.classList.remove('hidden');
+    }
+}
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main-a974c4d74cefd87ed1f5.js.map
+//# sourceMappingURL=main-a2fb11ac04a1c566dcff.js.map

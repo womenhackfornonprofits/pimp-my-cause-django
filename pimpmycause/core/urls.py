@@ -41,6 +41,11 @@ urlpatterns = [
         name="how_it_works"
     ),
     url(
+        r'^cookies/$',
+        TemplateView.as_view(template_name='core/cookies.html'),
+        name="cookies"
+    ),
+    url(
         r'^become-a-partner/$',
         TemplateView.as_view(template_name='core/become-a-partner.html'),
         name="become_a_partner"

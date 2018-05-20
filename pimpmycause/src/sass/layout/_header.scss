@@ -94,6 +94,11 @@
         flex: 1 0 auto;
         text-align: center;
         padding: .5em;
+
+
+        &:hover {
+            background: #542854;
+        }
     }
 
     &__menu--mobile &__item {
@@ -155,10 +160,6 @@
 			text-align: center;
 			position: relative;
 
-			&:hover {
-				background: $purple;
-			}
-
 			p {
 				display: none;
 			}
@@ -180,7 +181,6 @@
 
 	&__menu {
 		display: none;
-        max-width: 600px;
         margin: 0 auto;
 
         &--hide-large {
