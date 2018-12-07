@@ -50,13 +50,13 @@
     "not ie < 11"
   ],
   "dependencies": {
-    "babel-preset-env": "^1.6.0",
-    "browserify": "^13.1.1",
-    "eslint": "^4.7.2",
+    "babel-preset-env": "^1.6.1",
+    "browserify": "^13.3.0",
+    "eslint": "^4.18.2",
     "exports-loader": "^0.6.3",
     "grunt-sync": "^0.6.2",
     "imports-loader": "^0.7.0",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.9.1",
     "qwery": "^4.0.0",
     "resolve-url-loader": "^1.6.1",
     "simplestatemanager": "^3.4.0",
