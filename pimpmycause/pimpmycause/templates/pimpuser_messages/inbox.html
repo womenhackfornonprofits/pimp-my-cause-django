@@ -60,8 +60,16 @@
                                             <div>
                                                 {% if message.sent_at or message.updated_at %}
                                                     <p class="small cause__title margin-top-20">
-                                                        <i class="fa fa-calendar margin-right-5" aria-hidden="true"></i>
-                                                        {{ message.updated_at|default:message.sent_at |date:"M d, Y"  }}
+                                                        <span class="helptext display-block">
+                                                            <i class="fa fa-clock-o margin-right-5" aria-hidden="true"></i>
+                                                            {{message.sent_at}}
+                                                        </span>
+                                                        {% if message.updated_at %}
+                                                        <span class="helptext display-block">
+                                                            <i class="fa fa-clock-o margin-right-5" aria-hidden="true"></i>
+                                                            Updated: {{message.updated_at}}
+                                                        </span>
+                                                        {% endif %}
                                                     </p> 
                                                 {% endif %}
                                             </div>
@@ -94,7 +102,6 @@
                                                 <div class="cause__text margin-bottom-30">{{ message.message_body | truncatechars:150  }}</div>
                                             {% endif %}
                                                 <a href="{% url 'message_detail' message_id=message.id %}" class="button button--primary margin-top-30">Read more</a>
-
                                         </div> 
                                 </article>
                             {% endfor %}
