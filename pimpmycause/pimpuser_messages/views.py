@@ -1,3 +1,5 @@
+from django.db.models import F  
+
 from django.shortcuts import (
     get_object_or_404,
     render,
@@ -59,7 +61,7 @@ def pimpuser_messages_inbox(request):
                 )
             )
         )
-        .order_by('updated_at', '-sent_at')
+        .order_by(F('updated_at').desc(nulls_last=True), F('sent_at').desc(nulls_last=True))
     )
 
     # Pagination
