@@ -394,9 +394,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global window document clearTimeout setTimeo
 
 (function (window, document, undefined, factory) {
   if (true) {
-    !(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
+    !(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
         return factory(window, document, undefined);
-    }.call(exports, __webpack_require__, exports, module),
+    }).call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   }
   else if (typeof exports === 'object') {
@@ -892,4 +892,4 @@ if ($cookieAlertButton && $cookieAlertElement) {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main-6e1a9988fee95471d5de.js.map
+//# sourceMappingURL=main-e179c2c030c49586c6cd.js.map
