@@ -1,4 +1,4 @@
-django==1.11.5                              # Our web framework
+django==1.11.29                              # Our web framework
 django-countries==5.2
 dj-database-url==0.4.1
 gunicorn==19.5.0                            # Python WSGI HTTP Server
