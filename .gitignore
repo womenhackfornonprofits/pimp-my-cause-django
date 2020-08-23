@@ -14,6 +14,9 @@ pimpmycause/users-no-html.json
 pimpmycause/db.sqlite3
 */fixtures/*
 **.pyc
+venv
+.vscode
+
 # Testing
 .cache
 .junit
