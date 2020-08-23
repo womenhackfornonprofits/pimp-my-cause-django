@@ -261,10 +261,3 @@ USE_I18N = False
 USE_L10N = True
 
 USE_TZ = True
-
-########
-# GDAL #
-########
-
-GDAL_LIBRARY_PATH = get_env('GDAL_LIBRARY_PATH')
-GEOS_LIBRARY_PATH = get_env('GEOS_LIBRARY_PATH')
