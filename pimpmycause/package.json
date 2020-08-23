@@ -12,8 +12,8 @@
         "prepare": "npm run snyk-protect"
     },
     "engines": {
-        "node": "6.9.4",
-        "npm": "4.0.5"
+        "node": "12",
+        "npm": "6.14.4"
     },
     "repository": {
         "type": "git",
@@ -26,12 +26,12 @@
     },
     "homepage": "https://github.com/womenhackfornonprofits/pimp-my-cause-django#readme",
     "devDependencies": {
+        "eslint": "^7.7.0",
         "babel-core": "^6.10.4",
         "babel-loader": "^6.2.4",
         "clean-webpack-plugin": "^0.1.17",
         "copy-webpack-plugin": "^4.2.0",
         "css-loader": "0.26.1",
-        "eslint": "^4.11.0",
         "eslint-config-airbnb-base": "^12.1.0",
         "eslint-config-standard": "^6.2.1",
         "eslint-plugin-import": "^2.8.0",
@@ -52,7 +52,6 @@
     "dependencies": {
         "babel-preset-env": "^1.6.0",
         "browserify": "^13.1.1",
-        "eslint": "^4.7.2",
         "exports-loader": "^0.6.3",
         "grunt-sync": "^0.6.2",
         "imports-loader": "^0.7.0",
@@ -62,7 +61,7 @@
         "simplestatemanager": "^3.4.0",
         "url-loader": "^0.6.0",
         "webpack": "^3.8.1",
-        "snyk": "^1.69.7"
+        "snyk": "^1.381.2"
     },
     "snyk": true
 }
