@@ -7,9 +7,17 @@
             <div class="small-12 content-wrap js-header-list">
                 <div class="navigation__wrap">
                     <nav class="navigation__header">
-                        <a href="{% url 'homepage' %}" class="logo-container">
-                            <img class="logo" src="{% static 'images/homepage/logo.png' %}"/>
-                        </a>
+                        <span class="navigation__logos">
+                            <a href="{% url 'homepage' %}" class="navigation__linked-logo">
+                                <img src="{% static 'images/homepage/logo.png' %}"/>
+                            </a>
+                            <span class="navigation__footer">
+                                <span>brought to you by</span>
+                                <a href="https://www.marketingkind.org/" title="MarketingKind Logo" class="navigation__mklogo-container" target="_blank">
+                                    <img src="{% static 'images/homepage/mk-brandinglogo.png' %}" alt="MarketingKind" />
+                                </a>
+                            </span>
+                        </span>
                         <button class="navigation__button js-nav-toggle"><span class="visuallyhidden">Menu</span><span class="navigation__toggle"></span></button>
                     </nav>
 
