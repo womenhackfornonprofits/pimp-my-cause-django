@@ -3,4 +3,4 @@ Dear {{recipient}},
 You have a new message from {{sender}}:
 {{message_body}}
 Reply here: {{ message_url }}
-Many thanks,The Pimp My Cause Team
+Many thanks,The MarketingKind team
