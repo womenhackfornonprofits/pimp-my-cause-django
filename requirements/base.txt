@@ -9,13 +9,13 @@ django-s3direct==1.0.3                      # Handles asset uploads to s3
 django-registration-redux==2.1              # Double opt-in user registration flow
 python-env-utils==0.2.0                     # Deals nicely with environment var typing
 django-widget-tweaks==1.4.1                 # Help render and tweak forms
-django-filter==1.0.2						# Help filter the model queryset by it's fields
+django-filter==1.0.2                        # Help filter the model queryset by it's fields
 django-tinymce==2.6.0
 django_webpack_loader==0.5.0
 future==0.16.0
 django-map-widgets==0.1.9
-geocoder==1.32.1							# Used for geolocating user
-django_storages==1.6.5						# Hosting all the site images
-django-dotenv==1.4.1						# Read env variables from a file for DEV
-boto==2.48.0								# Talking to AWS
-flake8==3.5.0								# Python linter
+geocoder==1.32.1                            # Used for geolocating user
+django_storages==1.6.5                      # Hosting all the site images
+django-dotenv==1.4.1                        # Read env variables from a file for DEV
+boto==2.48.0								                # Talking to AWS
+flake8==3.5.0                               # Python linter
