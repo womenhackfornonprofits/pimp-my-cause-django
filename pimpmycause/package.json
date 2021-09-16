@@ -58,6 +58,6 @@
         "resolve-url-loader": "^1.6.1",
         "simplestatemanager": "^3.4.0",
         "url-loader": "^0.6.0",
-        "webpack": "^3.8.1"
+        "webpack": "^4.0.0"
     }
 }
