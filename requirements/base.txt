@@ -1,7 +1,7 @@
 django==1.11.5                              # Our web framework
 django-countries==5.2
 dj-database-url==0.4.1
-gunicorn==19.5.0                            # Python WSGI HTTP Server
+gunicorn==19.10.0                            # Python WSGI HTTP Server
 psycopg2-binary==2.8.5
 whitenoise==3.1
 django-custom-user==0.7.0                   # Custom user model to allow user auth via email
