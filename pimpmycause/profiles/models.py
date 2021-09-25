@@ -166,6 +166,7 @@ class Qualification(models.Model):
     end_date = models.DateField(blank=True, null=True)
     marketer = models.ForeignKey(
         "profiles.MarketerProfile",
+        on_delete=models.CASCADE,
     )
 
     def __str__(self):

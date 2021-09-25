@@ -10,10 +10,7 @@ from django.shortcuts import (
     render,
 )
 
-from profiles.models import (
-    CauseProfile,
-    PimpUser
-)
+from profiles.models import CauseProfile, PimpUser
 from adverts.forms import AdvertForm
 from adverts.models import Advert
 
@@ -33,17 +30,11 @@ def advert_form(request, advert_id=None):
     else:
         advert = None
 
-    if request.method == 'POST':
+    if request.method == "POST":
 
-        cause_profile = get_object_or_404(
-            CauseProfile,
-            profile=request.user
-        )
+        cause_profile = get_object_or_404(CauseProfile, profile=request.user)
 
-        advert_form = AdvertForm(
-            request.POST,
-            instance=advert
-        )
+        advert_form = AdvertForm(request.POST, instance=advert)
 
         if advert_form.is_valid():
             advert = advert_form.save(commit=False)
@@ -52,14 +43,19 @@ def advert_form(request, advert_id=None):
             advert.save()
             advert_form.save_m2m()
 
-            return redirect('profile_detail', user_id=request.user.id)
+            return redirect("profile_detail", user_id=request.user.id)
 
     else:
         advert_form = AdvertForm(instance=advert)
 
-    return render(request, 'adverts/advert_form.html', {
-        'advert_form': advert_form,
-    })
+    return render(
+        request,
+        "adverts/advert_form.html",
+        {
+            "advert_form": advert_form,
+        },
+        renderer=None,
+    )
 
 
 def advert_detail(request, advert_id):
@@ -69,9 +65,9 @@ def advert_detail(request, advert_id):
         id=advert_id,
     )
 
-    context = {'advert': advert}
+    context = {"advert": advert}
 
-    return render(request, 'adverts/advert_detail.html', context)
+    return render(request, "adverts/advert_detail.html", context)
 
 
 @login_required
@@ -83,9 +79,9 @@ def advert_delete(request, advert_id):
     )
     advert.delete()
 
-    next_url = request.POST.get('next')
+    next_url = request.POST.get("next")
 
     if next_url and is_safe_url(next_url):
         return redirect(next_url)
     else:
-        return redirect('profile_detail', user_id=request.user.id)
+        return redirect("profile_detail", user_id=request.user.id)

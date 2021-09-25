@@ -12,8 +12,8 @@ from profiles.models import (
 
 @python_2_unicode_compatible
 class PimpUserMessage(models.Model):
-    sender = models.ForeignKey(PimpUser, related_name="message_sender")
-    recipient = models.ForeignKey(PimpUser, related_name="message_recipient")
+    sender = models.ForeignKey(PimpUser, related_name="message_sender", on_delete=models.CASCADE)
+    recipient = models.ForeignKey(PimpUser, related_name="message_recipient", on_delete=models.CASCADE)
     sent_at = models.DateTimeField("sent at", null=True, blank=True)
     read_at = models.DateTimeField("read at", null=True, blank=True)
 
@@ -48,7 +48,7 @@ class PimpUserMessageReply(models.Model):
     )
     sent_at = models.DateTimeField("sent at", null=True, blank=True)
     read_at = models.DateTimeField("read at", null=True, blank=True)
-    reply_sender = models.ForeignKey(PimpUser, related_name="reply_sender")
+    reply_sender = models.ForeignKey(PimpUser, related_name="reply_sender",  on_delete=models.CASCADE)
 
     reply_body = models.TextField()
 
