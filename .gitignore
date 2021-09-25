@@ -4,7 +4,6 @@ pimpmycause/pimpmycause/staticfiles/
 frontend/node_modules
 node_modules
 frontend/css/
-pimpmycause/webpack-stats.json
 .DS_Store
 pimpmycause/import_user_data.py
 pimpmycause/profiles/fixtures/*
