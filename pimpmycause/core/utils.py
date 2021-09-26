@@ -31,9 +31,9 @@ def generate_upload_destination_path(folder_name):
 
 def rename_all_s3_files(bucket):
     AWS_STORAGE_BUCKET_NAME=bucket
-    AWS_STORAGE_REGION='eu-west-2'
+    AWS_S3_REGION_NAME='eu-west-2'
 
-    conn = boto.s3.connect_to_region(AWS_STORAGE_REGION)
+    conn = boto.s3.connect_to_region(AWS_S3_REGION_NAME)
     bucket = conn.get_bucket(AWS_STORAGE_BUCKET_NAME)
 
     for k in bucket.list():

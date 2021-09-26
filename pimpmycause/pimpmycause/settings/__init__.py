@@ -185,7 +185,8 @@ AWS_SECRET_ACCESS_KEY = get_env("AWS_SECRET_ACCESS_KEY", 'todo')
 AWS_STORAGE_BUCKET_NAME = get_env("AWS_STORAGE_BUCKET_NAME", 'todo')
 
 # User image uploads to S3 bucket
-S3DIRECT_REGION = get_env("AWS_STORAGE_REGION", 'todo')
+AWS_S3_REGION_NAME = get_env("AWS_STORAGE_REGION", 'todo')
+AWS_S3_ENDPOINT_URL = 'https://s3.%s.amazonaws.com' % AWS_S3_REGION_NAME
 
 S3DIRECT_DESTINATIONS = {
     'user-profile-images': {
