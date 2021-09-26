@@ -61,5 +61,8 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: 'src/img', to: './images' },
         ]),
+        new CopyWebpackPlugin([
+            { from: 'src/tinymce', to: './tinymce' },
+        ]),
     ],
 };

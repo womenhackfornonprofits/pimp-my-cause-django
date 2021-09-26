@@ -28,14 +28,12 @@ urlpatterns = [
     ),
     url(
         r'^logout/$',
-        auth_views.logout,
-        {'template_name': 'profiles/logout.html'},
+        auth_views.LogoutView.as_view(template_name='profiles/logout.html'),
         name='logout',
     ),
     url(
         r'^accounts/login/$',
-        auth_views.login,
-        {'template_name': 'profiles/login.html'},
+        auth_views.LoginView.as_view(template_name= 'profiles/login.html'),
         name='login',
     ),
     url(
@@ -98,6 +96,4 @@ urlpatterns = [
         r'^tinymce/',
         include('tinymce.urls')
     ),
-
-
 ]
