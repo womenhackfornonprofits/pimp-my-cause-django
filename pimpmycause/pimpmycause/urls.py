@@ -96,6 +96,4 @@ urlpatterns = [
         r'^tinymce/',
         include('tinymce.urls')
     ),
-
-
 ]

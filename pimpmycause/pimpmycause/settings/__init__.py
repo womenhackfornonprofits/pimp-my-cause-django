@@ -216,13 +216,16 @@ S3DIRECT_DESTINATIONS = {
 
 LOGIN_REDIRECT_URL = '/profile/edit'
 
+TINYMCE_JS_URL = os.path.join(STATIC_URL, "tinymce/tinymce.min.js")
+TINYMCE_COMPRESSOR = False
+
 TINYMCE_DEFAULT_CONFIG = {
     'plugins': "table,spellchecker,paste,searchreplace",
-    'theme': "advanced",
+    'theme': "silver",
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,
     'paste_as_text': True,
-    'width': '100%',
+    "width": "960px",
     'height': 500
 }
 
