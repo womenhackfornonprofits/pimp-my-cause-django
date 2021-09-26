@@ -248,7 +248,7 @@ MAP_WIDGETS = {
         ("zoom", 15),
         ("mapCenterLocationName", 'London'),
     ),
-    "GOOGLE_MAP_API_KEY": "AIzaSyCUPZH_omt-HoKJ_wzjA33RV7q399G4_yE"
+    "GOOGLE_MAP_API_KEY": get_env("GOOGLE_MAP_API_KEY", 'todo')
 }
 
 ########
