@@ -5,6 +5,7 @@ machine:
     AWS_ACCESS_KEY_ID: test
     AWS_SECRET_ACCESS_KEY: test
     AWS_STORAGE_BUCKET_NAME: test
+    AWS_S3_REGION_NAME: test
     DATABASE_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
     DEBUG: 0
     DJANGO_SETTINGS_MODULE: pimpmycause.settings.testing
