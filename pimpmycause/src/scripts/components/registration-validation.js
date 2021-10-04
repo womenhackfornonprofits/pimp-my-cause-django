@@ -15,9 +15,13 @@ function setUserType(userTypeValue = 0) {
 
 function hideShowCauseName() {
     if ($userTypeEl.value === '0') {
+        $causeNameEl.parentElement.classList.add('visuallyhidden')
         $causeNameEl.classList.add('visuallyhidden');
+        $causeNameEl.removeAttribute('required');
     } else {
+        $causeNameEl.parentElement.classList.remove('visuallyhidden')
         $causeNameEl.classList.remove('visuallyhidden');
+        $causeNameEl.setAttribute('required',true);
     }
 }
 
