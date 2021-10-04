@@ -839,9 +839,13 @@ function setUserType(userTypeValue = 0) {
 
 function hideShowCauseName() {
     if ($userTypeEl.value === '0') {
+        $causeNameEl.parentElement.classList.add('visuallyhidden');
         $causeNameEl.classList.add('visuallyhidden');
+        $causeNameEl.removeAttribute('required');
     } else {
+        $causeNameEl.parentElement.classList.remove('visuallyhidden');
         $causeNameEl.classList.remove('visuallyhidden');
+        $causeNameEl.setAttribute('required', true);
     }
 }
 
@@ -892,4 +896,4 @@ if ($cookieAlertButton && $cookieAlertElement) {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main-c45bfabf7998883e0d8b.js.map
+//# sourceMappingURL=main-ab27914a40d854b3329c.js.map
