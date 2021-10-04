@@ -125,7 +125,6 @@ def pimpuser_message_form(request, recipient_id, message_id=None):
                 request,
                 "pimpuser_messages/message_sent.html",
                 {"recipient": recipient},
-                renderer=None,
             )
 
     else:
@@ -135,7 +134,6 @@ def pimpuser_message_form(request, recipient_id, message_id=None):
             request,
             "pimpuser_messages/message_form.html",
             {"message_form": message_form, "recipient": recipient},
-            renderer=None,
         )
 
 
@@ -170,7 +168,6 @@ def pimpuser_message_detail(request, message_id):
                     "replies_list": replies_list,
                     "reply_form": reply_form,
                 },
-                renderer=None,
             )
 
         else:

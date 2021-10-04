@@ -54,7 +54,6 @@ def advert_form(request, advert_id=None):
         {
             "advert_form": advert_form,
         },
-        renderer=None,
     )
 
 
