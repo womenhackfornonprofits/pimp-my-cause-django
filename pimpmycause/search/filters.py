@@ -21,7 +21,7 @@ class MarketerFilter(django_filters.FilterSet):
         self.filters['country'].label = 'Country'
         self.filters['position__icontains'].label = 'Position'
         self.filters['bio__icontains'].label = 'Keyword(s)'
-        self.filters['marketerprofile__skill__contains'].label = 'Skills offered'
+        self.filters['marketerprofile__skill'].label = 'Skills offered'
         self.filters['marketerprofile__availability'].label = 'Available'
 
     class Meta:
@@ -31,7 +31,7 @@ class MarketerFilter(django_filters.FilterSet):
             'country': ['exact'],
             'position': ['icontains'],
             'bio': ['icontains'],
-            'marketerprofile__skill': ['contains'],
+            'marketerprofile__skill': ['exact'],
             'marketerprofile__availability': ['exact'],
         }
 
