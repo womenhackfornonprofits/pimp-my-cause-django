@@ -65,14 +65,14 @@ class HelpWantedAdsFilter(django_filters.FilterSet):
         super(HelpWantedAdsFilter, self).__init__(*args, **kwargs)
         self.filters['description__icontains'].label = 'Keyword(s)'
         self.filters['title__icontains'].label = 'Title'
-        self.filters['skills__contains'].label = 'Skills required'
+        self.filters['skills'].label = 'Skills required'
         self.filters['cause_profile__category'].label = 'Category'
         self.filters['cause_profile__profile__country'].label = 'Country'
 
     class Meta:
         model = Advert
         fields = {
-            'skills': ['contains'],
+            'skills': ['exact'],
             'description': ['icontains'],
             'title': ['icontains'],
             'cause_profile__category': ['exact'],
