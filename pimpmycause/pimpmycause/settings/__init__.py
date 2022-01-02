@@ -221,7 +221,7 @@ TINYMCE_JS_URL = os.path.join(STATIC_URL, "tinymce/tinymce.min.js")
 TINYMCE_COMPRESSOR = False
 
 TINYMCE_DEFAULT_CONFIG = {
-    'plugins': "table,spellchecker,paste,searchreplace",
+    'plugins': "table,spellchecker,paste,searchreplace,media,link",
     'theme': "silver",
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,
