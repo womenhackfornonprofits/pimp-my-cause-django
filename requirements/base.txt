@@ -19,3 +19,4 @@ django_storages==1.7                        # Hosting all the site images
 django-dotenv==1.4.1                        # Read env variables from a file for DEV
 boto==2.48.0                                # Talking to AWS
 flake8==3.5.0                               # Python linter
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
