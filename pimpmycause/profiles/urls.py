@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from profiles.views import (
     profile_edit,
@@ -6,12 +6,12 @@ from profiles.views import (
 )
 
 urlpatterns = [
-    url(
+    re_path(
         r'^edit/$',
         profile_edit,
         name='profile_update'
     ),
-    url(
+    re_path(
         r'^(?P<user_id>\d+)/$',
         profile_detail,
         name='profile_detail'

@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from news.views import (
     news_post_detail,
@@ -7,12 +7,12 @@ from news.views import (
 
 
 urlpatterns = [
-    url(
+    re_path(
         r'^$',
         news_post_list,
         name='news_post_list'
     ),
-    url(
+    re_path(
         r'^(?P<slug>[-\w]+)/',
         news_post_detail,
         name='news_post_detail'

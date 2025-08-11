@@ -20,3 +20,6 @@ venv
 .cache
 .junit
 .tox
+
+# Virtualenv
+.venv/

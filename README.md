@@ -1,6 +1,6 @@
 # Pimp My Cause [Django]
 
-## Virtual Enviroment Setup
+## Virtual Environment Setup
 This allows you to install all the Python dependencies in a "box" so they are not globally installed and clashing with other projects. 
 1. Install [virtualenv](https://virtualenv.pypa.io/en/stable/):
 	`pip install virtualenv`

@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from pimpuser_messages.views import (
     pimpuser_messages_inbox,
@@ -9,22 +9,22 @@ from pimpuser_messages.views import (
 
 
 urlpatterns = [
-    url(
+    re_path(
         r'^inbox/',
         pimpuser_messages_inbox,
         name='inbox'
     ),
-    url(
+    re_path(
         r'^sent/',
         pimpuser_messages_sent,
         name='sent_messages'
     ),
-    url(
+    re_path(
         r'^new/(?P<recipient_id>\d+)/$',
         pimpuser_message_form,
         name='new_message'
     ),
-    url(
+    re_path(
         r'^view/(?P<message_id>\d+)/$',
         pimpuser_message_detail,
         name='message_detail'

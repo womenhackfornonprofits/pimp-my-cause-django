@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from adverts.views import (
     advert_form,
@@ -8,22 +8,22 @@ from adverts.views import (
 
 
 urlpatterns = [
-    url(
+    re_path(
         r'^add$',
         advert_form,
         name='advert_add'
     ),
-    url(
+    re_path(
         r'^(?P<advert_id>\d+)/edit/$',
         advert_form,
         name='advert_edit'
     ),
-    url(
+    re_path(
         r'^(?P<advert_id>\d+)/$',
         advert_detail,
         name='advert_detail'
     ),
-    url(
+    re_path(
         r'^(?P<advert_id>\d+)/delete/$',
         advert_delete,
         name='advert_delete'

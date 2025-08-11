@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from search.views import (
     marketer_list,
@@ -8,17 +8,17 @@ from search.views import (
 
 
 urlpatterns = [
-    url(
+    re_path(
         r'^marketer/$',
         marketer_list,
         name='search_marketer'
     ),
-    url(
+    re_path(
         r'^cause/$',
         cause_list,
         name='search_cause'
     ),
-    url(
+    re_path(
         r'^help-wanted-ads/$',
         ads_list,
         name='search_ads'
