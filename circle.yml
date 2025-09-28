@@ -12,7 +12,7 @@ machine:
     SECRET_KEY: test-secret-key
     PYTHONPATH: ${HOME}/pimp-my-cause-django/pimpmycause
   python:
-    version: 3.5.2
+    version: 3.11
   services:
     - postgresql
 deployment:
