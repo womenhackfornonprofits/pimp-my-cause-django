@@ -3,7 +3,7 @@ django-countries==7.6.1
 dj-database-url==0.4.1
 gunicorn==20.1.0                            # Python WSGI HTTP Server
 psycopg2-binary==2.9.9
-whitenoise==3.3.1
+whitenoise==6.6.0
 django-custom-user==0.7.0                   # Custom user model to allow user auth via email
 django-s3direct==1.1.8                      # Handles asset uploads to s3
 django-registration-redux==2.13             # Double opt-in user registration flow

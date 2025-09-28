@@ -1,9 +1,8 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render
 
 from profiles.models import PimpUser
 from news.models import NewsPost
 from core.models import TeamMember
-from django.template import RequestContext
 
 
 def homepage(request):

@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 
 from profiles.models import (
     CauseProfile,
@@ -10,7 +9,6 @@ from profiles.models import (
 )
 
 
-@python_2_unicode_compatible
 class Advert(models.Model):
     title = models.CharField(max_length=150, blank=True)
     description = models.TextField(max_length=4000, blank=True)

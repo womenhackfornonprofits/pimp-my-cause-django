@@ -1,13 +1,11 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 from s3direct.fields import S3DirectField
 
 from tinymce.models import HTMLField
 
 
-@python_2_unicode_compatible
 class TeamMember(models.Model):
     MAIN = 0
     ADVISORY_BOARD = 1

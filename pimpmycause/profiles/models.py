@@ -5,7 +5,6 @@ from django.db.models.signals import (
     post_save,
 )
 from django.dispatch import receiver
-from django.utils.encoding import python_2_unicode_compatible
 from django.contrib.gis.geos import Point
 from django.core.exceptions import ValidationError
 
@@ -19,7 +18,6 @@ import geocoder
 log = logging.getLogger("pimpmycause")
 
 
-@python_2_unicode_compatible
 class PimpUser(AbstractEmailUser):
 
     MARKETER = 0
@@ -150,7 +148,6 @@ def create_user_profile(sender, instance, *args, **kwargs):
         logging.info('Created an Admin user without a profile')
 
 
-@python_2_unicode_compatible
 class Skill(models.Model):
     name = models.CharField(max_length=32)
 
@@ -158,7 +155,6 @@ class Skill(models.Model):
         return self.name
 
 
-@python_2_unicode_compatible
 class Qualification(models.Model):
     name = models.CharField(max_length=100, blank=True)
     description = models.TextField(max_length=500, blank=True, null=True)
@@ -176,7 +172,6 @@ class Qualification(models.Model):
         return unicode(self.name)
 
 
-@python_2_unicode_compatible
 class MarketerProfile(models.Model):
     profile = models.OneToOneField(
         PimpUser,
@@ -200,7 +195,6 @@ class MarketerProfile(models.Model):
         return unicode(self.profile.name)
 
 
-@python_2_unicode_compatible
 class CauseProfile(models.Model):
 
     DISASTER_RELIEF = 0

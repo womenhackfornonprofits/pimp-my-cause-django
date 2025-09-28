@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 from django.core.exceptions import ValidationError
 from django.utils import timezone
 
@@ -10,7 +9,6 @@ from profiles.models import (
 )
 
 
-@python_2_unicode_compatible
 class PimpUserMessage(models.Model):
     sender = models.ForeignKey(PimpUser, related_name="message_sender", on_delete=models.CASCADE)
     recipient = models.ForeignKey(PimpUser, related_name="message_recipient", on_delete=models.CASCADE)
@@ -40,7 +38,6 @@ class PimpUserMessage(models.Model):
         return True
 
 
-@python_2_unicode_compatible
 class PimpUserMessageReply(models.Model):
     message = models.ForeignKey(
         PimpUserMessage,
