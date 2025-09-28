@@ -9,14 +9,9 @@ from env_utils import (
 
 from core.utils import generate_upload_destination_path
 
-GDAL_LIBRARY_PATH = os.getenv(
-    'GDAL_LIBRARY_PATH',
-    ctypes.util.find_library('gdal') or '/usr/lib/x86_64-linux-gnu/libgdal.so.30'
-)
-GEOS_LIBRARY_PATH = os.getenv(
-    'GEOS_LIBRARY_PATH',
-    ctypes.util.find_library('geos_c') or '/usr/lib/x86_64-linux-gnu/libgeos_c.so.1'
-)
+# GDAL and GEOS library paths for Heroku
+GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH', ctypes.util.find_library('gdal'))
+GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH', ctypes.util.find_library('geos_c'))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

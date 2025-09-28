@@ -1,3 +1,2 @@
-# The Heroku Buildpacks to be added manually
-1. https://github.com/heroku/heroku-buildpack-python
-2. https://github.com/cyberdelia/heroku-geo-buildpack.git
+https://github.com/heroku/heroku-geo-buildpack.git
+heroku/python
