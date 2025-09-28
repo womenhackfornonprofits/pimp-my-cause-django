@@ -9,9 +9,34 @@ import os
 GDAL_LIBRARY_PATH = os.environ.get('GDAL_LIBRARY_PATH')
 GEOS_LIBRARY_PATH = os.environ.get('GEOS_LIBRARY_PATH')
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'] = dj_database_url.config()
-DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+database_url = os.environ.get('DATABASE_URL')
+if database_url:
+    db_from_env = dj_database_url.config(default=database_url, conn_max_age=500)
+    if db_from_env:
+        DATABASES['default'].update(db_from_env)
+        DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+    else:
+        # Manual parsing if dj_database_url fails
+        import urllib.parse as urlparse
+        url = urlparse.urlparse(database_url)
+        DATABASES['default'] = {
+            'ENGINE': 'django.contrib.gis.db.backends.postgis',
+            'NAME': url.path[1:],  # Remove leading slash
+            'USER': url.username,
+            'PASSWORD': url.password,
+            'HOST': url.hostname,
+            'PORT': url.port or 5432,
+        }
+else:
+    # Fallback database configuration
+    DATABASES['default'] = {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': os.environ.get('DB_NAME', 'pimpmycause'),
+        'USER': os.environ.get('DB_USER', ''),
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
+        'HOST': os.environ.get('DB_HOST', ''),
+        'PORT': os.environ.get('DB_PORT', ''),
+    }
 
 # SECURITY
 SECURE_SSL_REDIRECT = True
