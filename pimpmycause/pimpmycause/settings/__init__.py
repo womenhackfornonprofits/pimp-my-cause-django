@@ -10,33 +10,41 @@ from env_utils import (
 from core.utils import generate_upload_destination_path
 
 
-def _dump(label, patterns):
-    hits = []
-    for p in patterns:
-        hits.extend(glob.glob(p, recursive=True))
-    print(f"[GDAL-DEBUG] {label}:")
-    for h in sorted(hits):
-        print(f"[GDAL-DEBUG]   {h}")
-    if not hits:
-        print(f"[GDAL-DEBUG]   (none)")
+import os
+import glob
+from pathlib import Path
 
-# Where APT installs things at build time
-_dump("build .apt libs", [
-    "/tmp/build_*/*.apt/usr/lib/x86_64-linux-gnu/libgdal.so*",
-    "/tmp/build_*/*.apt/usr/lib/x86_64-linux-gnu/libgeos_c.so*",
-    "/tmp/build_*/*.apt/**/libgdal.so*",
-    "/tmp/build_*/*.apt/**/libgeos_c.so*",
-])
+def _find_apt_root():
+    p = Path(__file__).resolve()
+    for parent in p.parents:  # walk up until we find .apt (build or runtime)
+        d = parent / ".apt"
+        if d.is_dir():
+            return d
+    # fallback to runtime default
+    d = Path("/app/.apt")
+    return d if d.is_dir() else None
 
-# Where they will live at runtime
-_dump("runtime .apt libs", [
-    "/app/.apt/usr/lib/x86_64-linux-gnu/libgdal.so*",
-    "/app/.apt/usr/lib/x86_64-linux-gnu/libgeos_c.so*",
-])
+def _resolve_lib(env_name: str, name_glob: str):
+    p = os.getenv(env_name)
+    if p and os.path.exists(p):
+        return p
+    apt_root = _find_apt_root()
+    if apt_root:
+        hits = sorted(glob.glob(str(apt_root / f"usr/lib/x86_64-linux-gnu/{name_glob}")))
+        if not hits:
+            # Fallback to any subdir under .apt
+            hits = sorted(glob.glob(str(apt_root / f"**/{name_glob}"), recursive=True))
+        if hits:
+            os.environ[env_name] = hits[-1]
+            return hits[-1]
+    return None
 
-print(f"[GDAL-DEBUG] GDAL_LIBRARY_PATH={os.getenv('GDAL_LIBRARY_PATH')}")
-print(f"[GDAL-DEBUG] GEOS_LIBRARY_PATH={os.getenv('GEOS_LIBRARY_PATH')}")
-sys.stdout.flush()
+GDAL_LIBRARY_PATH = _resolve_lib("GDAL_LIBRARY_PATH", "libgdal.so.*")
+GEOS_LIBRARY_PATH = _resolve_lib("GEOS_LIBRARY_PATH", "libgeos_c.so.*")
+
+# Temporary debug (remove once green)
+print("GDAL=", GDAL_LIBRARY_PATH, "GEOS=", GEOS_LIBRARY_PATH, "GDAL_DATA=", os.environ.get("GDAL_DATA"))
+
 
 # Default primary key field type for Django 3.2+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
