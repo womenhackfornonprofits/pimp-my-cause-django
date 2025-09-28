@@ -2,32 +2,41 @@
 Django settings for pimpmycause project.
 
 """
-import os, glob
+import os, glob, sys
 from env_utils import (
     get_env,
 )
 
 from core.utils import generate_upload_destination_path
 
-# GDAL and GEOS library paths for Heroku
-def resolve_lib(default, pattern):
-    p = os.getenv(default, None)
-    if p and os.path.exists(p):
-        return p
-    hits = sorted(glob.glob(pattern, recursive=True))
-    return hits[0] if hits else None
 
-if os.getenv("DYNO"):
-    GDAL_LIBRARY_PATH = resolve_lib(
-        "GDAL_LIBRARY_PATH",
-        "/app/.apt/**/libgdal.so.*",
-    )
-    GEOS_LIBRARY_PATH = resolve_lib(
-        "GEOS_LIBRARY_PATH",
-        "/app/.apt/**/libgeos_c.so.*",
-    )
-    if not GDAL_LIBRARY_PATH or not GEOS_LIBRARY_PATH:
-        print("GDAL/GEOS not found under /app/.apt; check Aptfile/install logs")
+def _dump(label, patterns):
+    hits = []
+    for p in patterns:
+        hits.extend(glob.glob(p, recursive=True))
+    print(f"[GDAL-DEBUG] {label}:")
+    for h in sorted(hits):
+        print(f"[GDAL-DEBUG]   {h}")
+    if not hits:
+        print(f"[GDAL-DEBUG]   (none)")
+
+# Where APT installs things at build time
+_dump("build .apt libs", [
+    "/tmp/build_*/*.apt/usr/lib/x86_64-linux-gnu/libgdal.so*",
+    "/tmp/build_*/*.apt/usr/lib/x86_64-linux-gnu/libgeos_c.so*",
+    "/tmp/build_*/*.apt/**/libgdal.so*",
+    "/tmp/build_*/*.apt/**/libgeos_c.so*",
+])
+
+# Where they will live at runtime
+_dump("runtime .apt libs", [
+    "/app/.apt/usr/lib/x86_64-linux-gnu/libgdal.so*",
+    "/app/.apt/usr/lib/x86_64-linux-gnu/libgeos_c.so*",
+])
+
+print(f"[GDAL-DEBUG] GDAL_LIBRARY_PATH={os.getenv('GDAL_LIBRARY_PATH')}")
+print(f"[GDAL-DEBUG] GEOS_LIBRARY_PATH={os.getenv('GEOS_LIBRARY_PATH')}")
+sys.stdout.flush()
 
 # Default primary key field type for Django 3.2+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
