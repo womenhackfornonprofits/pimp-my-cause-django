@@ -1,6 +1,6 @@
+libgdal34t64
 gdal-bin
-libgdal-dev
-libgeos-dev
-libproj-dev
+libgeos-c1t64
 proj-bin
-libspatialite-dev
+proj-data
+libsqlite3-mod-spatialite

@@ -2,7 +2,7 @@
 Django settings for pimpmycause project.
 
 """
-import os, ctypes.util
+import os, glob
 from env_utils import (
     get_env,
 )
@@ -10,8 +10,24 @@ from env_utils import (
 from core.utils import generate_upload_destination_path
 
 # GDAL and GEOS library paths for Heroku
-GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH', ctypes.util.find_library('gdal'))
-GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH', ctypes.util.find_library('geos_c'))
+def resolve_lib(default, pattern):
+    p = os.getenv(default, None)
+    if p and os.path.exists(p):
+        return p
+    hits = sorted(glob.glob(pattern, recursive=True))
+    return hits[0] if hits else None
+
+if os.getenv("DYNO"):
+    GDAL_LIBRARY_PATH = resolve_lib(
+        "GDAL_LIBRARY_PATH",
+        "/app/.apt/**/libgdal.so.*",
+    )
+    GEOS_LIBRARY_PATH = resolve_lib(
+        "GEOS_LIBRARY_PATH",
+        "/app/.apt/**/libgeos_c.so.*",
+    )
+    if not GDAL_LIBRARY_PATH or not GEOS_LIBRARY_PATH:
+        print("GDAL/GEOS not found under /app/.apt; check Aptfile/install logs")
 
 # Default primary key field type for Django 3.2+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
