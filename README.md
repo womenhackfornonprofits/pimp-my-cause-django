@@ -99,7 +99,7 @@ This project has been updated for Django 3.2+ compatibility. Key changes include
 4. You will have to reload the [127.0.0.1:8000](http://127.0.0.1:8000/) link after adding changes
 
 ## Deploying to Heroku
-1. Create a Heroku Account
+1. Create a Heroku Account https://www.heroku.com/
 2. Get added to the app in the Heroku Dashboard (ask a team member)
 3. In the terminal `heroku login`
 4. Within your project directory `heroku git:remote -a staging-pimpmycause`
