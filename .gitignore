@@ -16,6 +16,7 @@ pimpmycause/db.sqlite3
 **.pyc
 venv
 .vscode
+.cursor
 # Testing
 .cache
 .junit

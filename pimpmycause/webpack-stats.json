@@ -1,1 +1,604 @@
-{"status":"done","chunks":{"main":[{"name":"main-ab27914a40d854b3329c.js","path":"/Users/lili/www/pimp-my-cause-django/pimpmycause/static-bundles/main-ab27914a40d854b3329c.js"},{"name":"main.4ea7ba791863a9ef48e44a711696512f.css","path":"/Users/lili/www/pimp-my-cause-django/pimpmycause/static-bundles/main.4ea7ba791863a9ef48e44a711696512f.css"},{"name":"main-ab27914a40d854b3329c.js.map","path":"/Users/lili/www/pimp-my-cause-django/pimpmycause/static-bundles/main-ab27914a40d854b3329c.js.map"},{"name":"main.4ea7ba791863a9ef48e44a711696512f.css.map","path":"/Users/lili/www/pimp-my-cause-django/pimpmycause/static-bundles/main.4ea7ba791863a9ef48e44a711696512f.css.map"}]}}
+{
+  "status": "done",
+  "assets": {
+    "images/challenges/NCH.png": {
+      "name": "images/challenges/NCH.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/challenges/NCH.png",
+      "sourceFilename": "src/img/challenges/NCH.png"
+    },
+    "images/challenges/catherine-cherry.jpg": {
+      "name": "images/challenges/catherine-cherry.jpg",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/challenges/catherine-cherry.jpg",
+      "sourceFilename": "src/img/challenges/catherine-cherry.jpg"
+    },
+    "images/challenges/ipa.jpg": {
+      "name": "images/challenges/ipa.jpg",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/challenges/ipa.jpg",
+      "sourceFilename": "src/img/challenges/ipa.jpg"
+    },
+    "images/challenges/laurence.jpg": {
+      "name": "images/challenges/laurence.jpg",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/challenges/laurence.jpg",
+      "sourceFilename": "src/img/challenges/laurence.jpg"
+    },
+    "images/challenges/marina-banks.jpg": {
+      "name": "images/challenges/marina-banks.jpg",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/challenges/marina-banks.jpg",
+      "sourceFilename": "src/img/challenges/marina-banks.jpg"
+    },
+    "images/challenges/nectar-card.jpg": {
+      "name": "images/challenges/nectar-card.jpg",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/challenges/nectar-card.jpg",
+      "sourceFilename": "src/img/challenges/nectar-card.jpg"
+    },
+    "images/challenges/ogilvy-change.jpg": {
+      "name": "images/challenges/ogilvy-change.jpg",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/challenges/ogilvy-change.jpg",
+      "sourceFilename": "src/img/challenges/ogilvy-change.jpg"
+    },
+    "images/challenges/public-health-england.png": {
+      "name": "images/challenges/public-health-england.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/challenges/public-health-england.png",
+      "sourceFilename": "src/img/challenges/public-health-england.png"
+    },
+    "images/challenges/steve-walker.png": {
+      "name": "images/challenges/steve-walker.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/challenges/steve-walker.png",
+      "sourceFilename": "src/img/challenges/steve-walker.png"
+    },
+    "images/challenges/xperia-logo.png": {
+      "name": "images/challenges/xperia-logo.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/challenges/xperia-logo.png",
+      "sourceFilename": "src/img/challenges/xperia-logo.png"
+    },
+    "images/homepage/Challenges icon.jpeg": {
+      "name": "images/homepage/Challenges icon.jpeg",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/Challenges icon.jpeg",
+      "sourceFilename": "src/img/homepage/Challenges icon.jpeg"
+    },
+    "images/homepage/MKLogo.svg": {
+      "name": "images/homepage/MKLogo.svg",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/MKLogo.svg",
+      "sourceFilename": "src/img/homepage/MKLogo.svg"
+    },
+    "images/homepage/cube1-marketer-icon.png": {
+      "name": "images/homepage/cube1-marketer-icon.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/cube1-marketer-icon.png",
+      "sourceFilename": "src/img/homepage/cube1-marketer-icon.png"
+    },
+    "images/homepage/cube1-marketer-pic.png": {
+      "name": "images/homepage/cube1-marketer-pic.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/cube1-marketer-pic.png",
+      "sourceFilename": "src/img/homepage/cube1-marketer-pic.png"
+    },
+    "images/homepage/cube2-story-icon.png": {
+      "name": "images/homepage/cube2-story-icon.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/cube2-story-icon.png",
+      "sourceFilename": "src/img/homepage/cube2-story-icon.png"
+    },
+    "images/homepage/cube2-story-pic.png": {
+      "name": "images/homepage/cube2-story-pic.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/cube2-story-pic.png",
+      "sourceFilename": "src/img/homepage/cube2-story-pic.png"
+    },
+    "images/homepage/cube3-news-icon.png": {
+      "name": "images/homepage/cube3-news-icon.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/cube3-news-icon.png",
+      "sourceFilename": "src/img/homepage/cube3-news-icon.png"
+    },
+    "images/homepage/cube3-news-pic.png": {
+      "name": "images/homepage/cube3-news-pic.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/cube3-news-pic.png",
+      "sourceFilename": "src/img/homepage/cube3-news-pic.png"
+    },
+    "images/homepage/cube4-cause-icon.png": {
+      "name": "images/homepage/cube4-cause-icon.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/cube4-cause-icon.png",
+      "sourceFilename": "src/img/homepage/cube4-cause-icon.png"
+    },
+    "images/homepage/cube4-cause-pic.png": {
+      "name": "images/homepage/cube4-cause-pic.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/cube4-cause-pic.png",
+      "sourceFilename": "src/img/homepage/cube4-cause-pic.png"
+    },
+    "images/homepage/favicon.png": {
+      "name": "images/homepage/favicon.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/favicon.png",
+      "sourceFilename": "src/img/homepage/favicon.png"
+    },
+    "images/homepage/logo-mobile-mustard.png": {
+      "name": "images/homepage/logo-mobile-mustard.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/logo-mobile-mustard.png",
+      "sourceFilename": "src/img/homepage/logo-mobile-mustard.png"
+    },
+    "images/homepage/logo-mobile-white.png": {
+      "name": "images/homepage/logo-mobile-white.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/logo-mobile-white.png",
+      "sourceFilename": "src/img/homepage/logo-mobile-white.png"
+    },
+    "images/homepage/logo.png": {
+      "name": "images/homepage/logo.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/logo.png",
+      "sourceFilename": "src/img/homepage/logo.png"
+    },
+    "images/homepage/summary1-how-it-works.png": {
+      "name": "images/homepage/summary1-how-it-works.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/summary1-how-it-works.png",
+      "sourceFilename": "src/img/homepage/summary1-how-it-works.png"
+    },
+    "images/homepage/summary2-meet-team.png": {
+      "name": "images/homepage/summary2-meet-team.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/summary2-meet-team.png",
+      "sourceFilename": "src/img/homepage/summary2-meet-team.png"
+    },
+    "images/homepage/summary3-challenges.png": {
+      "name": "images/homepage/summary3-challenges.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/summary3-challenges.png",
+      "sourceFilename": "src/img/homepage/summary3-challenges.png"
+    },
+    "images/homepage/summary4-partners.png": {
+      "name": "images/homepage/summary4-partners.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/homepage/summary4-partners.png",
+      "sourceFilename": "src/img/homepage/summary4-partners.png"
+    },
+    "images/partners/CIM.jpg": {
+      "name": "images/partners/CIM.jpg",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/partners/CIM.jpg",
+      "sourceFilename": "src/img/partners/CIM.jpg"
+    },
+    "images/partners/EMR.png": {
+      "name": "images/partners/EMR.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/partners/EMR.png",
+      "sourceFilename": "src/img/partners/EMR.png"
+    },
+    "images/partners/IAB.jpg": {
+      "name": "images/partners/IAB.jpg",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/partners/IAB.jpg",
+      "sourceFilename": "src/img/partners/IAB.jpg"
+    },
+    "images/partners/IPA.jpg": {
+      "name": "images/partners/IPA.jpg",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/partners/IPA.jpg",
+      "sourceFilename": "src/img/partners/IPA.jpg"
+    },
+    "images/partners/Inspirengage.png": {
+      "name": "images/partners/Inspirengage.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/partners/Inspirengage.png",
+      "sourceFilename": "src/img/partners/Inspirengage.png"
+    },
+    "images/partners/TML_partners.png": {
+      "name": "images/partners/TML_partners.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/partners/TML_partners.png",
+      "sourceFilename": "src/img/partners/TML_partners.png"
+    },
+    "images/partners/UnLtd.png": {
+      "name": "images/partners/UnLtd.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/partners/UnLtd.png",
+      "sourceFilename": "src/img/partners/UnLtd.png"
+    },
+    "images/partners/company-of-mind.jpg": {
+      "name": "images/partners/company-of-mind.jpg",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/partners/company-of-mind.jpg",
+      "sourceFilename": "src/img/partners/company-of-mind.jpg"
+    },
+    "images/partners/innvotec.gif": {
+      "name": "images/partners/innvotec.gif",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/partners/innvotec.gif",
+      "sourceFilename": "src/img/partners/innvotec.gif"
+    },
+    "images/partners/marketing-society-colour-bg.png": {
+      "name": "images/partners/marketing-society-colour-bg.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/partners/marketing-society-colour-bg.png",
+      "sourceFilename": "src/img/partners/marketing-society-colour-bg.png"
+    },
+    "images/partners/marketing-society-white-bg.jpg": {
+      "name": "images/partners/marketing-society-white-bg.jpg",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/partners/marketing-society-white-bg.jpg",
+      "sourceFilename": "src/img/partners/marketing-society-white-bg.jpg"
+    },
+    "images/partners/marketing-trust.gif": {
+      "name": "images/partners/marketing-trust.gif",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/partners/marketing-trust.gif",
+      "sourceFilename": "src/img/partners/marketing-trust.gif"
+    },
+    "images/partners/ogilvychange.jpg": {
+      "name": "images/partners/ogilvychange.jpg",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/partners/ogilvychange.jpg",
+      "sourceFilename": "src/img/partners/ogilvychange.jpg"
+    },
+    "images/placeholder/cause-default-image.1561078d6865.png": {
+      "name": "images/placeholder/cause-default-image.1561078d6865.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/placeholder/cause-default-image.1561078d6865.png",
+      "sourceFilename": "src/img/placeholder/cause-default-image.1561078d6865.png"
+    },
+    "images/placeholder/cause-default-image.png": {
+      "name": "images/placeholder/cause-default-image.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/placeholder/cause-default-image.png",
+      "sourceFilename": "src/img/placeholder/cause-default-image.png"
+    },
+    "images/placeholder/marketer-default-image.png": {
+      "name": "images/placeholder/marketer-default-image.png",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/placeholder/marketer-default-image.png",
+      "sourceFilename": "src/img/placeholder/marketer-default-image.png"
+    },
+    "main-7709acd3e859fa660ac7.js": {
+      "name": "main-7709acd3e859fa660ac7.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/main-7709acd3e859fa660ac7.js"
+    },
+    "tinymce/icons/default/icons.min.js": {
+      "name": "tinymce/icons/default/icons.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/icons/default/icons.min.js",
+      "sourceFilename": "src/tinymce/icons/default/icons.min.js"
+    },
+    "tinymce/jquery.tinymce.min.js": {
+      "name": "tinymce/jquery.tinymce.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/jquery.tinymce.min.js",
+      "sourceFilename": "src/tinymce/jquery.tinymce.min.js"
+    },
+    "tinymce/langs/README.md": {
+      "name": "tinymce/langs/README.md",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/langs/README.md",
+      "sourceFilename": "src/tinymce/langs/README.md"
+    },
+    "tinymce/license.txt": {
+      "name": "tinymce/license.txt",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/license.txt",
+      "sourceFilename": "src/tinymce/license.txt"
+    },
+    "tinymce/plugins/advlist/plugin.min.js": {
+      "name": "tinymce/plugins/advlist/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/advlist/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/advlist/plugin.min.js"
+    },
+    "tinymce/plugins/anchor/plugin.min.js": {
+      "name": "tinymce/plugins/anchor/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/anchor/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/anchor/plugin.min.js"
+    },
+    "tinymce/plugins/autolink/plugin.min.js": {
+      "name": "tinymce/plugins/autolink/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/autolink/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/autolink/plugin.min.js"
+    },
+    "tinymce/plugins/autoresize/plugin.min.js": {
+      "name": "tinymce/plugins/autoresize/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/autoresize/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/autoresize/plugin.min.js"
+    },
+    "tinymce/plugins/autosave/plugin.min.js": {
+      "name": "tinymce/plugins/autosave/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/autosave/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/autosave/plugin.min.js"
+    },
+    "tinymce/plugins/bbcode/plugin.min.js": {
+      "name": "tinymce/plugins/bbcode/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/bbcode/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/bbcode/plugin.min.js"
+    },
+    "tinymce/plugins/charmap/plugin.min.js": {
+      "name": "tinymce/plugins/charmap/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/charmap/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/charmap/plugin.min.js"
+    },
+    "tinymce/plugins/code/plugin.min.js": {
+      "name": "tinymce/plugins/code/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/code/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/code/plugin.min.js"
+    },
+    "tinymce/plugins/codesample/plugin.min.js": {
+      "name": "tinymce/plugins/codesample/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/codesample/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/codesample/plugin.min.js"
+    },
+    "tinymce/plugins/colorpicker/plugin.min.js": {
+      "name": "tinymce/plugins/colorpicker/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/colorpicker/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/colorpicker/plugin.min.js"
+    },
+    "tinymce/plugins/contextmenu/plugin.min.js": {
+      "name": "tinymce/plugins/contextmenu/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/contextmenu/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/contextmenu/plugin.min.js"
+    },
+    "tinymce/plugins/directionality/plugin.min.js": {
+      "name": "tinymce/plugins/directionality/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/directionality/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/directionality/plugin.min.js"
+    },
+    "tinymce/plugins/emoticons/js/emojiimages.js": {
+      "name": "tinymce/plugins/emoticons/js/emojiimages.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/emoticons/js/emojiimages.js",
+      "sourceFilename": "src/tinymce/plugins/emoticons/js/emojiimages.js"
+    },
+    "tinymce/plugins/emoticons/js/emojiimages.min.js": {
+      "name": "tinymce/plugins/emoticons/js/emojiimages.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/emoticons/js/emojiimages.min.js",
+      "sourceFilename": "src/tinymce/plugins/emoticons/js/emojiimages.min.js"
+    },
+    "tinymce/plugins/emoticons/js/emojis.js": {
+      "name": "tinymce/plugins/emoticons/js/emojis.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/emoticons/js/emojis.js",
+      "sourceFilename": "src/tinymce/plugins/emoticons/js/emojis.js"
+    },
+    "tinymce/plugins/emoticons/js/emojis.min.js": {
+      "name": "tinymce/plugins/emoticons/js/emojis.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/emoticons/js/emojis.min.js",
+      "sourceFilename": "src/tinymce/plugins/emoticons/js/emojis.min.js"
+    },
+    "tinymce/plugins/emoticons/plugin.min.js": {
+      "name": "tinymce/plugins/emoticons/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/emoticons/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/emoticons/plugin.min.js"
+    },
+    "tinymce/plugins/fullpage/plugin.min.js": {
+      "name": "tinymce/plugins/fullpage/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/fullpage/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/fullpage/plugin.min.js"
+    },
+    "tinymce/plugins/fullscreen/plugin.min.js": {
+      "name": "tinymce/plugins/fullscreen/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/fullscreen/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/fullscreen/plugin.min.js"
+    },
+    "tinymce/plugins/help/plugin.min.js": {
+      "name": "tinymce/plugins/help/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/help/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/help/plugin.min.js"
+    },
+    "tinymce/plugins/hr/plugin.min.js": {
+      "name": "tinymce/plugins/hr/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/hr/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/hr/plugin.min.js"
+    },
+    "tinymce/plugins/image/plugin.min.js": {
+      "name": "tinymce/plugins/image/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/image/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/image/plugin.min.js"
+    },
+    "tinymce/plugins/imagetools/plugin.min.js": {
+      "name": "tinymce/plugins/imagetools/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/imagetools/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/imagetools/plugin.min.js"
+    },
+    "tinymce/plugins/importcss/plugin.min.js": {
+      "name": "tinymce/plugins/importcss/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/importcss/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/importcss/plugin.min.js"
+    },
+    "tinymce/plugins/insertdatetime/plugin.min.js": {
+      "name": "tinymce/plugins/insertdatetime/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/insertdatetime/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/insertdatetime/plugin.min.js"
+    },
+    "tinymce/plugins/legacyoutput/plugin.min.js": {
+      "name": "tinymce/plugins/legacyoutput/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/legacyoutput/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/legacyoutput/plugin.min.js"
+    },
+    "tinymce/plugins/link/plugin.min.js": {
+      "name": "tinymce/plugins/link/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/link/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/link/plugin.min.js"
+    },
+    "tinymce/plugins/lists/plugin.min.js": {
+      "name": "tinymce/plugins/lists/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/lists/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/lists/plugin.min.js"
+    },
+    "tinymce/plugins/media/plugin.min.js": {
+      "name": "tinymce/plugins/media/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/media/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/media/plugin.min.js"
+    },
+    "tinymce/plugins/nonbreaking/plugin.min.js": {
+      "name": "tinymce/plugins/nonbreaking/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/nonbreaking/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/nonbreaking/plugin.min.js"
+    },
+    "tinymce/plugins/noneditable/plugin.min.js": {
+      "name": "tinymce/plugins/noneditable/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/noneditable/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/noneditable/plugin.min.js"
+    },
+    "tinymce/plugins/pagebreak/plugin.min.js": {
+      "name": "tinymce/plugins/pagebreak/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/pagebreak/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/pagebreak/plugin.min.js"
+    },
+    "tinymce/plugins/paste/plugin.min.js": {
+      "name": "tinymce/plugins/paste/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/paste/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/paste/plugin.min.js"
+    },
+    "tinymce/plugins/preview/plugin.min.js": {
+      "name": "tinymce/plugins/preview/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/preview/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/preview/plugin.min.js"
+    },
+    "tinymce/plugins/print/plugin.min.js": {
+      "name": "tinymce/plugins/print/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/print/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/print/plugin.min.js"
+    },
+    "tinymce/plugins/quickbars/plugin.min.js": {
+      "name": "tinymce/plugins/quickbars/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/quickbars/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/quickbars/plugin.min.js"
+    },
+    "tinymce/plugins/save/plugin.min.js": {
+      "name": "tinymce/plugins/save/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/save/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/save/plugin.min.js"
+    },
+    "tinymce/plugins/searchreplace/plugin.min.js": {
+      "name": "tinymce/plugins/searchreplace/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/searchreplace/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/searchreplace/plugin.min.js"
+    },
+    "tinymce/plugins/spellchecker/plugin.min.js": {
+      "name": "tinymce/plugins/spellchecker/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/spellchecker/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/spellchecker/plugin.min.js"
+    },
+    "tinymce/plugins/tabfocus/plugin.min.js": {
+      "name": "tinymce/plugins/tabfocus/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/tabfocus/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/tabfocus/plugin.min.js"
+    },
+    "tinymce/plugins/table/plugin.min.js": {
+      "name": "tinymce/plugins/table/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/table/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/table/plugin.min.js"
+    },
+    "tinymce/plugins/template/plugin.min.js": {
+      "name": "tinymce/plugins/template/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/template/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/template/plugin.min.js"
+    },
+    "tinymce/plugins/textcolor/plugin.min.js": {
+      "name": "tinymce/plugins/textcolor/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/textcolor/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/textcolor/plugin.min.js"
+    },
+    "tinymce/plugins/textpattern/plugin.min.js": {
+      "name": "tinymce/plugins/textpattern/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/textpattern/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/textpattern/plugin.min.js"
+    },
+    "tinymce/plugins/toc/plugin.min.js": {
+      "name": "tinymce/plugins/toc/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/toc/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/toc/plugin.min.js"
+    },
+    "tinymce/plugins/visualblocks/plugin.min.js": {
+      "name": "tinymce/plugins/visualblocks/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/visualblocks/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/visualblocks/plugin.min.js"
+    },
+    "tinymce/plugins/visualchars/plugin.min.js": {
+      "name": "tinymce/plugins/visualchars/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/visualchars/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/visualchars/plugin.min.js"
+    },
+    "tinymce/plugins/wordcount/plugin.min.js": {
+      "name": "tinymce/plugins/wordcount/plugin.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/plugins/wordcount/plugin.min.js",
+      "sourceFilename": "src/tinymce/plugins/wordcount/plugin.min.js"
+    },
+    "tinymce/skins/content/dark/content.min.css": {
+      "name": "tinymce/skins/content/dark/content.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/content/dark/content.min.css",
+      "sourceFilename": "src/tinymce/skins/content/dark/content.min.css"
+    },
+    "tinymce/skins/content/default/content.min.css": {
+      "name": "tinymce/skins/content/default/content.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/content/default/content.min.css",
+      "sourceFilename": "src/tinymce/skins/content/default/content.min.css"
+    },
+    "tinymce/skins/content/document/content.min.css": {
+      "name": "tinymce/skins/content/document/content.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/content/document/content.min.css",
+      "sourceFilename": "src/tinymce/skins/content/document/content.min.css"
+    },
+    "tinymce/skins/content/writer/content.min.css": {
+      "name": "tinymce/skins/content/writer/content.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/content/writer/content.min.css",
+      "sourceFilename": "src/tinymce/skins/content/writer/content.min.css"
+    },
+    "tinymce/skins/ui/oxide-dark/content.inline.min.css": {
+      "name": "tinymce/skins/ui/oxide-dark/content.inline.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/ui/oxide-dark/content.inline.min.css",
+      "sourceFilename": "src/tinymce/skins/ui/oxide-dark/content.inline.min.css"
+    },
+    "tinymce/skins/ui/oxide-dark/content.min.css": {
+      "name": "tinymce/skins/ui/oxide-dark/content.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/ui/oxide-dark/content.min.css",
+      "sourceFilename": "src/tinymce/skins/ui/oxide-dark/content.min.css"
+    },
+    "tinymce/skins/ui/oxide-dark/content.mobile.min.css": {
+      "name": "tinymce/skins/ui/oxide-dark/content.mobile.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/ui/oxide-dark/content.mobile.min.css",
+      "sourceFilename": "src/tinymce/skins/ui/oxide-dark/content.mobile.min.css"
+    },
+    "tinymce/skins/ui/oxide-dark/fonts/tinymce-mobile.woff": {
+      "name": "tinymce/skins/ui/oxide-dark/fonts/tinymce-mobile.woff",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/ui/oxide-dark/fonts/tinymce-mobile.woff",
+      "sourceFilename": "src/tinymce/skins/ui/oxide-dark/fonts/tinymce-mobile.woff"
+    },
+    "tinymce/skins/ui/oxide-dark/skin.min.css": {
+      "name": "tinymce/skins/ui/oxide-dark/skin.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/ui/oxide-dark/skin.min.css",
+      "sourceFilename": "src/tinymce/skins/ui/oxide-dark/skin.min.css"
+    },
+    "tinymce/skins/ui/oxide-dark/skin.mobile.min.css": {
+      "name": "tinymce/skins/ui/oxide-dark/skin.mobile.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/ui/oxide-dark/skin.mobile.min.css",
+      "sourceFilename": "src/tinymce/skins/ui/oxide-dark/skin.mobile.min.css"
+    },
+    "tinymce/skins/ui/oxide-dark/skin.shadowdom.min.css": {
+      "name": "tinymce/skins/ui/oxide-dark/skin.shadowdom.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/ui/oxide-dark/skin.shadowdom.min.css",
+      "sourceFilename": "src/tinymce/skins/ui/oxide-dark/skin.shadowdom.min.css"
+    },
+    "tinymce/skins/ui/oxide/content.inline.min.css": {
+      "name": "tinymce/skins/ui/oxide/content.inline.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/ui/oxide/content.inline.min.css",
+      "sourceFilename": "src/tinymce/skins/ui/oxide/content.inline.min.css"
+    },
+    "tinymce/skins/ui/oxide/content.min.css": {
+      "name": "tinymce/skins/ui/oxide/content.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/ui/oxide/content.min.css",
+      "sourceFilename": "src/tinymce/skins/ui/oxide/content.min.css"
+    },
+    "tinymce/skins/ui/oxide/content.mobile.min.css": {
+      "name": "tinymce/skins/ui/oxide/content.mobile.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/ui/oxide/content.mobile.min.css",
+      "sourceFilename": "src/tinymce/skins/ui/oxide/content.mobile.min.css"
+    },
+    "tinymce/skins/ui/oxide/fonts/tinymce-mobile.woff": {
+      "name": "tinymce/skins/ui/oxide/fonts/tinymce-mobile.woff",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/ui/oxide/fonts/tinymce-mobile.woff",
+      "sourceFilename": "src/tinymce/skins/ui/oxide/fonts/tinymce-mobile.woff"
+    },
+    "tinymce/skins/ui/oxide/skin.min.css": {
+      "name": "tinymce/skins/ui/oxide/skin.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/ui/oxide/skin.min.css",
+      "sourceFilename": "src/tinymce/skins/ui/oxide/skin.min.css"
+    },
+    "tinymce/skins/ui/oxide/skin.mobile.min.css": {
+      "name": "tinymce/skins/ui/oxide/skin.mobile.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/ui/oxide/skin.mobile.min.css",
+      "sourceFilename": "src/tinymce/skins/ui/oxide/skin.mobile.min.css"
+    },
+    "tinymce/skins/ui/oxide/skin.shadowdom.min.css": {
+      "name": "tinymce/skins/ui/oxide/skin.shadowdom.min.css",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/skins/ui/oxide/skin.shadowdom.min.css",
+      "sourceFilename": "src/tinymce/skins/ui/oxide/skin.shadowdom.min.css"
+    },
+    "tinymce/themes/mobile/theme.min.js": {
+      "name": "tinymce/themes/mobile/theme.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/themes/mobile/theme.min.js",
+      "sourceFilename": "src/tinymce/themes/mobile/theme.min.js"
+    },
+    "tinymce/themes/silver/theme.min.js": {
+      "name": "tinymce/themes/silver/theme.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/themes/silver/theme.min.js",
+      "sourceFilename": "src/tinymce/themes/silver/theme.min.js"
+    },
+    "tinymce/tinymce.d.ts": {
+      "name": "tinymce/tinymce.d.ts",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/tinymce.d.ts",
+      "sourceFilename": "src/tinymce/tinymce.d.ts"
+    },
+    "tinymce/tinymce.min.js": {
+      "name": "tinymce/tinymce.min.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/tinymce/tinymce.min.js",
+      "sourceFilename": "src/tinymce/tinymce.min.js"
+    }
+  },
+  "chunks": {
+    "main": [
+      "main-7709acd3e859fa660ac7.js"
+    ]
+  }
+}
