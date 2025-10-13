@@ -294,7 +294,7 @@ WEBPACK_LOADER = {
 }
 
 MAP_WIDGETS = {
-    "GooglePointFieldWidget": (
+    "GoogleMapPointFieldWidget": (
         ("zoom", 15),
         ("mapCenterLocationName", 'London'),
     ),

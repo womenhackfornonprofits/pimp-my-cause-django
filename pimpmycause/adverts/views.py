@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from django.contrib.auth.decorators import login_required
-from django.utils.http import is_safe_url
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.http import Http404
 
 from django.shortcuts import (
@@ -80,7 +80,7 @@ def advert_delete(request, advert_id):
 
     next_url = request.POST.get("next")
 
-    if next_url and is_safe_url(next_url):
+    if next_url and url_has_allowed_host_and_scheme(next_url, request.get_host()):
         return redirect(next_url)
     else:
         return redirect("profile_detail", user_id=request.user.id)
