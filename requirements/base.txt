@@ -1,22 +1,20 @@
-django==3.2.25                              # Our web framework (LTS)
+django==4.2.16                              # Our web framework (LTS)
 django-countries==7.6.1
-dj-database-url==0.4.1
-gunicorn==20.1.0                            # Python WSGI HTTP Server
-psycopg2-binary==2.9.9
-whitenoise==6.6.0
+dj-database-url==2.1.0
+gunicorn==23.0.0                            # Python WSGI HTTP Server
+psycopg2-binary==2.9.10
+whitenoise==6.8.2
 django-custom-user==0.7.0                   # Custom user model to allow user auth via email
 django-s3direct==1.1.8                      # Handles asset uploads to s3
 django-registration-redux==2.13             # Double opt-in user registration flow
 python-env-utils==0.2.0                     # Deals nicely with environment var typing
-django-widget-tweaks==1.4.8                 # Help render and tweak forms
-django-filter==22.1                        # Help filter the model queryset by it's fields
-django-tinymce==3.2.0
-django_webpack_loader==0.5.0
-future==0.16.0
-six==1.16.0
-django-map-widgets==0.3.1
-geocoder==1.32.1                            # Used for geolocating user
-django_storages==1.7                        # Hosting all the site images
+django-widget-tweaks==1.5.0                 # Help render and tweak forms
+django-filter==24.3                        # Help filter the model queryset by it's fields
+django-tinymce==3.6.0
+django_webpack_loader==3.0.1
+django-map-widgets==0.5.1
+geocoder==1.38.1                            # Used for geolocating user
+django_storages==1.14.4                     # Hosting all the site images
 django-dotenv==1.4.1                        # Read env variables from a file for DEV
-boto3==1.34.0                               # Talking to AWS
-flake8==3.5.0                               # Python linter
+boto3==1.35.67                              # Talking to AWS
+flake8==7.1.1                               # Python linter

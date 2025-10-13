@@ -2,7 +2,7 @@ from django.contrib.gis import admin
 from django.contrib.gis.db import models
 from django.utils.translation import gettext_lazy as _
 
-from mapwidgets.widgets import GooglePointFieldWidget
+from mapwidgets.widgets import GoogleMapPointFieldWidget
 
 from custom_user.admin import EmailUserAdmin
 from .models import (
@@ -34,7 +34,7 @@ class MarketerProfileAdmin(admin.StackedInline):
 
 class PimpUserAdmin(EmailUserAdmin):
     formfield_overrides = {
-        models.PointField: {"widget": GooglePointFieldWidget}
+        models.PointField: {"widget": GoogleMapPointFieldWidget}
     }
 
     inlines = [MarketerProfileAdmin, CauseProfileAdmin]
