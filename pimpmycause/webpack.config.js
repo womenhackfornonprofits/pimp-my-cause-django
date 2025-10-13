@@ -1,68 +1,98 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleTracker = require('webpack-bundle-tracker');
-
-const extractSass = new ExtractTextPlugin({
-    filename: '[name].[contenthash].css',
-    disable: process.env.NODE_ENV === 'development',
-});
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-module.exports = {
-    context: __dirname,
-    entry: [
-        './src/scripts/scripts.js',
-        './src/sass/styles.scss',
-    ],
-    output: {
-        filename: '[name]-[hash].js',
-        path: path.resolve('./static-bundles/'),
-    },
-    devtool: 'source-map',
-    module: {
-        loaders: [
-            {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader?sourceMap',
-                }),
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-            },
-            {
-                test: /\.(jpg|jpeg|gif|png|ico)$/,
-                exclude: /node_modules/,
-                loader: 'file-loader?name=[path][name].[ext]&context=./frontend/',
-            },
-            {
-                test: /\.scss$/,
-                use: extractSass.extract({
-                    use: [{
-                        loader: 'css-loader', options: { minimize: true },
-                    }, {
-                        loader: 'sass-loader',
-                    }],
-                    // use style-loader in development
-                    fallback: 'style-loader',
-                }),
-            },
+module.exports = (env, argv) => {
+    const isProduction = argv.mode === 'production';
+
+    return {
+        context: __dirname,
+        entry: [
+            './src/scripts/scripts.js',
+            './src/sass/styles.scss',
         ],
-    },
-    externals: ['window'],
-    plugins: [
-        extractSass,
-        new BundleTracker({ filename: './webpack-stats.json' }),
-        new CleanWebpackPlugin(['./static-bundles/']),
-        new CopyWebpackPlugin([
-            { from: 'src/img', to: './images' },
-        ]),
-        new CopyWebpackPlugin([
-            { from: 'src/tinymce', to: './tinymce' },
-        ]),
-    ],
+        output: {
+            filename: isProduction ? '[name]-[contenthash].js' : '[name]-[hash].js',
+            path: path.resolve('./static-bundles/'),
+            clean: true,
+        },
+        devtool: isProduction ? 'source-map' : 'eval-source-map',
+        module: {
+            rules: [
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    },
+                },
+                {
+                    test: /\.css$/,
+                    use: [
+                        isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true,
+                            },
+                        },
+                    ],
+                },
+                {
+                    test: /\.scss$/,
+                    use: [
+                        isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true,
+                            },
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true,
+                            },
+                        },
+                    ],
+                },
+                {
+                    test: /\.(jpg|jpeg|gif|png|ico|svg)$/,
+                    type: 'asset/resource',
+                    generator: {
+                        filename: 'images/[name][ext]',
+                    },
+                },
+            ],
+        },
+        externals: {
+            'window': 'window',
+        },
+        plugins: [
+            new BundleTracker({
+                path: __dirname,
+                filename: 'webpack-stats.json'
+            }),
+            new CleanWebpackPlugin({
+                cleanOnceBeforeBuildPatterns: ['./static-bundles/*'],
+            }),
+            new CopyWebpackPlugin({
+                patterns: [
+                    { from: 'src/img', to: './images' },
+                    { from: 'src/tinymce', to: './tinymce' },
+                ],
+            }),
+            new MiniCssExtractPlugin({
+                filename: isProduction ? '[name].[contenthash].css' : '[name].[hash].css',
+            }),
+        ],
+        resolve: {
+            extensions: ['.js', '.json', '.scss', '.css'],
+        },
+    };
 };
