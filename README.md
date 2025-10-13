@@ -6,7 +6,7 @@
 - Node.js and npm for frontend build
 
 ## Virtual Environment Setup
-This allows you to install all the Python dependencies in a "box" so they are not globally installed and clashing with other projects. 
+This allows you to install all the Python dependencies in a "box" so they are not globally installed and clashing with other projects.
 
 ### Option 1: Using venv (Recommended)
 1. Create a virtual environment with Python 3.11:

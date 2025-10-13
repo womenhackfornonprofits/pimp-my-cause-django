@@ -42,6 +42,16 @@ def _resolve_lib(env_name: str, name_glob: str):
 GDAL_LIBRARY_PATH = _resolve_lib("GDAL_LIBRARY_PATH", "libgdal.so.*")
 GEOS_LIBRARY_PATH = _resolve_lib("GEOS_LIBRARY_PATH", "libgeos_c.so.*")
 
+# macOS Homebrew paths (fallback for local development)
+if not GDAL_LIBRARY_PATH:
+    GDAL_LIBRARY_PATH = "/opt/homebrew/Cellar/gdal/3.11.4_1/lib/libgdal.37.3.11.4.dylib"
+if not GEOS_LIBRARY_PATH:
+    GEOS_LIBRARY_PATH = "/opt/homebrew/Cellar/geos/3.14.0/lib/libgeos_c.1.20.4.dylib"
+
+# Set GDAL_DATA environment variable
+if not os.environ.get("GDAL_DATA"):
+    os.environ["GDAL_DATA"] = "/opt/homebrew/Cellar/gdal/3.11.4_1/share/gdal"
+
 # Temporary debug (remove once green)
 print("GDAL=", GDAL_LIBRARY_PATH, "GEOS=", GEOS_LIBRARY_PATH, "GDAL_DATA=", os.environ.get("GDAL_DATA"))
 
