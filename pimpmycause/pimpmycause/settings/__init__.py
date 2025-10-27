@@ -168,7 +168,7 @@ USE_TZ = True
 
 AUTH_USER_MODEL = 'profiles.PimpUser'
 
-STATICFILES_STORAGE = 'whitenoise.storage.ManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 STATIC_URL = '/staticfiles/'
 
