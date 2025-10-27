@@ -16,11 +16,10 @@ from pathlib import Path
 
 def _find_apt_root():
     p = Path(__file__).resolve()
-    for parent in p.parents:  # walk up until we find .apt (build or runtime)
+    for parent in p.parents:
         d = parent / ".apt"
         if d.is_dir():
             return d
-    # fallback to runtime default
     d = Path("/app/.apt")
     return d if d.is_dir() else None
 
@@ -32,7 +31,6 @@ def _resolve_lib(env_name: str, name_glob: str):
     if apt_root:
         hits = sorted(glob.glob(str(apt_root / f"usr/lib/x86_64-linux-gnu/{name_glob}")))
         if not hits:
-            # Fallback to any subdir under .apt
             hits = sorted(glob.glob(str(apt_root / f"**/{name_glob}"), recursive=True))
         if hits:
             os.environ[env_name] = hits[-1]
@@ -42,35 +40,25 @@ def _resolve_lib(env_name: str, name_glob: str):
 GDAL_LIBRARY_PATH = _resolve_lib("GDAL_LIBRARY_PATH", "libgdal.so.*")
 GEOS_LIBRARY_PATH = _resolve_lib("GEOS_LIBRARY_PATH", "libgeos_c.so.*")
 
-# macOS Homebrew paths (fallback for local development)
-if not GDAL_LIBRARY_PATH:
+is_heroku = os.getenv("DYNO") is not None
+is_local = not is_heroku and os.path.exists("/opt/homebrew/Cellar")
+
+if not GDAL_LIBRARY_PATH and is_local:
     GDAL_LIBRARY_PATH = "/opt/homebrew/Cellar/gdal/3.11.4_1/lib/libgdal.37.3.11.4.dylib"
-if not GEOS_LIBRARY_PATH:
+if not GEOS_LIBRARY_PATH and is_local:
     GEOS_LIBRARY_PATH = "/opt/homebrew/Cellar/geos/3.14.0/lib/libgeos_c.1.20.4.dylib"
 
-# Set GDAL_DATA environment variable
-if not os.environ.get("GDAL_DATA"):
+if not os.environ.get("GDAL_DATA") and is_local:
     os.environ["GDAL_DATA"] = "/opt/homebrew/Cellar/gdal/3.11.4_1/share/gdal"
 
-# Temporary debug (remove once green)
-print("GDAL=", GDAL_LIBRARY_PATH, "GEOS=", GEOS_LIBRARY_PATH, "GDAL_DATA=", os.environ.get("GDAL_DATA"))
 
-
-# Default primary key field type for Django 3.2+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 LOAD_ENV_FILE = False
-
-# Application definition
 
 INSTALLED_APPS = [
     'registration',
@@ -140,9 +128,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pimpmycause.wsgi.application'
 SITE_ID = 1
 
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
@@ -154,10 +139,6 @@ DATABASES = {
     }
 }
 
-
-########
-# Auth #
-########
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -175,9 +156,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/1.9/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -189,10 +167,6 @@ USE_L10N = True
 USE_TZ = True
 
 AUTH_USER_MODEL = 'profiles.PimpUser'
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
-#
 
 STATICFILES_STORAGE = 'whitenoise.storage.ManifestStaticFilesStorage'
 
@@ -215,7 +189,6 @@ CONTEXT_PROCESSORS = [
     "django.core.context_processors.request",
 ]
 
-# Registration settings
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_DEFAULT_FROM_EMAIL = get_env("DEFAULT_FROM_EMAIL", "webmaster@pimpmycause.org")
 REGISTRATION_EMAIL_HTML = True
@@ -229,12 +202,10 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 DEFAULT_FROM_EMAIL = get_env('DEFAULT_FROM_EMAIL', 'webmaster@pimpmycause.org"')
 
-# AWS Settings
 AWS_ACCESS_KEY_ID = get_env("AWS_ACCESS_KEY_ID", 'todo')
 AWS_SECRET_ACCESS_KEY = get_env("AWS_SECRET_ACCESS_KEY", 'todo')
 AWS_STORAGE_BUCKET_NAME = get_env("AWS_STORAGE_BUCKET_NAME", 'todo')
 
-# User image uploads to S3 bucket
 AWS_S3_REGION_NAME = get_env("AWS_STORAGE_REGION", 'todo')
 AWS_S3_ENDPOINT_URL = 'https://s3.%s.amazonaws.com' % AWS_S3_REGION_NAME
 
@@ -300,10 +271,6 @@ MAP_WIDGETS = {
     ),
     "GOOGLE_MAP_API_KEY": get_env("GOOGLE_MAP_API_KEY", 'todo')
 }
-
-########
-# i18n #
-########
 
 LANGUAGE_CODE = 'en-gb'
 
