@@ -1,5 +1,5 @@
 {
-  "status": "done",
+  "status": "error",
   "assets": {
     "images/challenges/NCH.png": {
       "name": "images/challenges/NCH.png",
@@ -221,13 +221,9 @@
       "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/placeholder/marketer-default-image.png",
       "sourceFilename": "src/img/placeholder/marketer-default-image.png"
     },
-    "main-ab27914a40d854b3329c.js": {
-      "name": "main-ab27914a40d854b3329c.js",
-      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/main-ab27914a40d854b3329c.js"
-    },
-    "main.4ea7ba791863a9ef48e44a711696512f.css": {
-      "name": "main.4ea7ba791863a9ef48e44a711696512f.css",
-      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/main.4ea7ba791863a9ef48e44a711696512f.css"
+    "main-7709acd3e859fa660ac7.js": {
+      "name": "main-7709acd3e859fa660ac7.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/main-7709acd3e859fa660ac7.js"
     },
     "tinymce/icons/default/icons.min.js": {
       "name": "tinymce/icons/default/icons.min.js",
@@ -602,8 +598,9 @@
   },
   "chunks": {
     "main": [
-      "main-ab27914a40d854b3329c.js",
-      "main.4ea7ba791863a9ef48e44a711696512f.css"
+      "main-7709acd3e859fa660ac7.js"
     ]
-  }
+  },
+  "error": "ModuleNotFoundError",
+  "message": "Module not found: Error: Can't resolve 'babel-loader' in '/Users/lili/pimp-my-cause-django/pimpmycause'"
 }

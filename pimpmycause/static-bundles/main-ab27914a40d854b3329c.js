@@ -497,10 +497,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global window document clearTimeout setTimeo
                     stateChangeMethod();
                 }
             }.bind(this);
-          
+
             this.test.addListener(this.listener);
         },
-        
+
         //Handle entering a state
         enterState: function() {
             fireAllMethodsInArray(this.options.onFirstRun);
@@ -542,7 +542,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global window document clearTimeout setTimeo
 
             if (type === 'enter' && runIfActive && this.active) {
                 callback();
-            } 
+            }
         },
 
         testConfigOptions: function(when) {
@@ -563,7 +563,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global window document clearTimeout setTimeo
 
         //An array of avaliable config options, this can be pushed to by the State Manager
         configOptions: []
-    };  
+    };
 
     //State Manager Constructor
 
@@ -572,13 +572,13 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global window document clearTimeout setTimeo
         this.resizeTimer = null;
         this.configOptions = [];
 
-        window.addEventListener("resize", debounce(this.resizeBrowser.bind(this), resizeTimeout), true);    
+        window.addEventListener("resize", debounce(this.resizeBrowser.bind(this), resizeTimeout), true);
     }
 
     StateManager.prototype = {
         addState: function(options) {
             var newState = new State(options);
-            
+
             if (newState.valid) {
                 this.states.push(newState);
             }
@@ -618,7 +618,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global window document clearTimeout setTimeo
             }
             else {
                 idCount = idArr.length;
-                
+
                 for (var i = 0; i < idCount; i++) {
                     returnArr.push(this.getState(idArr[i]));
                 }
@@ -787,7 +787,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global window document clearTimeout setTimeo
 
     function debounce(func, wait, immediate) {
         var timeout;
-        
+
         return function() {
             var context = this, args = arguments;
             var later = function() {
