@@ -221,9 +221,9 @@
       "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/images/placeholder/marketer-default-image.png",
       "sourceFilename": "src/img/placeholder/marketer-default-image.png"
     },
-    "main-7709acd3e859fa660ac7.js": {
-      "name": "main-7709acd3e859fa660ac7.js",
-      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/main-7709acd3e859fa660ac7.js"
+    "main-ab27914a40d854b3329c.js": {
+      "name": "main-ab27914a40d854b3329c.js",
+      "path": "/Users/lili/pimp-my-cause-django/pimpmycause/static-bundles/main-ab27914a40d854b3329c.js"
     },
     "main.4ea7ba791863a9ef48e44a711696512f.css": {
       "name": "main.4ea7ba791863a9ef48e44a711696512f.css",
@@ -602,7 +602,7 @@
   },
   "chunks": {
     "main": [
-      "main-7709acd3e859fa660ac7.js",
+      "main-ab27914a40d854b3329c.js",
       "main.4ea7ba791863a9ef48e44a711696512f.css"
     ]
   }
