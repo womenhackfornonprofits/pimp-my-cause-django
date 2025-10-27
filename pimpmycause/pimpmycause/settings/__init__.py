@@ -80,6 +80,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 DEBUG = True
 LOAD_ENV_FILE = False
 
+GIS_APPS = []
+if GDAL_LIBRARY_PATH and GEOS_LIBRARY_PATH:
+    GIS_APPS = ['django.contrib.gis', 'mapwidgets']
+
 INSTALLED_APPS = [
     'registration',
     'django.contrib.admin',
@@ -91,8 +95,7 @@ INSTALLED_APPS = [
     'django.contrib.redirects',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'django.contrib.gis',
-    'mapwidgets',
+] + GIS_APPS + [
     's3direct',
     'django_countries',
     'custom_user',
