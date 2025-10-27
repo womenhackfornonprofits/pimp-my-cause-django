@@ -10,45 +10,45 @@ from env_utils import (
 from core.utils import generate_upload_destination_path
 
 
-#import glob
-#from pathlib import Path
+import glob
+from pathlib import Path
 
-#def _find_apt_root():
-#    p = Path(__file__).resolve()
-#    for parent in p.parents:
-#        d = parent / ".apt"
-#        if d.is_dir():
-#            return d
-#    d = Path("/app/.apt")
-#    return d if d.is_dir() else None
+def _find_apt_root():
+    p = Path(__file__).resolve()
+    for parent in p.parents:
+        d = parent / ".apt"
+        if d.is_dir():
+            return d
+    d = Path("/app/.apt")
+    return d if d.is_dir() else None
 
-#def _resolve_lib(env_name: str, name_glob: str):
-#    p = os.getenv(env_name)
-#    if p and os.path.exists(p):
-#        return p
-#    apt_root = _find_apt_root()
-#    if apt_root:
-#        hits = sorted(glob.glob(str(apt_root / f"usr/lib/x86_64-linux-gnu/{name_glob}")))
-#        if not hits:
-#            hits = sorted(glob.glob(str(apt_root / f"**/{name_glob}"), recursive=True))
-#        if hits:
-#            os.environ[env_name] = hits[-1]
-#            return hits[-1]
-#    return None
+def _resolve_lib(env_name: str, name_glob: str):
+    p = os.getenv(env_name)
+    if p and os.path.exists(p):
+        return p
+    apt_root = _find_apt_root()
+    if apt_root:
+        hits = sorted(glob.glob(str(apt_root / f"usr/lib/x86_64-linux-gnu/{name_glob}")))
+        if not hits:
+            hits = sorted(glob.glob(str(apt_root / f"**/{name_glob}"), recursive=True))
+        if hits:
+            os.environ[env_name] = hits[-1]
+            return hits[-1]
+    return None
 
-#GDAL_LIBRARY_PATH = _resolve_lib("GDAL_LIBRARY_PATH", "libgdal.so.*")
-#GEOS_LIBRARY_PATH = _resolve_lib("GEOS_LIBRARY_PATH", "libgeos_c.so.*")
+GDAL_LIBRARY_PATH = _resolve_lib("GDAL_LIBRARY_PATH", "libgdal.so.*")
+GEOS_LIBRARY_PATH = _resolve_lib("GEOS_LIBRARY_PATH", "libgeos_c.so.*")
 
-#is_heroku = os.getenv("DYNO") is not None
-#is_local = not is_heroku and os.path.exists("/opt/homebrew/Cellar")
+is_heroku = os.getenv("DYNO") is not None
+is_local = not is_heroku and os.path.exists("/opt/homebrew/Cellar")
 
-#if not GDAL_LIBRARY_PATH and is_local:
-#    GDAL_LIBRARY_PATH = "/opt/homebrew/Cellar/gdal/3.11.4_1/lib/libgdal.37.3.11.4.dylib"
-#if not GEOS_LIBRARY_PATH and is_local:
-#    GEOS_LIBRARY_PATH = "/opt/homebrew/Cellar/geos/3.14.0/lib/libgeos_c.1.20.4.dylib"
+if not GDAL_LIBRARY_PATH and is_local:
+    GDAL_LIBRARY_PATH = "/opt/homebrew/Cellar/gdal/3.11.4_1/lib/libgdal.37.3.11.4.dylib"
+if not GEOS_LIBRARY_PATH and is_local:
+    GEOS_LIBRARY_PATH = "/opt/homebrew/Cellar/geos/3.14.0/lib/libgeos_c.1.20.4.dylib"
 
-#if not os.environ.get("GDAL_DATA") and is_local:
-#    os.environ["GDAL_DATA"] = "/opt/homebrew/Cellar/gdal/3.11.4_1/share/gdal"
+if not os.environ.get("GDAL_DATA") and is_local:
+    os.environ["GDAL_DATA"] = "/opt/homebrew/Cellar/gdal/3.11.4_1/share/gdal"
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
