@@ -7,7 +7,11 @@ DEBUG = False
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'] = dj_database_url.config()
-DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+
+if GDAL_LIBRARY_PATH and GEOS_LIBRARY_PATH:
+    DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+else:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
 
 # SECURITY
 SECURE_SSL_REDIRECT = True

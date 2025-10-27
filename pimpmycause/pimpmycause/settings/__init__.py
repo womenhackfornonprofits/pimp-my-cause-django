@@ -151,9 +151,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pimpmycause.wsgi.application'
 SITE_ID = 1
 
+if GDAL_LIBRARY_PATH and GEOS_LIBRARY_PATH:
+    DATABASE_ENGINE = 'django.contrib.gis.db.backends.postgis'
+else:
+    DATABASE_ENGINE = 'django.db.backends.postgresql'
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'ENGINE': DATABASE_ENGINE,
         'NAME': 'pimpmycause',
         'USER': '',
         'PASSWORD': '',
