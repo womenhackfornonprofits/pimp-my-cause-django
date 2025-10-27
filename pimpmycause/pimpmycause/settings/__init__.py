@@ -20,6 +20,9 @@ def _find_apt_root():
         if d.is_dir():
             return d
     d = Path("/app/.apt")
+    if d.is_dir():
+        return d
+    d = Path("/app/.heroku-geo-buildpack/vendor")
     return d if d.is_dir() else None
 
 def _resolve_lib(env_name: str, name_glob: str):
@@ -29,6 +32,8 @@ def _resolve_lib(env_name: str, name_glob: str):
     apt_root = _find_apt_root()
     if apt_root:
         hits = sorted(glob.glob(str(apt_root / f"usr/lib/x86_64-linux-gnu/{name_glob}")))
+        if not hits:
+            hits = sorted(glob.glob(str(apt_root / f"lib/{name_glob}")))
         if not hits:
             hits = sorted(glob.glob(str(apt_root / f"**/{name_glob}"), recursive=True))
         if hits:
