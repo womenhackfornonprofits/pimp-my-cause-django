@@ -1,19 +1,14 @@
 from __future__ import unicode_literals
 
-try:
-    from django.contrib.gis.db import models as gis_models
-except ImportError:
-    from django.db import models as gis_models
-    
+# GIS imports temporarily disabled for Heroku deployment
+# from django.contrib.gis.db import models
 from django.db import models
 from django.db.models.signals import (
     post_save,
 )
 from django.dispatch import receiver
-try:
-    from django.contrib.gis.geos import Point
-except ImportError:
-    Point = None
+# from django.contrib.gis.geos import Point  # Temporarily disabled
+Point = None
 from django.core.exceptions import ValidationError
 
 from custom_user.models import AbstractEmailUser
