@@ -1,8 +1,10 @@
-from django.contrib.gis import admin
-from django.contrib.gis.db import models
+# Temporarily disabled for Heroku deployment
+# from django.contrib.gis import admin
+from django.contrib import admin
+# from django.contrib.gis.db import models
 from django.utils.translation import gettext_lazy as _
 
-from mapwidgets.widgets import GoogleMapPointFieldWidget
+# from mapwidgets.widgets import GoogleMapPointFieldWidget
 
 from custom_user.admin import EmailUserAdmin
 from .models import (
