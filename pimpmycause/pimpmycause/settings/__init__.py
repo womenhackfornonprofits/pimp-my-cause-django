@@ -50,6 +50,11 @@ if not GEOS_LIBRARY_PATH and is_local:
 if not os.environ.get("GDAL_DATA") and is_local:
     os.environ["GDAL_DATA"] = "/opt/homebrew/Cellar/gdal/3.11.4_1/share/gdal"
 
+if GDAL_LIBRARY_PATH:
+    os.environ["GDAL_LIBRARY_PATH"] = GDAL_LIBRARY_PATH
+if GEOS_LIBRARY_PATH:
+    os.environ["GEOS_LIBRARY_PATH"] = GEOS_LIBRARY_PATH
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
