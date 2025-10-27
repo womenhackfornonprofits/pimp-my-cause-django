@@ -70,8 +70,8 @@ INSTALLED_APPS = [
     'django.contrib.redirects',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    #'django.contrib.gis',
-    #'mapwidgets',
+    'django.contrib.gis',
+    'mapwidgets',
     's3direct',
     'django_countries',
     'custom_user',
@@ -129,8 +129,7 @@ SITE_ID = 1
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        #'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'pimpmycause',
         'USER': '',
         'PASSWORD': '',

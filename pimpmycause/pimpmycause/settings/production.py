@@ -7,8 +7,7 @@ DEBUG = False
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'] = dj_database_url.config()
-DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
-#DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
 # SECURITY
 SECURE_SSL_REDIRECT = True
