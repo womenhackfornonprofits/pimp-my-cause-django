@@ -60,6 +60,17 @@ if GDAL_LIBRARY_PATH:
 if GEOS_LIBRARY_PATH:
     os.environ["GEOS_LIBRARY_PATH"] = GEOS_LIBRARY_PATH
 
+if is_heroku and not GDAL_LIBRARY_PATH:
+    gdal_path = "/app/.heroku-geo-buildpack/vendor/lib/libgdal.so"
+    if os.path.exists(gdal_path):
+        GDAL_LIBRARY_PATH = gdal_path
+        os.environ["GDAL_LIBRARY_PATH"] = gdal_path
+if is_heroku and not GEOS_LIBRARY_PATH:
+    geos_path = "/app/.heroku-geo-buildpack/vendor/lib/libgeos_c.so"
+    if os.path.exists(geos_path):
+        GEOS_LIBRARY_PATH = geos_path
+        os.environ["GEOS_LIBRARY_PATH"] = geos_path
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
