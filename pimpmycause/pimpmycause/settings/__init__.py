@@ -31,7 +31,7 @@ def _resolve_lib(env_name: str, name_glob: str):
         return p
     elif p:
         logging.warning(f"Env var {env_name}={p} but file does not exist")
-    
+
     apt_root = _find_apt_root()
     if apt_root:
         search_paths = [
@@ -45,7 +45,7 @@ def _resolve_lib(env_name: str, name_glob: str):
                 result = hits[-1]
                 os.environ[env_name] = result
                 return result
-    
+
     return None
 
 GDAL_LIBRARY_PATH = _resolve_lib("GDAL_LIBRARY_PATH", "libgdal.so.*")
@@ -299,13 +299,13 @@ WEBPACK_LOADER = {
     }
 }
 
-#MAP_WIDGETS = {
-#    "GoogleMapPointFieldWidget": (
-#        ("zoom", 15),
-#        ("mapCenterLocationName", 'London'),
-#    ),
-#    "GOOGLE_MAP_API_KEY": get_env("GOOGLE_MAP_API_KEY", 'todo')
-#}
+MAP_WIDGETS = {
+    "GoogleMapPointFieldWidget": (
+        ("zoom", 15),
+        ("mapCenterLocationName", 'London'),
+    ),
+    "GOOGLE_MAP_API_KEY": get_env("GOOGLE_MAP_API_KEY", 'todo')
+}
 
 LANGUAGE_CODE = 'en-gb'
 
