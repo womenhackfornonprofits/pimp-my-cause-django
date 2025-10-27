@@ -2,7 +2,7 @@
 Django settings for pimpmycause project.
 
 """
-import os, glob, sys
+import os, glob, sys, logging
 from env_utils import (
     get_env,
 )
@@ -26,18 +26,13 @@ def _find_apt_root():
     return d if d.is_dir() else None
 
 def _resolve_lib(env_name: str, name_glob: str):
-    print(f"[GIS DEBUG] Resolving {env_name} with pattern {name_glob}")
-    
     p = os.getenv(env_name)
     if p and os.path.exists(p):
-        print(f"[GIS DEBUG] Found {env_name} from env var: {p}")
         return p
     elif p:
-        print(f"[GIS DEBUG] Env var {env_name}={p} but file does not exist")
+        logging.warning(f"Env var {env_name}={p} but file does not exist")
     
     apt_root = _find_apt_root()
-    print(f"[GIS DEBUG] Found apt_root: {apt_root}")
-    
     if apt_root:
         search_paths = [
             str(apt_root / f"usr/lib/x86_64-linux-gnu/{name_glob}"),
@@ -45,15 +40,12 @@ def _resolve_lib(env_name: str, name_glob: str):
             str(apt_root / f"**/{name_glob}"),
         ]
         for search_path in search_paths:
-            print(f"[GIS DEBUG] Searching: {search_path}")
             hits = sorted(glob.glob(search_path, recursive=True))
             if hits:
                 result = hits[-1]
-                print(f"[GIS DEBUG] Found {env_name}: {result}")
                 os.environ[env_name] = result
                 return result
     
-    print(f"[GIS DEBUG] Could not find {env_name}")
     return None
 
 GDAL_LIBRARY_PATH = _resolve_lib("GDAL_LIBRARY_PATH", "libgdal.so.*")
