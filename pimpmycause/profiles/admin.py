@@ -33,9 +33,10 @@ class MarketerProfileAdmin(admin.StackedInline):
 
 
 class PimpUserAdmin(EmailUserAdmin):
-    formfield_overrides = {
-        models.PointField: {"widget": GoogleMapPointFieldWidget}
-    }
+    # Temporarily disabled for Heroku deployment
+    # formfield_overrides = {
+    #     models.PointField: {"widget": GoogleMapPointFieldWidget}
+    # }
 
     inlines = [MarketerProfileAdmin, CauseProfileAdmin]
 
@@ -45,14 +46,14 @@ class PimpUserAdmin(EmailUserAdmin):
                 'email', 'password', 'linkedin', 'twitter', 'name',
                 'surname', 'cause_name', 'phone', 'country', 'city', 'postcode', 'position',
                 'usertype', 'bio', 'website', 'image', 'featured', 'geo_data',
-                'location',
+                # 'location',  # Temporarily disabled for Heroku deployment
             )
         }),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
     list_display = ['name', 'surname', 'email', 'cause_name', 'usertype', 'date_joined',
-                    'is_active', 'country', 'postcode', 'last_login', 'location']
+                    'is_active', 'country', 'postcode', 'last_login']  # 'location', - temporarily disabled
     list_filter = ('usertype', 'is_active', 'last_login')
     readonly_fields=('has_reactivated',)
     search_fields = ['name', 'email', 'position', 'cause_name']

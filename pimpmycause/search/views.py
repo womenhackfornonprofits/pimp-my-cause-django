@@ -2,7 +2,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from django.db.models import Count
 from django.http import QueryDict
-from django.contrib.gis.db.models.functions import Distance
+# from django.contrib.gis.db.models.functions import Distance  # Temporarily disabled for Heroku deployment
 
 from profiles.models import PimpUser
 from adverts.models import Advert
@@ -25,14 +25,15 @@ def marketer_list(request):
         filters, queryset=marketer_query.order_by("-date_joined")
     )
 
-    if request.user.is_authenticated and request.user.is_geolocated:
-        marketer_list_with_distance = MarketerFilter(
-            filters,
-            queryset=marketer_query.annotate(
-                distance=Distance("location", request.user.location)
-            ).order_by("-date_joined", "distance"),
-        )
-        marketer_list = marketer_list_with_distance
+    # Temporarily disabled for Heroku deployment
+    # if request.user.is_authenticated and request.user.is_geolocated:
+    #     marketer_list_with_distance = MarketerFilter(
+    #         filters,
+    #         queryset=marketer_query.annotate(
+    #             distance=Distance("location", request.user.location)
+    #         ).order_by("-date_joined", "distance"),
+    #     )
+    #     marketer_list = marketer_list_with_distance
 
     # Pagination
     page = request.GET.get("page")
@@ -69,14 +70,15 @@ def cause_list(request):
 
     cause_list = CauseFilter(filters, queryset=cause_query.order_by("-date_joined"))
 
-    if request.user.is_authenticated and request.user.is_geolocated:
-        cause_list_with_distance = CauseFilter(
-            filters,
-            queryset=cause_query.annotate(
-                distance=Distance("location", request.user.location)
-            ).order_by("-date_joined", "distance"),
-        )
-        cause_list = cause_list_with_distance
+    # Temporarily disabled for Heroku deployment
+    # if request.user.is_authenticated and request.user.is_geolocated:
+    #     cause_list_with_distance = CauseFilter(
+    #         filters,
+    #         queryset=cause_query.annotate(
+    #             distance=Distance("location", request.user.location)
+    #         ).order_by("-date_joined", "distance"),
+    #     )
+    #     cause_list = cause_list_with_distance
 
     # Pagination
     page = request.GET.get("page")

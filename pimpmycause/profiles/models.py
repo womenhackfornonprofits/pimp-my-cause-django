@@ -1,11 +1,19 @@
 from __future__ import unicode_literals
 
-from django.contrib.gis.db import models
+try:
+    from django.contrib.gis.db import models as gis_models
+except ImportError:
+    from django.db import models as gis_models
+    
+from django.db import models
 from django.db.models.signals import (
     post_save,
 )
 from django.dispatch import receiver
-from django.contrib.gis.geos import Point
+try:
+    from django.contrib.gis.geos import Point
+except ImportError:
+    Point = None
 from django.core.exceptions import ValidationError
 
 from custom_user.models import AbstractEmailUser
@@ -40,7 +48,7 @@ class PimpUser(AbstractEmailUser):
     country = CountryField(blank=True, null=True, blank_label='Select country')
     city = models.CharField(max_length=1000, blank=True, null=True)
     postcode = models.CharField(max_length=120, blank=True, null=True)
-    location = models.PointField(blank=True, null=True)
+    # location = gis_models.PointField(blank=True, null=True)  # Temporarily disabled for Heroku deployment
 
     # professional info
     position = models.CharField(max_length=1000, blank=True, null=True)
@@ -91,17 +99,20 @@ class PimpUser(AbstractEmailUser):
 
     @property
     def is_geolocated(self):
-        if (not self.location):
-            return False
-        else:
-            return True
+        # Temporarily disabled for Heroku deployment
+        return False
+        # if (not self.location):
+        #     return False
+        # else:
+        #     return True
 
 
 @receiver(post_save, sender=PimpUser)
 def geolocate_user(sender, instance, created, *args, **kwargs):
     post_save.disconnect(geolocate_user, sender=PimpUser)
 
-    if not instance.country or not instance.location:
+    # Temporarily disabled for Heroku deployment - location field commented out
+    if not instance.country or True:  # or not instance.location:
         logging.info('User is missing a country or location')
 
         if (instance.city or instance.postcode):
@@ -114,8 +125,9 @@ def geolocate_user(sender, instance, created, *args, **kwargs):
             g = geocoder.google(address)
             logging.info(g.latlng)
 
-            if g.latlng and (not instance.location):
-                instance.location = Point(g.latlng[0], g.latlng[1])
+            # Temporarily disabled for Heroku deployment
+            # if g.latlng and (not instance.location):
+            #     instance.location = Point(g.latlng[0], g.latlng[1])
 
             if g.country:
                 instance.country = g.country
