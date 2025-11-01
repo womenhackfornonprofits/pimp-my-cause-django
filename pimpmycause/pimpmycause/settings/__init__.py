@@ -301,12 +301,12 @@ WEBPACK_LOADER = {
 
 MAP_WIDGETS = {
     "GoogleMap": {
-        "apiKey": get_env("GOOGLE_MAP_API_KEY", 'todo')
+        "apiKey": get_env("GOOGLE_MAP_API_KEY", 'todo'),
+        "PointField": {
+            "zoom": 15,
+            "mapCenterLocationName": 'London',
+        },
     },
-    "GoogleMapPointFieldWidget": (
-        ("zoom", 15),
-        ("mapCenterLocationName", 'London'),
-    ),
 }
 
 LANGUAGE_CODE = 'en-gb'

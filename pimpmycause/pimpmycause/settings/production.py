@@ -1,5 +1,6 @@
 from pimpmycause.settings import *
 import dj_database_url
+import os
 from env_utils import (
     get_list,
 )
@@ -25,11 +26,19 @@ SECRET_KEY = get_env("SECRET_KEY")
 ALLOWED_HOSTS = get_list('ALLOWED_HOSTS', separator=',')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = get_env("SENDGRID_USERNAME")
-EMAIL_HOST_PASSWORD = get_env("SENDGRID_PASSWORD")
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+
+if os.getenv("MAILGUN_SMTP_SERVER"):
+    EMAIL_HOST = os.getenv("MAILGUN_SMTP_SERVER")
+    EMAIL_PORT = int(os.getenv("MAILGUN_SMTP_PORT", "587"))
+    EMAIL_HOST_USER = os.getenv("MAILGUN_SMTP_LOGIN")
+    EMAIL_HOST_PASSWORD = os.getenv("MAILGUN_SMTP_PASSWORD")
+    EMAIL_USE_TLS = True
+else:
+    EMAIL_HOST = 'smtp.sendgrid.net'
+    EMAIL_HOST_USER = get_env("SENDGRID_USERNAME")
+    EMAIL_HOST_PASSWORD = get_env("SENDGRID_PASSWORD")
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
 
 LOGGING = {
     'version': 1,
