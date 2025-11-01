@@ -300,11 +300,13 @@ WEBPACK_LOADER = {
 }
 
 MAP_WIDGETS = {
+    "GoogleMap": {
+        "apiKey": get_env("GOOGLE_MAP_API_KEY", 'todo')
+    },
     "GoogleMapPointFieldWidget": (
         ("zoom", 15),
         ("mapCenterLocationName", 'London'),
     ),
-    "GOOGLE_MAP_API_KEY": get_env("GOOGLE_MAP_API_KEY", 'todo')
 }
 
 LANGUAGE_CODE = 'en-gb'
